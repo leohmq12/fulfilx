@@ -171,11 +171,11 @@ const Home: React.FC = () => {
     <div className="flex-1"></div>
     
     {/* Right aligned image */}
-    <div className="flex-1 flex justify-center lg:justify-end -mr-40 transform translate-y-[-250px] lg:translate-y-[-600px] relative z-0 lg:z-auto">
+    <div className="flex-1 flex justify-center lg:justify-end -mr-40 transform translate-y-[-250px] lg:translate-y-[-600px] relative z-0">
         <img 
             src="/helement.png"
             alt="Your image description"
-            className="max-w-[765px] lg:max-w-[765px] object-contain"
+            className="max-w-[765px] lg:max-w-[765px] object-contain hidden lg:block"
         />
     </div>
 </div>
