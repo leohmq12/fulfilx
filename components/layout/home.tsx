@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 
 interface NavItemProps {
     children: React.ReactNode;
@@ -33,6 +33,37 @@ const NavItem: React.FC<NavItemProps> = ({ children, isActive = false }) => {
 };
 
 const Home: React.FC = () => {
+const [currentSlide, setCurrentSlide] = useState(0);
+const carouselRef = useRef<HTMLDivElement>(null);
+const testimonials = [
+  { image: '/audenza.png', alt: 'Testimonial 1' },
+  { image: '/hot.png', alt: 'Testimonial 2' },
+  { image: '/milk.png', alt: 'Testimonial 3' },
+  { image: '/pops.png', alt: 'Testimonial 4' },
+  { image: '/har.png', alt: 'Testimonial 5' }
+];
+
+  const nextSlide = () => {
+    const nextIndex = (currentSlide + 1) % testimonials.length;
+    setCurrentSlide(nextIndex);
+    scrollToSlide(nextIndex);
+  };
+
+  const prevSlide = () => {
+    const prevIndex = (currentSlide - 1 + testimonials.length) % testimonials.length;
+    setCurrentSlide(prevIndex);
+    scrollToSlide(prevIndex);
+  };
+
+  const scrollToSlide = (index: number) => {
+    if (carouselRef.current) {
+      const slideWidth = 300 + 32; // 300px width + 32px gap (gap-8)
+      carouselRef.current.scrollTo({
+        left: index * slideWidth,
+        behavior: 'smooth'
+      });
+    }
+  };
     const primaryRed = 'bg-[#C10016]';
     
     return (
@@ -860,7 +891,224 @@ const Home: React.FC = () => {
     </div>
   </div>
 </section>
+<section className="relative w-full min-h-[800px] py-20">
+  {/* Background with Linear Gradient */}
+  <div 
+    className="absolute inset-0 w-full h-full"
+    style={{
+      background: `
+        linear-gradient(0deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+        linear-gradient(0deg, #C10016, #C10016),
+        url(/leadingbrands.png)
+      `,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundBlendMode: 'normal, hue, normal'
+    }}
+  >
+  </div>
 
+  {/* Content */}
+  <div className="relative max-w-[1300px] mx-auto px-4 z-10">
+    
+    {/* "We integrate with" Badge */}
+    <div className="flex justify-center">
+      <div className="w-[280px] h-[48px] bg-[rgba(193,0,22,0.1)] rounded-[120px] flex items-center justify-center">
+        <span className="font-medium text-[16px] leading-[40px] tracking-[0.2em] uppercase text-[#C10016]">
+          We integrate with
+        </span>
+      </div>
+    </div>
+
+    {/* Main Heading */}
+    <h2 className="text-center font-bold text-[74px] leading-[80px] tracking-tight text-white mt-16">
+      Leading Brands...
+    </h2>
+
+  {/* First Row - 3 Logos */}
+<div className="mt-20">
+  <div className="flex justify-center items-center gap-32">
+    {/* Logo 1 */}
+    <div className="group relative">
+      <div className="w-[240px] h-[100px] rounded-lg flex items-center justify-center transition-all duration-300 hover:bg-transparent hover:scale-105">
+        <img 
+          src="/amazon.png" 
+          alt="Brand 1" 
+          className="h-16 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+        />
+      </div>
+    </div>
+
+    {/* Logo 2 */}
+    <div className="group relative">
+      <div className="w-[240px] h-[100px] rounded-lg flex items-center justify-center backdrop-blur-sm transition-all duration-300 hover:bg-transparent hover:scale-105">
+        <img 
+          src="/shopify.png" 
+          alt="Brand 2" 
+          className="h-16 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+        />
+      </div>
+    </div>
+
+    {/* Logo 3 */}
+    <div className="group relative">
+      <div className="w-[240px] h-[100px] rounded-lg flex items-center justify-center backdrop-blur-sm transition-all duration-300 hover:bg-transparent hover:scale-105">
+        <img 
+          src="/tiktok.png" 
+          alt="Brand 3" 
+          className="h-16 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
+{/* Second Row - 4 Logos */}
+<div className="mt-12">
+  <div className="flex justify-center items-center gap-36">
+    {/* Logo 4 */}
+    <div className="group relative">
+      <div className="w-[200px] h-[80px] rounded-lg flex items-center justify-center backdrop-blur-sm transition-all duration-300 hover:bg-transparent hover:scale-105">
+        <img 
+          src="/ebay.png" 
+          alt="Brand 4" 
+          className="h-14 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+        />
+      </div>
+    </div>
+
+    {/* Logo 5 */}
+    <div className="group relative">
+      <div className="w-[200px] h-[80px] rounded-lg flex items-center justify-center backdrop-blur-sm transition-all duration-300 hover:bg-transparent hover:scale-105">
+        <img 
+          src="/magento.png" 
+          alt="Brand 5" 
+          className="h-14 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+        />
+      </div>
+    </div>
+
+    {/* Logo 6 */}
+    <div className="group relative">
+      <div className="w-[200px] h-[80px] rounded-lg flex items-center justify-center backdrop-blur-sm transition-all duration-300 hover:bg-transparent hover:scale-105">
+        <img 
+          src="/etsy.png" 
+          alt="Brand 6" 
+          className="h-14 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+        />
+      </div>
+    </div>
+
+    {/* Logo 7 */}
+    <div className="group relative">
+      <div className="w-[200px] h-[80px] rounded-lg flex items-center justify-center backdrop-blur-sm transition-all duration-300 hover:bg-transparent hover:scale-105">
+        <img 
+          src="/woo.png" 
+          alt="Brand 7" 
+          className="h-14 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
+{/* Third Row - 3 Logos */}
+<div className="mt-12">
+  <div className="flex justify-center items-center gap-32">
+    {/* Logo 9 */}
+    <div className="group relative">
+      <div className="w-[240px] h-[100px] rounded-lg flex items-center justify-center backdrop-blur-sm transition-all duration-300 hover:bg-transparent hover:scale-105">
+        <img 
+          src="/onbuy.png" 
+          alt="Brand 9" 
+          className="h-16 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+        />
+      </div>
+    </div>
+
+    {/* Logo 10 */}
+    <div className="group relative">
+      <div className="w-[240px] h-[100px] rounded-lg flex items-center justify-center backdrop-blur-sm transition-all duration-300 hover:bg-transparent hover:scale-105">
+        <img 
+          src="/dpd.png" 
+          alt="Brand 10" 
+          className="h-16 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+        />
+      </div>
+    </div>
+
+    {/* Logo 11 */}
+    <div className="group relative">
+      <div className="w-[240px] h-[100px] rounded-lg flex items-center justify-center backdrop-blur-sm transition-all duration-300 hover:bg-transparent hover:scale-105">
+        <img 
+          src="/shipstation.png" 
+          alt="Brand 11" 
+          className="h-16 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
+  </div>
+  <div className="relative max-w-[1490px] mx-auto px-4 pt-24 z-10">
+    
+    {/* "our partners" Badge */}
+    <div className="flex justify-start">
+      <div className="w-[220px] h-[48px] bg-[rgba(193,0,22,0.1)] rounded-[120px] flex items-center justify-center">
+        <span className="font-medium text-[16px] leading-[40px] tracking-[0.2em] uppercase text-[#C10016]">
+          our partners
+        </span>
+      </div>
+    </div>
+
+    {/* Main Heading */}
+    <h2 className="text-left font-bold text-[64px] leading-[80px] tracking-tight text-white mt-16 max-w-[921px]">
+      Meet the people we make happy
+    </h2>
+
+    {/* Navigation Arrows - Aligned with badge and heading */}
+    <div className="absolute right-4 top-24 flex gap-4">
+      {/* Left Arrow */}
+      <button 
+        onClick={prevSlide}
+        className="w-[56px] h-[56px] bg-[rgba(193,0,22,0.1)] rounded-full flex items-center justify-center hover:bg-[#C10016] transition-colors duration-300 group"
+      >
+        <img src="/next.svg" alt="Previous" className="w-4 h-4 transform rotate-180" />
+      </button>
+
+      {/* Right Arrow */}
+      <button 
+        onClick={nextSlide}
+        className="w-[56px] h-[56px] bg-[rgba(193,0,22,0.1)] rounded-full flex items-center justify-center hover:bg-[rgba(193,0,22,0.8)] transition-colors duration-300"
+      >
+        <img src="/next.svg" alt="Next" className="w-4 h-4" />
+      </button>
+    </div>
+
+    {/* Working Testimonial Cards Carousel */}
+    <div className="relative mt-20">
+      <div 
+        ref={carouselRef}
+        className="flex gap-8 overflow-x-auto pb-8 scrollbar-hide"
+        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+      >
+        {testimonials.map((testimonial, index) => (
+          <div 
+            key={index}
+            className={`min-w-[300px] h-[220px] bg-cover bg-center rounded-[24px] flex-shrink-0 transition-all duration-500 ${
+              index === currentSlide ? 'scale-105 opacity-100 shadow-2xl' : 'scale-95 opacity-70'
+            }`}
+            style={{backgroundImage: `url(${testimonial.image})`}}
+          >
+            {/* You can add overlay content here */}
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>
             </div>
             
         </>
