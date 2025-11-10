@@ -1063,7 +1063,7 @@ const testimonials = [
     </div>
 
     {/* Main Heading */}
-    <h2 className="text-left font-bold text-[64px] leading-[80px] tracking-tight text-white mt-16 max-w-[921px]">
+    <h2 className="text-left font-bold text-[64px] leading-[80px] tracking-tight text-white mt-16 max-w-[960px]">
       Meet the people we make happy
     </h2>
 
@@ -1087,7 +1087,7 @@ const testimonials = [
     </div>
 
     {/* Working Testimonial Cards Carousel */}
-    <div className="relative mt-20">
+    <div className="relative mt-8">
       <div 
         ref={carouselRef}
         className="flex gap-8 overflow-x-auto pb-8 scrollbar-hide"
@@ -1104,6 +1104,58 @@ const testimonials = [
             {/* You can add overlay content here */}
           </div>
         ))}
+      </div>
+    </div>
+
+  </div>
+</section>
+<section className="relative w-full min-h-[400px] py-20">
+  {/* Background with gradient */}
+  <div 
+    className="absolute inset-0 w-full h-full"
+    style={{
+      background: `
+        url(/rbg.png)
+      `,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundBlendMode: 'normal, hue, normal'
+    }}
+  >
+  </div>
+
+  <div className="relative max-w-[1490px] mx-auto px-36 z-10">
+    
+    {/* Right-aligned content container */}
+    <div className="flex justify-end">
+      <div className="w-[474px] h-[270px] text-right">
+        
+        {/* Main Heading */}
+        <h2 className="text-center font-bold text-[42px] leading-[54px] pt-6 tracking-tight text-white">
+          Advanced Tech Solutions
+        </h2>
+
+        {/* Horizontal Line */}
+        <div className="w-[120px] h-[1px] bg-white ml-48 mt-12"></div>
+
+        {/* Subheading */}
+        <p className="text-center font-normal text-[24px] leading-[44px] text-white mt-8">
+          Exceptional Quality Service
+        </p>
+
+        {/* CTA Button */}
+        <button className="mt-12 border border-white rounded-[6px] flex flex-col justify-center items-center gap-[10px] px-6 py-4 hover:bg-white/10 transition-colors duration-300 ml-[172px]">
+          <div className="flex flex-row items-center gap-[10px]">
+            <span className="text-white font-normal text-[18px] leading-[36px]">Let's Talk</span>
+          <img 
+            src="/arrow.svg" 
+            alt="Arrow icon" 
+            className="w-4 h-4 object-contain"
+          />
+            
+          </div>
+        </button>
+
       </div>
     </div>
 
