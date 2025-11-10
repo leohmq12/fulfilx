@@ -405,8 +405,461 @@ const Home: React.FC = () => {
     </button>
   </div>
 </section>
+<section className="relative w-full bg-white py-16 md:py-32 overflow-hidden">
+  {/* Background Image */}
+  <img
+    src="/inventory.png"
+    alt="Warehouse background"
+    className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+  />
+
+   {/* Marquee Text with Colored Words and Separator Circles */}
+  <div className="relative overflow-hidden whitespace-nowrap py-4 -mt-10">
+    <div className="animate-marquee text-[28px] md:text-[40px] font-bold tracking-tight flex items-center mb-12 gap-16 md:gap-24 text-black">
+      {/* First set */}
+      <div className="flex items-center gap-16 md:gap-24">
+        <span className="flex items-center gap-2">
+          <span className="text-black">Real-Time</span>
+          <span className="text-[#C10016]">Communication</span>
+        </span>
+        
+        <div className="w-6 h-6 rounded-full border-2 border-black bg-transparent"></div>
+        
+        <span className="flex items-center gap-2">
+          <span className="text-black">Inventory</span>
+          <span className="text-[#C10016]">Management</span>
+        </span>
+        
+        <div className="w-6 h-6 rounded-full border-2 border-black bg-transparent"></div>
+        
+        <span className="flex items-center gap-2">
+          <span className="text-black">Warehousing</span>
+          <span className="text-[#C10016]">& Distribution</span>
+        </span>
+      </div>
+      
+      {/* Duplicated for seamless animation */}
+      <div className="flex items-center gap-16 md:gap-24">
+        <span className="flex items-center gap-2">
+          <span className="text-black">Real-Time</span>
+          <span className="text-[#C10016]">Communication</span>
+        </span>
+        
+        <div className="w-6 h-6 rounded-full border-2 border-black bg-transparent"></div>
+        
+        <span className="flex items-center gap-2">
+          <span className="text-black">Inventory</span>
+          <span className="text-[#C10016]">Management</span>
+        </span>
+        
+        <div className="w-6 h-6 rounded-full border-2 border-black bg-transparent"></div>
+        
+        <span className="flex items-center gap-2">
+          <span className="text-black">Warehousing</span>
+          <span className="text-[#C10016]">& Distribution</span>
+        </span>
+        <div className="w-6 h-6 rounded-full border-2 border-black bg-transparent"></div>
+      </div>
+    </div>
+  </div>
+
+  {/* Steps Section */}
+  <div className="relative max-w-[1400px] mx-auto mt-12 md:mt-20 px-4 pt-20">
+    
+    {/* Step Circles aligned with text */}
+    <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
+      {[
+        { 
+          step: 1, 
+          icon: "/connect.png", 
+          title: "Connect",
+          circleBg: "bg-black",
+          titleColor: "text-black",
+          description: "Get seamless integrations across all your sales channels and get set up within 24 hours."
+        },
+        { 
+          step: 2, 
+          icon: "/invent.png", 
+          title: "Inventory Management",
+          circleBg: "bg-[#C10016]",
+          titleColor: "text-[#C10016]",
+          description: "We give you real-time visibility and control, helping you reduce stockouts, minimize overstock, and streamline your supply chain."
+        },
+        { 
+          step: 3, 
+          icon: "/pick.png", 
+          title: "Pick & Pack",
+          circleBg: "bg-black",
+          titleColor: "text-black",
+          description: "Our software ensures that your Pick and Pack remain error free and we have maintained a 100% accuracy record since 2023."
+        },
+        { 
+          step: 4, 
+          icon: "/drive.png", 
+          title: "Delivery",
+          circleBg: "bg-[#C10016]",
+          titleColor: "text-[#C10016]",
+          description: "Real-time tracking, multiple carrier options & automated processes. Delight customers with reliable logistics."
+        }
+      ].map((item, i) => (
+        <div key={i} className="flex flex-col items-start">
+          {/* Step Circle */}
+          <div className="relative mb-6">
+            {/* Step number */}
+            <span className="absolute -top-2.5 -right-2.5 z-10 text-white text-sm font-bold bg-[#C10016] rounded-full w-10 h-10 flex items-center justify-center border-4 border-white">
+              {`0${item.step}`}
+            </span>
+            
+            {/* Main circle with icon */}
+            <div className={`w-16 h-16 md:w-[104px] md:h-[104px] rounded-full ${item.circleBg} flex items-center justify-center overflow-hidden`}>
+              <img 
+                src={item.icon} 
+                alt={`${item.title} icon`}
+                className="w-18 h-18 object-cover p-2"
+              />
+            </div>
+          </div>
+
+          {/* Title */}
+          <h3 className={`font-bold text-xl md:text-2xl mb-4 ${item.titleColor}`}>
+            {item.title}
+          </h3>
+
+          {/* Description */}
+          <p className="text-sm md:text-[16px] leading-6 md:leading-[28px]">
+            {item.description}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+<section className="relative w-full h-[512px]">
+  {/* Background Image with Gradient Overlay */}
+  <div 
+    className="absolute inset-0 w-full h-full"
+    style={{
+      background: 'linear-gradient(0deg, rgba(193, 0, 22, 0.4), rgba(193, 0, 22, 0.4)), url(/respond.png)',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center'
+    }}
+  >
+  </div>
+
+  {/* Content Container */}
+  <div className="relative w-[835px] h-[264px] left-1/2 transform -translate-x-1/2 top-[124px]">
+    
+    {/* Main Heading */}
+    <h1 className="absolute w-[835px] left-1/2 transform -translate-x-1/2 top-0 font-bold text-[74px] leading-[80px] tracking-tight text-white text-center">
+      We Respond In Real Time
+    </h1>
+    
+    {/* Subheading */}
+    <p className="absolute w-[403px] left-1/2 transform -translate-x-1/2 top-[107px] font-normal text-[28px] leading-[44px] text-white text-center mt-2">
+      Do not hesitate to say Nǐn hǎo
+    </p>
+    
+    {/* Button */}
+    <div className="absolute w-[160px] h-[60px] left-1/2 transform -translate-x-1/2 top-[204px] border border-white rounded-[6px] flex flex-col justify-center items-center gap-[10px] cursor-pointer transition duration-300 mt-6">
+      <div className="flex flex-row items-center gap-[10px]">
+        <span className="text-white font-normal text-[18px] leading-[36px]">Let's Talk</span>
+      <img 
+        src="/arrow.svg" 
+        alt="Arrow icon" 
+        className="w-4 h-4 object-contain"
+      />
+        
+      </div>
+    </div>
+  </div>
+</section>
+<section className="relative w-full bg-cover bg-center bg-no-repeat" style={{backgroundImage: 'url(/donebg.png)'}}>
+  <div className="relative max-w-[1490px] mx-auto px-4 py-16">
+    
+   <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12">
+  
+  {/* Left Content */}
+  <div className="space-y-8">
+    
+    {/* "Why Choose Us" Badge - Now aligned with right content */}
+    <div className="w-[240px] h-[48px] bg-[rgba(193,0,22,0.1)] rounded-[120px] flex items-center justify-center">
+      <span className="font-medium text-[16px] leading-[40px] tracking-[0.2em] uppercase text-[#C10016]">
+        Why Choose Us
+      </span>
+    </div>
+
+    {/* Main Heading */}
+    <h2 className="font-bold text-[74px] leading-[80px] tracking-tight text-black">
+      We Get Ship Done!
+    </h2>
+
+    {/* History, Mission, Vision Tabs */}
+    <div className="space-y-4">
+      <div className="flex space-x-8 border-b border-black/25 pb-4">
+        <button className="font-bold text-[28px] leading-[80px] text-[#C10016] relative">
+          History
+          <div className="absolute bottom-[-17px] left-0 w-full h-[2px] bg-[#C10016]"></div>
+        </button>
+        <button className="font-bold text-[28px] leading-[80px] text-black">
+          Mission
+        </button>
+        <button className="font-bold text-[28px] leading-[80px] text-black">
+          Vision
+        </button>
+      </div>
+
+      {/* Content */}
+      <p className="font-normal text-[20px] leading-[48px] text-black">
+        At FulfilX we are more than just a logistics company. Our motto is "Your success is our success" that's why we see every brand as a partner, not just a customer. We are on hand to help your business grow and build customer-centric solutions.
+      </p>
+    </div>
+
+    {/* Stats Grid */}
+    <div className="grid grid-cols-2 gap-6 pt-20">
+      
+      {/* Orders Shipped */}
+<div className="flex items-center gap-4">
+  <div className="w-[150px] h-[80px] bg-black/10 rounded-[10px] flex items-center justify-center">
+    <span className="font-bold text-[40px] leading-[80px] tracking-tight text-black">
+      250k
+    </span>
+  </div>
+  <p className="font-normal text-[20px] leading-[40px] text-[#C10016]">
+    Orders <br/> Shipped
+  </p>
+</div>
+
+      {/* Courier Partners Globally */}
+<div className="flex items-center gap-4">
+  <div className="w-[150px] h-[80px] bg-black/10 rounded-[10px] flex items-center justify-center">
+    <span className="font-bold text-[40px] leading-[80px] tracking-tight text-black">
+      20+
+    </span>
+  </div>
+  <p className="font-normal text-[20px] leading-[40px] text-[#C10016]">
+    Courier Partners <br/> Globally
+  </p>
+</div>
+
+      {/* Customer Satisfaction */}
+<div className="flex items-center gap-4">
+  <div className="w-[150px] h-[80px] bg-black/10 rounded-[10px] flex items-center justify-center">
+    <span className="font-bold text-[40px] leading-[80px] tracking-tight text-black">
+      100%
+    </span>
+  </div>
+  <p className="font-normal text-[20px] leading-[40px] text-[#C10016]">
+    Customer<br/> Satisfaction
+  </p>
+</div>
+
+    </div>
+
+  </div>
 
 
+      {/* Right Content */}
+      <div className="space-y-8">
+        
+        {/* Description */}
+        <p className="font-normal text-[20px] leading-[36px] text-black">
+          Our founders, with experience in international brands, identified a need for change in the 3PL market. Frustrated by impersonal interactions & limitations, they launched FulfilX.
+        </p>
+
+        {/* About Us Button */}
+        <button className="flex items-center gap-[10px] group">
+  <span className="font-helvetica-bold text-[22px] leading-[36px] text-[#C10016] group-hover:underline">
+    About Us
+  </span>
+  <img src="/arrow-dark.svg" alt="" className="w-4 h-4" />
+          
+        </button>
+
+       {/* Image with Pagination */}
+<div className="relative">
+  {/* Image */}
+  <div className="w-full h-[600px] bg-cover bg-center rounded-[24px] backdrop-blur-[12.5px]" style={{backgroundImage: 'url(/peep.png)'}}>
+  </div>
+  
+  {/* Pagination Dots */}
+  <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2">
+    <div className="w-[72px] h-[24px] bg-white rounded-[50px] flex items-center justify-center gap-3 shadow-lg">
+      <div className="w-[6px] h-[6px] bg-[#C10016] opacity-20 rounded-full"></div>
+      <div className="w-[10px] h-[10px] border border-[#C10016] rounded-full"></div>
+      <div className="w-[6px] h-[6px] bg-[#C10016] opacity-20 rounded-full"></div>
+    </div>
+  </div>
+</div>
+
+      </div>
+
+    </div>
+
+    
+
+  </div>
+    <div className="relative max-w-[1490px] mx-auto px-4 py-16">
+    
+    {/* "Global Presence" Badge */}
+    <div className="flex justify-center">
+      <div className="w-[250px] h-[48px] bg-[rgba(193,0,22,0.1)] rounded-[120px] flex items-center justify-center">
+        <span className="font-medium text-[16px] leading-[40px] tracking-[0.2em] uppercase text-[#C10016]">
+          global presence
+        </span>
+      </div>
+    </div>
+
+    {/* Main Heading */}
+    <h2 className="text-center font-bold text-[64px] leading-[74px] text-black mt-16 max-w-[700px] mx-auto">
+  List of nations we work with <span className="text-[#C10016]">worldwide</span>
+</h2>
+
+    {/* First Row of Countries */}
+    <div className="flex justify-center items-center gap-16 mt-20">
+      {/* United Kingdom */}
+      <div className="flex items-center gap-3">
+        <div className="w-[30px] h-[20px] bg-cover bg-center rounded-[2px]" style={{backgroundImage: 'url(/UK.png)'}}></div>
+        <span className="font-normal text-[18px] leading-[30px] text-black">United Kingdom</span>
+      </div>
+
+      {/* United States */}
+      <div className="flex items-center gap-3">
+        <div className="w-[30px] h-[20px] bg-cover bg-center rounded-[2px]" style={{backgroundImage: 'url(/US.png)'}}></div>
+        <span className="font-normal text-[18px] leading-[30px] text-black">United States</span>
+      </div>
+
+      {/* San Francisco */}
+      <div className="flex items-center gap-3">
+        <div className="w-[30px] h-[20px] bg-cover bg-center rounded-[2px]" style={{backgroundImage: 'url(/SF.png)'}}></div>
+        <span className="font-normal text-[18px] leading-[30px] text-black">San Francisco</span>
+      </div>
+
+      {/* Georgia */}
+      <div className="flex items-center gap-3">
+        <div className="w-[30px] h-[20px] border border-black/10 bg-cover bg-center rounded-[2px]" style={{backgroundImage: 'url(/G.png)'}}></div>
+        <span className="font-normal text-[18px] leading-[30px] text-black">Georgia</span>
+      </div>
+
+      {/* UAE */}
+      <div className="flex items-center gap-3">
+        <div className="w-[30px] h-[20px] bg-cover bg-center rounded-[2px]" style={{backgroundImage: 'url(/UAE.png)'}}></div>
+        <span className="font-normal text-[18px] leading-[30px] text-black">UAE</span>
+      </div>
+    </div>
+
+    {/* Second Row of Countries */}
+    <div className="flex justify-center items-center gap-12 mt-8">
+      {/* Saudi */}
+      <div className="flex items-center gap-3">
+        <div className="w-[30px] h-[20px] bg-cover bg-center rounded-[2px]" style={{backgroundImage: 'url(/Saudi.png)'}}></div>
+        <span className="font-normal text-[18px] leading-[30px] text-black">Saudi</span>
+      </div>
+
+      {/* Bahrain */}
+      <div className="flex items-center gap-3">
+        <div className="w-[30px] h-[20px] border border-black/10 bg-cover bg-center rounded-[2px]" style={{backgroundImage: 'url(/B.png)'}}></div>
+        <span className="font-normal text-[18px] leading-[30px] text-black">Bahrain</span>
+      </div>
+
+      {/* Australia */}
+      <div className="flex items-center gap-3">
+        <div className="w-[30px] h-[20px] bg-cover bg-center rounded-[2px]" style={{backgroundImage: 'url(/Aus.png)'}}></div>
+        <span className="font-normal text-[18px] leading-[30px] text-black">Australia</span>
+      </div>
+    </div>
+
+    {/* World Map Image */}
+    <div className="relative w-full h-[698px] mt-20">
+      <div className="w-full h-full bg-cover bg-center rounded-lg" style={{backgroundImage: 'url(/world-map.png)'}}></div>
+      
+{/* Location Markers */}
+{/* UK Marker */}
+<div className="absolute left-[49%] top-[30%] group">
+  <div className="w-[48px] h-[48px] border border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110">
+    <div className="w-[32px] h-[32px] border border-[#C10016] rounded-full flex items-center justify-center">
+      <div className="w-[16px] h-[16px] bg-[#C10016] rounded-full"></div>
+    </div>
+  </div>
+  {/* Hover Popup */}
+  <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+    <div className="bg-white px-3 py-2 rounded-lg shadow-lg border border-gray-200 whitespace-nowrap">
+      <p className="text-sm font-medium text-gray-800">United Kingdom</p>
+    </div>
+    {/* Arrow */}
+    <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-white"></div>
+  </div>
+</div>
+
+{/* US Marker */}
+<div className="absolute left-[13%] top-[51%] group">
+  <div className="w-[48px] h-[48px] border border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110">
+    <div className="w-[32px] h-[32px] border border-[#C10016] rounded-full flex items-center justify-center">
+      <div className="w-[16px] h-[16px] bg-[#C10016] rounded-full"></div>
+    </div>
+  </div>
+  {/* Hover Popup */}
+  <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+    <div className="bg-white px-3 py-2 rounded-lg shadow-lg border border-gray-200 whitespace-nowrap">
+      <p className="text-sm font-medium text-gray-800">United States</p>
+    </div>
+    {/* Arrow */}
+    <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-white"></div>
+  </div>
+</div>
+
+{/* UAE Marker */}
+<div className="absolute left-[54%] top-[60%] group">
+  <div className="w-[48px] h-[48px] border border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110">
+    <div className="w-[32px] h-[32px] border border-[#C10016] rounded-full flex items-center justify-center">
+      <div className="w-[16px] h-[16px] bg-[#C10016] rounded-full"></div>
+    </div>
+  </div>
+  {/* Hover Popup */}
+  <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+    <div className="bg-white px-3 py-2 rounded-lg shadow-lg border border-gray-200 whitespace-nowrap">
+      <p className="text-sm font-medium text-gray-800">UAE</p>
+    </div>
+    {/* Arrow */}
+    <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-white"></div>
+  </div>
+</div>
+
+{/* Australia Marker */}
+<div className="absolute left-[86%] top-[70%] group">
+  <div className="w-[48px] h-[48px] border border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110">
+    <div className="w-[32px] h-[32px] border border-[#C10016] rounded-full flex items-center justify-center">
+      <div className="w-[16px] h-[16px] bg-[#C10016] rounded-full"></div>
+    </div>
+  </div>
+  {/* Hover Popup */}
+  <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+    <div className="bg-white px-3 py-2 rounded-lg shadow-lg border border-gray-200 whitespace-nowrap">
+      <p className="text-sm font-medium text-gray-800">Australia</p>
+    </div>
+    {/* Arrow */}
+    <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-white"></div>
+  </div>
+</div>
+
+{/* Small UK Marker */}
+<div className="absolute left-[25%] top-[62%] group">
+  <div className="w-[40px] h-[40px] border border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110">
+    <div className="w-[26.67px] h-[26.67px] border border-[#C10016] rounded-full flex items-center justify-center">
+      <div className="w-[13.33px] h-[13.33px] bg-[#C10016] rounded-full"></div>
+    </div>
+  </div>
+  {/* Hover Popup */}
+  <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+    <div className="bg-white px-3 py-2 rounded-lg shadow-lg border border-gray-200 whitespace-nowrap">
+      <p className="text-sm font-medium text-gray-800">United Kingdom</p>
+    </div>
+    {/* Arrow */}
+    <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-white"></div>
+  </div>
+</div>
+    </div>
+  </div>
+</section>
 
             </div>
             

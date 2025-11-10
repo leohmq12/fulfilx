@@ -11,7 +11,16 @@ module.exports = {
         'helvetica': ['HelveticaNowDisplay-Regular', 'sans-serif'],
         'helvetica-bold': ['HelveticaNowDisplay-Bold', 'sans-serif'],
         'helvetica-medium': ['HelveticaNowDisplay-Medium', 'sans-serif'],
-      }
+      }, // Missing this closing brace
+      keyframes: {
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-100%)' },
+        },
+      }, // Missing this closing brace
+      animation: {
+        marquee: 'marquee 15s linear infinite',
+      },
     },
   },
   plugins: [],
