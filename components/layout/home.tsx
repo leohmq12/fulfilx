@@ -334,6 +334,79 @@ const Home: React.FC = () => {
     </a>
   </div>
 </section>
+<section className="relative w-full h-[1020px] overflow-hidden">
+  {/* Background with overlay */}
+  <div 
+    className="absolute inset-0 bg-black/65"
+    style={{
+      backgroundImage: `url('/shiphome.png')`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      transform: 'scaleX(-1)'
+    }}
+  />
+
+  {/* Title lowered slightly */}
+  <div className="absolute top-32 w-full text-center text-white">
+    <h2 className="text-[64px] font-bold leading-[80px] tracking-[-0.01em]">
+      Ship Happens
+    </h2>
+    <p className="mt-3 text-[22px] leading-[34px] max-w-[780px] mx-auto opacity-90">
+      That’s why we have real-time communication, to handle all your immediate needs and to ensure
+      that ship happens on time – every time.
+    </p>
+  </div>
+
+  {/* Grid moved slightly upward + reduced spacing */}
+  <div className="absolute bottom-[150px] left-1/2 -translate-x-1/2 flex gap-[20px]">
+
+    {[
+      { title: "Warehouse & Storage", img: "/shiphappens1.png" },
+      { title: "Quality Control", img: "/shiphappens2.png" },
+      { title: "Packaging Solutions", img: "/shiphappens3.png" },
+      { title: "Middle East Expansion", img: "/shiphappens4.png" },
+      { title: "IOR Services", img: "/shiphappens5.png" },
+    ].map((item, i) => (
+      <div key={i} className="relative h-[480px] w-[250px] group overflow-hidden">
+
+        {/* Divider line left of each except first */}
+        {i !== 0 && <div className="absolute -left-0 top-0 h-full w-px bg-white/30" />}
+
+        {/* Background blurred image */}
+        <div 
+          className="absolute inset-0 rounded-xl transition-all duration-300 opacity-0 group-hover:opacity-100 group-hover:blur-none group-hover:scale-105 blur-sm scale-100"
+          style={{
+            backgroundImage: `url(${item.img})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
+          }}
+        />
+        
+
+        {/* Vertical title */}
+        <h3 className="absolute left-11 bottom-4 text-white font-normal text-[32px] tracking-[-0.01em] rotate-[-90deg] whitespace-nowrap origin-bottom-left">
+        {item.title}
+        </h3>
+        {/* Arrow Icon on right */}
+        <img 
+          src="/arrow.svg"
+          alt="arrow"
+          className="absolute right-4 top-4 w-6 h-6 opacity-70 group-hover:opacity-100 transition"
+        />
+      </div>
+    ))}
+  </div>
+
+  {/* CTA remains at the bottom */}
+  <div className="absolute bottom-10 left-1/2 -translate-x-1/2">
+    <button className="flex items-center gap-3 bg-[#C10016] text-white px-8 py-4 rounded-md font-bold text-[18px]">
+      View All Services
+      <img src="/arrow.svg" className="w-4 h-4" />
+    </button>
+  </div>
+</section>
+
+
 
             </div>
             
