@@ -496,76 +496,122 @@ const testimonials = [
     </div>
   </div>
 
-  {/* Steps Section */}
-  <div className="relative max-w-[1400px] mx-auto mt-12 md:mt-20 px-4 pt-20">
-    
-    {/* Step Circles aligned with text */}
-    <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
-      {[
-        { 
-          step: 1, 
-          icon: "/connect.png", 
-          title: "Connect",
-          circleBg: "bg-black",
-          titleColor: "text-black",
-          description: "Get seamless integrations across all your sales channels and get set up within 24 hours."
-        },
-        { 
-          step: 2, 
-          icon: "/invent.png", 
-          title: "Inventory Management",
-          circleBg: "bg-[#C10016]",
-          titleColor: "text-[#C10016]",
-          description: "We give you real-time visibility and control, helping you reduce stockouts, minimize overstock, and streamline your supply chain."
-        },
-        { 
-          step: 3, 
-          icon: "/pick.png", 
-          title: "Pick & Pack",
-          circleBg: "bg-black",
-          titleColor: "text-black",
-          description: "Our software ensures that your Pick and Pack remain error free and we have maintained a 100% accuracy record since 2023."
-        },
-        { 
-          step: 4, 
-          icon: "/drive.png", 
-          title: "Delivery",
-          circleBg: "bg-[#C10016]",
-          titleColor: "text-[#C10016]",
-          description: "Real-time tracking, multiple carrier options & automated processes. Delight customers with reliable logistics."
-        }
-      ].map((item, i) => (
-        <div key={i} className="flex flex-col items-start">
-          {/* Step Circle */}
-          <div className="relative mb-6">
-            {/* Step number */}
-            <span className="absolute -top-2.5 -right-2.5 z-10 text-white text-sm font-bold bg-[#C10016] rounded-full w-10 h-10 flex items-center justify-center border-4 border-white">
-              {`0${item.step}`}
-            </span>
-            
-            {/* Main circle with icon */}
-            <div className={`w-16 h-16 md:w-[104px] md:h-[104px] rounded-full ${item.circleBg} flex items-center justify-center overflow-hidden`}>
-              <img 
-                src={item.icon} 
-                alt={`${item.title} icon`}
-                className="w-18 h-18 object-cover p-2"
-              />
-            </div>
-          </div>
+ <div className="relative max-w-[1400px] mx-auto mt-12 md:mt-20 px-4 pt-20">
+      
+      {/* Curved connecting line - hidden on mobile, visible on md+ */}
+      <div className="hidden md:block absolute top-[60px] left-0 right-0 w-full pointer-events-none">
+        <svg 
+          className="w-full h-auto" 
+          viewBox="0 0 1132 95" 
+          fill="none" 
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="none"
+        >
+          <path 
+            opacity="0.15" 
+            d="M0.385742 27.1976C88.8857 -9.80318 264.486 -4.20236 360.886 68.1976C426.719 92.031 597.386 129.196 748.886 19.1963C822.886 -9.13697 1011.39 -12.3024 1130.89 68.1976" 
+            stroke="#C10016" 
+            strokeWidth="2" 
+            strokeDasharray="6 6"
+          />
+        </svg>
+      </div>
 
-          {/* Title */}
-          <h3 className={`font-bold text-xl md:text-2xl mb-4 ${item.titleColor}`}>
-            {item.title}
-          </h3>
-
-          {/* Description */}
-          <p className="text-sm md:text-[16px] leading-6 md:leading-[28px]">
-            {item.description}
-          </p>
+      {/* Step Circles aligned with text */}
+<div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
+  {[
+    { 
+      step: 1, 
+      icon: "/connect.png", 
+      title: "Connect",
+      circleBg: "bg-black",
+      titleColor: "text-black",
+      description: "Get seamless integrations across all your sales channels and get set up within 24 hours.",
+      circleX: "-40px",
+      circleY: "-40px",
+      contentX: "-40px",
+      contentY: "-40px"
+    },
+    { 
+      step: 2, 
+      icon: "/invent.png", 
+      title: "Inventory Management",
+      circleBg: "bg-[#C10016]",
+      titleColor: "text-[#C10016]",
+      description: "We give you real-time visibility and control, helping you reduce stockouts, minimize overstock, and streamline your supply chain.",
+      circleX: "40px",
+      circleY: "20px",
+      contentX: "40px",
+      contentY: "20px"
+    },
+    { 
+      step: 3, 
+      icon: "/pick.png", 
+      title: "Pick & Pack",
+      circleBg: "bg-black",
+      titleColor: "text-black",
+      description: "Our software ensures that your Pick and Pack remain error free and we have maintained a 100% accuracy record since 2023.",
+      circleX: "150px",
+      circleY: "-30px",
+      contentX: "150px",
+      contentY: "-30px"
+    },
+    { 
+      step: 4, 
+      icon: "/drive.png", 
+      title: "Delivery",
+      circleBg: "bg-[#C10016]",
+      titleColor: "text-[#C10016]",
+      description: "Real-time tracking, multiple carrier options & automated processes. Delight customers with reliable logistics.",
+      circleX: "240px",
+      circleY: "5px",
+      contentX: "240px",
+      contentY: "5px"
+    }
+  ].map((item, i) => (
+    <div key={i} className="flex flex-col items-start">
+      {/* Step Circle with custom positioning */}
+      <div 
+        className="relative mb-6 z-10" 
+        style={{ 
+          transform: `translate(${item.circleX}, ${item.circleY})` 
+        }}
+      >
+        {/* Step number */}
+        <span className="absolute -top-2.5 -right-2.5 z-10 text-white text-sm font-bold bg-[#C10016] rounded-full w-10 h-10 flex items-center justify-center border-4 border-white">
+          {`0${item.step}`}
+        </span>
+        
+        {/* Main circle with icon */}
+        <div className={`w-16 h-16 md:w-[104px] md:h-[104px] rounded-full ${item.circleBg} flex items-center justify-center overflow-hidden`}>
+          <img 
+            src={item.icon} 
+            alt={`${item.title} icon`}
+            className="w-18 h-18 object-cover p-2"
+          />
         </div>
-      ))}
+      </div>
+
+      {/* Content Container with custom positioning */}
+      <div 
+        style={{ 
+          transform: `translate(${item.contentX}, ${item.contentY})` 
+        }}
+      >
+        {/* Title */}
+        <h3 className={`font-bold text-xl md:text-2xl mb-4 ${item.titleColor}`}>
+          {item.title}
+        </h3>
+
+        {/* Description */}
+        <p className="text-sm md:text-[16px] leading-6 md:leading-[28px]">
+          {item.description}
+        </p>
+      </div>
     </div>
-  </div>
+  ))}
+</div>
+    </div>
 </section>
 <section className="relative w-full h-[512px]">
   {/* Background Image with Gradient Overlay */}
@@ -815,9 +861,10 @@ const testimonials = [
   </div>
   {/* Hover Popup */}
   <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-    <div className="bg-white px-3 py-2 rounded-lg shadow-lg border border-gray-200 whitespace-nowrap">
-      <p className="text-sm font-medium text-gray-800">United Kingdom</p>
-    </div>
+    <div className="bg-white px-6 py-2 rounded-lg shadow-lg border border-gray-200 whitespace-nowrap flex items-center gap-2">
+    <img src="/UK.png" alt="UK Flag" className="w-[16px] h-[12px]" />
+    <p className="text-sm font-medium text-gray-800">United Kingdom</p>
+</div>
     {/* Arrow */}
     <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-white"></div>
   </div>
@@ -832,7 +879,8 @@ const testimonials = [
   </div>
   {/* Hover Popup */}
   <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-    <div className="bg-white px-3 py-2 rounded-lg shadow-lg border border-gray-200 whitespace-nowrap">
+    <div className="bg-white px-6 py-2 rounded-lg shadow-lg border border-gray-200 whitespace-nowrap flex items-center gap-2">
+      <img src="/US.png" alt="US Flag" className="w-[16px] h-[12px]" />
       <p className="text-sm font-medium text-gray-800">United States</p>
     </div>
     {/* Arrow */}
@@ -849,7 +897,8 @@ const testimonials = [
   </div>
   {/* Hover Popup */}
   <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-    <div className="bg-white px-3 py-2 rounded-lg shadow-lg border border-gray-200 whitespace-nowrap">
+    <div className="bg-white px-6 py-2 rounded-lg shadow-lg border border-gray-200 whitespace-nowrap flex items-center gap-2">
+      <img src="/UAE.png" alt="UAE Flag" className="w-[16px] h-[12px]" />
       <p className="text-sm font-medium text-gray-800">UAE</p>
     </div>
     {/* Arrow */}
@@ -866,7 +915,8 @@ const testimonials = [
   </div>
   {/* Hover Popup */}
   <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-    <div className="bg-white px-3 py-2 rounded-lg shadow-lg border border-gray-200 whitespace-nowrap">
+    <div className="bg-white px-6 py-2 rounded-lg shadow-lg border border-gray-200 whitespace-nowrap flex items-center gap-2">
+      <img src="/Aus.png" alt="AU Flag" className="w-[16px] h-[12px]" />
       <p className="text-sm font-medium text-gray-800">Australia</p>
     </div>
     {/* Arrow */}
@@ -883,8 +933,9 @@ const testimonials = [
   </div>
   {/* Hover Popup */}
   <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-    <div className="bg-white px-3 py-2 rounded-lg shadow-lg border border-gray-200 whitespace-nowrap">
-      <p className="text-sm font-medium text-gray-800">United Kingdom</p>
+   <div className="bg-white px-6 py-2 rounded-lg shadow-lg border border-gray-200 whitespace-nowrap flex items-center gap-2">
+    <img src="/Saudi.png" alt="Saudi Flag" className="w-[16px] h-[12px]" />
+    <p className="text-sm font-medium text-gray-800">Saudi Arabia</p>
     </div>
     {/* Arrow */}
     <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-white"></div>
