@@ -64,7 +64,7 @@ const Navbar: React.FC = () => {
                         <NavItem>About Us</NavItem>
                         <NavItem>Services</NavItem>
                         <NavItem>Sectors</NavItem>
-                        <NavItem>Team</NavItem>
+                        <NavItem onPress={() => router.push ('/team')}>Team</NavItem>
                         <NavItem>News</NavItem>
                         <NavItem onPress={() => router.push('/contact')}>
                             Contact
