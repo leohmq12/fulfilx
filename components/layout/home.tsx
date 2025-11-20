@@ -742,7 +742,6 @@ const row1Logos = [
 
   </div>
     <div className="relative max-w-[1490px] mx-auto px-4 py-16">
-    
     {/* "Global Presence" Badge */}
     <div className="flex justify-center">
       <div className="w-[250px] h-[48px] bg-[rgba(193,0,22,0.1)] rounded-[120px] flex items-center justify-center">

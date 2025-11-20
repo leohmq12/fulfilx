@@ -210,7 +210,7 @@ const Footer = () => {
   <Link href="/" asChild>
     <a className="block hover:text-[#C10016] transition-colors cursor-pointer">Our Story</a>
   </Link>
-  <Link href="/" asChild>
+  <Link href="/locations" asChild>
     <a className="block hover:text-[#C10016] transition-colors cursor-pointer">Store Locations</a>
   </Link>
   <Link href="/" asChild>
