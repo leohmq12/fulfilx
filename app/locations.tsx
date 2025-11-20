@@ -1,11 +1,11 @@
-// app/contact.tsx
+// app/locations.tsx
 import Footer from '@/components/layout/footer';
 import Navbar from '@/components/layout/navbar';
 import { Stack } from 'expo-router';
 import { useState } from 'react';
 import { ScrollView, Text, View } from 'react-native';
 
-export default function ContactScreen() {
+export default function LocationsScreen() {
   const [agreedToPolicy, setAgreedToPolicy] = useState(false);
   const primaryRed = 'bg-[#C10016]';
   
