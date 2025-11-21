@@ -465,7 +465,6 @@ can build a greener future while achieving your logistics goals.
     ))}
   </div>
 </div>
-
 {/* Third Row - Scroll Left */}
 <div className="mt-12 slider-container">
   <div className="flex animate-infinite-scroll">
@@ -540,11 +539,166 @@ can build a greener future while achieving your logistics goals.
         ))}
       </div>
     </div>
-
   </div>
 </section>
+{/* Reviews Section */}
+<View className="relative w-full py-40">
+  {/* Background Image */}
+  <View className="absolute inset-0">
+    <img 
+      src="/bg.png" 
+      alt="Background" 
+      className="w-full h-full object-cover"
+    />
+  </View>
+  
+  {/* White Overlay with Opacity */}
+  <View className="absolute inset-0" />
+  
+  {/* Content Container */}
+  <View className="relative max-w-[1400px] mx-auto px-4 z-10">
+    
+    {/* "OUR REVIEWS" Badge */}
+    <View className="flex flex-row justify-center items-center px-11 py-4 bg-[#C10016] bg-opacity-10 rounded-[120px] w-[250px]">
+      <Text className="font-helvetica font-medium text-[16px] leading-[40px] tracking-[0.2em] uppercase text-[#C10016]">
+        OUR REVIEWS
+      </Text>
+    </View>
+
+    {/* Header Section */}
+    <View className="flex flex-row justify-between items-end">
+      {/* Left Side - Title */}
+      <View className="max-w-[600px]">
+        <Text className="font-helvetica font-bold text-[64px] leading-[80px] tracking-tight text-black transform -translate-y-20">
+          What our client says
+        </Text>
+      </View>
+      
+      {/* Right Side - Rating */}
+      <View className="text-right">
+        <Text className="font-helvetica font-normal text-[60px] leading-[80px] tracking-tight text-black translate-x-16 transform -translate-y-12">
+          (5.0)
+        </Text>
+        {/* Logo/Image */}
+        <View className="w-[247px] h-[100px] bg-cover bg-center transform -translate-x-52 -translate-y-32" 
+          style={{backgroundImage: 'url(/GR.png)'}} />
+      </View>
+    </View>
+
+    {/* Review Cards Grid */}
+    <View className="flex flex-row gap-8 mb-16">
+      
+      {/* Review Card 1 */}
+      <View className="flex-1 bg-white border border-[#D9D9D9] rounded-[20px] p-8">
+        <View className="flex flex-row items-start gap-6 mb-6">
+          {/* Avatar */}
+          <View className="w-[80px] h-[80px] rounded-full bg-cover bg-center" 
+            style={{backgroundImage: 'url(/A.png)'}} />
+          
+          {/* User Info */}
+          <View className="flex-1">
+            <Text className="font-helvetica font-bold text-[20px] leading-[38px] text-black">
+              John Doe
+            </Text>
+            <Text className="font-helvetica font-normal text-[16px] leading-[38px] text-black opacity-50">
+              November 11, 2025
+            </Text>
+          </View>
+          
+          {/* Logo */}
+          <View className="w-[32px] h-[32px] bg-cover bg-center" 
+            style={{backgroundImage: 'url(/Goo.png)'}} />
+        </View>
+        
+        {/* Star Rating */}
+        <View className="flex flex-row gap-2 mb-6">
+        <img src="reviews.png" alt="stars" />
+        </View>
+        
+        {/* Review Text */}
+        <Text className="font-helvetica font-normal text-[20px] leading-[38px] text-black opacity-70">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.
+        </Text>
+      </View>
+
+      {/* Repeat for Review Cards 2 and 3 with same structure */}
+      {/* Review Card 2 */}
+      <View className="flex-1 bg-white border border-[#D9D9D9] rounded-[20px] p-8">
+        <View className="flex flex-row items-start gap-6 mb-6">
+          {/* Avatar */}
+          <View className="w-[80px] h-[80px] rounded-full bg-cover bg-center" 
+            style={{backgroundImage: 'url(/N.png)'}} />
+          
+          {/* User Info */}
+          <View className="flex-1">
+            <Text className="font-helvetica font-bold text-[20px] leading-[38px] text-black">
+              John Doe
+            </Text>
+            <Text className="font-helvetica font-normal text-[16px] leading-[38px] text-black opacity-50">
+              November 11, 2025
+            </Text>
+          </View>
+          
+          {/* Logo */}
+          <View className="w-[32px] h-[32px] bg-cover bg-center" 
+            style={{backgroundImage: 'url(/Goo.png)'}} />
+        </View>
+        {/* Star Rating */}
+        <View className="flex flex-row gap-2 mb-6">
+        <img src="reviews.png" alt="stars" />
+        </View>
+        
+        {/* Review Text */}
+        <Text className="font-helvetica font-normal text-[20px] leading-[38px] text-black opacity-70">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.
+        </Text>
+      </View>
+      
+      {/* Review Card 3 */}
+      <View className="flex-1 bg-white border border-[#D9D9D9] rounded-[20px] p-8">
+        <View className="flex flex-row items-start gap-6 mb-6">
+          {/* Avatar */}
+          <View className="w-[80px] h-[80px] rounded-full bg-cover bg-center" 
+            style={{backgroundImage: 'url(/V.png)'}} />
+          
+          {/* User Info */}
+          <View className="flex-1">
+            <Text className="font-helvetica font-bold text-[20px] leading-[38px] text-black">
+              John Doe
+            </Text>
+            <Text className="font-helvetica font-normal text-[16px] leading-[38px] text-black opacity-50">
+              November 11, 2025
+            </Text>
+          </View>
+          
+          {/* Logo */}
+          <View className="w-[32px] h-[32px] bg-cover bg-center" 
+            style={{backgroundImage: 'url(/Goo.png)'}} />
+        </View>
+        {/* Star Rating */}
+        <View className="flex flex-row gap-2 mb-6">
+        <img src="reviews.png" alt="stars" />
+        </View>
+        {/* Review Text */}
+        <Text className="font-helvetica font-normal text-[20px] leading-[38px] text-black opacity-70">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.
+        </Text>
+      </View>
+    </View>
+
+    {/* Pagination Dots */}
+    <View className="flex items-center">
+      <View className="w-[72px] h-[24px] bg-[#C10016] rounded-[50px] flex flex-row items-center justify-center gap-3">
+        <View className="w-[6px] h-[6px] bg-white bg-opacity-50 rounded-full" />
+        <View className="w-[10px] h-[10px] border border-white rounded-full" />
+        <View className="w-[6px] h-[6px] bg-white bg-opacity-50 rounded-full" />
+      </View>
+    </View>
+  </View>
+</View>
+
 {/* Auto-Sliding Gallery with Infinite Loop */}
-<View className="relative w-full h-[380px] mt-20 mb-20 overflow-hidden">
+<View className="relative w-full h-[380px] mt-15 mb-20 overflow-hidden">
   <div 
     className="relative w-full h-full"
     onMouseEnter={() => setIsPaused(true)}
