@@ -392,90 +392,116 @@ export default function TeamScreen() {
               </View>
 
               {/* RIGHT COLUMN - Fixed card dimensions */}
-              <View className="flex-1 flex flex-col justify-center">
-                <View className="space-y-6">
-                  {/* CARD 1 — Dark (Top) */}
-                  <View className="w-[680px] h-[225px] bg-[rgba(255,255,255,0.1)] backdrop-blur-[5px] rounded-[20px] p-8">
-                    <Text className="font-helvetica font-bold text-[22px] leading-[44px] text-white mb-2">
-                      Warehouse Manager
-                    </Text>
-                    <View className="flex flex-row items-center justify-between mb-6">
-                      <Text className="font-helvetica text-[16px] leading-[26px] text-white/90 max-w-[500px]">
-                        Felis cursus ornare cubilia leo montes penatibus fermentum<br/>dapibus convallis. Nisl nunc quis senectus platea.
-                      </Text>
-                      <button className="bg-[#C10016] hover:bg-[#a00012] rounded-[6px] px-8 py-4 flex flex-row items-center gap-3">
-                        <Text className="font-helvetica text-[16px] text-white font-bold">View Job</Text>
-                        <img src="/arrow.svg" className="w-3 h-3 filter brightness-0 invert" />
-                      </button>
-                    </View>
-                    <View className="flex flex-row gap-4">
-                      <View className="bg-[rgba(255,255,255,0.1)] rounded-[80px] px-6 py-2">
-                        <Text className="font-helvetica text-[16px] text-white">Remote</Text>
-                      </View>
-                      <View className="bg-[rgba(255,255,255,0.1)] rounded-[80px] px-6 py-2">
-                        <Text className="font-helvetica text-[16px] text-white">Full Time</Text>
-                      </View>
-                      <View className="bg-[rgba(255,255,255,0.1)] rounded-[80px] px-6 py-2">
-                        <Text className="font-helvetica text-[16px] text-white">Dubai</Text>
-                      </View>
-                    </View>
-                  </View>
+<View className="flex-1 flex flex-col justify-center">
+  <View className="space-y-6 max-h-[700px] overflow-y-hidden hover:overflow-y-auto overflow-x-hidden scrollbar-thin scrollbar-thumb-[#C10016] scrollbar-track-transparent hover:scrollbar-thumb-[#C10016] pr-2">
+    {/* CARD 1 — Dark (Top) */}
+    <View className="w-[680px] h-[225px] bg-[rgba(255,255,255,0.1)] backdrop-blur-[5px] rounded-[20px] p-8">
+      <Text className="font-helvetica font-bold text-[22px] leading-[44px] text-white mb-2">
+        Warehouse Manager
+      </Text>
+      <View className="flex flex-row items-center justify-between mb-6">
+        <Text className="font-helvetica text-[16px] leading-[26px] text-white/90 max-w-[500px]">
+          Felis cursus ornare cubilia leo montes penatibus fermentum<br/>dapibus convallis. Nisl nunc quis senectus platea.
+        </Text>
+        <button className="bg-[#C10016] hover:bg-[#a00012] rounded-[6px] px-8 py-4 flex flex-row items-center gap-3">
+          <Text className="font-helvetica text-[16px] text-white font-bold">View Job</Text>
+          <img src="/arrow.svg" className="w-3 h-3 filter brightness-0 invert" />
+        </button>
+      </View>
+      <View className="flex flex-row gap-4">
+        <View className="bg-[rgba(255,255,255,0.1)] rounded-[80px] px-6 py-2">
+          <Text className="font-helvetica text-[16px] text-white">Remote</Text>
+        </View>
+        <View className="bg-[rgba(255,255,255,0.1)] rounded-[80px] px-6 py-2">
+          <Text className="font-helvetica text-[16px] text-white">Full Time</Text>
+        </View>
+        <View className="bg-[rgba(255,255,255,0.1)] rounded-[80px] px-6 py-2">
+          <Text className="font-helvetica text-[16px] text-white">Dubai</Text>
+        </View>
+      </View>
+    </View>
 
-                  {/* CARD 2 — WHITE (Middle) */}
-                  <View className="w-[680px] h-[225px] bg-white rounded-[20px] p-8 shadow-2xl">
-                    <Text className="font-helvetica font-bold text-[22px] leading-[44px] text-black mb-2">
-                      Warehouse Manager
-                    </Text>
-                    <View className="flex flex-row items-center justify-between mb-6">
-                      <Text className="font-helvetica text-[16px] leading-[26px] text-black/80 max-w-[500px]">
-                        Felis cursus ornare cubilia leo montes penatibus fermentum<br/>dapibus convallis. Nisl nunc quis senectus platea.
-                      </Text>
-                      <button className="bg-[#C10016] hover:bg-[#a00012] rounded-[6px] px-8 py-4 flex flex-row items-center gap-3">
-                        <Text className="font-helvetica text-[16px] text-white font-bold">View Job</Text>
-                        <img src="/arrow.svg" className="w-3 h-3 filter brightness-0 invert" />
-                      </button>
-                    </View>
-                    <View className="flex flex-row gap-4">
-                      <View className="bg-[rgba(193,0,22,0.1)] rounded-[80px] px-6 py-2">
-                        <Text className="font-helvetica text-[16px] text-[#C10016]">Remote</Text>
-                      </View>
-                      <View className="bg-[rgba(193,0,22,0.1)] rounded-[80px] px-6 py-2">
-                        <Text className="font-helvetica text-[16px] text-[#C10016]">Full Time</Text>
-                      </View>
-                      <View className="bg-[rgba(193,0,22,0.1)] rounded-[80px] px-6 py-2">
-                        <Text className="font-helvetica text-[16px] text-[#C10016]">Dubai</Text>
-                      </View>
-                    </View>
-                  </View>
+    {/* CARD 2 — WHITE (Middle) */}
+    <View className="w-[680px] h-[225px] bg-white rounded-[20px] p-8 shadow-2xl">
+      <Text className="font-helvetica font-bold text-[22px] leading-[44px] text-black mb-2">
+        Warehouse Manager
+      </Text>
+      <View className="flex flex-row items-center justify-between mb-6">
+        <Text className="font-helvetica text-[16px] leading-[26px] text-black/80 max-w-[500px]">
+          Felis cursus ornare cubilia leo montes penatibus fermentum<br/>dapibus convallis. Nisl nunc quis senectus platea.
+        </Text>
+        <button className="bg-[#C10016] hover:bg-[#a00012] rounded-[6px] px-8 py-4 flex flex-row items-center gap-3">
+          <Text className="font-helvetica text-[16px] text-white font-bold">View Job</Text>
+          <img src="/arrow.svg" className="w-3 h-3 filter brightness-0 invert" />
+        </button>
+      </View>
+      <View className="flex flex-row gap-4">
+        <View className="bg-[rgba(193,0,22,0.1)] rounded-[80px] px-6 py-2">
+          <Text className="font-helvetica text-[16px] text-[#C10016]">Remote</Text>
+        </View>
+        <View className="bg-[rgba(193,0,22,0.1)] rounded-[80px] px-6 py-2">
+          <Text className="font-helvetica text-[16px] text-[#C10016]">Full Time</Text>
+        </View>
+        <View className="bg-[rgba(193,0,22,0.1)] rounded-[80px] px-6 py-2">
+          <Text className="font-helvetica text-[16px] text-[#C10016]">Dubai</Text>
+        </View>
+      </View>
+    </View>
 
-                  {/* CARD 3 — Dark (Bottom) */}
-                  <View className="w-[680px] h-[225px] bg-[rgba(255,255,255,0.1)] backdrop-blur-[5px] rounded-[20px] p-8">
-                    <Text className="font-helvetica font-bold text-[22px] leading-[44px] text-white mb-2">
-                      Warehouse Manager
-                    </Text>
-                    <View className="flex flex-row items-center justify-between mb-6">
-                      <Text className="font-helvetica text-[16px] leading-[26px] text-white/90 max-w-[500px]">
-                        Felis cursus ornare cubilia leo montes penatibus fermentum<br/>dapibus convallis. Nisl nunc quis senectus platea.
-                      </Text>
-                      <button className="bg-[#C10016] hover:bg-[#a00012] rounded-[6px] px-8 py-4 flex flex-row items-center gap-3">
-                        <Text className="font-helvetica text-[16px] text-white font-bold">View Job</Text>
-                        <img src="/arrow.svg" className="w-3 h-3 filter brightness-0 invert" />
-                      </button>
-                    </View>
-                    <View className="flex flex-row gap-4">
-                      <View className="bg-[rgba(255,255,255,0.1)] rounded-[80px] px-6 py-2">
-                        <Text className="font-helvetica text-[16px] text-white">Remote</Text>
-                      </View>
-                      <View className="bg-[rgba(255,255,255,0.1)] rounded-[80px] px-6 py-2">
-                        <Text className="font-helvetica text-[16px] text-white">Full Time</Text>
-                      </View>
-                      <View className="bg-[rgba(255,255,255,0.1)] rounded-[80px] px-6 py-2">
-                        <Text className="font-helvetica text-[16px] text-white">Dubai</Text>
-                      </View>
-                    </View>
-                  </View>
-                </View>
-              </View>
+    {/* CARD 3 — Dark (Bottom) */}
+    <View className="w-[680px] h-[225px] bg-[rgba(255,255,255,0.1)] backdrop-blur-[5px] rounded-[20px] p-8">
+      <Text className="font-helvetica font-bold text-[22px] leading-[44px] text-white mb-2">
+        Warehouse Manager
+      </Text>
+      <View className="flex flex-row items-center justify-between mb-6">
+        <Text className="font-helvetica text-[16px] leading-[26px] text-white/90 max-w-[500px]">
+          Felis cursus ornare cubilia leo montes penatibus fermentum<br/>dapibus convallis. Nisl nunc quis senectus platea.
+        </Text>
+        <button className="bg-[#C10016] hover:bg-[#a00012] rounded-[6px] px-8 py-4 flex flex-row items-center gap-3">
+          <Text className="font-helvetica text-[16px] text-white font-bold">View Job</Text>
+          <img src="/arrow.svg" className="w-3 h-3 filter brightness-0 invert" />
+        </button>
+      </View>
+      <View className="flex flex-row gap-4">
+        <View className="bg-[rgba(255,255,255,0.1)] rounded-[80px] px-6 py-2">
+          <Text className="font-helvetica text-[16px] text-white">Remote</Text>
+        </View>
+        <View className="bg-[rgba(255,255,255,0.1)] rounded-[80px] px-6 py-2">
+          <Text className="font-helvetica text-[16px] text-white">Full Time</Text>
+        </View>
+        <View className="bg-[rgba(255,255,255,0.1)] rounded-[80px] px-6 py-2">
+          <Text className="font-helvetica text-[16px] text-white">Dubai</Text>
+        </View>
+      </View>
+    </View>
+    {/*CARD 4 - WHITE */}
+        <View className="w-[680px] h-[225px] bg-white rounded-[20px] p-8 shadow-2xl">
+      <Text className="font-helvetica font-bold text-[22px] leading-[44px] text-black mb-2">
+        Warehouse Manager
+      </Text>
+      <View className="flex flex-row items-center justify-between mb-6">
+        <Text className="font-helvetica text-[16px] leading-[26px] text-black/80 max-w-[500px]">
+          Felis cursus ornare cubilia leo montes penatibus fermentum<br/>dapibus convallis. Nisl nunc quis senectus platea.
+        </Text>
+        <button className="bg-[#C10016] hover:bg-[#a00012] rounded-[6px] px-8 py-4 flex flex-row items-center gap-3">
+          <Text className="font-helvetica text-[16px] text-white font-bold">View Job</Text>
+          <img src="/arrow.svg" className="w-3 h-3 filter brightness-0 invert" />
+        </button>
+      </View>
+      <View className="flex flex-row gap-4">
+        <View className="bg-[rgba(193,0,22,0.1)] rounded-[80px] px-6 py-2">
+          <Text className="font-helvetica text-[16px] text-[#C10016]">Remote</Text>
+        </View>
+        <View className="bg-[rgba(193,0,22,0.1)] rounded-[80px] px-6 py-2">
+          <Text className="font-helvetica text-[16px] text-[#C10016]">Full Time</Text>
+        </View>
+        <View className="bg-[rgba(193,0,22,0.1)] rounded-[80px] px-6 py-2">
+          <Text className="font-helvetica text-[16px] text-[#C10016]">Dubai</Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
             </View>
           </View>
         </View>

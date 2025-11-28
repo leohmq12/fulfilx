@@ -241,23 +241,23 @@ const panResponder = useRef(
         </View>
         
         {/* Contact Button */}
-        <TouchableOpacity 
-            className="border border-[#C10016] border-opacity-20 rounded-[6px] py-2 px-4 mt-4"
-            onPress={() => router.push('/contact')}
-        >
-          <View className="flex flex-row items-center justify-center gap-3 cursor-pointer">
-            <Text className="font-helvetica font-bold text-[18px] leading-[36px] text-[#C10016]">
-              Contact Sales
-            </Text>
-            <View className="w-3 h-3">
-                <img 
-                    src="/arrow-dark.svg" 
-                    alt="Arrow" 
-                    className="w-full h-full object-contain"
-                />
-            </View>
-          </View>
-        </TouchableOpacity>
+<TouchableOpacity 
+  className="border border-[#C10016] border-opacity-20 rounded-[6px] py-2 px-4 mt-4 hover:border-opacity-100 transition-all duration-200"
+  onPress={() => router.push('/contact')}
+>
+  <View className="flex flex-row items-center justify-center gap-3 cursor-pointer">
+    <Text className="font-helvetica font-bold text-[18px] leading-[36px] text-[#C10016] hover:opacity-80 transition-opacity duration-200">
+      Contact Sales
+    </Text>
+    <View className="w-3 h-3">
+      <img 
+        src="/arrow-dark.svg" 
+        alt="Arrow" 
+        className="w-full h-full object-contain hover:opacity-80 transition-opacity duration-200"
+      />
+    </View>
+  </View>
+</TouchableOpacity>
       </View>
 
       {/* Middle Card - Next Day Shipping (Most Popular) */}
@@ -468,23 +468,23 @@ const panResponder = useRef(
         </View>
         
         {/* Contact Button */}
-        <TouchableOpacity 
-            className="border border-[#C10016] border-opacity-20 rounded-[6px] py-2 px-4 mt-4"
-            onPress={() => router.push('/contact')}
-        >
-          <View className="flex flex-row items-center justify-center gap-3 cursor-pointer">
-            <Text className="font-helvetica font-bold text-[18px] leading-[36px] text-[#C10016]">
-              Contact Sales
-            </Text>
-            <View className="w-3 h-3">
-                <img 
-                    src="/arrow-dark.svg" 
-                    alt="Arrow" 
-                    className="w-full h-full object-contain"
-                />
-            </View>
-          </View>
-        </TouchableOpacity>
+<TouchableOpacity 
+  className="border border-[#C10016] border-opacity-20 rounded-[6px] py-2 px-4 mt-4 hover:border-opacity-100 transition-all duration-200"
+  onPress={() => router.push('/contact')}
+>
+  <View className="flex flex-row items-center justify-center gap-3 cursor-pointer">
+    <Text className="font-helvetica font-bold text-[18px] leading-[36px] text-[#C10016] hover:opacity-80 transition-opacity duration-200">
+      Contact Sales
+    </Text>
+    <View className="w-3 h-3">
+      <img 
+        src="/arrow-dark.svg" 
+        alt="Arrow" 
+        className="w-full h-full object-contain hover:opacity-80 transition-opacity duration-200"
+      />
+    </View>
+  </View>
+</TouchableOpacity>
       </View>
     </View>
   </View>
@@ -707,21 +707,21 @@ const panResponder = useRef(
         </Text>
         
         {/* Proceed to Checkout Button */}
-        <TouchableOpacity 
-          className="w-[260px] h-[60px] bg-[#C10016] rounded-[6px] flex flex-row items-center justify-center gap-[10px] mx-auto"
-          activeOpacity={0.8}
-        >
-          <Text className="font-helvetica font-bold text-[18px] leading-[36px] text-white">
-            Proceed to Checkout
-          </Text>
-          <View className="w-3 h-3">
-            <img 
-              src="/arrow.svg" 
-              alt="Arrow" 
-              className="w-full h-full object-contain"
-            />
-          </View>
-        </TouchableOpacity>
+<TouchableOpacity 
+  className="w-[260px] h-[60px] bg-[#C10016] rounded-[6px] flex flex-row items-center justify-center gap-[10px] mx-auto hover:bg-[#D9001A] transition-colors duration-200"
+  activeOpacity={0.8}
+>
+  <Text className="font-helvetica font-bold text-[18px] leading-[36px] text-white">
+    Proceed to Checkout
+  </Text>
+  <View className="w-3 h-3">
+    <img 
+      src="/arrow.svg" 
+      alt="Arrow" 
+      className="w-full h-full object-contain"
+    />
+  </View>
+</TouchableOpacity>
 
       </View>
     </View>
