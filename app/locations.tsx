@@ -123,7 +123,60 @@ export default function LocationsScreen() {
     </Text>
   </View>
 </View>
-                    {/* US Office Card */}
+{/* US Office Card */}
+<View className="relative w-[350px] h-[381px]">
+  {/* Background Card */}
+  <View className="absolute w-[350px] h-[334px] top-[47px] bg-white border border-[rgba(0,0,0,0.1)] backdrop-blur-[12.5px] rounded-[20px]" />
+  
+  {/* Outer Circle */}
+  <View className="absolute w-[124px] h-[124px] left-1/2 transform -translate-x-1/2 top-0 bg-white border border-[rgba(0,0,0,0.1)] rounded-full" />
+  
+  {/* Flag Circle - Full flag in circle, no red background */}
+  <View className="absolute w-[94px] h-[94px] left-1/2 transform -translate-x-1/2 top-[15px] rounded-full overflow-hidden">
+    <img 
+      src="/roundus.png" 
+      alt="US Flag" 
+      className="w-full h-full object-cover"
+    />
+  </View>
+
+  {/* Country Name */}
+  <Text className="absolute left-6 top-[110px] font-helvetica font-bold text-[32px] leading-[74px] tracking-[-0.01em] text-black">
+    USA
+  </Text>
+
+  {/* Contact Info */}
+  {/* Phone */}
+  <View className="absolute left-6 top-[180px] flex flex-row items-center gap-3 space-y-2">
+    <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-2">
+      <img src="/phone.svg" alt="Phone" className="w-4 h-4 object-contain" />
+    </View>
+    <Text className="font-helvetica font-normal text-[16px] leading-[44px] text-black">
+      +1 234 567 8900
+    </Text>
+  </View>
+
+  {/* Email */}
+  <View className="absolute left-6 top-[225px] flex flex-row items-center gap-3 space-y-6">
+    <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-6">
+      <img src="/mail.svg" alt="Email" className="w-4 h-4 object-contain" />
+    </View>
+    <Text className="font-helvetica font-normal text-[16px] leading-[44px] text-black">
+      info.john@fulfilx.co.uk
+    </Text>
+  </View>
+
+  {/* Address */}
+  <View className="absolute left-6 top-[270px] flex flex-row items-start gap-3 space-y-10">
+    <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-10">
+      <img src="/map.svg" alt="Location" className="w-4 h-4 object-contain" />
+    </View>
+    <Text className="font-helvetica font-normal text-[16px] leading-[22px] text-black">
+      Lorem Ipsum is simply dummy<br/>text of the printing & typing.
+    </Text>
+  </View>
+</View>
+{/* US Office Card */}
 <View className="relative w-[350px] h-[381px]">
   {/* Background Card */}
   <View className="absolute w-[350px] h-[334px] top-[47px] bg-white border border-[rgba(0,0,0,0.1)] backdrop-blur-[12.5px] rounded-[20px]" />

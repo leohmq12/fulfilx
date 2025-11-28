@@ -358,20 +358,23 @@ const panResponder = useRef(
           </View>
           
           {/* Contact Button */}
-          <TouchableOpacity className="bg-[#C10016] rounded-[6px] py-2 px-4 mt-16" onPress={() => router.push('/contact')}>
-            <View className="flex flex-row items-center justify-center gap-3 cursor-pointer">
-              <Text className="font-helvetica font-bold text-[18px] leading-[36px] text-white">
-                Contact Sales
-              </Text>
-            <View className="w-3 h-3">
-                <img 
-                    src="/arrow.svg" 
-                    alt="Arrow" 
-                    className="w-full h-full object-contain"
-                />
-            </View>
-            </View>
-          </TouchableOpacity>
+<TouchableOpacity 
+  className="bg-[#C10016] rounded-[6px] py-2 px-4 mt-16 hover:bg-[#D9001A] active:bg-[#A80012] transition-colors duration-200" 
+  onPress={() => router.push('/contact')}
+>
+  <View className="flex flex-row items-center justify-center gap-3 cursor-pointer">
+    <Text className="font-helvetica font-bold text-[18px] leading-[36px] text-white">
+      Contact Sales
+    </Text>
+    <View className="w-3 h-3">
+      <img 
+        src="/arrow.svg" 
+        alt="Arrow" 
+        className="w-full h-full object-contain"
+      />
+    </View>
+  </View>
+</TouchableOpacity>
         </View>
       </View>
 

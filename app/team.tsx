@@ -3,7 +3,7 @@ import Footer from '@/components/layout/footer';
 import Navbar from '@/components/layout/navbar';
 import { Stack } from 'expo-router';
 import React, { useEffect, useState } from 'react';
-import { ScrollView, Text, View } from 'react-native';
+import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
 
 export default function TeamScreen() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -97,73 +97,101 @@ export default function TeamScreen() {
             {/* First Row */}
             <View className="flex flex-row justify-center gap-8">
               
-              {/* Team Member 1 - Nas */}
-              <View className="relative w-[720px] h-[380px] bg-white border border-black/10 backdrop-blur-[12.5px] rounded-[20px] overflow-hidden">
-                {/* Member Image */}
-                <View className="absolute w-[300px] h-[340px] left-8 top-4 rounded-[12px] overflow-hidden">
-                  <img 
-                    src="/nas.png" 
-                    alt="Nas"
-                    className="w-full h-full object-cover"
-                  />
-                </View>
-                
-                {/* Member Info */}
-                <View className="absolute left-[360px] top-8 w-[340px]">
-                  <Text className="font-helvetica font-bold text-[26px] leading-[80px] text-black">
-                    Nas
-                  </Text>
-                  <Text className="font-helvetica font-normal text-[18px] leading-[38px] text-black mb-4">
-                    Co-Founder & CEO
-                  </Text>
-                  <Text className="font-helvetica font-normal text-[18px] leading-[30px] text-black">
-                    In the realm of luxury goods, where the <br/>value lies not only in the product itself but<br/>in the entire customer experience, the importance.
-                  </Text>
-                </View>
-                
-                {/* Email Icon */}
-                <View className="absolute left-[360px] bottom-8 w-12 h-12 bg-[#C10016] rounded-full flex items-center justify-center cursor-pointer">
-                  <img 
-                    src="/mail.svg" 
-                    alt="Email"
-                    className="w-4 h-4 object-contain filter brightness-0 invert"
-                  />
-                </View>
-              </View>
+{/* Team Member 1 - Nas */}
+<View className="relative w-[720px] h-[380px] bg-white border border-black/10 backdrop-blur-[12.5px] rounded-[20px] overflow-hidden group hover:bg-[#C10016] transition-colors duration-300">
+  {/* Member Image with Social Icons Popup */}
+  <View className="absolute w-[300px] h-[340px] left-8 top-4 rounded-[12px] overflow-hidden">
+    <img 
+      src="/nas.png" 
+      alt="Nas"
+      className="w-full h-full object-cover"
+    />
+    {/* Social Icons Popup - Bottom */}
+    <View className="absolute bottom-0 left-0 right-0 bg-black/70 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+      <View className="flex flex-row justify-center gap-4">
+        <TouchableOpacity className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+          <img src="/fbdark.png" alt="Facebook" className="w-4 h-4" />
+        </TouchableOpacity>
+        <TouchableOpacity className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+          <img src="/igdark.png" alt="Instagram" className="w-4 h-4" />
+        </TouchableOpacity>
+        <TouchableOpacity className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+          <img src="/eye.svg" alt="View Profile" className="w-4 h-4" />
+        </TouchableOpacity>
+      </View>
+    </View>
+  </View>
+  
+  {/* Member Info */}
+  <View className="absolute left-[360px] top-8 w-[340px]">
+    <Text className="font-helvetica font-bold text-[26px] leading-[80px] text-black group-hover:text-white transition-colors duration-300">
+      Nas
+    </Text>
+    <Text className="font-helvetica font-normal text-[18px] leading-[38px] text-black group-hover:text-white transition-colors duration-300 mb-4">
+      Co-Founder & CEO
+    </Text>
+    <Text className="font-helvetica font-normal text-[18px] leading-[30px] text-black group-hover:text-white transition-colors duration-300">
+      In the realm of luxury goods, where the <br/>value lies not only in the product itself but<br/>in the entire customer experience, the importance.
+    </Text>
+  </View>
+  
+  {/* Email Icon */}
+  <TouchableOpacity className="absolute left-[360px] bottom-8 w-12 h-12 bg-[#C10016] group-hover:bg-white rounded-full flex items-center justify-center cursor-pointer transition-colors duration-300">
+    <img 
+      src="/mail.svg" 
+      alt="Email"
+      className="w-4 h-4 object-contain group-hover:filter group-hover:brightness-0 group-hover:invert-0 filter brightness-0 invert transition-all duration-300"
+    />
+  </TouchableOpacity>
+</View>
 
               {/* Team Member 2 - Anson */}
-              <View className="relative w-[720px] h-[380px] bg-white border border-black/10 backdrop-blur-[12.5px] rounded-[20px] overflow-hidden">
-                {/* Member Image */}
-                <View className="absolute w-[300px] h-[340px] left-8 top-4 rounded-[12px] overflow-hidden">
-                  <img 
-                    src="/Anson.png" 
-                    alt="Anson"
-                    className="w-full h-full object-cover"
-                  />
-                </View>
-                
-                {/* Member Info */}
-                <View className="absolute left-[360px] top-8 w-[360px]">
-                  <Text className="font-helvetica font-bold text-[26px] leading-[80px] text-black">
-                    Anson
-                  </Text>
-                  <Text className="font-helvetica font-normal text-[18px] leading-[38px] text-black mb-4">
-                    Operations Manager
-                  </Text>
-                  <Text className="font-helvetica font-normal text-[18px] leading-[30px] text-black">
-                    In the realm of luxury goods, where the <br/>value lies not only in the product itself but<br/>in the entire customer experience, the importance.
-                  </Text>
-                </View>
-                
-                {/* Email Icon */}
-                <View className="absolute left-[360px] bottom-8 w-12 h-12 bg-[#C10016] rounded-full flex items-center justify-center cursor-pointer">
-                  <img 
-                    src="/mail.svg" 
-                    alt="Email"
-                    className="w-4 h-4 object-contain filter brightness-0 invert"
-                  />
-                </View>
-              </View>
+<View className="relative w-[720px] h-[380px] bg-white border border-black/10 backdrop-blur-[12.5px] rounded-[20px] overflow-hidden group hover:bg-[#C10016] transition-colors duration-300">
+  {/* Member Image with Social Icons Popup */}
+  <View className="absolute w-[300px] h-[340px] left-8 top-4 rounded-[12px] overflow-hidden">
+    <img 
+      src="/Anson.png" 
+      alt="Anson"
+      className="w-full h-full object-cover"
+    />
+    {/* Social Icons Popup - Bottom */}
+    <View className="absolute bottom-0 left-0 right-0 bg-black/70 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+      <View className="flex flex-row justify-center gap-4">
+        <TouchableOpacity className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+          <img src="/fbdark.png" alt="Facebook" className="w-4 h-4" />
+        </TouchableOpacity>
+        <TouchableOpacity className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+          <img src="/igdark.png" alt="Instagram" className="w-4 h-4" />
+        </TouchableOpacity>
+        <TouchableOpacity className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+          <img src="/eye.svg" alt="View Profile" className="w-4 h-4" />
+        </TouchableOpacity>
+      </View>
+    </View>
+  </View>
+  
+  {/* Member Info */}
+  <View className="absolute left-[360px] top-8 w-[340px]">
+    <Text className="font-helvetica font-bold text-[26px] leading-[80px] text-black group-hover:text-white transition-colors duration-300">
+      Anson
+    </Text>
+    <Text className="font-helvetica font-normal text-[18px] leading-[38px] text-black group-hover:text-white transition-colors duration-300 mb-4">
+      Operations Manager
+    </Text>
+    <Text className="font-helvetica font-normal text-[18px] leading-[30px] text-black group-hover:text-white transition-colors duration-300">
+      In the realm of luxury goods, where the <br/>value lies not only in the product itself but<br/>in the entire customer experience, the importance.
+    </Text>
+  </View>
+  
+  {/* Email Icon */}
+  <TouchableOpacity className="absolute left-[360px] bottom-8 w-12 h-12 bg-[#C10016] group-hover:bg-white rounded-full flex items-center justify-center cursor-pointer transition-colors duration-300">
+    <img 
+      src="/mail.svg" 
+      alt="Email"
+      className="w-4 h-4 object-contain group-hover:filter group-hover:brightness-0 group-hover:invert-0 filter brightness-0 invert transition-all duration-300"
+    />
+  </TouchableOpacity>
+</View>
 
             </View>
 
@@ -171,72 +199,100 @@ export default function TeamScreen() {
             <View className="flex flex-row justify-center gap-8">
               
               {/* Team Member 3 - Nat */}
-              <View className="relative w-[720px] h-[380px] bg-white border border-black/10 backdrop-blur-[12.5px] rounded-[20px] overflow-hidden">
-                {/* Member Image */}
-                <View className="absolute w-[300px] h-[340px] left-8 top-4 rounded-[12px] overflow-hidden">
-                  <img 
-                    src="/Nat.png" 
-                    alt="Nat"
-                    className="w-full h-full object-cover"
-                  />
-                </View>
-                
-                {/* Member Info */}
-                <View className="absolute left-[360px] top-8 w-[340px]">
-                  <Text className="font-helvetica font-bold text-[26px] leading-[80px] text-black">
-                    Nat
-                  </Text>
-                  <Text className="font-helvetica font-normal text-[18px] leading-[38px] text-black mb-4">
-                    Team Leader - Ops
-                  </Text>
-                  <Text className="font-helvetica font-normal text-[18px] leading-[30px] text-black">
-                    In the realm of luxury goods, where the <br/>value lies not only in the product itself but<br/>in the entire customer experience, the importance.
-                  </Text>
-                </View>
-                
-                {/* Email Icon */}
-                <View className="absolute left-[360px] bottom-8 w-12 h-12 bg-[#C10016] rounded-full flex items-center justify-center cursor-pointer">
-                  <img 
-                    src="/mail.svg" 
-                    alt="Email"
-                    className="w-4 h-4 object-contain filter brightness-0 invert"
-                  />
-                </View>
-              </View>
+              <View className="relative w-[720px] h-[380px] bg-white border border-black/10 backdrop-blur-[12.5px] rounded-[20px] overflow-hidden group hover:bg-[#C10016] transition-colors duration-300">
+  {/* Member Image with Social Icons Popup */}
+  <View className="absolute w-[300px] h-[340px] left-8 top-4 rounded-[12px] overflow-hidden">
+    <img 
+      src="/Nat.png" 
+      alt="Nat"
+      className="w-full h-full object-cover"
+    />
+    {/* Social Icons Popup - Bottom */}
+    <View className="absolute bottom-0 left-0 right-0 bg-black/70 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+      <View className="flex flex-row justify-center gap-4">
+        <TouchableOpacity className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+          <img src="/fbdark.png" alt="Facebook" className="w-4 h-4" />
+        </TouchableOpacity>
+        <TouchableOpacity className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+          <img src="/igdark.png" alt="Instagram" className="w-4 h-4" />
+        </TouchableOpacity>
+        <TouchableOpacity className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+          <img src="/eye.svg" alt="View Profile" className="w-4 h-4" />
+        </TouchableOpacity>
+      </View>
+    </View>
+  </View>
+  
+  {/* Member Info */}
+  <View className="absolute left-[360px] top-8 w-[340px]">
+    <Text className="font-helvetica font-bold text-[26px] leading-[80px] text-black group-hover:text-white transition-colors duration-300">
+      Nat
+    </Text>
+    <Text className="font-helvetica font-normal text-[18px] leading-[38px] text-black group-hover:text-white transition-colors duration-300 mb-4">
+      Team Leader - Ops
+    </Text>
+    <Text className="font-helvetica font-normal text-[18px] leading-[30px] text-black group-hover:text-white transition-colors duration-300">
+      In the realm of luxury goods, where the <br/>value lies not only in the product itself but<br/>in the entire customer experience, the importance.
+    </Text>
+  </View>
+  
+  {/* Email Icon */}
+  <TouchableOpacity className="absolute left-[360px] bottom-8 w-12 h-12 bg-[#C10016] group-hover:bg-white rounded-full flex items-center justify-center cursor-pointer transition-colors duration-300">
+    <img 
+      src="/mail.svg" 
+      alt="Email"
+      className="w-4 h-4 object-contain group-hover:filter group-hover:brightness-0 group-hover:invert-0 filter brightness-0 invert transition-all duration-300"
+    />
+  </TouchableOpacity>
+</View>
 
               {/* Team Member 4 - Ste */}
-              <View className="relative w-[720px] h-[380px] bg-white border border-black/10 backdrop-blur-[12.5px] rounded-[20px] overflow-hidden">
-                {/* Member Image */}
-                <View className="absolute w-[300px] h-[340px] left-8 top-4 rounded-[12px] overflow-hidden">
-                  <img 
-                    src="/Ste.png" 
-                    alt="Ste"
-                    className="w-full h-full object-cover"
-                  />
-                </View>
-                
-                {/* Member Info */}
-                <View className="absolute left-[360px] top-8 w-[340px]">
-                  <Text className="font-helvetica font-bold text-[26px] leading-[80px] text-black">
-                    Ste
-                  </Text>
-                  <Text className="font-helvetica font-normal text-[18px] leading-[38px] text-black mb-4">
-                    Team Leader - Warehouse
-                  </Text>
-                  <Text className="font-helvetica font-normal text-[18px] leading-[30px] text-black">
-                    In the realm of luxury goods, where the value lies not only in the product itself but in the entire customer experience, the importance.
-                  </Text>
-                </View>
-                
-                {/* Email Icon */}
-                <View className="absolute left-[360px] bottom-8 w-12 h-12 bg-[#C10016] rounded-full flex items-center justify-center cursor-pointer">
-                  <img 
-                    src="/mail.svg" 
-                    alt="Email"
-                    className="w-4 h-4 object-contain filter brightness-0 invert"
-                  />
-                </View>
-              </View>
+<View className="relative w-[720px] h-[380px] bg-white border border-black/10 backdrop-blur-[12.5px] rounded-[20px] overflow-hidden group hover:bg-[#C10016] transition-colors duration-300">
+  {/* Member Image with Social Icons Popup */}
+  <View className="absolute w-[300px] h-[340px] left-8 top-4 rounded-[12px] overflow-hidden">
+    <img 
+      src="/Ste.png" 
+      alt="Nas"
+      className="w-full h-full object-cover"
+    />
+    {/* Social Icons Popup - Bottom */}
+    <View className="absolute bottom-0 left-0 right-0 bg-black/70 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+      <View className="flex flex-row justify-center gap-4">
+        <TouchableOpacity className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+          <img src="/fbdark.png" alt="Facebook" className="w-4 h-4" />
+        </TouchableOpacity>
+        <TouchableOpacity className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+          <img src="/igdark.png" alt="Instagram" className="w-4 h-4" />
+        </TouchableOpacity>
+        <TouchableOpacity className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+          <img src="/eye.svg" alt="View Profile" className="w-4 h-4" />
+        </TouchableOpacity>
+      </View>
+    </View>
+  </View>
+  
+  {/* Member Info */}
+  <View className="absolute left-[360px] top-8 w-[340px]">
+    <Text className="font-helvetica font-bold text-[26px] leading-[80px] text-black group-hover:text-white transition-colors duration-300">
+      Ste
+    </Text>
+    <Text className="font-helvetica font-normal text-[18px] leading-[38px] text-black group-hover:text-white transition-colors duration-300 mb-4">
+      Team Leader - Warehouse
+    </Text>
+    <Text className="font-helvetica font-normal text-[18px] leading-[30px] text-black group-hover:text-white transition-colors duration-300">
+      In the realm of luxury goods, where the <br/>value lies not only in the product itself but<br/>in the entire customer experience, the importance.
+    </Text>
+  </View>
+  
+  {/* Email Icon */}
+  <TouchableOpacity className="absolute left-[360px] bottom-8 w-12 h-12 bg-[#C10016] group-hover:bg-white rounded-full flex items-center justify-center cursor-pointer transition-colors duration-300">
+    <img 
+      src="/mail.svg" 
+      alt="Email"
+      className="w-4 h-4 object-contain group-hover:filter group-hover:brightness-0 group-hover:invert-0 filter brightness-0 invert transition-all duration-300"
+    />
+  </TouchableOpacity>
+</View>
 
             </View>
 
@@ -244,38 +300,52 @@ export default function TeamScreen() {
             <View className="flex flex-row justify-center">
               
               {/* Team Member 5 - Jordy */}
-              <View className="relative w-[720px] h-[380px] bg-white border border-black/10 backdrop-blur-[12.5px] rounded-[20px] overflow-hidden">
-                {/* Member Image */}
-                <View className="absolute w-[300px] h-[340px] left-8 top-4 rounded-[12px] overflow-hidden">
-                  <img 
-                    src="/jordy.png" 
-                    alt="Jordy"
-                    className="w-full h-full object-cover"
-                  />
-                </View>
-                
-                {/* Member Info */}
-                <View className="absolute left-[360px] top-8 w-[340px]">
-                  <Text className="font-helvetica font-bold text-[26px] leading-[80px] text-black">
-                    Jordy
-                  </Text>
-                  <Text className="font-helvetica font-normal text-[18px] leading-[38px] text-black mb-4">
-                    Warehouse Manager
-                  </Text>
-                  <Text className="font-helvetica font-normal text-[18px] leading-[30px] text-black">
-                    In the realm of luxury goods, where the value lies not only in the product itself but in the entire customer experience, the importance.
-                  </Text>
-                </View>
-                
-                {/* Email Icon */}
-                <View className="absolute left-[360px] bottom-8 w-12 h-12 bg-[#C10016] rounded-full flex items-center justify-center cursor-pointer">
-                  <img 
-                    src="/mail.svg" 
-                    alt="Email"
-                    className="w-4 h-4 object-contain filter brightness-0 invert"
-                  />
-                </View>
-              </View>
+<View className="relative w-[720px] h-[380px] bg-white border border-black/10 backdrop-blur-[12.5px] rounded-[20px] overflow-hidden group hover:bg-[#C10016] transition-colors duration-300">
+  {/* Member Image with Social Icons Popup */}
+  <View className="absolute w-[300px] h-[340px] left-8 top-4 rounded-[12px] overflow-hidden">
+    <img 
+      src="/jordy.png" 
+      alt="Nas"
+      className="w-full h-full object-cover"
+    />
+    {/* Social Icons Popup - Bottom */}
+    <View className="absolute bottom-0 left-0 right-0 bg-black/70 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+      <View className="flex flex-row justify-center gap-4">
+        <TouchableOpacity className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+          <img src="/fbdark.png" alt="Facebook" className="w-4 h-4" />
+        </TouchableOpacity>
+        <TouchableOpacity className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+          <img src="/igdark.png" alt="Instagram" className="w-4 h-4" />
+        </TouchableOpacity>
+        <TouchableOpacity className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+          <img src="/eye.svg" alt="View Profile" className="w-4 h-4" />
+        </TouchableOpacity>
+      </View>
+    </View>
+  </View>
+  
+  {/* Member Info */}
+  <View className="absolute left-[360px] top-8 w-[340px]">
+    <Text className="font-helvetica font-bold text-[26px] leading-[80px] text-black group-hover:text-white transition-colors duration-300">
+      Jordy
+    </Text>
+    <Text className="font-helvetica font-normal text-[18px] leading-[38px] text-black group-hover:text-white transition-colors duration-300 mb-4">
+      Warehouse Manager
+    </Text>
+    <Text className="font-helvetica font-normal text-[18px] leading-[30px] text-black group-hover:text-white transition-colors duration-300">
+      In the realm of luxury goods, where the <br/>value lies not only in the product itself but<br/>in the entire customer experience, the importance.
+    </Text>
+  </View>
+  
+  {/* Email Icon */}
+  <TouchableOpacity className="absolute left-[360px] bottom-8 w-12 h-12 bg-[#C10016] group-hover:bg-white rounded-full flex items-center justify-center cursor-pointer transition-colors duration-300">
+    <img 
+      src="/mail.svg" 
+      alt="Email"
+      className="w-4 h-4 object-contain group-hover:filter group-hover:brightness-0 group-hover:invert-0 filter brightness-0 invert transition-all duration-300"
+    />
+  </TouchableOpacity>
+</View>
             </View>
           </View>
         </View>

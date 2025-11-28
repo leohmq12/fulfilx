@@ -87,10 +87,9 @@ const row1Logos = [
       });
     }
   };
-  const [agreedToPolicy, setAgreedToPolicy] = useState(false);
     const primaryRed = 'bg-[#C10016]';
+    const [activeDot, setActiveDot] = useState(1); // Start with middle dot active
     const router = useRouter();
-    
     return (
         <>
             {/*Navbar*/}
@@ -717,23 +716,46 @@ const row1Logos = [
   <img src="/arrow-dark.svg" alt="" className="w-4 h-4" />
           
         </button>
-
-       {/* Image with Pagination */}
+        {/* Image with Pagination */}
 <div className="relative">
-  {/* Image */}
-  <div className="w-full h-[600px] bg-cover bg-center rounded-[24px] backdrop-blur-[12.5px]" style={{backgroundImage: 'url(/peep.png)'}}>
+  {/* Image that changes based on active dot */}
+  <div 
+    className="w-full h-[600px] bg-cover bg-center rounded-[24px] backdrop-blur-[12.5px]"
+    style={{
+      backgroundImage: `url(${
+        activeDot === 0 ? '/box.png' :
+        activeDot === 1 ? '/peep.png' :
+        activeDot === 2 ? 'shipdone.png' :
+        '/image3.jpg'
+      })`
+    }}
+  >
   </div>
   
   {/* Pagination Dots */}
   <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2">
     <div className="w-[72px] h-[24px] bg-white rounded-[50px] flex items-center justify-center gap-3 shadow-lg">
-      <div className="w-[6px] h-[6px] bg-[#C10016] opacity-20 rounded-full"></div>
-      <div className="w-[10px] h-[10px] border border-[#C10016] rounded-full"></div>
-      <div className="w-[6px] h-[6px] bg-[#C10016] opacity-20 rounded-full"></div>
+      <div 
+        className={`w-[10px] h-[10px] rounded-full cursor-pointer ${
+          activeDot === 0 ? 'border border-[#C10016]' : 'bg-[#C10016] opacity-20 w-[6px] h-[6px]'
+        }`}
+        onClick={() => setActiveDot(0)}
+      ></div>
+      <div 
+        className={`w-[10px] h-[10px] rounded-full cursor-pointer ${
+          activeDot === 1 ? 'border border-[#C10016]' : 'bg-[#C10016] opacity-20 w-[6px] h-[6px]'
+        }`}
+        onClick={() => setActiveDot(1)}
+      ></div>
+      <div 
+        className={`w-[10px] h-[10px] rounded-full cursor-pointer ${
+          activeDot === 2 ? 'border border-[#C10016]' : 'bg-[#C10016] opacity-20 w-[6px] h-[6px]'
+        }`}
+        onClick={() => setActiveDot(2)}
+      ></div>
     </div>
   </div>
 </div>
-
       </div>
 
     </div>

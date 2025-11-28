@@ -2,7 +2,7 @@ import Footer from '@/components/layout/footer';
 import Navbar from '@/components/layout/navbar';
 import { Stack } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
-import { ScrollView, Text, View } from 'react-native';
+import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
 
 export default function AboutUsScreen(){
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -76,6 +76,8 @@ export default function AboutUsScreen(){
       
         return () => clearInterval(interval);
       }, [isPaused, images.length]);
+          const [activeDot, setActiveDot] = useState(1); // Start with middle dot active
+          const [activeReview, setActiveReview] = useState(0);
       
   
   return (
@@ -158,18 +160,43 @@ export default function AboutUsScreen(){
   </div>
       {/* Right Content */}
       <div className="space-y-8">
-       {/* Image with Pagination */}
+        {/* Image with Pagination */}
 <div className="relative">
-  {/* Image */}
-  <div className="w-full h-[700px] bg-cover bg-center rounded-[24px] backdrop-blur-[12.5px]" style={{backgroundImage: 'url(/shipdone.png)'}}>
+  {/* Image that changes based on active dot */}
+  <div 
+    className="w-full h-[600px] bg-cover bg-center rounded-[24px] backdrop-blur-[12.5px]"
+    style={{
+      backgroundImage: `url(${
+        activeDot === 0 ? '/box.png' :
+        activeDot === 1 ? '/peep.png' :
+        activeDot === 2 ? 'shipdone.png' :
+        '/image3.jpg'
+      })`
+    }}
+  >
   </div>
   
   {/* Pagination Dots */}
   <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2">
     <div className="w-[72px] h-[24px] bg-white rounded-[50px] flex items-center justify-center gap-3 shadow-lg">
-      <div className="w-[6px] h-[6px] bg-[#C10016] opacity-20 rounded-full"></div>
-      <div className="w-[10px] h-[10px] border border-[#C10016] rounded-full"></div>
-      <div className="w-[6px] h-[6px] bg-[#C10016] opacity-20 rounded-full"></div>
+      <div 
+        className={`w-[10px] h-[10px] rounded-full cursor-pointer ${
+          activeDot === 0 ? 'border border-[#C10016]' : 'bg-[#C10016] opacity-20 w-[6px] h-[6px]'
+        }`}
+        onClick={() => setActiveDot(0)}
+      ></div>
+      <div 
+        className={`w-[10px] h-[10px] rounded-full cursor-pointer ${
+          activeDot === 1 ? 'border border-[#C10016]' : 'bg-[#C10016] opacity-20 w-[6px] h-[6px]'
+        }`}
+        onClick={() => setActiveDot(1)}
+      ></div>
+      <div 
+        className={`w-[10px] h-[10px] rounded-full cursor-pointer ${
+          activeDot === 2 ? 'border border-[#C10016]' : 'bg-[#C10016] opacity-20 w-[6px] h-[6px]'
+        }`}
+        onClick={() => setActiveDot(2)}
+      ></div>
     </div>
   </div>
 </div>
@@ -685,15 +712,32 @@ can build a greener future while achieving your logistics goals.
         </Text>
       </View>
     </View>
-
-    {/* Pagination Dots */}
-    <View className="flex items-center">
-      <View className="w-[72px] h-[24px] bg-[#C10016] rounded-[50px] flex flex-row items-center justify-center gap-3">
-        <View className="w-[6px] h-[6px] bg-white bg-opacity-50 rounded-full" />
-        <View className="w-[10px] h-[10px] border border-white rounded-full" />
-        <View className="w-[6px] h-[6px] bg-white bg-opacity-50 rounded-full" />
-      </View>
-    </View>
+{/* Pagination Dots */}
+<View className="flex items-center">
+  <View className="w-[72px] h-[24px] bg-[#C10016] rounded-[50px] flex flex-row items-center justify-center gap-3">
+    <TouchableOpacity onPress={() => setActiveReview(0)}>
+      <View 
+        className={`w-[10px] h-[10px] rounded-full ${
+          activeReview === 0 ? 'border border-white' : 'bg-white bg-opacity-50 w-[6px] h-[6px]'
+        }`}
+      />
+    </TouchableOpacity>
+    <TouchableOpacity onPress={() => setActiveReview(1)}>
+      <View 
+        className={`w-[10px] h-[10px] rounded-full ${
+          activeReview === 1 ? 'border border-white' : 'bg-white bg-opacity-50 w-[6px] h-[6px]'
+        }`}
+      />
+    </TouchableOpacity>
+    <TouchableOpacity onPress={() => setActiveReview(2)}>
+      <View 
+        className={`w-[10px] h-[10px] rounded-full ${
+          activeReview === 2 ? 'border border-white' : 'bg-white bg-opacity-50 w-[6px] h-[6px]'
+        }`}
+      />
+    </TouchableOpacity>
+  </View>
+</View>
   </View>
 </View>
 
