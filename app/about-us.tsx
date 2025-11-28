@@ -164,7 +164,7 @@ export default function AboutUsScreen(){
 <div className="relative">
   {/* Image that changes based on active dot */}
   <div 
-    className="w-full h-[600px] bg-cover bg-center rounded-[24px] backdrop-blur-[12.5px]"
+    className="w-full h-[700px] bg-cover bg-center rounded-[24px] backdrop-blur-[12.5px]"
     style={{
       backgroundImage: `url(${
         activeDot === 0 ? '/box.png' :
