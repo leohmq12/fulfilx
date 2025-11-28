@@ -127,7 +127,34 @@ export default function ContactScreen() {
                 info@fulfilx.co.uk
               </Text>
             </View>
+            {/* WhatsApp Card */}
+            <View className="relative w-[350px] h-[227px]">
+              {/* Background Card */}
+              <View className="absolute w-[350px] h-[180px] top-[47px] bg-white border border-[rgba(0,0,0,0.1)] backdrop-blur-[12.5px] rounded-[20px]" />
+              
+              {/* Outer Circle */}
+              <View className="absolute w-[124px] h-[124px] left-[113px] top-0 bg-white border border-[rgba(0,0,0,0.1)] rounded-full" />
+              
+              {/* Inner Red Circle */}
+              <View className="absolute w-[94px] h-[94px] left-[128px] top-[15px] bg-[#C10016] rounded-full flex items-center justify-center">
+                <img 
+                  src="/whatsapp.svg" 
+                  alt="WhatsApp" 
+                  className="w-8 h-8 object-contain"
+                />
+              </View>
 
+              {/* Email Us Text */}
+              <Text className="absolute left-6 top-[129px] font-helvetica font-normal text-[16px] leading-[44px] text-black">
+                WhatsApp Us
+              </Text>
+
+              {/* Email Address */}
+              <Text className="absolute left-6 top-[160px] font-helvetica font-bold text-[18px] leading-[74px] tracking-[-0.01em] text-black">
+                +44 161 399 2348
+              </Text>
+            </View>
+            
             {/* Visit Card */}
             <View className="relative w-[350px] h-[227px]">
               {/* Background Card */}

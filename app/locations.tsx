@@ -56,7 +56,7 @@ export default function LocationsScreen() {
           </View>
         </View>
         {/* Get in Touch Section */}
-        <View className="w-full bg-white py-20">
+        <View className="w-full bg-white py-4">
           {/* Contact Us Badge */}
           <View className="flex flex-row justify-center items-center mx-auto w-[200px] h-[48px] bg-[rgba(193,0,22,0.1)] rounded-[120px] mb-8">
             <Text className="font-helvetica font-medium text-[16px] leading-[40px] tracking-[0.2em] uppercase text-[#C10016]">
@@ -449,7 +449,7 @@ export default function LocationsScreen() {
 </View>
         </View>
 <section className="relative w-full bg-cover bg-center bg-no-repeat" style={{backgroundImage: 'url(/bg.png)'}}>
-  <div className="relative max-w-[1490px] mx-auto px-4 py-16">
+  <div className="relative max-w-[1490px] mx-auto px-3 py-15">
   </div>
     <div className="relative max-w-[1490px] mx-auto px-4 py-16">
     {/* "Global Presence" Badge */}
