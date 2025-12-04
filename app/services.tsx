@@ -215,6 +215,134 @@ const WarehouseServicesSection = () => {
     </View>
   );
 };
+const ImportExportIcon = () => <img src="/ie.svg" alt="General Storage" width={40} height={40} />;
+const PalletTransportIcon = () => <img src="/pht.svg" alt="Food Storage" width={40} height={40} />;
+const InternationalShippingIcon = () => <img src="/is.svg" alt="Dangerous Goods" width={40} height={40} />;
+const ArrowIco = () => <img src="/arrow-dark.svg" alt="Arrow" width={10} height={10} />;
+const CheckIco = () => <img src="/check.svg" alt="Check" width={14} height={14} />;
+
+const LogisticsServicesSection = () => {
+  const services = [
+    {
+      id: 1,
+      title: 'Import & Export Handling',
+      icon: ImportExportIcon,
+      imageUrl: '/ie.png', // Add your image URLs here
+      features: [
+        'UK import management (port-to-warehouse)',
+        'Export shipping to global destinations',
+        'Customs documentation support',
+        'Container de-stuffing & consolidation',
+        'Multi-supplier import consolidation',
+        'UAE expansion support with COD options',
+        'Importer of Record (IOR) services'
+      ]
+    },
+    {
+      id: 2,
+      title: 'Pallet Handling & Transport',
+      icon: PalletTransportIcon,
+      imageUrl: '/ph.png', // Add your image URLs here
+      features: [
+        'Pallet collections',
+        'Pallet deliveries',
+        'Bulk freight handling',
+        'Pallet storage'  
+      ]
+    },
+    {
+      id: 3,
+      title: 'International Shipping',
+      icon: InternationalShippingIcon,
+      imageUrl: '/is.jpg', // Add your image URLs here
+      features: [
+        'Lorem Ipsum is simply dummy text',
+        'Printing and typesetting industry',
+        'Lorem Ipsum is simply dummy text',
+        'Printing and typesetting industry',
+        'Lorem Ipsum is simply dummy text',
+        'Printing and typesetting industry',
+        'Lorem Ipsum is simply dummy text'
+      ]
+    }
+  ];
+
+  const Check = CheckIco;
+  const Arrow = ArrowIco;
+
+  return (
+    <View className="w-full px-4">
+      {/* Centered container */}
+      <ScrollView 
+        horizontal 
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={{
+          justifyContent: 'center',
+          alignItems: 'center',
+          flexDirection: 'row',
+          paddingHorizontal: 200,
+        }}
+      >
+        {/* Inner container with flex row and gap */}
+        <View style={{ flexDirection: 'row', gap: 20 }}>
+          {services.map((service) => {
+            const IconComponent = service.icon;
+            return (
+              <View 
+                key={service.id} 
+                className="w-[470px] h-[650px] bg-white/10 border border-[#D9D9D9]/50 rounded-[20px] backdrop-blur-[20px] flex-shrink-0 p-8 flex flex-col"
+              >
+                {/* Image Container with cutting icon */}
+                <View className="relative w-[430px] h-[280px] mb-8 overflow-visible">
+                  {/* Image Placeholder - Replace with actual image */}
+                  <View className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 rounded-[12px] overflow-hidden">
+                    <img src={service.imageUrl} className="w-full h-full" style={{ objectFit: 'cover' }} />
+                  </View>
+                  
+                  {/* Icon cutting through bottom-right corner */}
+                  <View className="absolute -bottom-10 right-7 z-10">
+                    <View className="w-20 h-20 rounded-full bg-transparent">
+                      <View className="w-full h-full rounded-full bg-white p-1">
+                        <View className="w-full h-full rounded-full flex items-center justify-center">
+                          <IconComponent />
+                        </View>
+                      </View>
+                    </View>
+                  </View>
+                </View>
+                
+                {/* Title */}
+                <Text className="font-helvetica font-bold text-[20px] leading-normal text-black mb-3">
+                  {service.title}
+                </Text>
+                
+                {/* Features */}
+                <View className="space-y-2 flex-1">
+                  {service.features.map((feature, index) => (
+                    <View key={index} className="flex-row items-baseline gap-3">
+                      <Check />
+                      <Text className="font-helvetica text-[16px] leading-[22px] text-black">
+                        {feature}
+                      </Text>
+                    </View>
+                  ))}
+                </View>
+                
+                {/* Contact Sales Button */}
+                <TouchableOpacity className="flex-row items-center gap-2 translate-y-6">
+                  <Text className="font-helvetica font-bold text-[16px] leading-normal text-[#C10016]">
+                    Contact Sales
+                  </Text>
+                  <Arrow />
+                </TouchableOpacity>
+              </View>
+            );
+          })}
+        </View>
+      </ScrollView>
+    </View>
+  );
+};
 
 export default function ServicesScreen(){
     const router = useRouter();
@@ -586,6 +714,21 @@ export default function ServicesScreen(){
     ))}
   </div>
 </section>
+{/* Logistics Section */}
+<View className="relative py-20"> {/* Add vertical padding */}
+  {/* PNG Background */}
+  <View className="absolute inset-0 z-0">
+    <img 
+      src="/bg.png"
+      alt="Background pattern"
+      className="w-[1920px] h-[938px] object-cover" /* Change to full width/height */
+    />
+  </View>
+  <Text className="font-helvetica font-bold text-[54px] leading-[84px] text-black text-center relative z-10 transform -translate-y-10">
+    Logistics, Frieght & <Text className="text-[#C10016]">International</Text>
+  </Text>
+  <LogisticsServicesSection/>
+</View>
 <section className="relative w-full h-[916px] overflow-hidden">
   {/* Background with overlay */}
   <div 
@@ -597,7 +740,6 @@ export default function ServicesScreen(){
       transform: 'scaleX(-1)'
     }}
   />
-
   {/* Title lowered slightly */}
   <div className="absolute top-32 w-full text-center text-white">
     <h2 className="text-[64px] font-bold leading-[80px] tracking-[-0.01em]">
