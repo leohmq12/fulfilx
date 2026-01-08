@@ -443,8 +443,9 @@ const row1Logos = [
       </div>
     </div>
   </div>
+    <h3 className="text-center text-black font-bold text-[28px] md:text-[40px]">Easy <span className="text-[#C10016]">Setup</span></h3>
 
- <div className="relative max-w-[1400px] mx-auto mt-12 md:mt-20 px-4 pt-20">
+ <div className="relative max-w-[1400px] mx-auto mt-12 md:mt-20 px-4 pt-20 transform -translate-x-10 -translate-y-6">
       
       {/* Curved connecting line - hidden on mobile, visible on md+ */}
       <div className="hidden md:block absolute top-[60px] left-0 right-0 w-full pointer-events-none">
@@ -768,13 +769,13 @@ const row1Logos = [
 
       {/* San Francisco */}
       <div className="flex items-center gap-3">
-        <div className="w-[30px] h-[20px] bg-cover bg-center rounded-[2px]" style={{backgroundImage: 'url(/SF.png)'}}></div>
+        <div className="w-[30px] h-[20px] bg-cover bg-center rounded-[2px]" style={{backgroundImage: 'url(/AT.png)'}}></div>
         <span className="font-normal text-[18px] leading-[30px] text-black">Atlanta</span>
       </div>
 
       {/* Georgia */}
       <div className="flex items-center gap-3">
-        <div className="w-[30px] h-[20px] border border-black/10 bg-cover bg-center rounded-[2px]" style={{backgroundImage: 'url(/G.png)'}}></div>
+        <div className="w-[30px] h-[20px] border border-black/10 bg-cover bg-center rounded-[2px]" style={{backgroundImage: 'url(/NET.png)'}}></div>
         <span className="font-normal text-[18px] leading-[30px] text-black">Netherlands</span>
       </div>
 
