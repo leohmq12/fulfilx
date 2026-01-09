@@ -164,7 +164,7 @@ export default function AboutUsScreen(){
 <div className="relative">
   {/* Image that changes based on active dot */}
   <div 
-    className="w-full h-[700px] bg-cover bg-center rounded-[24px] backdrop-blur-[12.5px]"
+    className="w-full h-[400px] lg:h-[700px] bg-cover bg-center rounded-[24px] backdrop-blur-[12.5px]"
     style={{
       backgroundImage: `url(${
         activeDot === 0 ? '/box.png' :
@@ -218,67 +218,69 @@ export default function AboutUsScreen(){
   {/* Black Overlay */}
   <View className="absolute inset-0 bg-black bg-opacity-50" />
   
-  {/* Vertical Center Line */}
-  <View className="absolute left-1/2 top-0 bottom-0 w-px bg-white bg-opacity-10 transform -translate-x-1/2" />
+  {/* Vertical Center Line - Hidden on mobile */}
+  <View className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-white bg-opacity-10 transform -translate-x-1/2" />
   
   {/* Timeline Items Container */}
 <View className="relative max-w-[1400px] mx-auto px-4">
     {/* Item 1 - Image Left, Content Right */}
-<View className="flex flex-row items-center justify-between mb-60 w-full">
+<View className="flex flex-col lg:flex-row items-center justify-between mb-20 lg:mb-60 w-full">
   {/* Left Side - Image */}
-  <View className="w-[500px] h-[500px] rounded-[32px] backdrop-blur-[12.5px] bg-cover bg-center transform -translate-x-60" 
+  <View className="w-full h-[300px] lg:w-[500px] lg:h-[500px] rounded-[32px] backdrop-blur-[12.5px] bg-cover bg-center lg:transform lg:-translate-x-60 mb-8 lg:mb-0" 
     style={{backgroundImage: 'url(/trolley.png)'}} />
   
-  {/* Center Dot */}
-  <View className="absolute left-1/2 transform -translate-x-1/2 w-[40px] h-[40px] bg-[#C10016] rounded-full" />
+  {/* Center Dot - Hidden on mobile */}
+  <View className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-[40px] h-[40px] bg-[#C10016] rounded-full" />
   
   {/* Right Side - Content */}
-  <View className="w-[451px] transform translate-x-60">
-    <Text className="font-medium text-[94px] leading-[74px] tracking-tight text-white mb-20 text-right">01.</Text>
-    <Text className="font-helvetica font-bold text-[40px] leading-[74px] tracking-tight text-white mb-4 text-right">
+  <View className="w-full lg:w-[451px] lg:transform lg:translate-x-60">
+    <Text className="font-medium text-6xl lg:text-[94px] leading-tight lg:leading-[74px] tracking-tight text-white mb-4 lg:mb-20 text-left lg:text-right">01.</Text>
+    <Text className="font-helvetica font-bold text-3xl lg:text-[40px] leading-tight lg:leading-[74px] tracking-tight text-white mb-4 text-left lg:text-right">
       Humble <Text className="text-[#C10016]">Beginnings</Text>
     </Text>
-    <Text className="font-helvetica font-normal text-[22px] leading-[42px] text-white text-right">
+    <Text className="font-helvetica font-normal text-lg lg:text-[22px] leading-relaxed lg:leading-[42px] text-white text-left lg:text-right">
       FulfilX started with our founders from a storage unit to get a proof of concept.
     </Text>
   </View>
 </View>
 
 {/* Item 2 - Content Left, Image Right */}
-<View className="flex flex-row items-center justify-between mb-60 w-full">
+<View className="flex flex-col-reverse lg:flex-row items-center justify-between mb-20 lg:mb-60 w-full">
   {/* Left Side - Content */}
-  <View className="w-[460px] transform -translate-x-60">
-    <Text className="font-medium text-[94px] leading-[74px] tracking-tight text-white mb-20">02.</Text>
-    <Text className="font-helvetica font-bold text-[40px] leading-[74px] tracking-tight text-white mb-4">
+  <View className="w-full lg:w-[460px] lg:transform lg:-translate-x-60">
+    <Text className="font-medium text-6xl lg:text-[94px] leading-tight lg:leading-[74px] tracking-tight text-white mb-4 lg:mb-20 text-left">02.</Text>
+    <Text className="font-helvetica font-bold text-3xl lg:text-[40px] leading-tight lg:leading-[74px] tracking-tight text-white mb-4 text-left">
       New <Text className="text-[#C10016]">HQ</Text>
     </Text>
-    <Text className="font-helvetica font-normal text-[22px] leading-[42px] text-white">
+    <Text className="font-helvetica font-normal text-lg lg:text-[22px] leading-relaxed lg:leading-[42px] text-white text-left">
       After rapidly expanding our new warehouse expands to 50,000sqft
     </Text>
   </View>
   
   {/* Center Dot */}
-  <View className="absolute left-1/2 transform -translate-x-1/2 w-[40px] h-[40px] bg-[#C10016] rounded-full" />
+  <View className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-[40px] h-[40px] bg-[#C10016] rounded-full" />
   
   {/* Right Side - Image */}
-  <View className="w-[500px] h-[500px] rounded-[32px] backdrop-blur-[12.5px] bg-cover bg-center transform translate-x-60" 
+  <View className="w-full h-[300px] lg:w-[500px] lg:h-[500px] rounded-[32px] backdrop-blur-[12.5px] bg-cover bg-center lg:transform lg:translate-x-60 mb-8 lg:mb-0" 
     style={{backgroundImage: 'url(/head.png)'}} />
 </View>
-<View className="flex flex-row items-center justify-between w-full">
+
+{/* Item 3 */}
+<View className="flex flex-col lg:flex-row items-center justify-between w-full">
   {/* Left Side - Image */}
-  <View className="w-[500px] h-[500px] rounded-[32px] backdrop-blur-[12.5px] bg-cover bg-center transform -translate-x-60" 
+  <View className="w-full h-[300px] lg:w-[500px] lg:h-[500px] rounded-[32px] backdrop-blur-[12.5px] bg-cover bg-center lg:transform lg:-translate-x-60 mb-8 lg:mb-0" 
     style={{backgroundImage: 'url(/trolley.png)'}} />
   
   {/* Center Dot */}
-  <View className="absolute left-1/2 transform -translate-x-1/2 w-[40px] h-[40px] bg-[#C10016] rounded-full" />
+  <View className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-[40px] h-[40px] bg-[#C10016] rounded-full" />
   
   {/* Right Side - Content */}
-  <View className="w-[451px] transform translate-x-60">
-    <Text className="font-medium text-[94px] leading-[74px] tracking-tight text-white mb-20 text-right">03.</Text>
-    <Text className="font-helvetica font-bold text-[40px] leading-[74px] tracking-tight text-white mb-4 text-right">
+  <View className="w-full lg:w-[451px] lg:transform lg:translate-x-60">
+    <Text className="font-medium text-6xl lg:text-[94px] leading-tight lg:leading-[74px] tracking-tight text-white mb-4 lg:mb-20 text-left lg:text-right">03.</Text>
+    <Text className="font-helvetica font-bold text-3xl lg:text-[40px] leading-tight lg:leading-[74px] tracking-tight text-white mb-4 text-left lg:text-right">
       Expa<Text className="text-[#C10016]">nsion</Text>
     </Text>
-    <Text className="font-helvetica font-normal text-[22px] leading-[42px] text-white text-right">
+    <Text className="font-helvetica font-normal text-lg lg:text-[22px] leading-relaxed lg:leading-[42px] text-white text-left lg:text-right">
       Phase 1 of global expansion FulfilX UAE is open, handling IOR and Fulfilment services.
     </Text>
   </View>
@@ -454,7 +456,7 @@ can build a greener future while achieving your logistics goals.
     </div>
 
     {/* Main Heading */}
-    <h2 className="text-center font-bold text-[74px] leading-[80px] tracking-tight text-white mt-16">
+    <h2 className="text-center font-bold text-4xl lg:text-[74px] leading-tight lg:leading-[80px] tracking-tight text-white mt-16">
       Leading Brands...
     </h2>
 
@@ -523,12 +525,12 @@ can build a greener future while achieving your logistics goals.
     </div>
 
     {/* Main Heading */}
-    <h2 className="text-left font-bold text-[64px] leading-[80px] tracking-tight text-white mt-16 max-w-[960px]">
+    <h2 className="text-left font-bold text-4xl lg:text-[64px] leading-tight lg:leading-[80px] tracking-tight text-white mt-16 max-w-[960px]">
       Meet the people we make happy
     </h2>
 
     {/* Navigation Arrows - Aligned with badge and heading */}
-    <div className="absolute right-4 top-24 flex gap-4">
+    <div className="absolute right-4 top-24 lg:top-24 flex gap-4">
       {/* Left Arrow */}
       <button 
         onClick={prevSlide}
@@ -593,27 +595,27 @@ can build a greener future while achieving your logistics goals.
     </View>
 
     {/* Header Section */}
-    <View className="flex flex-row justify-between items-end">
+    <View className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8 lg:gap-0">
       {/* Left Side - Title */}
       <View className="max-w-[600px]">
-        <Text className="font-helvetica font-bold text-[64px] leading-[80px] tracking-tight text-black transform -translate-y-20">
+        <Text className="font-helvetica font-bold text-4xl lg:text-[64px] leading-tight lg:leading-[80px] tracking-tight text-black lg:transform lg:-translate-y-20">
           What our client says
         </Text>
       </View>
       
       {/* Right Side - Rating */}
-      <View className="text-right">
-        <Text className="font-helvetica font-normal text-[60px] leading-[80px] tracking-tight text-black translate-x-16 transform -translate-y-12">
+      <View className="text-left lg:text-right w-full lg:w-auto">
+        <Text className="font-helvetica font-normal text-5xl lg:text-[60px] leading-tight lg:leading-[80px] tracking-tight text-black lg:translate-x-16 lg:transform lg:-translate-y-12">
           (5.0)
         </Text>
         {/* Logo/Image */}
-        <View className="w-[247px] h-[100px] bg-cover bg-center transform -translate-x-52 -translate-y-32" 
+        <View className="w-[180px] h-[72px] lg:w-[247px] lg:h-[100px] bg-cover bg-center mt-4 lg:mt-0 lg:transform lg:-translate-x-52 lg:-translate-y-32" 
           style={{backgroundImage: 'url(/GR.png)'}} />
       </View>
     </View>
 
     {/* Review Cards Grid */}
-    <View className="flex flex-row gap-8 mb-16">
+    <View className="flex flex-col lg:flex-row gap-8 mb-16">
       
       {/* Review Card 1 */}
       <View className="flex-1 bg-white border border-[#D9D9D9] rounded-[20px] p-8">

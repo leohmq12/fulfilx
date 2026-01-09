@@ -71,13 +71,7 @@ const Footer = () => {
       <div className="w-full lg:w-3/5">
         {/* Contact Container */}
         <div 
-          className="w-full pt-4 px-6 pb-7"
-          style={{
-            background: 'rgba(255, 255, 255, 0.1)',
-            border: '1px solid rgba(255, 255, 255, 0.2)',
-            borderRadius: '20px',
-            minWidth: '950px',
-          }}
+          className="w-full pt-4 px-6 pb-7 rounded-[20px] bg-white/10 border border-white/20 lg:min-w-[950px]"
         >
           {/* Warehouse Buttons Row */}
           <button className="flex flex-col sm:flex-row gap-4 mb-3">
