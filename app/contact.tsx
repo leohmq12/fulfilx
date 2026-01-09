@@ -1,11 +1,14 @@
 // app/contact.tsx
 import Footer from '@/components/layout/footer';
 import Navbar from '@/components/layout/navbar';
-import { Stack } from 'expo-router';
+import { Stack, useRouter } from 'expo-router';
 import { useState } from 'react';
-import { ScrollView, Text, View } from 'react-native';
+import { ScrollView, Text, useWindowDimensions, View } from 'react-native';
 
 export default function ContactScreen() {
+  const router = useRouter();
+  const { width } = useWindowDimensions();
+  const isMobile = width < 1024;
   const [agreedToPolicy, setAgreedToPolicy] = useState(false);
   const primaryRed = 'bg-[#C10016]';
   
@@ -26,30 +29,30 @@ export default function ContactScreen() {
         showsVerticalScrollIndicator={false}
       >
         {/* Hero Section */}
-        <View className="relative min-h-screen">
+        <View className="relative min-h-[60vh] lg:min-h-screen">
           {/* PNG Background */}
           <View className="absolute inset-0 z-0">
             <img 
               src="/bg.png"
               alt="Background pattern"
-              className="w-[1920px] h-[600px] object-cover"
+              className="w-full h-full lg:w-[1920px] lg:h-[600px] object-cover"
             />
           </View>
 
           {/* Hero Content */}
-          <View className="relative z-10 min-h-screen flex items-center justify-center pb-20">
+          <View className="relative z-10 min-h-[60vh] lg:min-h-screen flex items-center justify-center pb-20">
             {/* Main Title */}
-            <Text className="font-helvetica font-bold text-[84px] leading-[84px] text-black text-center mb-8">
+            <Text className="font-helvetica font-bold text-4xl lg:text-[84px] leading-tight lg:leading-[84px] text-black text-center mb-8">
               Contact Us
             </Text>
             
             {/* Breadcrumb Navigation */}
             <View className="flex flex-row items-center justify-center">
-              <Text className="font-helvetica font-normal text-[20px] leading-[40px] text-black">
+              <Text className="font-helvetica font-normal text-base lg:text-[20px] leading-[40px] text-black">
                 Home
               </Text>
               <View className="w-1 h-1 bg-[#C10016] rounded-full mx-4" />
-              <Text className="font-helvetica font-medium text-[20px] leading-[40px] text-[#C10016]">
+              <Text className="font-helvetica font-medium text-base lg:text-[20px] leading-[40px] text-[#C10016]">
                 Contact Us
               </Text>
             </View>
@@ -57,7 +60,7 @@ export default function ContactScreen() {
         </View>
 
         {/* Get in Touch Section */}
-        <View className="w-full bg-white transform -translate-y-48">
+        <View className="w-full bg-white transform -translate-y-20 lg:-translate-y-48">
           {/* Contact Us Badge */}
           <View className="flex flex-row justify-center items-center mx-auto w-[200px] h-[48px] bg-[rgba(193,0,22,0.1)] rounded-[120px] mb-8">
             <Text className="font-helvetica font-medium text-[16px] leading-[40px] tracking-[0.2em] uppercase text-[#C10016]">
@@ -66,22 +69,22 @@ export default function ContactScreen() {
           </View>
 
           {/* Get in Touch Heading */}
-          <Text className="text-center font-helvetica font-bold text-[64px] leading-[74px] tracking-[-0.01em] text-black mb-16">
+          <Text className="text-center font-helvetica font-bold text-3xl lg:text-[64px] leading-tight lg:leading-[74px] tracking-[-0.01em] text-black mb-16">
             Get in Touch
           </Text>
 
           {/* Contact Cards Grid */}
-          <View className="flex flex-row justify-center items-start gap-8 px-8">
+          <View className="flex flex-row flex-wrap justify-center items-start gap-8 px-8">
             {/* Phone Card */}
-            <View className="relative w-[350px] h-[227px]">
+            <View className="relative w-full max-w-[350px] h-[227px]">
               {/* Background Card */}
-              <View className="absolute w-[350px] h-[180px] top-[47px] bg-white border border-[rgba(0,0,0,0.1)] backdrop-blur-[12.5px] rounded-[20px]" />
+              <View className="absolute w-full h-[180px] top-[47px] bg-white border border-[rgba(0,0,0,0.1)] backdrop-blur-[12.5px] rounded-[20px]" />
               
               {/* Outer Circle */}
-              <View className="absolute w-[124px] h-[124px] left-[113px] top-0 bg-white border border-[rgba(0,0,0,0.1)] rounded-full" />
+              <View className="absolute w-[124px] h-[124px] left-1/2 -ml-[62px] top-0 bg-white border border-[rgba(0,0,0,0.1)] rounded-full" />
               
               {/* Inner Red Circle */}
-              <View className="absolute w-[94px] h-[94px] left-[128px] top-[15px] bg-[#C10016] rounded-full flex items-center justify-center">
+              <View className="absolute w-[94px] h-[94px] left-1/2 -ml-[47px] top-[15px] bg-[#C10016] rounded-full flex items-center justify-center">
                 <img 
                   src="/phone.svg" 
                   alt="Phone" 
@@ -101,15 +104,15 @@ export default function ContactScreen() {
             </View>
 
             {/* Email Card */}
-            <View className="relative w-[350px] h-[227px]">
+            <View className="relative w-full max-w-[350px] h-[227px]">
               {/* Background Card */}
-              <View className="absolute w-[350px] h-[180px] top-[47px] bg-white border border-[rgba(0,0,0,0.1)] backdrop-blur-[12.5px] rounded-[20px]" />
+              <View className="absolute w-full h-[180px] top-[47px] bg-white border border-[rgba(0,0,0,0.1)] backdrop-blur-[12.5px] rounded-[20px]" />
               
               {/* Outer Circle */}
-              <View className="absolute w-[124px] h-[124px] left-[113px] top-0 bg-white border border-[rgba(0,0,0,0.1)] rounded-full" />
+              <View className="absolute w-[124px] h-[124px] left-1/2 -ml-[62px] top-0 bg-white border border-[rgba(0,0,0,0.1)] rounded-full" />
               
               {/* Inner Red Circle */}
-              <View className="absolute w-[94px] h-[94px] left-[128px] top-[15px] bg-[#C10016] rounded-full flex items-center justify-center">
+              <View className="absolute w-[94px] h-[94px] left-1/2 -ml-[47px] top-[15px] bg-[#C10016] rounded-full flex items-center justify-center">
                 <img 
                   src="/mail.svg" 
                   alt="Email" 
@@ -128,15 +131,15 @@ export default function ContactScreen() {
               </Text>
             </View>
             {/* WhatsApp Card */}
-            <View className="relative w-[350px] h-[227px]">
+            <View className="relative w-full max-w-[350px] h-[227px]">
               {/* Background Card */}
-              <View className="absolute w-[350px] h-[180px] top-[47px] bg-white border border-[rgba(0,0,0,0.1)] backdrop-blur-[12.5px] rounded-[20px]" />
+              <View className="absolute w-full h-[180px] top-[47px] bg-white border border-[rgba(0,0,0,0.1)] backdrop-blur-[12.5px] rounded-[20px]" />
               
               {/* Outer Circle */}
-              <View className="absolute w-[124px] h-[124px] left-[113px] top-0 bg-white border border-[rgba(0,0,0,0.1)] rounded-full" />
+              <View className="absolute w-[124px] h-[124px] left-1/2 -ml-[62px] top-0 bg-white border border-[rgba(0,0,0,0.1)] rounded-full" />
               
               {/* Inner Red Circle */}
-              <View className="absolute w-[94px] h-[94px] left-[128px] top-[15px] bg-[#C10016] rounded-full flex items-center justify-center">
+              <View className="absolute w-[94px] h-[94px] left-1/2 -ml-[47px] top-[15px] bg-[#C10016] rounded-full flex items-center justify-center">
                 <img 
                   src="/whatsapp.svg" 
                   alt="WhatsApp" 
@@ -156,15 +159,15 @@ export default function ContactScreen() {
             </View>
             
             {/* Visit Card */}
-            <View className="relative w-[350px] h-[227px]">
+            <View className="relative w-full max-w-[350px] h-[227px]">
               {/* Background Card */}
-              <View className="absolute w-[350px] h-[180px] top-[47px] bg-white border border-[rgba(0,0,0,0.1)] backdrop-blur-[12.5px] rounded-[20px]" />
+              <View className="absolute w-full h-[180px] top-[47px] bg-white border border-[rgba(0,0,0,0.1)] backdrop-blur-[12.5px] rounded-[20px]" />
               
               {/* Outer Circle */}
-              <View className="absolute w-[124px] h-[124px] left-[113px] top-0 bg-white border border-[rgba(0,0,0,0.1)] rounded-full" />
+              <View className="absolute w-[124px] h-[124px] left-1/2 -ml-[62px] top-0 bg-white border border-[rgba(0,0,0,0.1)] rounded-full" />
               
               {/* Inner Red Circle */}
-              <View className="absolute w-[94px] h-[94px] left-[128px] top-[15px] bg-[#C10016] rounded-full flex items-center justify-center">
+              <View className="absolute w-[94px] h-[94px] left-1/2 -ml-[47px] top-[15px] bg-[#C10016] rounded-full flex items-center justify-center">
                 <img 
                   src="/map.svg" 
                   alt="Location" 
@@ -178,7 +181,7 @@ export default function ContactScreen() {
               </Text>
 
               {/* Email Address */}
-              <Text className="absolute left-6 top-[160px] font-helvetica font-bold text-[14px] leading-[74px] tracking-[-0.01em] text-black">
+              <Text className="absolute left-6 top-[160px] font-helvetica font-bold text-[14px] leading-tight lg:leading-[74px] tracking-[-0.01em] text-black pr-2">
                 Nile Mill, Oldham, Greater Manchester, OL9 8NT
               </Text>
             </View>

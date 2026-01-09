@@ -1,11 +1,12 @@
 // app/locations.tsx
 import Footer from '@/components/layout/footer';
 import Navbar from '@/components/layout/navbar';
-import { Stack } from 'expo-router';
+import { Stack, useRouter } from 'expo-router';
 import { useState } from 'react';
-import { ScrollView, Text, View } from 'react-native';
+import { Image, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 
 export default function LocationsScreen() {
+  const router = useRouter();
   const [agreedToPolicy, setAgreedToPolicy] = useState(false);
   const primaryRed = 'bg-[#C10016]';
   
@@ -29,27 +30,28 @@ export default function LocationsScreen() {
         <View className="relative min-h-screen">
           {/* PNG Background */}
           <View className="absolute inset-0 z-0">
-            <img 
-              src="/bg.png"
+            <Image 
+              source={{ uri: "/bg.png" }}
               alt="Background pattern"
-              className="w-[1920px] h-[600px] object-cover"
+              className="w-full h-full lg:w-[1920px] lg:h-[600px]"
+              resizeMode="cover"
             />
           </View>
 
           {/* Hero Content */}
           <View className="relative z-10 min-h-screen flex items-center justify-center pb-20">
             {/* Main Title */}
-            <Text className="font-helvetica font-bold text-[84px] leading-[84px] text-black text-center mb-8">
+            <Text className="font-helvetica font-bold text-4xl lg:text-[84px] leading-tight lg:leading-[84px] text-black text-center mb-8">
               Locations
             </Text>
             
             {/* Breadcrumb Navigation */}
             <View className="flex flex-row items-center justify-center">
-              <Text className="font-helvetica font-normal text-[20px] leading-[40px] text-black">
+              <Text className="font-helvetica font-normal text-base lg:text-[20px] leading-[40px] text-black">
                 Home
               </Text>
               <View className="w-1 h-1 bg-[#C10016] rounded-full mx-4" />
-              <Text className="font-helvetica font-medium text-[20px] leading-[40px] text-[#C10016]">
+              <Text className="font-helvetica font-medium text-base lg:text-[20px] leading-[40px] text-[#C10016]">
                 Store Locations
               </Text>
             </View>
@@ -65,25 +67,26 @@ export default function LocationsScreen() {
           </View>
 
           {/* Get in Touch Heading */}
-          <Text className="text-center font-helvetica font-bold text-[64px] leading-[74px] tracking-[-0.01em] text-black mb-16">
-            Our Worldwide <span className='text-[#C10016]'>Branches</span>
+          <Text className="text-center font-helvetica font-bold text-4xl lg:text-[64px] leading-tight lg:leading-[74px] tracking-[-0.01em] text-black mb-16 px-4">
+            Our Worldwide <Text className='text-[#C10016]'>Branches</Text>
           </Text>
 {/* Cards Container */}
 <View className="flex flex-row justify-center items-start gap-8 px-8">
                       {/* UK Office Card */}
-<View className="relative w-[350px] h-[381px]">
+<View className="relative w-full lg:w-[350px] h-[381px]">
   {/* Background Card */}
-  <View className="absolute w-[350px] h-[334px] top-[47px] bg-white border border-[rgba(0,0,0,0.1)] backdrop-blur-[12.5px] rounded-[20px]" />
+  <View className="absolute w-full lg:w-[350px] h-[334px] top-[47px] bg-white border border-[rgba(0,0,0,0.1)] backdrop-blur-[12.5px] rounded-[20px]" />
   
   {/* Outer Circle */}
   <View className="absolute w-[124px] h-[124px] left-1/2 transform -translate-x-1/2 top-0 bg-white border border-[rgba(0,0,0,0.1)] rounded-full" />
   
   {/* Flag Circle - Full flag in circle, no red background */}
   <View className="absolute w-[94px] h-[94px] left-1/2 transform -translate-x-1/2 top-[15px] rounded-full overflow-hidden">
-    <img 
-      src="/rounduk.png" 
+    <Image 
+      source={{ uri: "/rounduk.png" }}
       alt="UK Flag" 
-      className="w-full h-full object-cover"
+      className="w-full h-full"
+      resizeMode="cover"
     />
   </View>
 
@@ -96,7 +99,7 @@ export default function LocationsScreen() {
   {/* Phone */}
   <View className="absolute left-6 top-[180px] flex flex-row items-center gap-3 space-y-2">
     <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-2">
-      <img src="/phone.svg" alt="Phone" className="w-4 h-4 object-contain" />
+      <Image source={{ uri: "/phone.svg" }} alt="Phone" className="w-4 h-4" resizeMode="contain" />
     </View>
     <Text className="font-helvetica font-normal text-[16px] leading-[44px] text-black">
       +1 234 567 8900
@@ -106,7 +109,7 @@ export default function LocationsScreen() {
   {/* Email */}
   <View className="absolute left-6 top-[225px] flex flex-row items-center gap-3 space-y-6">
     <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-6">
-      <img src="/mail.svg" alt="Email" className="w-4 h-4 object-contain" />
+      <Image source={{ uri: "/mail.svg" }} alt="Email" className="w-4 h-4" resizeMode="contain" />
     </View>
     <Text className="font-helvetica font-normal text-[16px] leading-[44px] text-black">
       info.john@fulfilx.co.uk
@@ -116,7 +119,7 @@ export default function LocationsScreen() {
   {/* Address */}
   <View className="absolute left-6 top-[270px] flex flex-row items-start gap-3 space-y-10">
     <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-10">
-      <img src="/map.svg" alt="Location" className="w-4 h-4 object-contain" />
+      <Image source={{ uri: "/map.svg" }} alt="Location" className="w-4 h-4" resizeMode="contain" />
     </View>
     <Text className="font-helvetica font-normal text-[16px] leading-[22px] text-black">
       Lorem Ipsum is simply dummy<br/>text of the printing & typing.
@@ -124,19 +127,20 @@ export default function LocationsScreen() {
   </View>
 </View>
 {/* US Office Card */}
-<View className="relative w-[350px] h-[381px]">
+<View className="relative w-full lg:w-[350px] h-[381px]">
   {/* Background Card */}
-  <View className="absolute w-[350px] h-[334px] top-[47px] bg-white border border-[rgba(0,0,0,0.1)] backdrop-blur-[12.5px] rounded-[20px]" />
+  <View className="absolute w-full lg:w-[350px] h-[334px] top-[47px] bg-white border border-[rgba(0,0,0,0.1)] backdrop-blur-[12.5px] rounded-[20px]" />
   
   {/* Outer Circle */}
   <View className="absolute w-[124px] h-[124px] left-1/2 transform -translate-x-1/2 top-0 bg-white border border-[rgba(0,0,0,0.1)] rounded-full" />
   
   {/* Flag Circle - Full flag in circle, no red background */}
   <View className="absolute w-[94px] h-[94px] left-1/2 transform -translate-x-1/2 top-[15px] rounded-full overflow-hidden">
-    <img 
-      src="/roundus.png" 
+    <Image 
+      source={{ uri: "/roundus.png" }}
       alt="US Flag" 
-      className="w-full h-full object-cover"
+      className="w-full h-full"
+      resizeMode="cover"
     />
   </View>
 
@@ -149,7 +153,7 @@ export default function LocationsScreen() {
   {/* Phone */}
   <View className="absolute left-6 top-[180px] flex flex-row items-center gap-3 space-y-2">
     <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-2">
-      <img src="/phone.svg" alt="Phone" className="w-4 h-4 object-contain" />
+      <Image source={{ uri: "/phone.svg" }} alt="Phone" className="w-4 h-4" resizeMode="contain" />
     </View>
     <Text className="font-helvetica font-normal text-[16px] leading-[44px] text-black">
       +1 234 567 8900
@@ -159,7 +163,7 @@ export default function LocationsScreen() {
   {/* Email */}
   <View className="absolute left-6 top-[225px] flex flex-row items-center gap-3 space-y-6">
     <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-6">
-      <img src="/mail.svg" alt="Email" className="w-4 h-4 object-contain" />
+      <Image source={{ uri: "/mail.svg" }} alt="Email" className="w-4 h-4" resizeMode="contain" />
     </View>
     <Text className="font-helvetica font-normal text-[16px] leading-[44px] text-black">
       info.john@fulfilx.co.uk
@@ -169,60 +173,7 @@ export default function LocationsScreen() {
   {/* Address */}
   <View className="absolute left-6 top-[270px] flex flex-row items-start gap-3 space-y-10">
     <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-10">
-      <img src="/map.svg" alt="Location" className="w-4 h-4 object-contain" />
-    </View>
-    <Text className="font-helvetica font-normal text-[16px] leading-[22px] text-black">
-      Lorem Ipsum is simply dummy<br/>text of the printing & typing.
-    </Text>
-  </View>
-</View>
-{/* US Office Card */}
-<View className="relative w-[350px] h-[381px]">
-  {/* Background Card */}
-  <View className="absolute w-[350px] h-[334px] top-[47px] bg-white border border-[rgba(0,0,0,0.1)] backdrop-blur-[12.5px] rounded-[20px]" />
-  
-  {/* Outer Circle */}
-  <View className="absolute w-[124px] h-[124px] left-1/2 transform -translate-x-1/2 top-0 bg-white border border-[rgba(0,0,0,0.1)] rounded-full" />
-  
-  {/* Flag Circle - Full flag in circle, no red background */}
-  <View className="absolute w-[94px] h-[94px] left-1/2 transform -translate-x-1/2 top-[15px] rounded-full overflow-hidden">
-    <img 
-      src="/roundus.png" 
-      alt="US Flag" 
-      className="w-full h-full object-cover"
-    />
-  </View>
-
-  {/* Country Name */}
-  <Text className="absolute left-6 top-[110px] font-helvetica font-bold text-[32px] leading-[74px] tracking-[-0.01em] text-black">
-    USA
-  </Text>
-
-  {/* Contact Info */}
-  {/* Phone */}
-  <View className="absolute left-6 top-[180px] flex flex-row items-center gap-3 space-y-2">
-    <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-2">
-      <img src="/phone.svg" alt="Phone" className="w-4 h-4 object-contain" />
-    </View>
-    <Text className="font-helvetica font-normal text-[16px] leading-[44px] text-black">
-      +1 234 567 8900
-    </Text>
-  </View>
-
-  {/* Email */}
-  <View className="absolute left-6 top-[225px] flex flex-row items-center gap-3 space-y-6">
-    <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-6">
-      <img src="/mail.svg" alt="Email" className="w-4 h-4 object-contain" />
-    </View>
-    <Text className="font-helvetica font-normal text-[16px] leading-[44px] text-black">
-      info.john@fulfilx.co.uk
-    </Text>
-  </View>
-
-  {/* Address */}
-  <View className="absolute left-6 top-[270px] flex flex-row items-start gap-3 space-y-10">
-    <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-10">
-      <img src="/map.svg" alt="Location" className="w-4 h-4 object-contain" />
+      <Image source={{ uri: "/map.svg" }} alt="Location" className="w-4 h-4" resizeMode="contain" />
     </View>
     <Text className="font-helvetica font-normal text-[16px] leading-[22px] text-black">
       Lorem Ipsum is simply dummy<br/>text of the printing & typing.
@@ -230,19 +181,20 @@ export default function LocationsScreen() {
   </View>
 </View>
                     {/* UAE Office Card */}
-<View className="relative w-[350px] h-[381px]">
+<View className="relative w-full lg:w-[350px] h-[381px]">
   {/* Background Card */}
-  <View className="absolute w-[350px] h-[334px] top-[47px] bg-white border border-[rgba(0,0,0,0.1)] backdrop-blur-[12.5px] rounded-[20px]" />
+  <View className="absolute w-full lg:w-[350px] h-[334px] top-[47px] bg-white border border-[rgba(0,0,0,0.1)] backdrop-blur-[12.5px] rounded-[20px]" />
   
   {/* Outer Circle */}
   <View className="absolute w-[124px] h-[124px] left-1/2 transform -translate-x-1/2 top-0 bg-white border border-[rgba(0,0,0,0.1)] rounded-full" />
   
   {/* Flag Circle - Full flag in circle, no red background */}
   <View className="absolute w-[94px] h-[94px] left-1/2 transform -translate-x-1/2 top-[15px] rounded-full overflow-hidden">
-    <img 
-      src="/rounduae.png" 
+    <Image 
+      source={{ uri: "/rounduae.png" }}
       alt="UAE Flag" 
-      className="w-full h-full object-cover"
+      className="w-full h-full"
+      resizeMode="cover"
     />
   </View>
 
@@ -255,7 +207,7 @@ export default function LocationsScreen() {
   {/* Phone */}
   <View className="absolute left-6 top-[180px] flex flex-row items-center gap-3 space-y-2">
     <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-2">
-      <img src="/phone.svg" alt="Phone" className="w-4 h-4 object-contain" />
+      <Image source={{ uri: "/phone.svg" }} alt="Phone" className="w-4 h-4" resizeMode="contain" />
     </View>
     <Text className="font-helvetica font-normal text-[16px] leading-[44px] text-black">
       +1 234 567 8900
@@ -265,7 +217,7 @@ export default function LocationsScreen() {
   {/* Email */}
   <View className="absolute left-6 top-[225px] flex flex-row items-center gap-3 space-y-6">
     <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-6">
-      <img src="/mail.svg" alt="Email" className="w-4 h-4 object-contain" />
+      <Image source={{ uri: "/mail.svg" }} alt="Email" className="w-4 h-4" resizeMode="contain" />
     </View>
     <Text className="font-helvetica font-normal text-[16px] leading-[44px] text-black">
       info.john@fulfilx.co.uk
@@ -275,7 +227,7 @@ export default function LocationsScreen() {
   {/* Address */}
   <View className="absolute left-6 top-[270px] flex flex-row items-start gap-3 space-y-10">
     <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-10">
-      <img src="/map.svg" alt="Location" className="w-4 h-4 object-contain" />
+      <Image source={{ uri: "/map.svg" }} alt="Location" className="w-4 h-4" resizeMode="contain" />
     </View>
     <Text className="font-helvetica font-normal text-[16px] leading-[22px] text-black">
       Lorem Ipsum is simply dummy<br/>text of the printing & typing.
@@ -285,21 +237,22 @@ export default function LocationsScreen() {
 
 </View>
 {/* Cards Container */}
-<View className="flex flex-row flex-wrap justify-center items-start gap-8 px-8 mt-5">
+<View className="flex flex-row flex-wrap justify-center items-start gap-8 px-4 lg:px-8 mt-5">
                       {/* Saudi Office Card */}
-<View className="relative w-[350px] h-[381px]">
+<View className="relative w-full lg:w-[350px] h-[381px]">
   {/* Background Card */}
-  <View className="absolute w-[350px] h-[334px] top-[47px] bg-white border border-[rgba(0,0,0,0.1)] backdrop-blur-[12.5px] rounded-[20px]" />
+  <View className="absolute w-full lg:w-[350px] h-[334px] top-[47px] bg-white border border-[rgba(0,0,0,0.1)] backdrop-blur-[12.5px] rounded-[20px]" />
   
   {/* Outer Circle */}
   <View className="absolute w-[124px] h-[124px] left-1/2 transform -translate-x-1/2 top-0 bg-white border border-[rgba(0,0,0,0.1)] rounded-full" />
   
   {/* Flag Circle - Full flag in circle, no red background */}
   <View className="absolute w-[94px] h-[94px] left-1/2 transform -translate-x-1/2 top-[15px] rounded-full overflow-hidden">
-    <img 
-      src="/roundsaudi.png" 
+    <Image 
+      source={{ uri: "/roundsaudi.png" }}
       alt="Saudi Flag" 
-      className="w-full h-full object-cover"
+      className="w-full h-full"
+      resizeMode="cover"
     />
   </View>
 
@@ -312,7 +265,7 @@ export default function LocationsScreen() {
   {/* Phone */}
   <View className="absolute left-6 top-[180px] flex flex-row items-center gap-3 space-y-2">
     <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-2">
-      <img src="/phone.svg" alt="Phone" className="w-4 h-4 object-contain" />
+      <Image source={{ uri: "/phone.svg" }} alt="Phone" className="w-4 h-4" resizeMode="contain" />
     </View>
     <Text className="font-helvetica font-normal text-[16px] leading-[44px] text-black">
       +1 234 567 8900
@@ -322,7 +275,7 @@ export default function LocationsScreen() {
   {/* Email */}
   <View className="absolute left-6 top-[225px] flex flex-row items-center gap-3 space-y-6">
     <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-6">
-      <img src="/mail.svg" alt="Email" className="w-4 h-4 object-contain" />
+      <Image source={{ uri: "/mail.svg" }} alt="Email" className="w-4 h-4" resizeMode="contain" />
     </View>
     <Text className="font-helvetica font-normal text-[16px] leading-[44px] text-black">
       info.john@fulfilx.co.uk
@@ -332,7 +285,7 @@ export default function LocationsScreen() {
   {/* Address */}
   <View className="absolute left-6 top-[270px] flex flex-row items-start gap-3 space-y-10">
     <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-10">
-      <img src="/map.svg" alt="Location" className="w-4 h-4 object-contain" />
+      <Image source={{ uri: "/map.svg" }} alt="Location" className="w-4 h-4" resizeMode="contain" />
     </View>
     <Text className="font-helvetica font-normal text-[16px] leading-[22px] text-black">
       Lorem Ipsum is simply dummy<br/>text of the printing & typing.
@@ -340,19 +293,20 @@ export default function LocationsScreen() {
   </View>
 </View>
                     {/* Bahrain Office Card */}
-<View className="relative w-[350px] h-[381px]">
+<View className="relative w-full lg:w-[350px] h-[381px]">
   {/* Background Card */}
-  <View className="absolute w-[350px] h-[334px] top-[47px] bg-white border border-[rgba(0,0,0,0.1)] backdrop-blur-[12.5px] rounded-[20px]" />
+  <View className="absolute w-full lg:w-[350px] h-[334px] top-[47px] bg-white border border-[rgba(0,0,0,0.1)] backdrop-blur-[12.5px] rounded-[20px]" />
   
   {/* Outer Circle */}
   <View className="absolute w-[124px] h-[124px] left-1/2 transform -translate-x-1/2 top-0 bg-white border border-[rgba(0,0,0,0.1)] rounded-full" />
   
   {/* Flag Circle - Full flag in circle, no red background */}
   <View className="absolute w-[94px] h-[94px] left-1/2 transform -translate-x-1/2 top-[15px] rounded-full overflow-hidden">
-    <img 
-      src="/roundb.png" 
+    <Image 
+      source={{ uri: "/roundb.png" }}
       alt="Bahrain Flag" 
-      className="w-full h-full object-cover"
+      className="w-full h-full"
+      resizeMode="cover"
     />
   </View>
 
@@ -365,7 +319,7 @@ export default function LocationsScreen() {
   {/* Phone */}
   <View className="absolute left-6 top-[180px] flex flex-row items-center gap-3 space-y-2">
     <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-2">
-      <img src="/phone.svg" alt="Phone" className="w-4 h-4 object-contain" />
+      <Image source={{ uri: "/phone.svg" }} alt="Phone" className="w-4 h-4" resizeMode="contain" />
     </View>
     <Text className="font-helvetica font-normal text-[16px] leading-[44px] text-black">
       +1 234 567 8900
@@ -375,7 +329,7 @@ export default function LocationsScreen() {
   {/* Email */}
   <View className="absolute left-6 top-[225px] flex flex-row items-center gap-3 space-y-6">
     <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-6">
-      <img src="/mail.svg" alt="Email" className="w-4 h-4 object-contain" />
+      <Image source={{ uri: "/mail.svg" }} alt="Email" className="w-4 h-4" resizeMode="contain" />
     </View>
     <Text className="font-helvetica font-normal text-[16px] leading-[44px] text-black">
       info.john@fulfilx.co.uk
@@ -385,7 +339,7 @@ export default function LocationsScreen() {
   {/* Address */}
   <View className="absolute left-6 top-[270px] flex flex-row items-start gap-3 space-y-10">
     <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-10">
-      <img src="/map.svg" alt="Location" className="w-4 h-4 object-contain" />
+      <Image source={{ uri: "/map.svg" }} alt="Location" className="w-4 h-4" resizeMode="contain" />
     </View>
     <Text className="font-helvetica font-normal text-[16px] leading-[22px] text-black">
       Lorem Ipsum is simply dummy<br/>text of the printing & typing.
@@ -393,19 +347,20 @@ export default function LocationsScreen() {
   </View>
 </View>
                     {/* Australia Office Card */}
-<View className="relative w-[350px] h-[381px]">
+<View className="relative w-full lg:w-[350px] h-[381px]">
   {/* Background Card */}
-  <View className="absolute w-[350px] h-[334px] top-[47px] bg-white border border-[rgba(0,0,0,0.1)] backdrop-blur-[12.5px] rounded-[20px]" />
+  <View className="absolute w-full lg:w-[350px] h-[334px] top-[47px] bg-white border border-[rgba(0,0,0,0.1)] backdrop-blur-[12.5px] rounded-[20px]" />
   
   {/* Outer Circle */}
   <View className="absolute w-[124px] h-[124px] left-1/2 transform -translate-x-1/2 top-0 bg-white border border-[rgba(0,0,0,0.1)] rounded-full" />
   
   {/* Flag Circle - Full flag in circle, no red background */}
   <View className="absolute w-[94px] h-[94px] left-1/2 transform -translate-x-1/2 top-[15px] rounded-full overflow-hidden">
-    <img 
-      src="/roundaus.png" 
+    <Image 
+      source={{ uri: "/roundaus.png" }}
       alt="Australia Flag" 
-      className="w-full h-full object-cover"
+      className="w-full h-full"
+      resizeMode="cover"
     />
   </View>
 
@@ -418,7 +373,7 @@ export default function LocationsScreen() {
   {/* Phone */}
   <View className="absolute left-6 top-[180px] flex flex-row items-center gap-3 space-y-2">
     <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-2">
-      <img src="/phone.svg" alt="Phone" className="w-4 h-4 object-contain" />
+      <Image source={{ uri: "/phone.svg" }} alt="Phone" className="w-4 h-4" resizeMode="contain" />
     </View>
     <Text className="font-helvetica font-normal text-[16px] leading-[44px] text-black">
       +1 234 567 8900
@@ -428,7 +383,7 @@ export default function LocationsScreen() {
   {/* Email */}
   <View className="absolute left-6 top-[225px] flex flex-row items-center gap-3 space-y-6">
     <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-6">
-      <img src="/mail.svg" alt="Email" className="w-4 h-4 object-contain" />
+      <Image source={{ uri: "/mail.svg" }} alt="Email" className="w-4 h-4" resizeMode="contain" />
     </View>
     <Text className="font-helvetica font-normal text-[16px] leading-[44px] text-black">
       info.john@fulfilx.co.uk
@@ -438,7 +393,7 @@ export default function LocationsScreen() {
   {/* Address */}
   <View className="absolute left-6 top-[270px] flex flex-row items-start gap-3 space-y-10">
     <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-10">
-      <img src="/map.svg" alt="Location" className="w-4 h-4 object-contain" />
+      <Image source={{ uri: "/map.svg" }} alt="Location" className="w-4 h-4" resizeMode="contain" />
     </View>
     <Text className="font-helvetica font-normal text-[16px] leading-[22px] text-black">
       Lorem Ipsum is simply dummy<br/>text of the printing & typing.
@@ -448,233 +403,223 @@ export default function LocationsScreen() {
 
 </View>
         </View>
-<section className="relative w-full bg-cover bg-center bg-no-repeat transform -translate-y-24" style={{backgroundImage: 'url(/bg.png)', marginBottom: -88}}>
-  <div className="relative max-w-[1490px] mx-auto px-3 py-15">
-  </div>
-    <div className="relative max-w-[1490px] mx-auto px-4 py-16">
+<View className="relative w-full min-h-screen bg-white">
+  <View className="relative w-full h-[600px] lg:h-[800px] -mt-24">
+     <Image 
+      source={{ uri: "/bg.png" }}
+      alt="Background" 
+      className="absolute w-full h-full"
+      resizeMode="cover"
+    />
+    <View className="relative max-w-[1490px] mx-auto px-4 py-16 mt-24">
     {/* "Global Presence" Badge */}
-    <div className="flex justify-center">
-      <div className="w-[250px] h-[48px] bg-[rgba(193,0,22,0.1)] rounded-[120px] flex items-center justify-center">
-        <span className="font-medium text-[16px] leading-[40px] tracking-[0.2em] uppercase text-[#C10016]">
+    <View className="flex flex-row justify-center">
+      <View className="w-[250px] h-[48px] bg-[rgba(193,0,22,0.1)] rounded-[120px] flex items-center justify-center">
+        <Text className="font-helvetica font-medium text-[16px] leading-[40px] tracking-[0.2em] uppercase text-[#C10016]">
           global presence
-        </span>
-      </div>
-    </div>
+        </Text>
+      </View>
+    </View>
 
     {/* Main Heading */}
-    <h2 className="text-center font-bold text-[64px] leading-[74px] text-black mt-16 max-w-[700px] mx-auto">
-  List of nations we work with <span className="text-[#C10016]">worldwide</span>
-</h2>
+    <Text className="text-center font-helvetica font-bold text-3xl lg:text-[64px] leading-tight lg:leading-[74px] text-black mt-16 max-w-[700px] mx-auto px-4">
+      List of nations we work with <Text className="text-[#C10016]">worldwide</Text>
+    </Text>
 
     {/* First Row of Countries */}
-    <div className="flex justify-center items-center gap-16 mt-20">
+    <View className="flex flex-row flex-wrap justify-center items-center gap-4 lg:gap-16 mt-20">
       {/* United Kingdom */}
-      <div className="flex items-center gap-3">
-        <div className="w-[30px] h-[20px] bg-cover bg-center rounded-[2px]" style={{backgroundImage: 'url(/UK.png)'}}></div>
-        <span className="font-normal text-[18px] leading-[30px] text-black">United Kingdom</span>
-      </div>
+      <View className="flex flex-row items-center gap-3">
+        <View className="w-[30px] h-[20px] rounded-[2px] overflow-hidden">
+          <Image source={{ uri: "/UK.png" }} className="w-full h-full" resizeMode="cover" />
+        </View>
+        <Text className="font-helvetica font-normal text-[18px] leading-[30px] text-black">United Kingdom</Text>
+      </View>
 
       {/* United States */}
-      <div className="flex items-center gap-3">
-        <div className="w-[30px] h-[20px] bg-cover bg-center rounded-[2px]" style={{backgroundImage: 'url(/US.png)'}}></div>
-        <span className="font-normal text-[18px] leading-[30px] text-black">United States</span>
-      </div>
+      <View className="flex flex-row items-center gap-3">
+        <View className="w-[30px] h-[20px] rounded-[2px] overflow-hidden">
+           <Image source={{ uri: "/US.png" }} className="w-full h-full" resizeMode="cover" />
+        </View>
+        <Text className="font-helvetica font-normal text-[18px] leading-[30px] text-black">United States</Text>
+      </View>
 
       {/* San Francisco */}
-      <div className="flex items-center gap-3">
-        <div className="w-[30px] h-[20px] bg-cover bg-center rounded-[2px]" style={{backgroundImage: 'url(/SF.png)'}}></div>
-        <span className="font-normal text-[18px] leading-[30px] text-black">San Francisco</span>
-      </div>
+      <View className="flex flex-row items-center gap-3">
+        <View className="w-[30px] h-[20px] rounded-[2px] overflow-hidden">
+           <Image source={{ uri: "/SF.png" }} className="w-full h-full" resizeMode="cover" />
+        </View>
+        <Text className="font-helvetica font-normal text-[18px] leading-[30px] text-black">San Francisco</Text>
+      </View>
 
       {/* Georgia */}
-      <div className="flex items-center gap-3">
-        <div className="w-[30px] h-[20px] border border-black/10 bg-cover bg-center rounded-[2px]" style={{backgroundImage: 'url(/G.png)'}}></div>
-        <span className="font-normal text-[18px] leading-[30px] text-black">Georgia</span>
-      </div>
+      <View className="flex flex-row items-center gap-3">
+        <View className="w-[30px] h-[20px] border border-black/10 rounded-[2px] overflow-hidden">
+           <Image source={{ uri: "/G.png" }} className="w-full h-full" resizeMode="cover" />
+        </View>
+        <Text className="font-helvetica font-normal text-[18px] leading-[30px] text-black">Georgia</Text>
+      </View>
 
       {/* UAE */}
-      <div className="flex items-center gap-3">
-        <div className="w-[30px] h-[20px] bg-cover bg-center rounded-[2px]" style={{backgroundImage: 'url(/UAE.png)'}}></div>
-        <span className="font-normal text-[18px] leading-[30px] text-black">UAE</span>
-      </div>
-    </div>
+      <View className="flex flex-row items-center gap-3">
+        <View className="w-[30px] h-[20px] rounded-[2px] overflow-hidden">
+           <Image source={{ uri: "/UAE.png" }} className="w-full h-full" resizeMode="cover" />
+        </View>
+        <Text className="font-helvetica font-normal text-[18px] leading-[30px] text-black">UAE</Text>
+      </View>
+    </View>
 
     {/* Second Row of Countries */}
-    <div className="flex justify-center items-center gap-12 mt-8">
+    <View className="flex flex-row flex-wrap justify-center items-center gap-4 lg:gap-12 mt-8">
       {/* Saudi */}
-      <div className="flex items-center gap-3">
-        <div className="w-[30px] h-[20px] bg-cover bg-center rounded-[2px]" style={{backgroundImage: 'url(/Saudi.png)'}}></div>
-        <span className="font-normal text-[18px] leading-[30px] text-black">Saudi</span>
-      </div>
+      <View className="flex flex-row items-center gap-3">
+        <View className="w-[30px] h-[20px] rounded-[2px] overflow-hidden">
+           <Image source={{ uri: "/Saudi.png" }} className="w-full h-full" resizeMode="cover" />
+        </View>
+        <Text className="font-helvetica font-normal text-[18px] leading-[30px] text-black">Saudi</Text>
+      </View>
 
       {/* Bahrain */}
-      <div className="flex items-center gap-3">
-        <div className="w-[30px] h-[20px] border border-black/10 bg-cover bg-center rounded-[2px]" style={{backgroundImage: 'url(/B.png)'}}></div>
-        <span className="font-normal text-[18px] leading-[30px] text-black">Bahrain</span>
-      </div>
+      <View className="flex flex-row items-center gap-3">
+        <View className="w-[30px] h-[20px] border border-black/10 rounded-[2px] overflow-hidden">
+           <Image source={{ uri: "/B.png" }} className="w-full h-full" resizeMode="cover" />
+        </View>
+        <Text className="font-helvetica font-normal text-[18px] leading-[30px] text-black">Bahrain</Text>
+      </View>
 
       {/* Australia */}
-      <div className="flex items-center gap-3">
-        <div className="w-[30px] h-[20px] bg-cover bg-center rounded-[2px]" style={{backgroundImage: 'url(/Aus.png)'}}></div>
-        <span className="font-normal text-[18px] leading-[30px] text-black">Australia</span>
-      </div>
-    </div>
+      <View className="flex flex-row items-center gap-3">
+        <View className="w-[30px] h-[20px] rounded-[2px] overflow-hidden">
+           <Image source={{ uri: "/Aus.png" }} className="w-full h-full" resizeMode="cover" />
+        </View>
+        <Text className="font-helvetica font-normal text-[18px] leading-[30px] text-black">Australia</Text>
+      </View>
+    </View>
 
     {/* World Map Image */}
-    <div className="relative w-full h-[698px] mt-20">
-      <div className="w-full h-full bg-cover bg-center rounded-lg" style={{backgroundImage: 'url(/world-map.png)'}}></div>
+    <View className="relative w-full h-[300px] lg:h-[698px] mt-20">
+      <Image source={{ uri: "/world-map.png" }} className="w-full h-full rounded-lg" resizeMode="contain" />
       
-{/* Location Markers */}
+{/* Location Markers - Hidden on mobile for simplicity or positioned relatively? keeping absolute but adjusted */}
 {/* UK Marker */}
-<div className="absolute left-[49%] top-[30%] group">
-  <div className="w-[48px] h-[48px] border border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110">
-    <div className="w-[32px] h-[32px] border border-[#C10016] rounded-full flex items-center justify-center">
-      <div className="w-[16px] h-[16px] bg-[#C10016] rounded-full"></div>
-    </div>
-  </div>
-  {/* Hover Popup */}
-  <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-    <div className="bg-white px-6 py-2 rounded-lg shadow-lg border border-gray-200 whitespace-nowrap flex items-center gap-2">
-    <img src="/UK.png" alt="UK Flag" className="w-[16px] h-[12px]" />
-    <p className="text-sm font-medium text-gray-800">United Kingdom</p>
-</div>
-    {/* Arrow */}
-    <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-white"></div>
-  </div>
-</div>
+<View className="absolute left-[49%] top-[30%] group">
+  <View className="w-[48px] h-[48px] border border-[#C10016] rounded-full flex items-center justify-center">
+    <View className="w-[32px] h-[32px] border border-[#C10016] rounded-full flex items-center justify-center">
+      <View className="w-[16px] h-[16px] bg-[#C10016] rounded-full"></View>
+    </View>
+  </View>
+</View>
 
 {/* US Marker */}
-<div className="absolute left-[13%] top-[51%] group">
-  <div className="w-[48px] h-[48px] border border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110">
-    <div className="w-[32px] h-[32px] border border-[#C10016] rounded-full flex items-center justify-center">
-      <div className="w-[16px] h-[16px] bg-[#C10016] rounded-full"></div>
-    </div>
-  </div>
-  {/* Hover Popup */}
-  <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-    <div className="bg-white px-6 py-2 rounded-lg shadow-lg border border-gray-200 whitespace-nowrap flex items-center gap-2">
-      <img src="/US.png" alt="US Flag" className="w-[16px] h-[12px]" />
-      <p className="text-sm font-medium text-gray-800">United States</p>
-    </div>
-    {/* Arrow */}
-    <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-white"></div>
-  </div>
-</div>
+<View className="absolute left-[13%] top-[51%] group">
+  <View className="w-[48px] h-[48px] border border-[#C10016] rounded-full flex items-center justify-center">
+    <View className="w-[32px] h-[32px] border border-[#C10016] rounded-full flex items-center justify-center">
+      <View className="w-[16px] h-[16px] bg-[#C10016] rounded-full"></View>
+    </View>
+  </View>
+</View>
 
 {/* UAE Marker */}
-<div className="absolute left-[54%] top-[60%] group">
-  <div className="w-[48px] h-[48px] border border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110">
-    <div className="w-[32px] h-[32px] border border-[#C10016] rounded-full flex items-center justify-center">
-      <div className="w-[16px] h-[16px] bg-[#C10016] rounded-full"></div>
-    </div>
-  </div>
-  {/* Hover Popup */}
-  <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-    <div className="bg-white px-6 py-2 rounded-lg shadow-lg border border-gray-200 whitespace-nowrap flex items-center gap-2">
-      <img src="/UAE.png" alt="UAE Flag" className="w-[16px] h-[12px]" />
-      <p className="text-sm font-medium text-gray-800">UAE</p>
-    </div>
-    {/* Arrow */}
-    <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-white"></div>
-  </div>
-</div>
+<View className="absolute left-[54%] top-[60%] group">
+  <View className="w-[48px] h-[48px] border border-[#C10016] rounded-full flex items-center justify-center">
+    <View className="w-[32px] h-[32px] border border-[#C10016] rounded-full flex items-center justify-center">
+      <View className="w-[16px] h-[16px] bg-[#C10016] rounded-full"></View>
+    </View>
+  </View>
+</View>
 
 {/* Australia Marker */}
-<div className="absolute left-[86%] top-[70%] group">
-  <div className="w-[48px] h-[48px] border border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110">
-    <div className="w-[32px] h-[32px] border border-[#C10016] rounded-full flex items-center justify-center">
-      <div className="w-[16px] h-[16px] bg-[#C10016] rounded-full"></div>
-    </div>
-  </div>
-  {/* Hover Popup */}
-  <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-    <div className="bg-white px-6 py-2 rounded-lg shadow-lg border border-gray-200 whitespace-nowrap flex items-center gap-2">
-      <img src="/Aus.png" alt="AU Flag" className="w-[16px] h-[12px]" />
-      <p className="text-sm font-medium text-gray-800">Australia</p>
-    </div>
-    {/* Arrow */}
-    <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-white"></div>
-  </div>
-</div>
+<View className="absolute left-[86%] top-[70%] group">
+  <View className="w-[48px] h-[48px] border border-[#C10016] rounded-full flex items-center justify-center">
+    <View className="w-[32px] h-[32px] border border-[#C10016] rounded-full flex items-center justify-center">
+      <View className="w-[16px] h-[16px] bg-[#C10016] rounded-full"></View>
+    </View>
+  </View>
+</View>
 
-{/* Small UK Marker */}
-<div className="absolute left-[25%] top-[62%] group">
-  <div className="w-[40px] h-[40px] border border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110">
-    <div className="w-[26.67px] h-[26.67px] border border-[#C10016] rounded-full flex items-center justify-center">
-      <div className="w-[13.33px] h-[13.33px] bg-[#C10016] rounded-full"></div>
-    </div>
-  </div>
-  {/* Hover Popup */}
-  <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-   <div className="bg-white px-6 py-2 rounded-lg shadow-lg border border-gray-200 whitespace-nowrap flex items-center gap-2">
-    <img src="/Saudi.png" alt="Saudi Flag" className="w-[16px] h-[12px]" />
-    <p className="text-sm font-medium text-gray-800">Saudi Arabia</p>
-    </div>
-    {/* Arrow */}
-    <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-white"></div>
-  </div>
-</div>
-    </div>
-  </div>
-</section>
+{/* Small UK Marker (Saudi?) */}
+<View className="absolute left-[25%] top-[62%] group">
+  <View className="w-[40px] h-[40px] border border-[#C10016] rounded-full flex items-center justify-center">
+    <View className="w-[26.67px] h-[26.67px] border border-[#C10016] rounded-full flex items-center justify-center">
+      <View className="w-[13.33px] h-[13.33px] bg-[#C10016] rounded-full"></View>
+    </View>
+  </View>
+</View>
+    </View>
+  </View>
+  </View>
+</View>
 
         {/* Accomplishments Section */}
-        <section className="relative w-full">
+        <View className="relative w-full">
           {/* Two Column Layout */}
-          <div className="flex">
+          <View className="flex flex-col lg:flex-row">
             
             {/* Left Section - White Background */}
-            <div className="w-1/2 bg-white relative min-h-[520px] flex items-center justify-center">
-              <img src="/bg.png" alt="" className="absolute inset-0 w-full h-full object-cover" />
+            <View className="w-full lg:w-1/2 bg-white relative min-h-[400px] lg:min-h-[520px] flex items-center justify-center py-12 lg:py-0">
+              <Image source={{ uri: "/bg.png" }} className="absolute inset-0 w-full h-full" resizeMode="cover" />
               {/* Left Section Content - Centered */}
-              <div className="max-w-[740px] w-full text-center px-8">
+              <View className="max-w-[740px] w-full items-center px-8">
                 
                 {/* Heading */}
-                <h2 className="font-bold text-[42px] leading-[54px] tracking-tight text-black mb-8">
+                <Text className="font-helvetica font-bold text-3xl lg:text-[42px] leading-tight lg:leading-[54px] tracking-tight text-black mb-8 text-center">
                   Our Accomplishments
-                </h2>
+                </Text>
 
                 {/* Red Line - Centered */}
-                <div className="w-[100px] h-[1px] bg-[#C10016] mx-auto mb-12"></div>
+                <View className="w-[100px] h-[1px] bg-[#C10016] mx-auto mb-12"></View>
 
                 {/* Image Grid - Centered */}
-                <div className="flex justify-center gap-16 mb-12">
-                  <div className="w-[84px] h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award1.png)'}}></div>
-                  <div className="w-[84px] h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award2.png)'}}></div>
-                  <div className="w-[84px] h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award3.png)'}}></div>
-                  <div className="w-[84px] h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award4.png)'}}></div>
-                  <div className="w-[84px] h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award5.png)'}}></div>
-                </div>
-              </div>
-            </div>
+                <View className="flex flex-row flex-wrap justify-center gap-4 lg:gap-16 mb-12">
+                  <View className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] overflow-hidden">
+                     <Image source={{ uri: "/award1.png" }} className="w-full h-full" resizeMode="contain" />
+                  </View>
+                  <View className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] overflow-hidden">
+                     <Image source={{ uri: "/award2.png" }} className="w-full h-full" resizeMode="contain" />
+                  </View>
+                  <View className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] overflow-hidden">
+                     <Image source={{ uri: "/award3.png" }} className="w-full h-full" resizeMode="contain" />
+                  </View>
+                  <View className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] overflow-hidden">
+                     <Image source={{ uri: "/award4.png" }} className="w-full h-full" resizeMode="contain" />
+                  </View>
+                  <View className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] overflow-hidden">
+                     <Image source={{ uri: "/award5.png" }} className="w-full h-full" resizeMode="contain" />
+                  </View>
+                </View>
+              </View>
+            </View>
 
             {/* Right Section - Red Background */}
-            <div className="w-1/2 bg-[#DA192F] relative min-h-[520px] flex items-center justify-center">
+            <View className="w-full lg:w-1/2 bg-[#DA192F] relative min-h-[400px] lg:min-h-[520px] flex items-center justify-center py-12 lg:py-0">
               {/* Right Section Content - Centered */}
-              <div className="max-w-[650px] w-full text-center px-8">
+              <View className="max-w-[650px] w-full items-center px-8">
                 
                 {/* Heading */}
-                <h2 className="font-bold text-[42px] leading-[54px] tracking-tight text-white mb-8">
+                <Text className="font-helvetica font-bold text-3xl lg:text-[42px] leading-tight lg:leading-[54px] tracking-tight text-white mb-8 text-center">
                   Advanced Tech Solutions
-                </h2>
+                </Text>
 
                 {/* White Line - Centered */}
-                <div className="w-[100px] h-[1px] bg-white mx-auto mb-12"></div>
+                <View className="w-[100px] h-[1px] bg-white mx-auto mb-12"></View>
 
                 {/* Subtitle - Centered */}
-                <p className="font-normal text-[24px] leading-[44px] text-white mb-12">
+                <Text className="font-helvetica font-normal text-xl lg:text-[24px] leading-relaxed lg:leading-[44px] text-white mb-12 text-center">
                   Exceptional Quality Service
-                </p>
+                </Text>
 
                 {/* CTA Button - Centered */}
-                <button className="border border-white rounded-[6px] flex items-center justify-center gap-[10px] px-8 py-4 transition-colors duration-300 mx-auto">
-                  <span className="text-white font-bold text-[18px] leading-[36px]">Let's Talk</span>
-                  <img src="/arrow.svg" alt="arrow" className="w-4 h-4 object-contain" />
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
+                <TouchableOpacity 
+                  onPress={() => router.push('/contact')}
+                  className="border border-white rounded-[6px] flex flex-row items-center justify-center gap-[10px] px-8 py-4"
+                >
+                  <Text className="text-white font-helvetica font-bold text-[18px] leading-[36px]">Let's Talk</Text>
+                  <Image source={{ uri: "/arrow.svg" }} alt="arrow" className="w-4 h-4" resizeMode="contain" />
+                </TouchableOpacity>
+              </View>
+            </View>
+          </View>
+        </View>
         <Footer/>
       </ScrollView>
     </>

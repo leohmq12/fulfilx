@@ -1,9 +1,13 @@
 import Footer from '@/components/layout/footer';
 import Navbar from '@/components/layout/navbar';
-import { Link, Stack } from 'expo-router';
-import { ScrollView, Text, View } from 'react-native';
+import { Link, Stack, useRouter } from 'expo-router';
+import { ScrollView, Text, TouchableOpacity, View, useWindowDimensions } from 'react-native';
 
 export default function BlogsScreen() {
+    const { width } = useWindowDimensions();
+    const isMobile = width < 1024;
+    const router = useRouter();
+
     const blogs = [
     // Column 1 - Left
     {
@@ -89,161 +93,228 @@ export default function BlogsScreen() {
         showsVerticalScrollIndicator={false}
       >
         {/* Hero Section */}
-        <View className="relative min-h-screen">
+        <View className="relative min-h-[60vh] lg:min-h-screen">
           {/* PNG Background */}
           <View className="absolute inset-0 z-0">
             <img 
               src="/bg.png"
               alt="Background pattern"
-              className="w-[1920px] h-[600px] object-cover"
+              className="w-full h-full lg:w-[1920px] lg:h-[600px] object-cover"
             />
           </View>
 
           {/* Hero Content */}
-          <View className="relative z-10 min-h-screen flex items-center justify-center pb-20">
+          <View className="relative z-10 min-h-[60vh] lg:min-h-screen flex items-center justify-center pb-20 pt-20 lg:pt-0">
             {/* Main Title */}
-            <Text className="font-helvetica font-bold text-[84px] leading-[84px] text-black text-center mb-8">
+            <Text className="font-helvetica font-bold text-5xl lg:text-[84px] leading-tight lg:leading-[84px] text-black text-center mb-8">
               Blogs
             </Text>
             
             {/* Breadcrumb Navigation */}
             <View className="flex flex-row items-center justify-center">
-              <Text className="font-helvetica font-normal text-[20px] leading-[40px] text-black">
+              <Text className="font-helvetica font-normal text-lg lg:text-[20px] leading-[40px] text-black">
                 Home
               </Text>
               <View className="w-1 h-1 bg-[#C10016] rounded-full mx-4" />
-              <Text className="font-helvetica font-medium text-[20px] leading-[40px] text-[#C10016]">
+              <Text className="font-helvetica font-medium text-lg lg:text-[20px] leading-[40px] text-[#C10016]">
                 Blogs
               </Text>
             </View>
           </View>
         </View>
+        
         {/* Sectors Grid Section */}
-        <View className="relative w-full transform -translate-y-60" style={{ minHeight: 2550, marginBottom: -270 }}>
-          {/* Main Title */}
-          <Text 
-            className="font-helvetica font-bold text-[64px] leading-[84px] text-black text-center absolute"
-            style={{
-              left: 215,
-              top: 80
-            }}
-          >
-            Blogs
-          </Text>
-
-          {/* Blogs Grid */}
-{blogs.map((blog, index) => (
-  <View
-    key={blog.id}
-    className="absolute"
-    style={{
-      width: 453,
-      left: blog.position.left,
-      top: blog.position.top
-    }}
-  >
-    {/* Image */}
-    <View 
-      className="w-[450px] h-[350px] rounded-[24px] bg-cover bg-center"
-      style={{ 
-        backgroundImage: `url(${blog.image})`,
-        backdropFilter: 'blur(12.5px)'
-      }}
-    />
-    
-    {/* Content */}
-    <View className="mt-6">
-      {/* Title */}
-      <Text className="font-helvetica font-bold text-[28px] leading-[84px] text-black">
-        {blog.title}
-      </Text>
-      
-      {/* Description */}
-      <Text className="font-helvetica font-normal text-[20px] leading-[38px] text-black mb-2">
-        {blog.description}
-      </Text>
-      
-      {/* Learn More Button */}
-      {blog.id === 1 ? (
-        // For The Power of Integration - with navigation
-        <Link href="/blogs/power-of-integration" asChild>
-          <View className="flex flex-row items-center gap-[10px] cursor-pointer">
-            <Text className="font-helvetica font-bold text-[20px] leading-[36px] text-[#C10016]">
-              Learn More
+        {isMobile ? (
+          // Mobile View - Vertical Stack
+          <View className="relative w-full px-4 -mt-20 pb-20">
+            {/* Main Title Mobile */}
+            <Text className="font-helvetica font-bold text-4xl text-black text-center mb-12">
+              Blogs
             </Text>
-            <img src="/arrow-dark.svg" alt="arrow" className="w-[13px] h-[14px]" />
+
+            <View className="flex flex-col gap-12">
+              {blogs.map((blog) => (
+                <View key={blog.id} className="w-full">
+                  {/* Image */}
+                  <View 
+                    className="w-full h-[250px] rounded-[24px] bg-cover bg-center mb-6"
+                    style={{ 
+                      backgroundImage: `url(${blog.image})`,
+                      backdropFilter: 'blur(12.5px)'
+                    }}
+                  />
+                  
+                  {/* Content */}
+                  <View>
+                    <Text className="font-helvetica font-bold text-2xl leading-tight text-black mb-4">
+                      {blog.title}
+                    </Text>
+                    
+                    <Text className="font-helvetica font-normal text-lg leading-relaxed text-black mb-4">
+                      {blog.description}
+                    </Text>
+                    
+                    <TouchableOpacity 
+                      onPress={() => blog.id === 1 ? router.push('/blogs/power-of-integration') : null}
+                      className="flex flex-row items-center gap-[10px]"
+                    >
+                      <Text className="font-helvetica font-bold text-lg text-[#C10016]">
+                        Learn More
+                      </Text>
+                      <View className="w-[13px] h-[14px]">
+                        <img src="/arrow-dark.svg" alt="arrow" className="w-full h-full object-contain" />
+                      </View>
+                    </TouchableOpacity>
+                  </View>
+                </View>
+              ))}
+            </View>
           </View>
-        </Link>
-      ) : (
-        // For other Blogs - without navigation
-        <View className="flex flex-row items-center gap-[10px] cursor-pointer">
-          <Text className="font-helvetica font-bold text-[20px] leading-[36px] text-[#C10016]">
-            Learn More
-          </Text>
-          <img src="/arrow-dark.svg" alt="arrow" className="w-[13px] h-[14px]" />
-        </View>
-      )}
-    </View>
-  </View>
-))}
-</View>
+        ) : (
+          // Desktop View - Original Absolute Positioning
+          <View className="relative w-full transform -translate-y-60" style={{ minHeight: 2550, marginBottom: -270 }}>
+            {/* Main Title */}
+            <Text 
+              className="font-helvetica font-bold text-[64px] leading-[84px] text-black text-center absolute"
+              style={{
+                left: 215,
+                top: 80
+              }}
+            >
+              Blogs
+            </Text>
+
+            {/* Blogs Grid */}
+            {blogs.map((blog, index) => (
+              <View
+                key={blog.id}
+                className="absolute"
+                style={{
+                  width: 453,
+                  left: blog.position.left,
+                  top: blog.position.top
+                }}
+              >
+                {/* Image */}
+                <View 
+                  className="w-[450px] h-[350px] rounded-[24px] bg-cover bg-center"
+                  style={{ 
+                    backgroundImage: `url(${blog.image})`,
+                    backdropFilter: 'blur(12.5px)'
+                  }}
+                />
+                
+                {/* Content */}
+                <View className="mt-6">
+                  {/* Title */}
+                  <Text className="font-helvetica font-bold text-[28px] leading-[84px] text-black">
+                    {blog.title}
+                  </Text>
+                  
+                  {/* Description */}
+                  <Text className="font-helvetica font-normal text-[20px] leading-[38px] text-black mb-2">
+                    {blog.description}
+                  </Text>
+                  
+                  {/* Learn More Button */}
+                  {blog.id === 1 ? (
+                    // For The Power of Integration - with navigation
+                    <Link href="/blogs/power-of-integration" asChild>
+                      <TouchableOpacity className="flex flex-row items-center gap-[10px] cursor-pointer">
+                        <Text className="font-helvetica font-bold text-[20px] leading-[36px] text-[#C10016]">
+                          Learn More
+                        </Text>
+                        <img src="/arrow-dark.svg" alt="arrow" className="w-[13px] h-[14px]" />
+                      </TouchableOpacity>
+                    </Link>
+                  ) : (
+                    // For other Blogs - without navigation
+                    <View className="flex flex-row items-center gap-[10px] cursor-pointer">
+                      <Text className="font-helvetica font-bold text-[20px] leading-[36px] text-[#C10016]">
+                        Learn More
+                      </Text>
+                      <img src="/arrow-dark.svg" alt="arrow" className="w-[13px] h-[14px]" />
+                    </View>
+                  )}
+                </View>
+              </View>
+            ))}
+          </View>
+        )}
         {/* Accomplishments Section */}
-        <section className="relative w-full">
+        <View className="relative w-full">
           {/* Two Column Layout */}
-          <div className="flex">
+          <View className="flex flex-col lg:flex-row">
             
             {/* Left Section - White Background */}
-            <div className="w-1/2 bg-white relative min-h-[520px] flex items-center justify-center">
-              <img src="/bg.png" alt="" className="absolute inset-0 w-full h-full object-cover" />
+            <View className="w-full lg:w-1/2 bg-white relative min-h-[400px] lg:min-h-[520px] flex items-center justify-center py-12 lg:py-0">
+              <View className="absolute inset-0">
+                <img src="/bg.png" alt="" className="w-full h-full object-cover" />
+              </View>
               {/* Left Section Content - Centered */}
-              <div className="max-w-[740px] w-full text-center px-8">
+              <View className="max-w-[740px] w-full items-center px-8 z-10">
                 
                 {/* Heading */}
-                <h2 className="font-bold text-[42px] leading-[54px] tracking-tight text-black mb-8">
+                <Text className="font-helvetica font-bold text-3xl lg:text-[42px] leading-tight lg:leading-[54px] tracking-tight text-black mb-8 text-center">
                   Our Accomplishments
-                </h2>
+                </Text>
 
                 {/* Red Line - Centered */}
-                <div className="w-[100px] h-[1px] bg-[#C10016] mx-auto mb-12"></div>
+                <View className="w-[100px] h-[1px] bg-[#C10016] mb-12" />
 
                 {/* Image Grid - Centered */}
-                <div className="flex justify-center gap-16 mb-12">
-                  <div className="w-[84px] h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award1.png)'}}></div>
-                  <div className="w-[84px] h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award2.png)'}}></div>
-                  <div className="w-[84px] h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award3.png)'}}></div>
-                  <div className="w-[84px] h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award4.png)'}}></div>
-                  <div className="w-[84px] h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award5.png)'}}></div>
-                </div>
-              </div>
-            </div>
+                <View className="flex flex-row flex-wrap justify-center gap-4 lg:gap-16 mb-12">
+                  <View className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px]">
+                    <img src="/award1.png" className="w-full h-full object-contain" />
+                  </View>
+                  <View className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px]">
+                    <img src="/award2.png" className="w-full h-full object-contain" />
+                  </View>
+                  <View className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px]">
+                    <img src="/award3.png" className="w-full h-full object-contain" />
+                  </View>
+                  <View className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px]">
+                    <img src="/award4.png" className="w-full h-full object-contain" />
+                  </View>
+                  <View className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px]">
+                    <img src="/award5.png" className="w-full h-full object-contain" />
+                  </View>
+                </View>
+              </View>
+            </View>
 
             {/* Right Section - Red Background */}
-            <div className="w-1/2 bg-[#DA192F] relative min-h-[520px] flex items-center justify-center">
+            <View className="w-full lg:w-1/2 bg-[#DA192F] relative min-h-[400px] lg:min-h-[520px] flex items-center justify-center py-12 lg:py-0">
               {/* Right Section Content - Centered */}
-              <div className="max-w-[650px] w-full text-center px-8">
+              <View className="max-w-[650px] w-full items-center px-8">
                 
                 {/* Heading */}
-                <h2 className="font-bold text-[42px] leading-[54px] tracking-tight text-white mb-8">
+                <Text className="font-helvetica font-bold text-3xl lg:text-[42px] leading-tight lg:leading-[54px] tracking-tight text-white mb-8 text-center">
                   Advanced Tech Solutions
-                </h2>
+                </Text>
 
                 {/* White Line - Centered */}
-                <div className="w-[100px] h-[1px] bg-white mx-auto mb-12"></div>
+                <View className="w-[100px] h-[1px] bg-white mb-12" />
 
                 {/* Subtitle - Centered */}
-                <p className="font-normal text-[24px] leading-[44px] text-white mb-12">
+                <Text className="font-helvetica font-normal text-xl lg:text-[24px] leading-relaxed lg:leading-[44px] text-white mb-12 text-center">
                   Exceptional Quality Service
-                </p>
+                </Text>
 
                 {/* CTA Button - Centered */}
-                <button className="border border-white rounded-[6px] flex items-center justify-center gap-[10px] px-8 py-4 transition-colors duration-300 mx-auto">
-                  <span className="text-white font-bold text-[18px] leading-[36px]">Let's Talk</span>
-                  <img src="/arrow.svg" alt="arrow" className="w-4 h-4 object-contain" />
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
+                <TouchableOpacity 
+                  className="border border-white rounded-[6px] flex flex-row items-center justify-center gap-[10px] px-8 py-4"
+                  onPress={() => router.push('/contact')}
+                >
+                  <Text className="font-helvetica font-bold text-[18px] leading-[36px] text-white">Let's Talk</Text>
+                  <View className="w-4 h-4">
+                    <img src="/arrow.svg" alt="arrow" className="w-full h-full object-contain" />
+                  </View>
+                </TouchableOpacity>
+              </View>
+            </View>
+          </View>
+        </View>
         <Footer />
       </ScrollView>
     </>

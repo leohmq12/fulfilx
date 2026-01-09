@@ -101,7 +101,7 @@ const row1Logos = [
         <img 
             src="/bg.png"
             alt="Background pattern"
-            className="w-[1920px] h-[1000px] object-cover"
+            className="w-full h-full lg:w-[1920px] lg:h-[1000px] object-cover"
         />
     </div>
 
@@ -110,7 +110,7 @@ const row1Logos = [
                     <div className="container mx-auto px-4 md:px-6 lg:px-8">
                         
                         {/* GET SHIP DONE Badge */}
-                        <div className="w-full max-w-[300px] mx-auto lg:mx-0 mb-8 -mt-28 lg:mb-12">
+                        <div className="w-full max-w-[300px] mx-auto lg:mx-0 mb-8 mt-10 lg:-mt-28 lg:mb-12">
                             <div className="flex flex-row items-center justify-center py-3 px-7 gap-2.5 bg-red-50 border border-[#C10016] rounded-full">
                                 <div className="w-1.5 h-1.5 bg-[#C10016] rounded-full" />
                                 <span className="text-[#C10016] text-base md:text-[18px] font-medium tracking-widest text-center">
@@ -122,14 +122,14 @@ const row1Logos = [
 
                         {/* Main Heading */}
                         <div className="w-full max-w-[900px] mx-auto lg:mx-0 mb-8 lg:mb-12">
-                            <h1 className="text-[68px] font-bold leading-tight text-black text-center lg:text-left">
+                            <h1 className="text-4xl lg:text-[68px] font-bold leading-tight text-black text-center lg:text-left">
                                 Bespoke Fulfilment, Built to Help Brands Scale
                             </h1>
                         </div>
 
                         {/* Description */}
                         <div className="w-full max-w-[759px] mx-auto lg:mx-0 mb-12 lg:mb-16">
-                            <p className="text-[24px] font-helvetica font-thin leading-[2] text-black text-center lg:text-left">
+                            <p className="text-lg lg:text-[24px] font-helvetica font-thin leading-[2] text-black text-center lg:text-left">
                                 At FulfilX, we are more than just a 3PL. We are your Partner in Fulfilment. "Your success is Our Success."
                             </p>
                         </div>
@@ -187,7 +187,7 @@ const row1Logos = [
                     </div>
                 </div>
                 {/* Stats Section */}
-<div className="relative w-full min-h-[725px] -mt-[600px] bg-[#A31E1E]">
+<div className="relative w-full min-h-[725px] mt-0 lg:-mt-[600px] bg-[#A31E1E]">
   {/* Background Image */}
   <div className="absolute inset-0">
     <img 
@@ -202,7 +202,7 @@ const row1Logos = [
     <div className="container mx-auto px-4 md:px-6 lg:px-8">
 
       {/* Main Heading */}
-      <h2 className="text-[54px] font-bold leading-[84px] tracking-[-0.01em] text-white mb-20">
+      <h2 className="text-3xl lg:text-[54px] font-bold leading-tight lg:leading-[84px] tracking-[-0.01em] text-white mb-10 lg:mb-20">
         The fastest growing 3PL partner assisting in the First, Middle, and Last Mile with Global Reach. Helping You Expand with ease.
       </h2>
 
@@ -212,9 +212,9 @@ const row1Logos = [
         {/* Stat 1 */}
         <div className="w-full">
           <div className="flex items-baseline gap-2 mb-4">
-            <span className="text-[54px] font-bold leading-[80px] tracking-[-0.01em] text-white">99.97</span>
+            <span className="text-4xl lg:text-[54px] font-bold leading-tight lg:leading-[80px] tracking-[-0.01em] text-white">99.97</span>
             <span
-              className="text-[54px] font-bold leading-[80px] tracking-[-0.01em] bg-transparent"
+              className="text-4xl lg:text-[54px] font-bold leading-tight lg:leading-[80px] tracking-[-0.01em] bg-transparent"
               style={{ color: 'transparent', WebkitTextStroke: '2px white' }}
             >
               %
@@ -227,9 +227,9 @@ const row1Logos = [
         {/* Stat 2 */}
         <div className="w-full">
           <div className="flex items-baseline gap-2 mb-4">
-            <span className="text-[54px] font-bold leading-[80px] tracking-[-0.01em] text-white">500,000</span>
+            <span className="text-4xl lg:text-[54px] font-bold leading-tight lg:leading-[80px] tracking-[-0.01em] text-white">500,000</span>
             <span
-              className="text-[54px] font-bold leading-[80px] tracking-[-0.01em] bg-transparent"
+              className="text-4xl lg:text-[54px] font-bold leading-tight lg:leading-[80px] tracking-[-0.01em] bg-transparent"
               style={{ color: 'transparent', WebkitTextStroke: '2px white' }}
             >
               sqft
@@ -243,12 +243,12 @@ const row1Logos = [
         <div className="w-full">
           <div className="flex items-baseline gap-2 mb-4">
             <span
-              className="text-[54px] font-bold leading-[80px] tracking-[-0.01em] bg-transparent"
+              className="text-4xl lg:text-[54px] font-bold leading-tight lg:leading-[80px] tracking-[-0.01em] bg-transparent"
               style={{ color: 'transparent', WebkitTextStroke: '2px white' }}
             >
               4
             </span>
-            <span className="text-[54px] font-bold leading-[80px] tracking-[-0.01em] text-white">Continents</span>
+            <span className="text-4xl lg:text-[54px] font-bold leading-tight lg:leading-[80px] tracking-[-0.01em] text-white">Continents</span>
           </div>
           <div className="h-px bg-white/10 w-full my-6"></div>
           <p className="text-[20px] font-normal leading-[44px] text-white">North America, UK & Europe, UAE, Australia</p>
@@ -264,7 +264,7 @@ const row1Logos = [
     <img 
       src="/bg.png"
       alt="Background"
-      className="w-1920 h-1000 object-cover"
+      className="w-full h-full lg:w-[1920px] lg:h-[1000px] object-cover"
     />
   </div>
   {/* Decorative rectangle image - Fixed positioning */}
@@ -293,15 +293,15 @@ const row1Logos = [
     </div>
 
     {/* Heading */}
-    <h2 className="text-[64px] font-bold leading-[74px] -tracking-[0.01em] text-black max-w-2xl mb-6">
+    <h2 className="text-4xl lg:text-[64px] font-bold leading-tight lg:leading-[74px] -tracking-[0.01em] text-black max-w-2xl mb-6">
       Looking to Elevate Your <span className="text-[#C10016]">Logistics?</span>
     </h2>
 
     {/* Paragraph */}
-    <p className="text-[22px] font-normal leading-[44px] text-black max-w-3xl mb-10">
+    <p className="text-lg lg:text-[22px] font-normal leading-loose lg:leading-[44px] text-black max-w-3xl mb-10">
     We work with startup and scale up brands our bespoke fulfilment services are a game changer in the 3PL market. We help brands get there logistics right so you can focus on growing.
     </p>
-    <p className="text-[22px] font-normal leading-[44px] text-black max-w-3xl mb-10">
+    <p className="text-lg lg:text-[22px] font-normal leading-loose lg:leading-[44px] text-black max-w-3xl mb-10">
     Ready to have <span className="text-[#C10016]">Stress-Free Logistics?</span>
     </p>
 
@@ -319,7 +319,7 @@ const row1Logos = [
     </a>
   </div>
 </section>
-<section className="relative w-full h-[1020px] overflow-hidden">
+<section className="relative w-full h-auto py-20 lg:h-[1020px] overflow-hidden">
   {/* Background with overlay */}
   <div 
     className="absolute inset-0 bg-black/65"
@@ -332,14 +332,14 @@ const row1Logos = [
   />
 
   {/* Title lowered slightly */}
-  <div className="absolute top-32 w-full text-center text-white">
-    <h2 className="text-[64px] font-bold leading-[80px] tracking-[-0.01em]">
+  <div className="relative lg:absolute lg:top-32 w-full text-center text-white mb-10 lg:mb-0">
+    <h2 className="text-4xl lg:text-[64px] font-bold leading-tight lg:leading-[80px] tracking-[-0.01em]">
       We Make Ship Happen
     </h2>
   </div>
 
   {/* Grid moved slightly upward + reduced spacing */}
-  <div className="absolute bottom-[150px] left-1/2 -translate-x-1/2 flex gap-[20px]">
+  <div className="relative lg:absolute lg:bottom-[150px] lg:left-1/2 lg:-translate-x-1/2 flex flex-col lg:flex-row gap-[20px] items-center px-4">
 
     {[
       { title: "Fulfilment Services", img: "/shiphappens1.png" },
@@ -348,10 +348,10 @@ const row1Logos = [
       { title: "Freight Services", img: "/shiphappens4.png" },
       { title: "Rework & Quality Control", img: "/shiphappens5.png" },
     ].map((item, i) => (
-      <div key={i} className="relative h-[480px] w-[250px] group overflow-hidden">
+      <div key={i} className="relative h-[300px] w-full lg:h-[480px] lg:w-[250px] group overflow-hidden rounded-xl">
 
-        {/* Divider line left of each except first */}
-        {i !== 0 && <div className="absolute -left-0 top-0 h-full w-px bg-white/30" />}
+        {/* Divider line left of each except first - hidden on mobile */}
+        {i !== 0 && <div className="absolute -left-0 top-0 h-full w-px bg-white/30 hidden lg:block" />}
 
         {/* Background blurred image */}
         <div 
@@ -365,7 +365,7 @@ const row1Logos = [
         
 
         {/* Vertical title */}
-        <h3 className="absolute left-11 bottom-4 text-white font-normal text-[32px] tracking-[-0.01em] rotate-[-90deg] whitespace-nowrap origin-bottom-left">
+        <h3 className="absolute left-6 bottom-4 lg:left-11 text-white font-normal text-2xl lg:text-[32px] tracking-[-0.01em] rotate-0 lg:rotate-[-90deg] whitespace-nowrap origin-bottom-left">
         {item.title}
         </h3>
         {/* Arrow Icon on right */}
@@ -379,7 +379,7 @@ const row1Logos = [
   </div>
 
   {/* CTA remains at the bottom */}
-  <div className="absolute bottom-10 left-1/2 -translate-x-1/2">
+  <div className="relative lg:absolute lg:bottom-10 lg:left-1/2 lg:-translate-x-1/2 mt-10 lg:mt-0 text-center flex justify-center">
     <button className="flex items-center gap-3 bg-[#C10016] text-white px-8 py-4 rounded-md font-bold text-[18px]">
       View All Services
       <img src="/arrow.svg" className="w-4 h-4" />
@@ -467,6 +467,18 @@ const row1Logos = [
       </div>
 
       {/* Step Circles aligned with text */}
+      <style>{`
+        @media (min-width: 768px) {
+          .step-0-circle { transform: translate(-40px, -40px); }
+          .step-0-content { transform: translate(-40px, -40px); }
+          .step-1-circle { transform: translate(40px, 20px); }
+          .step-1-content { transform: translate(40px, 20px); }
+          .step-2-circle { transform: translate(150px, -30px); }
+          .step-2-content { transform: translate(150px, -30px); }
+          .step-3-circle { transform: translate(240px, 5px); }
+          .step-3-content { transform: translate(240px, 5px); }
+        }
+      `}</style>
 <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
   {[
     { 
@@ -476,10 +488,6 @@ const row1Logos = [
       circleBg: "bg-black",
       titleColor: "text-black",
       description: "Get seamless integrations across all your sales channels and get set up within 24 hours.",
-      circleX: "-40px",
-      circleY: "-40px",
-      contentX: "-40px",
-      contentY: "-40px"
     },
     { 
       step: 2, 
@@ -489,10 +497,6 @@ const row1Logos = [
       titleColor: "text-[#C10016]",
       stepNumberBg: "bg-black",
       description: "We give you real-time visibility and control, helping you reduce stockouts, minimize overstock, and streamline your supply chain.",
-      circleX: "40px",
-      circleY: "20px",
-      contentX: "40px",
-      contentY: "20px"
     },
     { 
       step: 3, 
@@ -501,10 +505,6 @@ const row1Logos = [
       circleBg: "bg-black",
       titleColor: "text-black",
       description: "Our software ensures that your Pick and Pack remain error free and we have maintained a 100% accuracy record since 2023.",
-      circleX: "150px",
-      circleY: "-30px",
-      contentX: "150px",
-      contentY: "-30px"
     },
     { 
       step: 4, 
@@ -514,19 +514,12 @@ const row1Logos = [
       titleColor: "text-[#C10016]",
       stepNumberBg: "bg-black",
       description: "Real-time tracking, multiple carrier options & automated processes. Delight customers with reliable logistics.",
-      circleX: "240px",
-      circleY: "5px",
-      contentX: "240px",
-      contentY: "5px"
     }
   ].map((item, i) => (
     <div key={i} className="flex flex-col items-start">
       {/* Step Circle with custom positioning */}
       <div 
-        className="relative mb-6 z-10" 
-        style={{ 
-          transform: `translate(${item.circleX}, ${item.circleY})` 
-        }}
+        className={`relative mb-6 z-10 step-${i}-circle`} 
       >
         {/* Step number */}
         <span className={`absolute -top-2.5 -right-2.5 z-10 text-white text-sm font-bold ${item.stepNumberBg || 'bg-[#C10016]'} rounded-full w-10 h-10 flex items-center justify-center border-4 border-white`}>
@@ -545,9 +538,7 @@ const row1Logos = [
 
       {/* Content Container with custom positioning */}
       <div 
-        style={{ 
-          transform: `translate(${item.contentX}, ${item.contentY})` 
-        }}
+        className={`step-${i}-content`}
       >
         {/* Title */}
         <h3 className={`font-bold text-xl md:text-2xl mb-4 ${item.titleColor}`}>
@@ -564,7 +555,7 @@ const row1Logos = [
 </div>
     </div>
 </section>
-<section className="relative w-full h-[512px]">
+<section className="relative w-full h-auto py-20 lg:h-[512px]">
   {/* Background Image with Gradient Overlay */}
   <div 
     className="absolute inset-0 w-full h-full"
@@ -577,20 +568,20 @@ const row1Logos = [
   </div>
 
   {/* Content Container */}
-  <div className="relative w-[835px] h-[264px] left-1/2 transform -translate-x-1/2 top-[124px]">
+  <div className="relative w-full max-w-[835px] h-auto lg:h-[264px] lg:left-1/2 lg:transform lg:-translate-x-1/2 lg:top-[124px] flex flex-col items-center px-4 mx-auto">
     
     {/* Main Heading */}
-    <h1 className="absolute w-[835px] left-1/2 transform -translate-x-1/2 top-0 font-bold text-[74px] leading-[80px] tracking-tight text-white text-center">
+    <h1 className="relative lg:absolute w-full lg:w-[835px] lg:left-1/2 lg:transform lg:-translate-x-1/2 lg:top-0 font-bold text-4xl lg:text-[74px] leading-tight lg:leading-[80px] tracking-tight text-white text-center">
       Ready to have a Chat?
     </h1>
     
     {/* Subheading */}
-    <p className="absolute w-[403px] left-1/2 transform -translate-x-1/2 top-[107px] font-normal text-[28px] leading-[44px] text-white text-center mt-2">
+    <p className="relative lg:absolute w-full lg:w-[403px] lg:left-1/2 lg:transform lg:-translate-x-1/2 lg:top-[107px] font-normal text-xl lg:text-[28px] leading-relaxed lg:leading-[44px] text-white text-center mt-6 lg:mt-2">
       Do not hesitate to say Nǐn hǎo
     </p>
     
     {/* Button */}
-    <div className="absolute w-[160px] h-[60px] left-1/2 transform -translate-x-1/2 top-[204px] border border-white rounded-[6px] flex flex-col justify-center items-center gap-[10px] cursor-pointer transition duration-300 mt-6">
+    <div className="relative lg:absolute w-[160px] h-[60px] lg:left-1/2 lg:transform lg:-translate-x-1/2 lg:top-[204px] border border-white rounded-[6px] flex flex-col justify-center items-center gap-[10px] cursor-pointer transition duration-300 mt-10 lg:mt-6">
       <div className="flex flex-row items-center gap-[10px]">
         <span className="text-white font-normal text-[18px] leading-[36px]">Let's Talk</span>
       <img 
@@ -619,42 +610,42 @@ const row1Logos = [
     </div>
 
     {/* Main Heading */}
-    <h2 className="font-bold text-[74px] leading-[80px] tracking-tight text-black">
+    <h2 className="font-bold text-4xl lg:text-[74px] leading-tight lg:leading-[80px] tracking-tight text-black">
       We Get Ship Done!
     </h2>
 
     {/* History, Mission, Vision Tabs */}
     <div className="space-y-4">
-      <div className="flex space-x-8 border-b border-black/25 pb-4">
-        <button className="font-bold text-[28px] leading-[80px] text-[#C10016] relative">
+      <div className="flex space-x-8 border-b border-black/25 pb-4 overflow-x-auto">
+        <button className="font-bold text-xl lg:text-[28px] leading-[80px] text-[#C10016] relative whitespace-nowrap">
           History
           <div className="absolute bottom-[-17px] left-0 w-full h-[2px] bg-[#C10016]"></div>
         </button>
-        <button className="font-bold text-[28px] leading-[80px] text-black">
+        <button className="font-bold text-xl lg:text-[28px] leading-[80px] text-black whitespace-nowrap">
           Mission
         </button>
-        <button className="font-bold text-[28px] leading-[80px] text-black">
+        <button className="font-bold text-xl lg:text-[28px] leading-[80px] text-black whitespace-nowrap">
           Vision
         </button>
       </div>
 
       {/* Content */}
-      <p className="font-normal text-[20px] leading-[48px] text-black">
+      <p className="font-normal text-base lg:text-[20px] leading-relaxed lg:leading-[48px] text-black">
         At FulfilX we are more than just a logistics company. Our motto is "Your success is our success" that's why we see every brand as a partner, not just a customer. We are on hand to help your business grow and build customer-centric solutions.
       </p>
     </div>
 
     {/* Stats Grid */}
-    <div className="grid grid-cols-2 gap-6 pt-20">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-10 lg:pt-20">
       
       {/* Orders Shipped */}
 <div className="flex items-center gap-4">
   <div className="w-[150px] h-[80px] bg-black/10 rounded-[10px] flex items-center justify-center">
-    <span className="font-bold text-[40px] leading-[80px] tracking-tight text-black">
+    <span className="font-bold text-3xl lg:text-[40px] leading-[80px] tracking-tight text-black">
       5-Stars
     </span>
   </div>
-  <p className="font-normal text-[20px] leading-[40px] text-[#C10016]">
+  <p className="font-normal text-lg lg:text-[20px] leading-[30px] lg:leading-[40px] text-[#C10016]">
     On <br/> Google
   </p>
 </div>
@@ -662,11 +653,11 @@ const row1Logos = [
       {/* Courier Partners Globally */}
 <div className="flex items-center gap-4">
   <div className="w-[150px] h-[80px] bg-black/10 rounded-[10px] flex items-center justify-center">
-    <span className="font-bold text-[40px] leading-[80px] tracking-tight text-black">
+    <span className="font-bold text-3xl lg:text-[40px] leading-[80px] tracking-tight text-black">
       20+
     </span>
   </div>
-  <p className="font-normal text-[20px] leading-[40px] text-[#C10016]">
+  <p className="font-normal text-lg lg:text-[20px] leading-[30px] lg:leading-[40px] text-[#C10016]">
     Courier Partners <br/> Globally
   </p>
 </div>
@@ -674,11 +665,11 @@ const row1Logos = [
       {/* Customer Satisfaction */}
 <div className="flex items-center gap-4">
   <div className="w-[150px] h-[80px] bg-black/10 rounded-[10px] flex items-center justify-center">
-    <span className="font-bold text-[40px] leading-[80px] tracking-tight text-black">
+    <span className="font-bold text-3xl lg:text-[40px] leading-[80px] tracking-tight text-black">
       100+
     </span>
   </div>
-  <p className="font-normal text-[20px] leading-[40px] text-[#C10016]">
+  <p className="font-normal text-lg lg:text-[20px] leading-[30px] lg:leading-[40px] text-[#C10016]">
     Brands<br/>Managed
   </p>
 </div>
@@ -694,7 +685,7 @@ const row1Logos = [
 <div className="relative">
   {/* Image that changes based on active dot */}
   <div 
-    className="w-full h-[900px] bg-cover bg-center rounded-[24px] backdrop-blur-[12.5px]"
+    className="w-full h-[400px] lg:h-[900px] bg-cover bg-center rounded-[24px] backdrop-blur-[12.5px]"
     style={{
       backgroundImage: `url(${
         activeDot === 0 ? '/box.png' :

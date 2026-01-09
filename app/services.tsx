@@ -2,7 +2,7 @@ import Footer from '@/components/layout/footer';
 import Navbar from '@/components/layout/navbar';
 import { Stack, useRouter } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
-import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
+import { ScrollView, Text, TouchableOpacity, View, useWindowDimensions } from 'react-native';
 
 // Import SVG icons (make sure these files exist in your assets folder)
 // If using Expo web, you can use regular img tags for SVG files
@@ -14,6 +14,8 @@ const ArrowIcon = () => <img src="/arrow-dark.svg" alt="Arrow" width={10} height
 const CheckIcon = () => <img src="/check.svg" alt="Check" width={14} height={14} />;
 
 const FulfillmentServicesSection = () => {
+  const { width } = useWindowDimensions();
+  const isMobile = width < 1024;
   const services = [
     {
       id: 1,
@@ -59,8 +61,8 @@ const FulfillmentServicesSection = () => {
   ];
 
   return (
-<View className="w-full px-4 py-4 transform -translate-y-10">
-      <Text className="font-helvetica font-bold text-[54px] leading-[84px] text-black text-center mb-6">
+    <View className="w-full px-4 py-4 transform -translate-y-10">
+      <Text className="font-helvetica font-bold text-3xl lg:text-[54px] lg:leading-[84px] text-black text-center mb-6">
         Core Fulfilment <Text className="text-[#C10016]">Services</Text>
       </Text>
       
@@ -70,7 +72,7 @@ const FulfillmentServicesSection = () => {
         contentContainerStyle={{
           justifyContent: 'center',
           flexDirection: 'row',
-          paddingHorizontal: 180,
+          paddingHorizontal: isMobile ? 20 : 180,
         }}
       >
         {services.map((service) => {
@@ -79,32 +81,34 @@ const FulfillmentServicesSection = () => {
             <View 
               key={service.id}
               style={{ marginHorizontal: 12 }} 
-              className="w-[350px] h-[430px] bg-white border border-[#D9D9D9] rounded-[20px] backdrop-blur-[12.5px] flex-shrink-0 p-8 flex flex-col"
+              className="w-[300px] lg:w-[350px] min-h-[430px] bg-white border border-[#D9D9D9] rounded-[20px] backdrop-blur-[12.5px] flex-shrink-0 p-8 flex flex-col justify-between"
             >
-              {/* Icon */}
-              <View className="mb-4">
-                <IconComponent />
-              </View>
-              
-              {/* Title - FIXED: removed leading-[74px] */}
-              <Text className="font-helvetica font-bold text-[20px] leading-snug text-black">
-                {service.title}
-              </Text>
-              
-              {/* Features */}
-              <View className="mt-4 space-y-4 flex-1">
-                {service.features.map((feature, index) => (
-                  <View key={index} className="flex-row items-baseline gap-3">
-                    <CheckIcon />
-                    <Text className="font-helvetica text-[16px] leading-[22px] text-black flex-1">
-                      {feature}
-                    </Text>
-                  </View>
-                ))}
+              <View>
+                {/* Icon */}
+                <View className="mb-4">
+                  <IconComponent />
+                </View>
+                
+                {/* Title */}
+                <Text className="font-helvetica font-bold text-[20px] leading-snug text-black">
+                  {service.title}
+                </Text>
+                
+                {/* Features */}
+                <View className="mt-4 space-y-4">
+                  {service.features.map((feature, index) => (
+                    <View key={index} className="flex-row items-baseline gap-3">
+                      <CheckIcon />
+                      <Text className="font-helvetica text-[16px] leading-[22px] text-black flex-1">
+                        {feature}
+                      </Text>
+                    </View>
+                  ))}
+                </View>
               </View>
               
               {/* Contact Sales Button */}
-              <TouchableOpacity className="flex-row items-center gap-2 translate-y-6">
+              <TouchableOpacity className="flex-row items-center gap-2 mt-6">
                 <Text className="font-helvetica font-bold text-[16px] leading-normal text-[#C10016]">
                   Contact Sales
                 </Text>
@@ -125,6 +129,8 @@ const Arrow = () => <img src="/arrow-dark.svg" alt="Arrow" width={10} height={10
 const Check = () => <img src="/check.svg" alt="Check" width={14} height={14} />;
 
 const WarehouseServicesSection = () => {
+  const { width } = useWindowDimensions();
+  const isMobile = width < 1024;
   const services = [
     {
       id: 1,
@@ -166,7 +172,7 @@ const WarehouseServicesSection = () => {
           justifyContent: 'center',
           alignItems: 'center',
           flexDirection: 'row',
-          paddingHorizontal: 365,
+          paddingHorizontal: isMobile ? 20 : 365,
         }}
       >
         {/* Inner container with flex row and gap */}
@@ -176,32 +182,34 @@ const WarehouseServicesSection = () => {
             return (
               <View 
                 key={service.id} 
-                className="w-[350px] h-[334px] bg-white/10 border border-[#D9D9D9]/50 rounded-[20px] backdrop-blur-[20px] flex-shrink-0 p-8 flex flex-col"
+                className="w-[300px] lg:w-[350px] min-h-[334px] bg-white/10 border border-[#D9D9D9]/50 rounded-[20px] backdrop-blur-[20px] flex-shrink-0 p-8 flex flex-col justify-between"
               >
-                {/* Icon */}
-                <View className="mb-4">
-                  <IconComponent />
-                </View>
-                
-                {/* Title */}
-                <Text className="font-helvetica font-bold text-[20px] leading-normal text-black mb-3">
-                  {service.title}
-                </Text>
-                
-                {/* Features */}
-                <View className="space-y-2 flex-1">
-                  {service.features.map((feature, index) => (
-                    <View key={index} className="flex-row items-baseline gap-3">
-                      <Check />
-                      <Text className="font-helvetica text-[16px] leading-[22px] text-black">
-                        {feature}
-                      </Text>
-                    </View>
-                  ))}
+                <View>
+                  {/* Icon */}
+                  <View className="mb-4">
+                    <IconComponent />
+                  </View>
+                  
+                  {/* Title */}
+                  <Text className="font-helvetica font-bold text-[20px] leading-normal text-black mb-3">
+                    {service.title}
+                  </Text>
+                  
+                  {/* Features */}
+                  <View className="space-y-2">
+                    {service.features.map((feature, index) => (
+                      <View key={index} className="flex-row items-baseline gap-3">
+                        <Check />
+                        <Text className="font-helvetica text-[16px] leading-[22px] text-black flex-1">
+                          {feature}
+                        </Text>
+                      </View>
+                    ))}
+                  </View>
                 </View>
                 
                 {/* Contact Sales Button */}
-                <TouchableOpacity className="flex-row items-center gap-2 translate-y-6">
+                <TouchableOpacity className="flex-row items-center gap-2 mt-6">
                   <Text className="font-helvetica font-bold text-[16px] leading-normal text-[#C10016]">
                     Contact Sales
                   </Text>
@@ -222,6 +230,8 @@ const ArrowIco = () => <img src="/arrow-dark.svg" alt="Arrow" width={10} height=
 const CheckIco = () => <img src="/check.svg" alt="Check" width={14} height={14} />;
 
 const LogisticsServicesSection = () => {
+  const { width } = useWindowDimensions();
+  const isMobile = width < 1024;
   const services = [
     {
       id: 1,
@@ -280,7 +290,7 @@ const LogisticsServicesSection = () => {
           justifyContent: 'center',
           alignItems: 'center',
           flexDirection: 'row',
-          paddingHorizontal: 200,
+          paddingHorizontal: isMobile ? 20 : 200,
         }}
       >
         {/* Inner container with flex row and gap */}
@@ -290,46 +300,48 @@ const LogisticsServicesSection = () => {
             return (
               <View 
                 key={service.id} 
-                className="w-[470px] h-[650px] bg-white/10 border border-[#D9D9D9]/50 rounded-[20px] backdrop-blur-[20px] flex-shrink-0 p-8 flex flex-col"
+                className="w-[300px] lg:w-[470px] min-h-[550px] lg:min-h-[650px] bg-white/10 border border-[#D9D9D9]/50 rounded-[20px] backdrop-blur-[20px] flex-shrink-0 p-4 lg:p-8 flex flex-col justify-between"
               >
-                {/* Image Container with cutting icon */}
-                <View className="relative w-[430px] h-[280px] mb-8 overflow-visible">
-                  {/* Image Placeholder - Replace with actual image */}
-                  <View className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 rounded-[12px] overflow-hidden">
-                    <img src={service.imageUrl} className="w-full h-full" style={{ objectFit: 'cover' }} />
-                  </View>
-                  
-                  {/* Icon cutting through bottom-right corner */}
-                  <View className="absolute -bottom-10 right-7 z-10">
-                    <View className="w-20 h-20 rounded-full bg-transparent">
-                      <View className="w-full h-full rounded-full bg-white p-1">
-                        <View className="w-full h-full rounded-full flex items-center justify-center">
-                          <IconComponent />
+                <View>
+                  {/* Image Container with cutting icon */}
+                  <View className="relative w-full h-[200px] lg:h-[280px] mb-12 overflow-visible">
+                    {/* Image Placeholder - Replace with actual image */}
+                    <View className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 rounded-[12px] overflow-hidden">
+                      <img src={service.imageUrl} className="w-full h-full" style={{ objectFit: 'cover' }} />
+                    </View>
+                    
+                    {/* Icon cutting through bottom-right corner */}
+                    <View className="absolute -bottom-10 right-2 lg:right-7 z-10">
+                      <View className="w-20 h-20 rounded-full bg-transparent">
+                        <View className="w-full h-full rounded-full bg-white p-1">
+                          <View className="w-full h-full rounded-full flex items-center justify-center">
+                            <IconComponent />
+                          </View>
                         </View>
                       </View>
                     </View>
                   </View>
-                </View>
-                
-                {/* Title */}
-                <Text className="font-helvetica font-bold text-[20px] leading-normal text-black mb-3">
-                  {service.title}
-                </Text>
-                
-                {/* Features */}
-                <View className="space-y-2 flex-1">
-                  {service.features.map((feature, index) => (
-                    <View key={index} className="flex-row items-baseline gap-3">
-                      <Check />
-                      <Text className="font-helvetica text-[16px] leading-[22px] text-black">
-                        {feature}
-                      </Text>
-                    </View>
-                  ))}
+                  
+                  {/* Title */}
+                  <Text className="font-helvetica font-bold text-[20px] leading-normal text-black mb-3">
+                    {service.title}
+                  </Text>
+                  
+                  {/* Features */}
+                  <View className="space-y-2">
+                    {service.features.map((feature, index) => (
+                      <View key={index} className="flex-row items-baseline gap-3">
+                        <Check />
+                        <Text className="font-helvetica text-[16px] leading-[22px] text-black flex-1">
+                          {feature}
+                        </Text>
+                      </View>
+                    ))}
+                  </View>
                 </View>
                 
                 {/* Contact Sales Button */}
-                <TouchableOpacity className="flex-row items-center gap-2 translate-y-6">
+                <TouchableOpacity className="flex-row items-center gap-2 mt-6">
                   <Text className="font-helvetica font-bold text-[16px] leading-normal text-[#C10016]">
                     Contact Sales
                   </Text>
@@ -349,6 +361,8 @@ const Arrows = () => <img src="/arrow-dark.svg" alt="Arrow" width={10} height={1
 const Checks = () => <img src="/check.svg" alt="Check" width={14} height={14} />;
 
 const TechnologyIntegrationsSection = () => {
+  const { width } = useWindowDimensions();
+  const isMobile = width < 1024;
   const services = [
     {
       id: 1,
@@ -399,7 +413,7 @@ const TechnologyIntegrationsSection = () => {
           justifyContent: 'center',
           alignItems: 'center',
           flexDirection: 'row',
-          paddingHorizontal: 270,
+          paddingHorizontal: isMobile ? 20 : 270,
         }}
       >
         {/* Inner container with flex row and gap */}
@@ -409,36 +423,38 @@ const TechnologyIntegrationsSection = () => {
             return (
               <View 
                 key={service.id} 
-                className="w-[620px] h-[440px] bg-white/10 border border-[#D9D9D9]/50 rounded-[20px] backdrop-blur-[20px] flex-shrink-0 p-8 flex flex-col"
+                className="w-[300px] lg:w-[620px] min-h-[440px] bg-white/10 border border-[#D9D9D9]/50 rounded-[20px] backdrop-blur-[20px] flex-shrink-0 p-8 flex flex-col justify-between"
               >
-                {/* Icon inside card - KEEP THIS */}
-                    <View className="w-20 h-20 rounded-full bg-transparent">
-                      <View className="w-full h-full rounded-full bg-white p-1">
-                        <View className="w-full h-full rounded-full flex items-center justify-center">
-                          <IconComponent />
+                <View>
+                  {/* Icon inside card - KEEP THIS */}
+                      <View className="w-20 h-20 rounded-full bg-transparent mb-4">
+                        <View className="w-full h-full rounded-full bg-white p-1">
+                          <View className="w-full h-full rounded-full flex items-center justify-center">
+                            <IconComponent />
+                          </View>
                         </View>
                       </View>
-                    </View>
-                
-                {/* Title */}
-                <Text className="font-helvetica font-bold text-[20px] leading-normal text-black mb-3">
-                  {service.title}
-                </Text>
-                
-                {/* Features */}
-                <View className="space-y-2 flex-1">
-                  {service.features.map((feature, index) => (
-                    <View key={index} className="flex-row items-baseline gap-3">
-                      <Check />
-                      <Text className="font-helvetica text-[16px] leading-[22px] text-black">
-                        {feature}
-                      </Text>
-                    </View>
-                  ))}
+                  
+                  {/* Title */}
+                  <Text className="font-helvetica font-bold text-[20px] leading-normal text-black mb-3">
+                    {service.title}
+                  </Text>
+                  
+                  {/* Features */}
+                  <View className="space-y-2">
+                    {service.features.map((feature, index) => (
+                      <View key={index} className="flex-row items-baseline gap-3">
+                        <Check />
+                        <Text className="font-helvetica text-[16px] leading-[22px] text-black flex-1">
+                          {feature}
+                        </Text>
+                      </View>
+                    ))}
+                  </View>
                 </View>
                 
                 {/* Contact Sales Button */}
-                <TouchableOpacity className="flex-row items-center gap-2 translate-y-6">
+                <TouchableOpacity className="flex-row items-center gap-2 mt-6">
                   <Text className="font-helvetica font-bold text-[16px] leading-normal text-[#C10016]">
                     Contact Sales
                   </Text>
@@ -453,7 +469,7 @@ const TechnologyIntegrationsSection = () => {
       {/* ADDITIONAL ICON SETS - POSITIONED ABSOLUTELY OUTSIDE */}
       
       {/* Left Icon Set - Group 1160445162 */}
-      <View className="absolute w-[208px] h-[342px] left-[640px] top-1/2 transform -translate-y-1/2">
+      <View className="hidden lg:block absolute w-[208px] h-[342px] left-[640px] top-1/2 transform -translate-y-1/2">
         {/* Group 1160445156 */}
         <View className="absolute w-[94px] h-[94px] left-[114px] top-0">
           <View className="absolute w-full h-full rounded-full bg-[#D9D9D9] opacity-40" />
@@ -492,7 +508,7 @@ const TechnologyIntegrationsSection = () => {
       </View>
       
       {/* Right Image - image 82 */}
-      <View className="absolute w-[253px] h-[253px] right-[390px] top-1/2 transform -translate-y-1/2">
+      <View className="hidden lg:block absolute w-[253px] h-[253px] right-[390px] top-1/2 transform -translate-y-1/2">
         <img src="/r.png" alt="Right Image" className="w-full h-full" />
       </View>
     </View>
@@ -598,14 +614,14 @@ export default function ServicesScreen(){
             <img 
               src="/bg.png"
               alt="Background pattern"
-              className="w-[1920px] h-[600px] object-cover"
+              className="w-full h-full lg:w-[1920px] lg:h-[600px] object-cover"
             />
           </View>
 
           {/* Hero Content */}
           <View className="relative z-10 min-h-screen flex items-center justify-center pb-20">
             {/* Main Title */}
-            <Text className="font-helvetica font-bold text-[84px] leading-[84px] text-black text-center mb-8">
+            <Text className="font-helvetica font-bold text-6xl lg:text-[84px] leading-[84px] text-black text-center mb-8">
               Services
             </Text>
             
@@ -728,12 +744,12 @@ export default function ServicesScreen(){
       className="w-full h-full object-cover" /* Change to full width/height */
     />
   </View>
-  <Text className="font-helvetica font-bold text-[54px] leading-[84px] text-black text-center relative z-10">
+  <Text className="font-helvetica font-bold text-3xl lg:text-[54px] lg:leading-[84px] text-black text-center relative z-10">
     Warehouse & Storage <Text className="text-[#C10016]">Services</Text>
   </Text>
   <WarehouseServicesSection/>
 </View>
-<section className="relative w-full h-[916px] overflow-hidden">
+<section className="relative w-full h-auto min-h-[916px] overflow-hidden py-20 lg:py-0">
   {/* Background with overlay */}
   <div 
     className="absolute inset-0 bg-black/65"
@@ -746,14 +762,14 @@ export default function ServicesScreen(){
   />
 
   {/* Title lowered slightly */}
-  <div className="absolute top-32 w-full text-center text-white">
-    <h2 className="text-[64px] font-bold leading-[80px] tracking-[-0.01em]">
+  <div className="relative lg:absolute lg:top-32 w-full text-center text-white mb-12 lg:mb-0">
+    <h2 className="text-4xl lg:text-[64px] font-bold leading-tight lg:leading-[80px] tracking-[-0.01em]">
       Value Added <span className='text-[#C10016]'>Services (VAS)</span>
     </h2>
   </div>
 
   {/* Grid moved slightly upward + reduced spacing */}
-  <div className="absolute bottom-[150px] left-1/2 -translate-x-1/2 flex gap-[20px]">
+  <div className="relative lg:absolute lg:bottom-[150px] lg:left-1/2 lg:-translate-x-1/2 flex flex-col lg:flex-row gap-[20px] items-center">
 
     {[
       { 
@@ -806,9 +822,8 @@ export default function ServicesScreen(){
       },
     ].map((item, i) => (
       <div key={i} className="relative h-[480px] w-[250px] group overflow-hidden">
-
         {/* Divider line left of each except first */}
-        {i !== 0 && <div className="absolute -left-0 top-0 h-full w-px bg-white/30" />}
+        {i !== 0 && <div className="hidden lg:block absolute -left-0 top-0 h-full w-px bg-white/30" />}
 
         {/* Background blurred image */}
         <div 
@@ -879,19 +894,19 @@ export default function ServicesScreen(){
       className="w-full h-full object-cover" /* Change to full width/height */
     />
   </View>
-  <Text className="font-helvetica font-bold text-[54px] leading-[84px] text-black text-center relative z-10 transform -translate-y-10">
+  <Text className="font-helvetica font-bold text-3xl lg:text-[54px] lg:leading-[84px] text-black text-center relative z-10 transform -translate-y-10">
     Logistics, Frieght & <Text className="text-[#C10016]">International</Text>
   </Text>
   <LogisticsServicesSection/>
 </View>
 {}{/* Technology & Integrations Section */}
 <View className="relative py-20"> {/* Add vertical padding */}
-  <Text className="font-helvetica font-bold text-[54px] leading-[84px] text-black text-center relative z-10 transform -translate-y-8">
+  <Text className="font-helvetica font-bold text-3xl lg:text-[54px] lg:leading-[84px] text-black text-center relative z-10 transform -translate-y-8">
     Technology & <Text className="text-[#C10016]">Integrations</Text>
   </Text>
   <TechnologyIntegrationsSection/>
 </View>
-<section className="relative w-full h-[916px] overflow-hidden">
+<section className="relative w-full h-auto min-h-[916px] overflow-hidden py-20 lg:py-0">
   {/* Background with overlay */}
   <div 
     className="absolute inset-0 bg-black/65"
@@ -903,14 +918,14 @@ export default function ServicesScreen(){
     }}
   />
   {/* Title lowered slightly */}
-  <div className="absolute top-32 w-full text-center text-white">
-    <h2 className="text-[64px] font-bold leading-[80px] tracking-[-0.01em]">
+  <div className="relative lg:absolute lg:top-32 w-full text-center text-white mb-12 lg:mb-0">
+    <h2 className="text-4xl lg:text-[64px] font-bold leading-tight lg:leading-[80px] tracking-[-0.01em]">
       Brand & Creative <span className='text-[#C10016]'>Services</span>
     </h2>
   </div>
 
   {/* Grid moved slightly upward + reduced spacing */}
-  <div className="absolute bottom-[150px] left-1/2 -translate-x-1/2 flex gap-[20px]">
+  <div className="relative lg:absolute lg:bottom-[150px] lg:left-1/2 lg:-translate-x-1/2 flex flex-col lg:flex-row gap-[20px] items-center">
 
     {[
       { 
@@ -951,9 +966,8 @@ export default function ServicesScreen(){
       },
     ].map((item, i) => (
       <div key={i} className="relative h-[480px] w-[250px] group overflow-hidden">
-
         {/* Divider line left of each except first */}
-        {i !== 0 && <div className="absolute -left-0 top-0 h-full w-px bg-white/30" />}
+        {i !== 0 && <div className="hidden lg:block absolute -left-0 top-0 h-full w-px bg-white/30" />}
 
         {/* Background blurred image */}
         <div 
@@ -1044,7 +1058,7 @@ export default function ServicesScreen(){
     </div>
 
     {/* Main Heading */}
-    <h2 className="text-center font-bold text-[74px] leading-[80px] tracking-tight text-white mt-16">
+    <h2 className="text-center font-bold text-4xl lg:text-[74px] leading-tight lg:leading-[80px] tracking-tight text-white mt-8 lg:mt-16">
       Leading Brands...
     </h2>
 
@@ -1053,7 +1067,7 @@ export default function ServicesScreen(){
 <div className="mt-20 slider-container">
   <div className="flex animate-infinite-scroll">
     {[...row1Logos, ...row1Logos].map((logo, index) => (
-      <div key={index} className="group relative flex-shrink-0 mx-16">
+      <div key={index} className="group relative flex-shrink-0 mx-8 lg:mx-16">
         <div className="w-[240px] h-[100px] rounded-lg flex items-center justify-center transition-all duration-300 hover:bg-transparent hover:scale-105">
           <img 
             src={logo.src}
@@ -1070,7 +1084,7 @@ export default function ServicesScreen(){
 <div className="mt-12 slider-container">
   <div className="flex animate-infinite-scroll-reverse">
     {[...row2Logos, ...row2Logos].map((logo, index) => (
-      <div key={index} className="group relative flex-shrink-0 mx-16">
+      <div key={index} className="group relative flex-shrink-0 mx-8 lg:mx-16">
         <div className="w-[200px] h-[80px] rounded-lg flex items-center justify-center backdrop-blur-sm transition-all duration-300 hover:bg-transparent hover:scale-105">
           <img 
             src={logo.src}
@@ -1087,7 +1101,7 @@ export default function ServicesScreen(){
 <div className="mt-12 slider-container">
   <div className="flex animate-infinite-scroll">
     {[...row3Logos, ...row3Logos].map((logo, index) => (
-      <div key={index} className="group relative flex-shrink-0 mx-16">
+      <div key={index} className="group relative flex-shrink-0 mx-8 lg:mx-16">
         <div className="w-[240px] h-[100px] rounded-lg flex items-center justify-center backdrop-blur-sm transition-all duration-300 hover:bg-transparent hover:scale-105">
           <img 
             src={logo.src}
@@ -1114,12 +1128,12 @@ export default function ServicesScreen(){
     </div>
 
     {/* Main Heading */}
-    <h2 className="text-left font-bold text-[64px] leading-[80px] tracking-tight text-white mt-16 max-w-[960px]">
+    <h2 className="text-left font-bold text-3xl lg:text-[64px] leading-tight lg:leading-[80px] tracking-tight text-white mt-8 lg:mt-16 max-w-[960px]">
       Meet the people we make happy
     </h2>
 
     {/* Navigation Arrows - Aligned with badge and heading */}
-    <div className="absolute right-4 top-24 flex gap-4">
+    <div className="relative mt-4 lg:absolute lg:right-4 lg:top-24 flex gap-4 justify-end lg:justify-start">
       {/* Left Arrow */}
       <button 
         onClick={prevSlide}
@@ -1162,16 +1176,16 @@ export default function ServicesScreen(){
 </section>
 <section className="relative w-full">
   {/* Two Column Layout */}
-  <div className="flex">
+  <div className="flex flex-col lg:flex-row">
     
     {/* Left Section - White Background */}
-    <div className="w-1/2 bg-white relative min-h-[520px] flex items-center justify-center">
+    <div className="w-full lg:w-1/2 bg-white relative min-h-[400px] lg:min-h-[520px] flex items-center justify-center py-12 lg:py-0">
       <img src="/bg.png" alt="" className="absolute inset-0 w-full h-full object-cover" />
       {/* Left Section Content - Centered */}
       <div className="max-w-[740px] w-full text-center px-8">
         
         {/* Heading */}
-        <h2 className="font-bold text-[42px] leading-[54px] tracking-tight text-black mb-8">
+        <h2 className="font-bold text-3xl lg:text-[42px] leading-tight lg:leading-[54px] tracking-tight text-black mb-8">
           Our Accomplishments
         </h2>
 
@@ -1179,7 +1193,7 @@ export default function ServicesScreen(){
         <div className="w-[100px] h-[1px] bg-[#C10016] mx-auto mb-12"></div>
 
         {/* Image Grid - Centered */}
-        <div className="flex justify-center gap-16 mb-12">
+        <div className="flex flex-wrap justify-center gap-8 lg:gap-16 mb-12">
           <div className="w-[84px] h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award1.png)'}}></div>
           <div className="w-[84px] h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award2.png)'}}></div>
           <div className="w-[84px] h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award3.png)'}}></div>
@@ -1191,12 +1205,12 @@ export default function ServicesScreen(){
     </div>
 
     {/* Right Section - Red Background */}
-    <div className="w-1/2 bg-[#DA192F] relative min-h-[520px] flex items-center justify-center">
+    <div className="w-full lg:w-1/2 bg-[#DA192F] relative min-h-[400px] lg:min-h-[520px] flex items-center justify-center py-12 lg:py-0">
       {/* Right Section Content - Centered */}
       <div className="max-w-[650px] w-full text-center px-8">
         
         {/* Heading */}
-        <h2 className="font-bold text-[42px] leading-[54px] tracking-tight text-white mb-8">
+        <h2 className="font-bold text-3xl lg:text-[42px] leading-tight lg:leading-[54px] tracking-tight text-white mb-8">
           Advanced Tech Solutions
         </h2>
 
@@ -1204,7 +1218,7 @@ export default function ServicesScreen(){
         <div className="w-[100px] h-[1px] bg-white mx-auto mb-12"></div>
 
         {/* Subtitle - Centered */}
-        <p className="font-normal text-[24px] leading-[44px] text-white mb-12">
+        <p className="font-normal text-xl lg:text-[24px] leading-relaxed lg:leading-[44px] text-white mb-12">
           Exceptional Quality Service
         </p>
 
