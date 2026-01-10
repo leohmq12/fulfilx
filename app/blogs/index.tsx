@@ -155,7 +155,10 @@ export default function BlogsScreen() {
                     </Text>
                     
                     <TouchableOpacity 
-                      onPress={() => blog.id === 1 ? router.push('/blogs/power-of-integration') : null}
+                      onPress={() => {
+                        if (blog.id === 1) router.push('/blogs/power-of-integration');
+                      }}
+                      disabled={blog.id !== 1}
                       className="flex flex-row items-center gap-[10px]"
                     >
                       <Text className="font-helvetica font-bold text-lg text-[#C10016]">
@@ -185,7 +188,7 @@ export default function BlogsScreen() {
             </Text>
 
             {/* Blogs Grid */}
-            {blogs.map((blog, index) => (
+            {blogs.map((blog) => (
               <View
                 key={blog.id}
                 className="absolute"
