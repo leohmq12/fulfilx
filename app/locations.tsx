@@ -613,7 +613,7 @@ export default function LocationsScreen() {
                   onPress={() => router.push('/contact')}
                   className="border border-white rounded-[6px] flex flex-row items-center justify-center gap-[10px] px-8 py-4"
                 >
-                  <Text className="text-white font-helvetica font-bold text-[18px] leading-[36px]">Let's Talk</Text>
+                  <Text className="text-white font-helvetica font-bold text-[18px] leading-[36px]">Let&apos;s Talk</Text>
                   <Image source={{ uri: "/arrow.svg" }} alt="arrow" className="w-4 h-4" resizeMode="contain" />
                 </TouchableOpacity>
               </View>

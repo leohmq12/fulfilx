@@ -85,7 +85,7 @@ const Navbar: React.FC = () => {
                             whitespace-nowrap font-helvetica
                         `}
                     >
-                        <span>Let's Talk</span>
+                        <span>Let&apos;s Talk</span>
                         <img 
                             src="/arrow.svg"
                             alt="Arrow icon"
@@ -135,7 +135,7 @@ const Navbar: React.FC = () => {
                                 whitespace-nowrap font-helvetica
                             `}
                         >
-                            <span>Let's Talk</span>
+                            <span>Let&apos;s Talk</span>
                             <img 
                                 src="/arrow.svg"
                                 alt="Arrow icon"

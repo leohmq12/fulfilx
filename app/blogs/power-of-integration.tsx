@@ -1,7 +1,7 @@
 import Footer from '@/components/layout/footer';
 import Navbar from '@/components/layout/navbar';
 import { Stack, useRouter } from 'expo-router';
-import { ScrollView, Text, View, useWindowDimensions, TouchableOpacity, Image } from 'react-native';
+import { ScrollView, Text, TouchableOpacity, View, useWindowDimensions } from 'react-native';
 
 export default function LuxuryScreen() {
     const { width } = useWindowDimensions();
@@ -139,7 +139,7 @@ export default function LuxuryScreen() {
                                                 Secure, Climate-Controlled Storage:
                                             </Text>
                                             <Text className="font-helvetica font-normal text-lg lg:text-[20px] leading-[40px] text-black">
-                                                Luxury items often demand specific storage conditions to preserve their quality and craftsmanship. FULFILX's secure, climate-controlled warehousing ensures that your products are protected from environmental factors, maintaining their pristine condition until they reach your clients.
+                                                Luxury items often demand specific storage conditions to preserve their quality and craftsmanship. FULFILX&apos;s secure, climate-controlled warehousing ensures that your products are protected from environmental factors, maintaining their pristine condition until they reach your clients.
                                             </Text>
                                         </View>
                                     </View>
@@ -357,7 +357,7 @@ export default function LuxuryScreen() {
                                 {/* Description */}
                                 <View className="w-full max-w-[1391px] mb-12">
                                     <Text className="font-helvetica font-normal text-lg lg:text-[20px] lg:leading-[44px] text-black text-left">
-                                        At the heart of FULFILX's integration capabilities is the commitment to enhancing the customer experience. By ensuring that inventory management and order processing are efficient and error-free, FULFILX helps businesses deliver on their promises to customers.
+                                        At the heart of FULFILX&apos;s integration capabilities is the commitment to enhancing the customer experience. By ensuring that inventory management and order processing are efficient and error-free, FULFILX helps businesses deliver on their promises to customers.
                                     </Text>
                                 </View>
 
@@ -475,7 +475,7 @@ export default function LuxuryScreen() {
                                     onPress={() => router.push('/contact')}
                                     className="border border-white rounded-[6px] flex flex-row items-center justify-center gap-[10px] px-8 py-4 mx-auto"
                                 >
-                                    <Text className="text-white font-bold text-[18px] leading-[36px]">Let's Talk</Text>
+                                    <Text className="text-white font-bold text-[18px] leading-[36px]">Let&apos;s Talk</Text>
                                     <img src="/arrow.svg" alt="arrow" className="w-4 h-4 object-contain" />
                                 </TouchableOpacity>
                             </View>

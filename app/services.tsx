@@ -627,11 +627,11 @@ export default function ServicesScreen(){
             
             {/* Breadcrumb Navigation */}
             <View className="flex flex-row items-center justify-center">
-              <Text className="font-helvetica font-normal text-[20px] leading-[40px] text-black">
+              <Text className="font-helvetica font-normal text-base lg:text-[20px] leading-[40px] text-black">
                 Home
               </Text>
               <View className="w-1 h-1 bg-[#C10016] rounded-full mx-4" />
-              <Text className="font-helvetica font-medium text-[20px] leading-[40px] text-[#C10016]">
+              <Text className="font-helvetica font-medium text-base lg:text-[20px] leading-[40px] text-[#C10016]">
                 Services
               </Text>
             </View>
@@ -639,7 +639,7 @@ export default function ServicesScreen(){
         </View>
    
    {/* Marquee Text with Colored Words and Separator Circles */}
-  <div className="relative overflow-hidden whitespace-nowrap py-4 -mt-56">
+  <div className="relative overflow-hidden whitespace-nowrap py-4 -mt-24 md:-mt-40 lg:-mt-56">
     <div className="animate-marquee text-[28px] md:text-[40px] font-bold tracking-tight flex items-center mb-12 gap-16 md:gap-24 text-black">
       {/* First set */}
       <div className="flex items-center gap-16 md:gap-24">
@@ -1224,7 +1224,7 @@ export default function ServicesScreen(){
 
         {/* CTA Button - Centered */}
         <button className="border border-white rounded-[6px] flex items-center justify-center gap-[10px] px-8 py-4 transition-colors duration-300 mx-auto">
-          <span className="text-white font-bold text-[18px] leading-[36px]">Let's Talk</span>
+          <span className="text-white font-bold text-[18px] leading-[36px]">Let&apos;s Talk</span>
           <img src="/arrow.svg" alt="arrow" className="w-4 h-4 object-contain" />
         </button>
 

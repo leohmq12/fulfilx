@@ -2,12 +2,13 @@ import Footer from '@/components/layout/footer';
 import Navbar from '@/components/layout/navbar';
 import { Stack } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
-import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
+import { ScrollView, Text, TouchableOpacity, useWindowDimensions, View } from 'react-native';
 
 export default function AboutUsScreen(){
     const [currentSlide, setCurrentSlide] = useState(0);
     const [isPaused, setIsPaused] = useState(false);
     const carouselRef = useRef<HTMLDivElement>(null);
+    const { width } = useWindowDimensions();
     const testimonials = [
       { image: '/audenza.png', alt: 'Testimonial 1' },
       { image: '/hot.png', alt: 'Testimonial 2' },
@@ -103,24 +104,24 @@ export default function AboutUsScreen(){
             <img 
               src="/bg.png"
               alt="Background pattern"
-              className="w-[1920px] h-[600px] object-cover"
+              className="w-full h-full lg:w-[1920px] lg:h-[600px] object-cover"
             />
           </View>
 
           {/* Hero Content */}
           <View className="relative z-10 min-h-screen flex items-center justify-center pb-20">
             {/* Main Title */}
-            <Text className="font-helvetica font-bold text-[84px] leading-[84px] text-black text-center mb-8">
+            <Text className="font-helvetica font-bold text-4xl lg:text-[84px] leading-tight lg:leading-[84px] text-black text-center mb-8">
               About Us
             </Text>
             
             {/* Breadcrumb Navigation */}
             <View className="flex flex-row items-center justify-center">
-              <Text className="font-helvetica font-normal text-[20px] leading-[40px] text-black">
+              <Text className="font-helvetica font-normal text-base lg:text-[20px] leading-[40px] text-black">
                 Home
               </Text>
               <View className="w-1 h-1 bg-[#C10016] rounded-full mx-4" />
-              <Text className="font-helvetica font-medium text-[20px] leading-[40px] text-[#C10016]">
+              <Text className="font-helvetica font-medium text-base lg:text-[20px] leading-[40px] text-[#C10016]">
                 About Us
               </Text>
             </View>
@@ -129,7 +130,10 @@ export default function AboutUsScreen(){
 <section className="relative w-full bg-cover bg-center bg-no-repeat">
   <div className="relative max-w-[1490px] mx-auto px-4 py-16">
     
-   <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 transform -translate-y-60" style={{marginBottom: -220}}>
+   <div
+    className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:transform lg:-translate-y-60"
+    style={{ marginBottom: width < 1024 ? 0 : -220 }}
+   >
   
   {/* Left Content */}
   <div className="space-y-8">
@@ -142,18 +146,18 @@ export default function AboutUsScreen(){
     </div>
 
     {/* Main Heading */}
-    <h2 className="font-bold text-[74px] leading-[80px] tracking-tight text-black">
+    <h2 className="font-bold text-4xl lg:text-[74px] leading-tight lg:leading-[80px] tracking-tight text-black">
       We Get Ship <span className="text-[#C10016]">Done!</span>
     </h2>
     <div className="space-y-4">
       {/* Content */}
-      <p className="font-normal text-[20px] leading-[48px] text-black">
+      <p className="font-normal text-base sm:text-lg lg:text-[20px] leading-relaxed lg:leading-[48px] text-black">
         Our founders, with experience in international brands, identified a need for change in the 3PL market. Frustrated by impersonal interactions and limitations, they launched FulfilX. We grasp the needs of modern brands aim to disrupt the market. More than just a logistics company, we embrace a motto of “Your success is our success,” viewing each brand as a partner, not just a customer. We’re dedicated to building your business growth with customer-centric solutions. 
       </p>
     </div>
     <div className="space-y-4">
         {/* Content */}
-        <p className="font-normal text-[20px] leading-[48px] text-black">
+        <p className="font-normal text-base sm:text-lg lg:text-[20px] leading-relaxed lg:leading-[48px] text-black">
             Transforming the movement of goods, we’re your dynamic third-party logistics partner. With innovation at our core, we’re here to streamline your supply chain and drive your business forward.
         </p>
     </div>
@@ -298,18 +302,18 @@ export default function AboutUsScreen(){
   <View className="max-w-[1393px] mx-auto px-4">
     
     {/* Badge */}
-    <View className="flex flex-row justify-center items-center px-11 py-4 bg-[#C10016] bg-opacity-10 rounded-[120px] w-[348px] mb-6 ml-[648px]">
+    <View className="flex flex-row justify-center items-center px-6 sm:px-11 py-4 bg-[#C10016] bg-opacity-10 rounded-[120px] w-full max-w-[348px] mb-6 mx-auto lg:mx-0 lg:ml-[648px]">
       <Text className="font-helvetica font-medium text-[16px] leading-[40px] tracking-[0.2em] uppercase text-[#C10016]">
-        why we're different?
+        why we&apos;re different?
       </Text>
     </View>
 
-    <View className="flex flex-row items-start gap-16">
+    <View className="flex flex-col lg:flex-row items-start gap-10 lg:gap-16">
       
       {/* Image - LEFT side */}
-      <View className="w-[600px] flex-shrink-0">
+      <View className="w-full lg:w-[600px] flex-shrink-0">
         <View 
-          className="w-[600px] h-[940px] rounded-[30px] bg-cover bg-center"
+          className="w-full h-[320px] sm:h-[460px] lg:w-[600px] lg:h-[940px] rounded-[30px] bg-cover bg-center"
           style={{ 
             backgroundImage: 'url(/same.png)',
             backdropFilter: 'blur(12.5px)'
@@ -318,10 +322,10 @@ export default function AboutUsScreen(){
       </View>
 
       {/* Content - RIGHT side */}
-      <View className="flex-1 max-w-[709px]">
+      <View className="flex-1 w-full lg:max-w-[709px]">
         
         {/* Main Title */}
-        <Text className="font-helvetica font-bold text-[54px] leading-[68px] tracking-tight text-black mb-6">
+        <Text className="font-helvetica font-bold text-3xl lg:text-[54px] leading-tight lg:leading-[68px] tracking-tight text-black mb-6">
           Why Choose FulfilX?
         </Text>
         {/* Features List */}
@@ -335,10 +339,10 @@ export default function AboutUsScreen(){
             </View>
             {/* Feature Text */}
             <View className="flex-1">
-              <Text className="font-helvetica font-bold text-[20px] leading-[38px] text-black">
+              <Text className="font-helvetica font-bold text-lg sm:text-[20px] leading-relaxed lg:leading-[38px] text-black">
                 Cutting Edge Technology:
               </Text>
-              <Text className="font-helvetica font-normal text-[20px] leading-[40px] text-black">
+              <Text className="font-helvetica font-normal text-base sm:text-[18px] lg:text-[20px] leading-relaxed lg:leading-[40px] text-black">
                 Embracing the latest advancements, we leverage state-of-the-art
 technology to optimise every aspect of your logistics process. From real
 time tracking to predictive analytics, we keep your goods moving
@@ -355,10 +359,10 @@ efficiently.
             </View>
             {/* Feature Text */}
             <View className="flex-1">
-              <Text className="font-helvetica font-bold text-[20px] leading-[38px] text-black">
+              <Text className="font-helvetica font-bold text-lg sm:text-[20px] leading-relaxed lg:leading-[38px] text-black">
                 Agile Solutions:
               </Text>
-              <Text className="font-helvetica font-normal text-[20px] leading-[40px] text-black">
+              <Text className="font-helvetica font-normal text-base sm:text-[18px] lg:text-[20px] leading-relaxed lg:leading-[40px] text-black">
                 In today’s fast-paced world, flexibility is key. Our agile solutions are
 tailored to meet your unique needs, ensuring seamless operations and
 swift adaptability to changing market demands.
@@ -373,10 +377,10 @@ swift adaptability to changing market demands.
             </View>
             {/* Feature Text */}
             <View className="flex-1">
-              <Text className="font-helvetica font-bold text-[20px] leading-[38px] text-black">
+              <Text className="font-helvetica font-bold text-lg sm:text-[20px] leading-relaxed lg:leading-[38px] text-black">
                 Experienced Expertise:
               </Text>
-              <Text className="font-helvetica font-normal text-[20px] leading-[40px] text-black">
+              <Text className="font-helvetica font-normal text-base sm:text-[18px] lg:text-[20px] leading-relaxed lg:leading-[40px] text-black">
                 Blending youthful energy with years of industry experience, our team
 brings a fresh perspective to logistics management. We’re not afraid to think
 outside the box and challenge the status quo to deliver innovative
@@ -392,10 +396,10 @@ solutions.
             </View>
             {/* Feature Text */}
             <View className="flex-1">
-              <Text className="font-helvetica font-bold text-[20px] leading-[38px] text-black">
+              <Text className="font-helvetica font-bold text-lg sm:text-[20px] leading-relaxed lg:leading-[38px] text-black">
                 Customer-Centric Approach
               </Text>
-              <Text className="font-helvetica font-normal text-[20px] leading-[40px] text-black">
+              <Text className="font-helvetica font-normal text-base sm:text-[18px] lg:text-[20px] leading-relaxed lg:leading-[40px] text-black">
                 Your satisfaction is our top priority. We listen, understand, and
 collaborate closely with you to develop customised strategies that drive
 value for your business.
@@ -577,7 +581,7 @@ can build a greener future while achieving your logistics goals.
     <img 
       src="/bg.png" 
       alt="Background" 
-      className="w-[1920px] h-[898px] object-cover"
+      className="w-full h-full object-cover"
     />
   </View>
   
@@ -646,7 +650,7 @@ can build a greener future while achieving your logistics goals.
         
         {/* Review Text */}
         <Text className="font-helvetica font-normal text-[20px] leading-[38px] text-black opacity-70">
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type.
         </Text>
       </View>
 
@@ -679,7 +683,7 @@ can build a greener future while achieving your logistics goals.
         
         {/* Review Text */}
         <Text className="font-helvetica font-normal text-[20px] leading-[38px] text-black opacity-70">
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type.
         </Text>
       </View>
       
@@ -710,7 +714,7 @@ can build a greener future while achieving your logistics goals.
         </View>
         {/* Review Text */}
         <Text className="font-helvetica font-normal text-[20px] leading-[38px] text-black opacity-70">
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type.
         </Text>
       </View>
     </View>
@@ -744,7 +748,13 @@ can build a greener future while achieving your logistics goals.
 </View>
 
 {/* Auto-Sliding Gallery with Infinite Loop */}
-<View className="relative w-full h-[380px] mt-15 mb-20 overflow-hidden">
+{(() => {
+  const galleryGap = 24;
+  const galleryHorizontalPadding = 24;
+  const galleryCardWidth = Math.min(380, Math.max(240, width - galleryHorizontalPadding * 2));
+  const galleryStep = galleryCardWidth + galleryGap;
+  return (
+<View className="relative w-full mt-15 mb-20 overflow-hidden" style={{ height: galleryCardWidth }}>
   <div 
     className="relative w-full h-full"
     onMouseEnter={() => setIsPaused(true)}
@@ -753,41 +763,43 @@ can build a greener future while achieving your logistics goals.
     <View 
       className="flex flex-row absolute top-0 left-6 transition-transform duration-500 ease-in-out"
       style={{ 
-        transform: `translateX(-${currentSlide * 404}px)` 
+        transform: `translateX(-${currentSlide * galleryStep}px)` 
       }}
     >
       {/* Original images */}
       {images.map((image) => (
         <View
           key={image.id}
-          className="w-[380px] h-[380px] mr-6 rounded-[20px] bg-cover bg-center flex-shrink-0 hover:scale-105 transition-transform duration-300"
-          style={{ backgroundImage: `url(${image.src})` }}
+          className="rounded-[20px] bg-cover bg-center flex-shrink-0 hover:scale-105 transition-transform duration-300"
+          style={{ backgroundImage: `url(${image.src})`, width: galleryCardWidth, height: galleryCardWidth, marginRight: galleryGap }}
         />
       ))}
       {/* Duplicate images for seamless loop */}
       {images.map((image) => (
         <View
           key={`${image.id}-duplicate`}
-          className="w-[380px] h-[380px] mr-6 rounded-[20px] bg-cover bg-center flex-shrink-0 hover:scale-105 transition-transform duration-300"
-          style={{ backgroundImage: `url(${image.src})` }}
+          className="rounded-[20px] bg-cover bg-center flex-shrink-0 hover:scale-105 transition-transform duration-300"
+          style={{ backgroundImage: `url(${image.src})`, width: galleryCardWidth, height: galleryCardWidth, marginRight: galleryGap }}
         />
       ))}
     </View>
   </div>
 </View>
+  );
+})()}
 {/* Accomplishments Section */}
         <section className="relative w-full">
           {/* Two Column Layout */}
-          <div className="flex">
+          <div className="flex flex-col lg:flex-row">
             
             {/* Left Section - White Background */}
-            <div className="w-1/2 bg-white relative min-h-[520px] flex items-center justify-center">
+            <div className="w-full lg:w-1/2 bg-white relative min-h-[400px] lg:min-h-[520px] flex items-center justify-center py-12 lg:py-0">
               <img src="/bg.png" alt="" className="absolute inset-0 w-full h-full object-cover" />
               {/* Left Section Content - Centered */}
               <div className="max-w-[740px] w-full text-center px-8">
                 
                 {/* Heading */}
-                <h2 className="font-bold text-[42px] leading-[54px] tracking-tight text-black mb-8">
+                <h2 className="font-bold text-3xl lg:text-[42px] leading-tight lg:leading-[54px] tracking-tight text-black mb-8">
                   Our Accomplishments
                 </h2>
 
@@ -795,23 +807,23 @@ can build a greener future while achieving your logistics goals.
                 <div className="w-[100px] h-[1px] bg-[#C10016] mx-auto mb-12"></div>
 
                 {/* Image Grid - Centered */}
-                <div className="flex justify-center gap-16 mb-12">
-                  <div className="w-[84px] h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award1.png)'}}></div>
-                  <div className="w-[84px] h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award2.png)'}}></div>
-                  <div className="w-[84px] h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award3.png)'}}></div>
-                  <div className="w-[84px] h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award4.png)'}}></div>
-                  <div className="w-[84px] h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award5.png)'}}></div>
+                <div className="flex flex-wrap justify-center gap-4 lg:gap-16 mb-12">
+                  <div className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award1.png)'}}></div>
+                  <div className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award2.png)'}}></div>
+                  <div className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award3.png)'}}></div>
+                  <div className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award4.png)'}}></div>
+                  <div className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award5.png)'}}></div>
                 </div>
               </div>
             </div>
 
             {/* Right Section - Red Background */}
-            <div className="w-1/2 bg-[#DA192F] relative min-h-[520px] flex items-center justify-center">
+            <div className="w-full lg:w-1/2 bg-[#DA192F] relative min-h-[400px] lg:min-h-[520px] flex items-center justify-center py-12 lg:py-0">
               {/* Right Section Content - Centered */}
               <div className="max-w-[650px] w-full text-center px-8">
                 
                 {/* Heading */}
-                <h2 className="font-bold text-[42px] leading-[54px] tracking-tight text-white mb-8">
+                <h2 className="font-bold text-3xl lg:text-[42px] leading-tight lg:leading-[54px] tracking-tight text-white mb-8">
                   Advanced Tech Solutions
                 </h2>
 
@@ -819,13 +831,13 @@ can build a greener future while achieving your logistics goals.
                 <div className="w-[100px] h-[1px] bg-white mx-auto mb-12"></div>
 
                 {/* Subtitle - Centered */}
-                <p className="font-normal text-[24px] leading-[44px] text-white mb-12">
+                <p className="font-normal text-xl lg:text-[24px] leading-relaxed lg:leading-[44px] text-white mb-12">
                   Exceptional Quality Service
                 </p>
 
                 {/* CTA Button - Centered */}
                 <button className="border border-white rounded-[6px] flex items-center justify-center gap-[10px] px-8 py-4 transition-colors duration-300 mx-auto">
-                  <span className="text-white font-bold text-[18px] leading-[36px]">Let's Talk</span>
+                  <span className="text-white font-bold text-[18px] leading-[36px]">Let&apos;s Talk</span>
                   <img src="/arrow.svg" alt="arrow" className="w-4 h-4 object-contain" />
                 </button>
               </div>

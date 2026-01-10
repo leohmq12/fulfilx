@@ -306,7 +306,7 @@ export default function BlogsScreen() {
                   className="border border-white rounded-[6px] flex flex-row items-center justify-center gap-[10px] px-8 py-4"
                   onPress={() => router.push('/contact')}
                 >
-                  <Text className="font-helvetica font-bold text-[18px] leading-[36px] text-white">Let's Talk</Text>
+                  <Text className="font-helvetica font-bold text-[18px] leading-[36px] text-white">Let&apos;s Talk</Text>
                   <View className="w-4 h-4">
                     <img src="/arrow.svg" alt="arrow" className="w-full h-full object-contain" />
                   </View>

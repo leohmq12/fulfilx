@@ -145,7 +145,7 @@ const panResponder = useRef(
             Pricing <Text className='text-[#C10016]'>plans</Text> for companies{'\n'}of all <Text className='text-[#C10016]'>sizes</Text>
           </Text>
           <Text className="text-center font-helvetica font-normal text-lg lg:text-[22px] leading-relaxed lg:leading-[36px] tracking-[-0.01em] text-black mb-16 max-w-[800px] mx-auto">
-            We offer competitive pricing plans to fit your organization's needs as well as your budget. For custom pricing, please <Text 
+            We offer competitive pricing plans to fit your organization&apos;s needs as well as your budget. For custom pricing, please <Text 
             className='font-bold text-[#C10016]'
             onPress={() => router.push('/contact')}
         >contact us.
@@ -576,7 +576,7 @@ const panResponder = useRef(
               </Text>
 
               <TouchableOpacity className="border border-white rounded-[6px] flex-row items-center justify-center gap-[10px] px-8 py-4">
-                <Text className="text-white font-bold text-[18px] leading-[36px]">Let's Talk</Text>
+                <Text className="text-white font-bold text-[18px] leading-[36px]">Let&apos;s Talk</Text>
                 <Image source={require('../public/arrow.svg')} className="w-4 h-4" resizeMode="contain" style={{ tintColor: 'white' }} />
               </TouchableOpacity>
             </View>

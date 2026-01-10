@@ -74,7 +74,7 @@ export default function ContactScreen() {
           </Text>
 
           {/* Contact Cards Grid */}
-          <View className="flex flex-row flex-wrap justify-center items-start gap-8 px-8">
+          <View className="flex flex-row flex-wrap justify-center items-start gap-8 px-4 sm:px-8">
             {/* Phone Card */}
             <View className="relative w-full max-w-[350px] h-[227px]">
               {/* Background Card */}
@@ -191,10 +191,10 @@ export default function ContactScreen() {
         {/* Contact Form Section */}
         <div className="relative w-full bg-white transform -translate-y-24">
           {/* Two Column Layout */}
-          <div className="flex flex-row justify-center items-start gap-16 px-8">
+          <div className="flex flex-col lg:flex-row justify-center items-start gap-10 lg:gap-16 px-4 lg:px-8">
             
             {/* Left Column - Image */}
-            <div className="w-[720px] h-[936px] rounded-[30px] overflow-hidden">
+            <div className="w-full lg:w-[720px] h-[300px] sm:h-[420px] lg:h-[936px] rounded-[30px] overflow-hidden">
               <img 
                 src="/locate.png" 
                 alt="Contact"
@@ -203,12 +203,12 @@ export default function ContactScreen() {
             </div>
 
             {/* Right Column - Contact Form */}
-            <div className="w-[720px] h-[936px] bg-white border border-black/10 rounded-[30px] flex flex-col">
+            <div className="w-full lg:w-[720px] h-auto lg:h-[936px] bg-white border border-black/10 rounded-[30px] flex flex-col">
               
               {/* Form Content with proper padding */}
-              <div className="flex-1 px-12 pt-12 pb-6">
+              <div className="flex-1 px-6 sm:px-8 lg:px-12 pt-10 lg:pt-12 pb-6">
                 {/* Section Title */}
-                <h2 className="font-bold text-[40px] leading-[1.2] tracking-[-0.01em] text-black mb-8">
+                <h2 className="font-bold text-3xl lg:text-[40px] leading-[1.2] tracking-[-0.01em] text-black mb-8">
                   Contact For <span className='text-[#C10016]'>Queries?</span>
                 </h2>
 
@@ -216,7 +216,7 @@ export default function ContactScreen() {
                 <div className="space-y-6">
                   
                   {/* Name Row - Two Columns */}
-                  <div className="flex flex-row gap-6">
+                  <div className="flex flex-col sm:flex-row gap-6">
                     {/* First Name */}
                     <div className="flex-1">
                       <label className="block font-medium text-[18px] text-black mb-2">
@@ -313,8 +313,8 @@ export default function ContactScreen() {
               </div>
 
               {/* Submit Button at the bottom */}
-              <div className="px-12 pb-12">
-                <button className="bg-[#C10016] rounded-[6px] px-8 py-4 flex flex-row items-center gap-3 w-[200px] hover:bg-[#a00012] transition-colors">
+              <div className="px-6 sm:px-8 lg:px-12 pb-10 lg:pb-12">
+                <button className="bg-[#C10016] rounded-[6px] px-8 py-4 flex flex-row items-center justify-center gap-3 w-full sm:w-[200px] hover:bg-[#a00012] transition-colors">
                   <span className="font-bold text-[18px] text-white">
                     Submit Now
                   </span>
@@ -332,16 +332,16 @@ export default function ContactScreen() {
         {/* Accomplishments Section */}
         <section className="relative w-full">
           {/* Two Column Layout */}
-          <div className="flex">
+          <div className="flex flex-col lg:flex-row">
             
             {/* Left Section - White Background */}
-            <div className="w-1/2 bg-white relative min-h-[520px] flex items-center justify-center">
+            <div className="w-full lg:w-1/2 bg-white relative min-h-[400px] lg:min-h-[520px] flex items-center justify-center py-12 lg:py-0">
               <img src="/bg.png" alt="" className="absolute inset-0 w-full h-full object-cover" />
               {/* Left Section Content - Centered */}
               <div className="max-w-[740px] w-full text-center px-8">
                 
                 {/* Heading */}
-                <h2 className="font-bold text-[42px] leading-[54px] tracking-tight text-black mb-8">
+                <h2 className="font-bold text-3xl lg:text-[42px] leading-tight lg:leading-[54px] tracking-tight text-black mb-8">
                   Our Accomplishments
                 </h2>
 
@@ -349,23 +349,23 @@ export default function ContactScreen() {
                 <div className="w-[100px] h-[1px] bg-[#C10016] mx-auto mb-12"></div>
 
                 {/* Image Grid - Centered */}
-                <div className="flex justify-center gap-16 mb-12">
-                  <div className="w-[84px] h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award1.png)'}}></div>
-                  <div className="w-[84px] h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award2.png)'}}></div>
-                  <div className="w-[84px] h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award3.png)'}}></div>
-                  <div className="w-[84px] h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award4.png)'}}></div>
-                  <div className="w-[84px] h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award5.png)'}}></div>
+                <div className="flex flex-wrap justify-center gap-4 lg:gap-16 mb-12">
+                  <div className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award1.png)'}}></div>
+                  <div className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award2.png)'}}></div>
+                  <div className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award3.png)'}}></div>
+                  <div className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award4.png)'}}></div>
+                  <div className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award5.png)'}}></div>
                 </div>
               </div>
             </div>
 
             {/* Right Section - Red Background */}
-            <div className="w-1/2 bg-[#DA192F] relative min-h-[520px] flex items-center justify-center">
+            <div className="w-full lg:w-1/2 bg-[#DA192F] relative min-h-[400px] lg:min-h-[520px] flex items-center justify-center py-12 lg:py-0">
               {/* Right Section Content - Centered */}
               <div className="max-w-[650px] w-full text-center px-8">
                 
                 {/* Heading */}
-                <h2 className="font-bold text-[42px] leading-[54px] tracking-tight text-white mb-8">
+                <h2 className="font-bold text-3xl lg:text-[42px] leading-tight lg:leading-[54px] tracking-tight text-white mb-8">
                   Advanced Tech Solutions
                 </h2>
 
@@ -373,13 +373,13 @@ export default function ContactScreen() {
                 <div className="w-[100px] h-[1px] bg-white mx-auto mb-12"></div>
 
                 {/* Subtitle - Centered */}
-                <p className="font-normal text-[24px] leading-[44px] text-white mb-12">
+                <p className="font-normal text-xl lg:text-[24px] leading-relaxed lg:leading-[44px] text-white mb-12">
                   Exceptional Quality Service
                 </p>
 
                 {/* CTA Button - Centered */}
                 <button className="border border-white rounded-[6px] flex items-center justify-center gap-[10px] px-8 py-4 transition-colors duration-300 mx-auto">
-                  <span className="text-white font-bold text-[18px] leading-[36px]">Let's Talk</span>
+                  <span className="text-white font-bold text-[18px] leading-[36px]">Let&apos;s Talk</span>
                   <img src="/arrow.svg" alt="arrow" className="w-4 h-4 object-contain" />
                 </button>
               </div>

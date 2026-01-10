@@ -130,7 +130,7 @@ const row1Logos = [
                         {/* Description */}
                         <div className="w-full max-w-[759px] mx-auto lg:mx-0 mb-12 lg:mb-16">
                             <p className="text-lg lg:text-[24px] font-helvetica font-thin leading-[2] text-black text-center lg:text-left">
-                                At FulfilX, we are more than just a 3PL. We are your Partner in Fulfilment. "Your success is Our Success."
+                                At FulfilX, we are more than just a 3PL. We are your Partner in Fulfilment. &quot;Your success is Our Success.&quot;
                             </p>
                         </div>
 
@@ -310,7 +310,7 @@ const row1Logos = [
       href="#contact"
       className="inline-flex items-center px-6 py-2 gap-2.5 rounded-md bg-[#C10016] cursor-pointer transition duration-300 hover:brightness-110 mt-12"
     >
-      <span className="text-white font-normal text-[18px] leading-[36px]">Let's Talk</span>
+      <span className="text-white font-normal text-[18px] leading-[36px]">Let&apos;s Talk</span>
       <img 
         src="/arrow.svg" 
         alt="Arrow icon" 
@@ -583,10 +583,10 @@ const row1Logos = [
     {/* Button */}
     <div className="relative lg:absolute w-[160px] h-[60px] lg:left-1/2 lg:transform lg:-translate-x-1/2 lg:top-[204px] border border-white rounded-[6px] flex flex-col justify-center items-center gap-[10px] cursor-pointer transition duration-300 mt-10 lg:mt-6">
       <div className="flex flex-row items-center gap-[10px]">
-        <span className="text-white font-normal text-[18px] leading-[36px]">Let's Talk</span>
-      <img 
-        src="/arrow.svg" 
-        alt="Arrow icon" 
+        <span className="text-white font-normal text-[18px] leading-[36px]">Let&apos;s Talk</span>
+        <img 
+          src="/arrow.svg" 
+          alt="Arrow icon" 
         className="w-4 h-4 object-contain"
       />
         
@@ -631,7 +631,7 @@ const row1Logos = [
 
       {/* Content */}
       <p className="font-normal text-base lg:text-[20px] leading-relaxed lg:leading-[48px] text-black">
-        At FulfilX we are more than just a logistics company. Our motto is "Your success is our success" that's why we see every brand as a partner, not just a customer. We are on hand to help your business grow and build customer-centric solutions.
+        At FulfilX we are more than just a logistics company. Our motto is &quot;Your success is our success&quot; that&apos;s why we see every brand as a partner, not just a customer. We are on hand to help your business grow and build customer-centric solutions.
       </p>
     </div>
 
@@ -1082,7 +1082,7 @@ const row1Logos = [
 
         {/* CTA Button - Centered */}
         <button className="border border-white rounded-[6px] flex items-center justify-center gap-[10px] px-8 py-4 transition-colors duration-300 mx-auto">
-          <span className="text-white font-bold text-[18px] leading-[36px]">Let's Talk</span>
+          <span className="text-white font-bold text-[18px] leading-[36px]">Let&apos;s Talk</span>
           <img src="/arrow.svg" alt="arrow" className="w-4 h-4 object-contain" />
         </button>
 

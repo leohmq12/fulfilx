@@ -81,7 +81,7 @@ export default function LuxuryScreen() {
   {/* Paragraph - Same width as image and left aligned */}
   <View className="w-full lg:max-w-[1296px] mx-auto">
     <Text className="font-helvetica font-normal text-lg lg:text-[22px] lg:leading-[44px] text-black text-left">
-      In the realm of luxury goods, where the value lies not only in the product itself but in the entire customer experience, the importance of specialized fulfillment services cannot be overstated. FULFILX stands as a premier provider in the fulfillment center industry, specializing in the nuanced field of luxury fulfillment. We understand that luxury brands demand nothing less than perfection, from the moment a customer places an order to the unboxing experience. FULFILX is dedicated to delivering this level of service, utilizing a vast network of couriers and sophisticated integrations with multiple e-commerce platforms to manage and deliver your luxury goods with the elegance, efficiency, and exclusivity your clients expect. This page will detail how FULFILX can transform your luxury brand's logistics into a seamless extension of your brand's promise.
+      In the realm of luxury goods, where the value lies not only in the product itself but in the entire customer experience, the importance of specialized fulfillment services cannot be overstated. FULFILX stands as a premier provider in the fulfillment center industry, specializing in the nuanced field of luxury fulfillment. We understand that luxury brands demand nothing less than perfection, from the moment a customer places an order to the unboxing experience. FULFILX is dedicated to delivering this level of service, utilizing a vast network of couriers and sophisticated integrations with multiple e-commerce platforms to manage and deliver your luxury goods with the elegance, efficiency, and exclusivity your clients expect. This page will detail how FULFILX can transform your luxury brand&apos;s logistics into a seamless extension of your brand&apos;s promise.
     </Text>
   </View>
 </View>
@@ -135,7 +135,7 @@ export default function LuxuryScreen() {
                 Secure, Climate-Controlled Storage:
               </Text>
               <Text className="font-helvetica font-normal text-base lg:text-[20px] lg:leading-[40px] text-black">
-                Luxury items often demand specific storage conditions to preserve their quality and craftsmanship. FULFILX's secure, climate-controlled warehousing ensures that your products are protected from environmental factors, maintaining their pristine condition until they reach your clients.
+                Luxury items often demand specific storage conditions to preserve their quality and craftsmanship. FULFILX&apos;s secure, climate-controlled warehousing ensures that your products are protected from environmental factors, maintaining their pristine condition until they reach your clients.
               </Text>
             </View>
           </View>
@@ -421,7 +421,7 @@ of its luxury identity.
                     onPress={() => router.push('/contact')}
                     className="border border-white rounded-[6px] flex flex-row items-center justify-center gap-[10px] px-8 py-4 mx-auto"
                 >
-                  <Text className="text-white font-bold text-[18px] leading-[36px]">Let's Talk</Text>
+                  <Text className="text-white font-bold text-[18px] leading-[36px]">Let&apos;s Talk</Text>
                   <Image source={{ uri: "/arrow.svg" }} alt="arrow" className="w-4 h-4" resizeMode="contain" />
                 </TouchableOpacity>
               </View>

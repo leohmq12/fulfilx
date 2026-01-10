@@ -290,7 +290,7 @@ export default function SectorsScreen() {
                             onPress={() => router.push('/contact')}
                             className="border border-white rounded-[6px] flex flex-row items-center justify-center gap-[10px] px-8 py-4 mx-auto"
                         >
-                            <Text className="text-white font-bold text-[18px] leading-[36px]">Let's Talk</Text>
+                            <Text className="text-white font-bold text-[18px] leading-[36px]">Let&apos;s Talk</Text>
                             <img src="/arrow.svg" alt="arrow" className="w-4 h-4 object-contain" />
                         </TouchableOpacity>
                     </View>
