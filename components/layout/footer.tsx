@@ -6,12 +6,13 @@ const Footer = () => {
 
   return (
 <footer className="w-full relative min-h-screen" style={{ backgroundImage: "url(/footerbg.webp)", backgroundSize: "cover", backgroundRepeat: "no-repeat" }}>
-  <div className="max-w-7xl mx-auto px-8 py-20">
-    <div className="flex flex-col lg:flex-row justify-between gap-16">
+  <div className="w-full px-4 md:px-6 lg:px-8 2xl:px-16 py-16 lg:py-20">
+  <div className="mx-auto w-full max-w-[1490px]">
+    <div className="flex flex-col lg:flex-row justify-between gap-12 lg:gap-16">
 
       {/* Left Column (Logo + Subscribe) */}
       <div className="flex flex-col gap-6 w-full lg:w-2/5">
-        <div className="h-16 w-80">
+        <div className="h-16 w-full max-w-[320px]">
           <img src="/wlogo.webp" alt="logo" />
         </div>
 
@@ -147,28 +148,17 @@ const Footer = () => {
   
   {/* Quick Links Title - Left Aligned */}
   <div className="text-left mb-1">
-    <h3 
-      className="text-white font-bold"
-      style={{
-        fontSize: '32px',
-        lineHeight: '88px',
-        letterSpacing: '-0.01em',
-      }}
-    >
+    <h3 className="text-white font-bold text-2xl sm:text-3xl leading-tight tracking-tight">
       Quick Links
     </h3>
   </div>
 
   {/* Links Grid - Left Aligned */}
-  <div className="grid grid-cols-1 md:grid-cols-3 gap-28 max-w-4xl">
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-16 w-full">
     
     {/* Column 1 */}
 <div 
-  className="text-white font-normal text-left"
-  style={{
-    fontSize: '18px',
-    lineHeight: '60px',
-  }}
+  className="text-white font-normal text-left text-base sm:text-[18px] leading-10 sm:leading-[60px]"
 >
   <Link href="/" asChild>
     <a className="block hover:text-[#C10016] transition-colors cursor-pointer">Home</a>
@@ -189,11 +179,7 @@ const Footer = () => {
 
 {/* Column 2 */}
 <div 
-  className="text-white font-normal text-left"
-  style={{
-    fontSize: '18px',
-    lineHeight: '60px',
-  }}
+  className="text-white font-normal text-left text-base sm:text-[18px] leading-10 sm:leading-[60px]"
 >
   <Link href="/team" asChild>
     <a className="block hover:text-[#C10016] transition-colors cursor-pointer">Team</a>
@@ -214,11 +200,7 @@ const Footer = () => {
 
 {/* Column 3 */}
 <div 
-  className="text-white font-normal text-left"
-  style={{
-    fontSize: '18px',
-    lineHeight: '60px',
-  }}
+  className="text-white font-normal text-left text-base sm:text-[18px] leading-10 sm:leading-[60px]"
 >
   <Link href="/contact" asChild>
     <a className="block hover:text-[#C10016] transition-colors cursor-pointer">Contact Us</a>
@@ -249,6 +231,7 @@ const Footer = () => {
     <p className="text-white text-[16px] opacity-90">
       Copyright © 2025. <span className='text-[#C10016]'>Fulfil X</span>. All rights reserved.
     </p>
+  </div>
   </div>
   </div>
 </footer>
