@@ -5,20 +5,20 @@
     "version": "1.0.0",
     "platforms": ["web"],
     "orientation": "portrait",
-    "icon": "./assets/images/favicon.png",
+    "icon": "./expo-assets/images/favicon.png",
     "scheme": "fulfilx",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": false,
     "web": {
       "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "./expo-assets/images/favicon.png"
     },
     "plugins": [
       "expo-router",
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/splash-icon.png",
+          "image": "./expo-assets/images/logo.png",
           "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#ffffff",

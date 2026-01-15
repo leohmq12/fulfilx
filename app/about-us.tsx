@@ -10,29 +10,29 @@ export default function AboutUsScreen(){
     const carouselRef = useRef<HTMLDivElement>(null);
     const { width } = useWindowDimensions();
     const testimonials = [
-      { image: '/audenza.png', alt: 'Testimonial 1' },
-      { image: '/hot.png', alt: 'Testimonial 2' },
-      { image: '/milk.png', alt: 'Testimonial 3' },
-      { image: '/pops.png', alt: 'Testimonial 4' },
-      { image: '/har.png', alt: 'Testimonial 5' }
+      { image: '/audenza.webp', alt: 'Testimonial 1' },
+      { image: '/hot.webp', alt: 'Testimonial 2' },
+      { image: '/milk.webp', alt: 'Testimonial 3' },
+      { image: '/pops.webp', alt: 'Testimonial 4' },
+      { image: '/har.webp', alt: 'Testimonial 5' }
     ];
     const row1Logos = [
-        { src: "/amazon.png", alt: "Amazon" },
-        { src: "/shopify.png", alt: "Shopify" },
-        { src: "/tiktok.png", alt: "TikTok" }
+        { src: "/amazon.webp", alt: "Amazon" },
+        { src: "/shopify.webp", alt: "Shopify" },
+        { src: "/tiktok.webp", alt: "TikTok" }
       ];
     
       const row2Logos = [
-        { src: "/ebay.png", alt: "eBay" },
-        { src: "/magento.png", alt: "Magento" },
-        { src: "/etsy.png", alt: "Etsy" },
-        { src: "/woo.png", alt: "WooCommerce" }
+        { src: "/ebay.webp", alt: "eBay" },
+        { src: "/magento.webp", alt: "Magento" },
+        { src: "/etsy.webp", alt: "Etsy" },
+        { src: "/woo.webp", alt: "WooCommerce" }
       ];
     
       const row3Logos = [
-        { src: "/onbuy.png", alt: "OnBuy" },
-        { src: "/dpd.png", alt: "DPD" },
-        { src: "/shipstation.png", alt: "ShipStation" }
+        { src: "/onbuy.webp", alt: "OnBuy" },
+        { src: "/dpd.webp", alt: "DPD" },
+        { src: "/shipstation.webp", alt: "ShipStation" }
       ];
     
     
@@ -58,11 +58,11 @@ export default function AboutUsScreen(){
         }
       };
       const images = [
-          { id: 1, src: '/bike.png' },
-          { id: 2, src: '/wh.png' },
-          { id: 3, src: '/ct.png' },
-          { id: 4, src: '/box.png' },
-          { id: 5, src: '/happy.png' }
+          { id: 1, src: '/bike.webp' },
+          { id: 2, src: '/wh.webp' },
+          { id: 3, src: '/ct.webp' },
+          { id: 4, src: '/box.webp' },
+          { id: 5, src: '/happy.webp' }
         ];
         useEffect(() => {
         if (isPaused) return;
@@ -102,7 +102,7 @@ export default function AboutUsScreen(){
           {/* PNG Background */}
           <View className="absolute inset-0 z-0">
             <img 
-              src="/bg.png"
+              src="/bg.webp"
               alt="Background pattern"
               className="w-full h-full lg:w-[1920px] lg:h-[600px] object-cover"
             />
@@ -171,9 +171,9 @@ export default function AboutUsScreen(){
     className="w-full h-[400px] lg:h-[700px] bg-cover bg-center rounded-[24px] backdrop-blur-[12.5px]"
     style={{
       backgroundImage: `url(${
-        activeDot === 0 ? '/box.png' :
-        activeDot === 1 ? '/peep.png' :
-        activeDot === 2 ? 'shipdone.png' :
+        activeDot === 0 ? '/box.webp' :
+        activeDot === 1 ? '/peep.webp' :
+        activeDot === 2 ? 'shipdone.webp' :
         '/image3.jpg'
       })`
     }}
@@ -213,7 +213,7 @@ export default function AboutUsScreen(){
   {/* Background Image */}
   <View className="absolute inset-0">
     <img 
-      src="/shiphome.png" 
+      src="/shiphome.webp" 
       alt="Background" 
       className="w-full h-full object-cover"
     />
@@ -231,7 +231,7 @@ export default function AboutUsScreen(){
 <View className="flex flex-col lg:flex-row items-center justify-between mb-20 lg:mb-60 w-full">
   {/* Left Side - Image */}
   <View className="w-full h-[300px] lg:w-[500px] lg:h-[500px] rounded-[32px] backdrop-blur-[12.5px] bg-cover bg-center lg:transform lg:-translate-x-60 mb-8 lg:mb-0" 
-    style={{backgroundImage: 'url(/trolley.png)'}} />
+    style={{backgroundImage: 'url(/trolley.webp)'} as any} />
   
   {/* Center Dot - Hidden on mobile */}
   <View className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-[40px] h-[40px] bg-[#C10016] rounded-full" />
@@ -266,14 +266,14 @@ export default function AboutUsScreen(){
   
   {/* Right Side - Image */}
   <View className="w-full h-[300px] lg:w-[500px] lg:h-[500px] rounded-[32px] backdrop-blur-[12.5px] bg-cover bg-center lg:transform lg:translate-x-60 mb-8 lg:mb-0" 
-    style={{backgroundImage: 'url(/head.png)'}} />
+    style={{backgroundImage: 'url(/head.webp)'} as any} />
 </View>
 
 {/* Item 3 */}
 <View className="flex flex-col lg:flex-row items-center justify-between w-full">
   {/* Left Side - Image */}
   <View className="w-full h-[300px] lg:w-[500px] lg:h-[500px] rounded-[32px] backdrop-blur-[12.5px] bg-cover bg-center lg:transform lg:-translate-x-60 mb-8 lg:mb-0" 
-    style={{backgroundImage: 'url(/trolley.png)'}} />
+    style={{backgroundImage: 'url(/trolley.webp)'} as any} />
   
   {/* Center Dot */}
   <View className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-[40px] h-[40px] bg-[#C10016] rounded-full" />
@@ -294,7 +294,7 @@ export default function AboutUsScreen(){
 <View className="relative z-20 py-20">
     <View className="absolute inset-0">
     <img 
-      src="/bg.png" 
+      src="/bg.webp" 
       alt="Background" 
       className="w-full h-full object-cover"
     />
@@ -315,9 +315,9 @@ export default function AboutUsScreen(){
         <View 
           className="w-full h-[320px] sm:h-[460px] lg:w-[600px] lg:h-[940px] rounded-[30px] bg-cover bg-center"
           style={{ 
-            backgroundImage: 'url(/same.png)',
+            backgroundImage: 'url(/same.webp)',
             backdropFilter: 'blur(12.5px)'
-          }}
+          } as any}
         />
       </View>
 
@@ -438,7 +438,7 @@ can build a greener future while achieving your logistics goals.
       background: `
         linear-gradient(0deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
         linear-gradient(0deg, #C10016, #C10016),
-        url(/leadingbrands.png)
+        url(/leadingbrands.webp)
       `,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
@@ -579,7 +579,7 @@ can build a greener future while achieving your logistics goals.
   {/* Background Image */}
   <View className="absolute inset-0">
     <img 
-      src="/bg.png" 
+      src="/bg.webp" 
       alt="Background" 
       className="w-full h-full object-cover"
     />
@@ -614,7 +614,7 @@ can build a greener future while achieving your logistics goals.
         </Text>
         {/* Logo/Image */}
         <View className="w-[180px] h-[72px] lg:w-[247px] lg:h-[100px] bg-cover bg-center mt-4 lg:mt-0 lg:transform lg:-translate-x-52 lg:-translate-y-32" 
-          style={{backgroundImage: 'url(/GR.png)'}} />
+          style={{backgroundImage: 'url(/GR.webp)'} as any} />
       </View>
     </View>
 
@@ -626,7 +626,7 @@ can build a greener future while achieving your logistics goals.
         <View className="flex flex-row items-start gap-6 mb-6">
           {/* Avatar */}
           <View className="w-[80px] h-[80px] rounded-full bg-cover bg-center" 
-            style={{backgroundImage: 'url(/A.png)'}} />
+            style={{backgroundImage: 'url(/A.webp)'} as any} />
           
           {/* User Info */}
           <View className="flex-1">
@@ -640,12 +640,12 @@ can build a greener future while achieving your logistics goals.
           
           {/* Logo */}
           <View className="w-[32px] h-[32px] bg-cover bg-center" 
-            style={{backgroundImage: 'url(/Goo.png)'}} />
+            style={{backgroundImage: 'url(/Goo.webp)'} as any} />
         </View>
         
         {/* Star Rating */}
         <View className="flex flex-row gap-2 mb-6">
-        <img src="reviews.png" alt="stars" />
+        <img src="reviews.webp" alt="stars" />
         </View>
         
         {/* Review Text */}
@@ -660,7 +660,7 @@ can build a greener future while achieving your logistics goals.
         <View className="flex flex-row items-start gap-6 mb-6">
           {/* Avatar */}
           <View className="w-[80px] h-[80px] rounded-full bg-cover bg-center" 
-            style={{backgroundImage: 'url(/N.png)'}} />
+            style={{backgroundImage: 'url(/N.webp)'} as any} />
           
           {/* User Info */}
           <View className="flex-1">
@@ -674,11 +674,11 @@ can build a greener future while achieving your logistics goals.
           
           {/* Logo */}
           <View className="w-[32px] h-[32px] bg-cover bg-center" 
-            style={{backgroundImage: 'url(/Goo.png)'}} />
+            style={{backgroundImage: 'url(/Goo.webp)'} as any} />
         </View>
         {/* Star Rating */}
         <View className="flex flex-row gap-2 mb-6">
-        <img src="reviews.png" alt="stars" />
+        <img src="reviews.webp" alt="stars" />
         </View>
         
         {/* Review Text */}
@@ -692,7 +692,7 @@ can build a greener future while achieving your logistics goals.
         <View className="flex flex-row items-start gap-6 mb-6">
           {/* Avatar */}
           <View className="w-[80px] h-[80px] rounded-full bg-cover bg-center" 
-            style={{backgroundImage: 'url(/V.png)'}} />
+            style={{backgroundImage: 'url(/V.webp)'} as any} />
           
           {/* User Info */}
           <View className="flex-1">
@@ -706,11 +706,11 @@ can build a greener future while achieving your logistics goals.
           
           {/* Logo */}
           <View className="w-[32px] h-[32px] bg-cover bg-center" 
-            style={{backgroundImage: 'url(/Goo.png)'}} />
+            style={{backgroundImage: 'url(/Goo.webp)'} as any} />
         </View>
         {/* Star Rating */}
         <View className="flex flex-row gap-2 mb-6">
-        <img src="reviews.png" alt="stars" />
+        <img src="reviews.webp" alt="stars" />
         </View>
         {/* Review Text */}
         <Text className="font-helvetica font-normal text-[20px] leading-[38px] text-black opacity-70">
@@ -771,7 +771,7 @@ can build a greener future while achieving your logistics goals.
         <View
           key={image.id}
           className="rounded-[20px] bg-cover bg-center flex-shrink-0 hover:scale-105 transition-transform duration-300"
-          style={{ backgroundImage: `url(${image.src})`, width: galleryCardWidth, height: galleryCardWidth, marginRight: galleryGap }}
+          style={{ backgroundImage: `url(${image.src})`, width: galleryCardWidth, height: galleryCardWidth, marginRight: galleryGap } as any}
         />
       ))}
       {/* Duplicate images for seamless loop */}
@@ -779,7 +779,7 @@ can build a greener future while achieving your logistics goals.
         <View
           key={`${image.id}-duplicate`}
           className="rounded-[20px] bg-cover bg-center flex-shrink-0 hover:scale-105 transition-transform duration-300"
-          style={{ backgroundImage: `url(${image.src})`, width: galleryCardWidth, height: galleryCardWidth, marginRight: galleryGap }}
+          style={{ backgroundImage: `url(${image.src})`, width: galleryCardWidth, height: galleryCardWidth, marginRight: galleryGap } as any}
         />
       ))}
     </View>
@@ -794,7 +794,7 @@ can build a greener future while achieving your logistics goals.
             
             {/* Left Section - White Background */}
             <div className="w-full lg:w-1/2 bg-white relative min-h-[400px] lg:min-h-[520px] flex items-center justify-center py-12 lg:py-0">
-              <img src="/bg.png" alt="" className="absolute inset-0 w-full h-full object-cover" />
+              <img src="/bg.webp" alt="" className="absolute inset-0 w-full h-full object-cover" />
               {/* Left Section Content - Centered */}
               <div className="max-w-[740px] w-full text-center px-8">
                 
@@ -808,11 +808,11 @@ can build a greener future while achieving your logistics goals.
 
                 {/* Image Grid - Centered */}
                 <div className="flex flex-wrap justify-center gap-4 lg:gap-16 mb-12">
-                  <div className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award1.png)'}}></div>
-                  <div className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award2.png)'}}></div>
-                  <div className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award3.png)'}}></div>
-                  <div className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award4.png)'}}></div>
-                  <div className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award5.png)'}}></div>
+                  <div className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award1.webp)'}}></div>
+                  <div className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award2.webp)'}}></div>
+                  <div className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award3.webp)'}}></div>
+                  <div className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award4.webp)'}}></div>
+                  <div className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award5.webp)'}}></div>
                 </div>
               </div>
             </div>

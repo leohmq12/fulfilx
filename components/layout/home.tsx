@@ -40,29 +40,29 @@ const Home: React.FC = () => {
 const [currentSlide, setCurrentSlide] = useState(0);
 const carouselRef = useRef<HTMLDivElement>(null);
 const testimonials = [
-  { image: '/audenza.png', alt: 'Testimonial 1' },
-  { image: '/hot.png', alt: 'Testimonial 2' },
-  { image: '/milk.png', alt: 'Testimonial 3' },
-  { image: '/pops.png', alt: 'Testimonial 4' },
-  { image: '/har.png', alt: 'Testimonial 5' }
+  { image: '/audenza.webp', alt: 'Testimonial 1' },
+  { image: '/hot.webp', alt: 'Testimonial 2' },
+  { image: '/milk.webp', alt: 'Testimonial 3' },
+  { image: '/pops.webp', alt: 'Testimonial 4' },
+  { image: '/har.webp', alt: 'Testimonial 5' }
 ];
 const row1Logos = [
-    { src: "/amazon.png", alt: "Amazon" },
-    { src: "/shopify.png", alt: "Shopify" },
-    { src: "/tiktok.png", alt: "TikTok" }
+    { src: "/amazon.webp", alt: "Amazon" },
+    { src: "/shopify.webp", alt: "Shopify" },
+    { src: "/tiktok.webp", alt: "TikTok" }
   ];
 
   const row2Logos = [
-    { src: "/ebay.png", alt: "eBay" },
-    { src: "/magento.png", alt: "Magento" },
-    { src: "/etsy.png", alt: "Etsy" },
-    { src: "/woo.png", alt: "WooCommerce" }
+    { src: "/ebay.webp", alt: "eBay" },
+    { src: "/magento.webp", alt: "Magento" },
+    { src: "/etsy.webp", alt: "Etsy" },
+    { src: "/woo.webp", alt: "WooCommerce" }
   ];
 
   const row3Logos = [
-    { src: "/onbuy.png", alt: "OnBuy" },
-    { src: "/dpd.png", alt: "DPD" },
-    { src: "/shipstation.png", alt: "ShipStation" }
+    { src: "/onbuy.webp", alt: "OnBuy" },
+    { src: "/dpd.webp", alt: "DPD" },
+    { src: "/shipstation.webp", alt: "ShipStation" }
   ];
 
 
@@ -99,7 +99,7 @@ const row1Logos = [
     {/* PNG Background - MOVE ABOVE WHITE BACKGROUND */}
     <div className="absolute inset-0 z-0">
         <img 
-            src="/bg.png"
+            src="/bg.webp"
             alt="Background pattern"
             className="w-full h-full lg:w-[1920px] lg:h-[1000px] object-cover"
         />
@@ -165,7 +165,7 @@ const row1Logos = [
     {/* Right aligned image */}
     <div className="flex-1 flex justify-center lg:justify-end -mr-40 transform translate-y-[-250px] lg:translate-y-[-600px] relative z-0">
         <img 
-            src="/helement.png"
+            src="/helement.webp"
             alt="Your image description"
             className="max-w-[765px] lg:max-w-[765px] object-contain hidden lg:block"
         />
@@ -175,7 +175,7 @@ const row1Logos = [
 <section className="relative w-full h-[120px]">
   <div className="absolute -top-[480px] left-1/2 -translate-x-1/2 w-[320px] h-[18px]">
     <img 
-      src="/stars.png" 
+      src="/stars.webp" 
       alt="Design Element" 
       className="w-[320px] h-[18px] object-contain"
     />
@@ -191,7 +191,7 @@ const row1Logos = [
   {/* Background Image */}
   <div className="absolute inset-0">
     <img 
-      src="/redbg.png"
+      src="/redbg.webp"
       alt="Background"
       className="w-full h-full object-cover"
     />
@@ -262,7 +262,7 @@ const row1Logos = [
 <section className="relative w-full pt-24 lg:pt-32 pb-16 bg-white overflow-hidden">
     <div className="absolute inset-0">
     <img 
-      src="/bg.png"
+      src="/bg.webp"
       alt="Background"
       className="w-full h-full lg:w-[1920px] lg:h-[1000px] object-cover"
     />
@@ -277,7 +277,7 @@ const row1Logos = [
     backdropFilter: 'blur(12.5px)'
   }}>
   <img 
-    src="/px.png" 
+    src="/px.webp" 
     alt="Decorative square" 
     className="w-full h-full rounded-[34px] object-cover"
   />
@@ -324,7 +324,7 @@ const row1Logos = [
   <div 
     className="absolute inset-0 bg-black/65"
     style={{
-      backgroundImage: `url('/shiphome.png')`,
+      backgroundImage: `url('/shiphome.webp')`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       transform: 'scaleX(-1)'
@@ -342,11 +342,11 @@ const row1Logos = [
   <div className="relative lg:absolute lg:bottom-[150px] lg:left-1/2 lg:-translate-x-1/2 flex flex-col lg:flex-row gap-[20px] items-center px-4">
 
     {[
-      { title: "Fulfilment Services", img: "/shiphappens1.png" },
-      { title: "Amazon FBA & SFP", img: "/shiphappens2.png" },
-      { title: "Packaging Solutions", img: "/shiphappens3.png" },
-      { title: "Freight Services", img: "/shiphappens4.png" },
-      { title: "Rework & Quality Control", img: "/shiphappens5.png" },
+      { title: "Fulfilment Services", img: "/shiphappens1.webp" },
+      { title: "Amazon FBA & SFP", img: "/shiphappens2.webp" },
+      { title: "Packaging Solutions", img: "/shiphappens3.webp" },
+      { title: "Freight Services", img: "/shiphappens4.webp" },
+      { title: "Rework & Quality Control", img: "/shiphappens5.webp" },
     ].map((item, i) => (
       <div key={i} className="relative h-[300px] w-full lg:h-[480px] lg:w-[250px] group overflow-hidden rounded-xl">
 
@@ -389,7 +389,7 @@ const row1Logos = [
 <section className="relative w-full bg-white py-16 md:py-32 overflow-hidden">
   {/* Background Image */}
   <img
-    src="/inventory.png"
+    src="/inventory.webp"
     alt="Warehouse background"
     className="absolute inset-0 w-full h-full object-cover pointer-events-none"
   />
@@ -483,7 +483,7 @@ const row1Logos = [
   {[
     { 
       step: 1, 
-      icon: "/connect.png", 
+      icon: "/connect.webp", 
       title: "Connect",
       circleBg: "bg-black",
       titleColor: "text-black",
@@ -491,7 +491,7 @@ const row1Logos = [
     },
     { 
       step: 2, 
-      icon: "/invent.png", 
+      icon: "/invent.webp", 
       title: "Inventory Management",
       circleBg: "bg-[#C10016]",
       titleColor: "text-[#C10016]",
@@ -500,7 +500,7 @@ const row1Logos = [
     },
     { 
       step: 3, 
-      icon: "/pick.png", 
+      icon: "/pick.webp", 
       title: "Pick & Pack",
       circleBg: "bg-black",
       titleColor: "text-black",
@@ -508,7 +508,7 @@ const row1Logos = [
     },
     { 
       step: 4, 
-      icon: "/drive.png", 
+      icon: "/drive.webp", 
       title: "Delivery",
       circleBg: "bg-[#C10016]",
       titleColor: "text-[#C10016]",
@@ -560,7 +560,7 @@ const row1Logos = [
   <div 
     className="absolute inset-0 w-full h-full"
     style={{
-      background: 'linear-gradient(0deg, rgba(193, 0, 22, 0.4), rgba(193, 0, 22, 0.4)), url(/respond.png)',
+      background: 'linear-gradient(0deg, rgba(193, 0, 22, 0.4), rgba(193, 0, 22, 0.4)), url(/respond.webp)',
       backgroundSize: 'cover',
       backgroundPosition: 'center'
     }}
@@ -594,7 +594,7 @@ const row1Logos = [
     </div>
   </div>
 </section>
-<section className="relative w-full bg-cover bg-center bg-no-repeat" style={{backgroundImage: 'url(/donebg.png)'}}>
+<section className="relative w-full bg-cover bg-center bg-no-repeat" style={{backgroundImage: 'url(/donebg.webp)'}}>
   <div className="relative max-w-[1490px] mx-auto px-4 py-16">
     
    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12">
@@ -688,9 +688,9 @@ const row1Logos = [
     className="w-full h-[400px] lg:h-[900px] bg-cover bg-center rounded-[24px] backdrop-blur-[12.5px]"
     style={{
       backgroundImage: `url(${
-        activeDot === 0 ? '/box.png' :
-        activeDot === 1 ? '/peep.png' :
-        activeDot === 2 ? 'shipdone.png' :
+        activeDot === 0 ? '/box.webp' :
+        activeDot === 1 ? '/peep.webp' :
+        activeDot === 2 ? 'shipdone.webp' :
         '/image3.jpg'
       })`
     }}
@@ -748,31 +748,31 @@ const row1Logos = [
     <div className="flex justify-center items-center gap-16 mt-20">
       {/* United Kingdom */}
       <div className="flex items-center gap-3">
-        <div className="w-[30px] h-[20px] bg-cover bg-center rounded-[2px]" style={{backgroundImage: 'url(/UK.png)'}}></div>
+        <div className="w-[30px] h-[20px] bg-cover bg-center rounded-[2px]" style={{backgroundImage: 'url(/UK.webp)'}}></div>
         <span className="font-normal text-[18px] leading-[30px] text-black">United Kingdom</span>
       </div>
 
       {/* United States */}
       <div className="flex items-center gap-3">
-        <div className="w-[30px] h-[20px] bg-cover bg-center rounded-[2px]" style={{backgroundImage: 'url(/US.png)'}}></div>
+        <div className="w-[30px] h-[20px] bg-cover bg-center rounded-[2px]" style={{backgroundImage: 'url(/US.webp)'}}></div>
         <span className="font-normal text-[18px] leading-[30px] text-black">California</span>
       </div>
 
       {/* San Francisco */}
       <div className="flex items-center gap-3">
-        <div className="w-[30px] h-[20px] bg-cover bg-center rounded-[2px]" style={{backgroundImage: 'url(/AT.png)'}}></div>
+        <div className="w-[30px] h-[20px] bg-cover bg-center rounded-[2px]" style={{backgroundImage: 'url(/AT.webp)'}}></div>
         <span className="font-normal text-[18px] leading-[30px] text-black">Atlanta</span>
       </div>
 
       {/* Georgia */}
       <div className="flex items-center gap-3">
-        <div className="w-[30px] h-[20px] border border-black/10 bg-cover bg-center rounded-[2px]" style={{backgroundImage: 'url(/NET.png)'}}></div>
+        <div className="w-[30px] h-[20px] border border-black/10 bg-cover bg-center rounded-[2px]" style={{backgroundImage: 'url(/NET.webp)'}}></div>
         <span className="font-normal text-[18px] leading-[30px] text-black">Netherlands</span>
       </div>
 
       {/* UAE */}
       <div className="flex items-center gap-3">
-        <div className="w-[30px] h-[20px] bg-cover bg-center rounded-[2px]" style={{backgroundImage: 'url(/UAE.png)'}}></div>
+        <div className="w-[30px] h-[20px] bg-cover bg-center rounded-[2px]" style={{backgroundImage: 'url(/UAE.webp)'}}></div>
         <span className="font-normal text-[18px] leading-[30px] text-black">UAE</span>
       </div>
     </div>
@@ -781,26 +781,26 @@ const row1Logos = [
     <div className="flex justify-center items-center gap-12 mt-8">
       {/* Saudi */}
       <div className="flex items-center gap-3">
-        <div className="w-[30px] h-[20px] bg-cover bg-center rounded-[2px]" style={{backgroundImage: 'url(/Saudi.png)'}}></div>
+        <div className="w-[30px] h-[20px] bg-cover bg-center rounded-[2px]" style={{backgroundImage: 'url(/Saudi.webp)'}}></div>
         <span className="font-normal text-[18px] leading-[30px] text-black">Saudi</span>
       </div>
 
       {/* Bahrain */}
       <div className="flex items-center gap-3">
-        <div className="w-[30px] h-[20px] border border-black/10 bg-cover bg-center rounded-[2px]" style={{backgroundImage: 'url(/B.png)'}}></div>
+        <div className="w-[30px] h-[20px] border border-black/10 bg-cover bg-center rounded-[2px]" style={{backgroundImage: 'url(/B.webp)'}}></div>
         <span className="font-normal text-[18px] leading-[30px] text-black">Bahrain</span>
       </div>
 
       {/* Australia */}
       <div className="flex items-center gap-3">
-        <div className="w-[30px] h-[20px] bg-cover bg-center rounded-[2px]" style={{backgroundImage: 'url(/Aus.png)'}}></div>
+        <div className="w-[30px] h-[20px] bg-cover bg-center rounded-[2px]" style={{backgroundImage: 'url(/Aus.webp)'}}></div>
         <span className="font-normal text-[18px] leading-[30px] text-black">Australia</span>
       </div>
     </div>
 
     {/* World Map Image */}
     <div className="relative w-full h-[698px] mt-20">
-      <div className="w-full h-full bg-cover bg-center rounded-lg" style={{backgroundImage: 'url(/world-map.png)'}}></div>
+      <div className="w-full h-full bg-cover bg-center rounded-lg" style={{backgroundImage: 'url(/world-map.webp)'}}></div>
       
 {/* Location Markers */}
 {/* UK Marker */}
@@ -813,7 +813,7 @@ const row1Logos = [
   {/* Hover Popup */}
   <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
     <div className="bg-white px-6 py-2 rounded-lg shadow-lg border border-gray-200 whitespace-nowrap flex items-center gap-2">
-    <img src="/UK.png" alt="UK Flag" className="w-[16px] h-[12px]" />
+    <img src="/UK.webp" alt="UK Flag" className="w-[16px] h-[12px]" />
     <p className="text-sm font-medium text-gray-800">United Kingdom</p>
 </div>
     {/* Arrow */}
@@ -831,7 +831,7 @@ const row1Logos = [
   {/* Hover Popup */}
   <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
     <div className="bg-white px-6 py-2 rounded-lg shadow-lg border border-gray-200 whitespace-nowrap flex items-center gap-2">
-      <img src="/US.png" alt="US Flag" className="w-[16px] h-[12px]" />
+      <img src="/US.webp" alt="US Flag" className="w-[16px] h-[12px]" />
       <p className="text-sm font-medium text-gray-800">United States</p>
     </div>
     {/* Arrow */}
@@ -849,7 +849,7 @@ const row1Logos = [
   {/* Hover Popup */}
   <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
     <div className="bg-white px-6 py-2 rounded-lg shadow-lg border border-gray-200 whitespace-nowrap flex items-center gap-2">
-      <img src="/UAE.png" alt="UAE Flag" className="w-[16px] h-[12px]" />
+      <img src="/UAE.webp" alt="UAE Flag" className="w-[16px] h-[12px]" />
       <p className="text-sm font-medium text-gray-800">UAE</p>
     </div>
     {/* Arrow */}
@@ -867,7 +867,7 @@ const row1Logos = [
   {/* Hover Popup */}
   <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
     <div className="bg-white px-6 py-2 rounded-lg shadow-lg border border-gray-200 whitespace-nowrap flex items-center gap-2">
-      <img src="/Aus.png" alt="AU Flag" className="w-[16px] h-[12px]" />
+      <img src="/Aus.webp" alt="AU Flag" className="w-[16px] h-[12px]" />
       <p className="text-sm font-medium text-gray-800">Australia</p>
     </div>
     {/* Arrow */}
@@ -885,7 +885,7 @@ const row1Logos = [
   {/* Hover Popup */}
   <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
    <div className="bg-white px-6 py-2 rounded-lg shadow-lg border border-gray-200 whitespace-nowrap flex items-center gap-2">
-    <img src="/Saudi.png" alt="Saudi Flag" className="w-[16px] h-[12px]" />
+    <img src="/Saudi.webp" alt="Saudi Flag" className="w-[16px] h-[12px]" />
     <p className="text-sm font-medium text-gray-800">Saudi Arabia</p>
     </div>
     {/* Arrow */}
@@ -903,7 +903,7 @@ const row1Logos = [
       background: `
         linear-gradient(0deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
         linear-gradient(0deg, #C10016, #C10016),
-        url(/leadingbrands.png)
+        url(/leadingbrands.webp)
       `,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
@@ -1038,7 +1038,7 @@ const row1Logos = [
     
     {/* Left Section - White Background */}
     <div className="w-1/2 bg-white relative min-h-[520px] flex items-center justify-center">
-      <img src="/bg.png" alt="" className="absolute inset-0 w-full h-full object-cover" />
+      <img src="/bg.webp" alt="" className="absolute inset-0 w-full h-full object-cover" />
       {/* Left Section Content - Centered */}
       <div className="max-w-[740px] w-full text-center px-8">
         
@@ -1052,11 +1052,11 @@ const row1Logos = [
 
         {/* Image Grid - Centered */}
         <div className="flex justify-center gap-16 mb-12">
-          <div className="w-[84px] h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award1.png)'}}></div>
-          <div className="w-[84px] h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award2.png)'}}></div>
-          <div className="w-[84px] h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award3.png)'}}></div>
-          <div className="w-[84px] h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award4.png)'}}></div>
-          <div className="w-[84px] h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award5.png)'}}></div>
+          <div className="w-[84px] h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award1.webp)'}}></div>
+          <div className="w-[84px] h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award2.webp)'}}></div>
+          <div className="w-[84px] h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award3.webp)'}}></div>
+          <div className="w-[84px] h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award4.webp)'}}></div>
+          <div className="w-[84px] h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award5.webp)'}}></div>
         </div>
 
       </div>

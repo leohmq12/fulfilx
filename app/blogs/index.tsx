@@ -14,21 +14,21 @@ export default function BlogsScreen() {
       id: 1,
       title: "The Power of Integration",
       description: "Explore how FulFilx elevates luxury fulfillment, offering bespoke services to manage & deliver high-end goods through an extensive courier network & seamless e-commerce platform integrations, ensuring an unmatched experience for your clients.",
-      image: "/poi.png",
+      image: "/poi.webp",
       position: { left: 215, top: 200 }
     },
     {
       id: 2,
       title: "Supplements & Vitamins",
       description: "Uncover how FulFilx transforms the fulfillment process for supplements and vitamins through comprehensive services, leveraging an extensive courier network & seamless e-commerce platform integrations, ensuring your health products reach clients efficiently.",
-      image: "/sup.png",
+      image: "/sup.webp",
       position: { left: 215, top: 982 }
     },
     {
       id: 3,
       title: "Consumable Goods",
       description: "Discover how FulFilx offers unparalleled services in managing & delivering consumable goods to your clients through an extensive network of couriers and seamless platform integrations, ensuring efficiency and customer satisfaction.",
-      image: "/con.png",
+      image: "/1_con.webp",
       position: { left: 215, top: 1764 }
     },
     // Column 2 - Middle
@@ -36,21 +36,21 @@ export default function BlogsScreen() {
       id: 4,
       title: "Electronics",
       description: "Discover FulFilx's cutting-edge approach to electronics fulfillment, leveraging an extensive courier network and seamless e-commerce platform integrations to ensure efficient management & delivery of your electronics to clients globally.",
-      image: "/mic.png",
+      image: "/mic.webp",
       position: { left: 735, top: 140 }
     },
     {
       id: 5,
       title: "Cosmetics",
       description: "Discover how FulFilx revolutionizes cosmetics fulfillment, offering tailored services, multiple courier options & seamless e-commerce platform integrations to deliver your beauty products flawlessly to clients worldwide.",
-      image: "/cos.png",
+      image: "/cos.webp",
       position: { left: 735, top: 922 }
     },
     {
       id: 6,
       title: "Trade Supplies",
       description: "Learn how FulFilx transforms the management and delivery of trade supplies through its extensive courier network and seamless e-commerce platform integrations, ensuring your business stays ahead in the fulfillment center industry.",
-      image: "/tra.png",
+      image: "/tra.webp",
       position: { left: 735, top: 1704 }
     },
     // Column 3 - Right
@@ -58,21 +58,21 @@ export default function BlogsScreen() {
       id: 7,
       title: "Homeware & accessories",
       description: "Discover how FulFilx elevates the fulfillment process for homeware and accessories through specialized services, an extensive courier network, and seamless e-commerce platform integrations, ensuring your products enrich homes worldwide.",
-      image: "/home.png",
+      image: "/home.webp",
       position: { left: 1255, top: 80 }
     },
     {
       id: 8,
       title: "Fashion",
       description: "Explore how FulFilx revolutionizes fashion fulfillment with comprehensive services, including managing and delivering fashion goods through an extensive courier network & seamless integrations with e-commerce platforms.",
-      image: "/fas.png",
+      image: "/fas.webp",
       position: { left: 1255, top: 862 }
     },
     {
       id: 9,
       title: "Toys & Games",
       description: "Discover how FulFilx elevates the management and delivery of toys and games through its robust network of couriers and seamless integrations with major e-commerce platforms, ensuring your products delight clients everywhere.",
-      image: "/toy.png",
+      image: "/toy.webp",
       position: { left: 1255, top: 1644 }
     }
   ];
@@ -97,7 +97,7 @@ export default function BlogsScreen() {
           {/* PNG Background */}
           <View className="absolute inset-0 z-0">
             <img 
-              src="/bg.png"
+              src="/bg.webp"
               alt="Background pattern"
               className="w-full h-full lg:w-[1920px] lg:h-[600px] object-cover"
             />
@@ -141,7 +141,7 @@ export default function BlogsScreen() {
                     style={{ 
                       backgroundImage: `url(${blog.image})`,
                       backdropFilter: 'blur(12.5px)'
-                    }}
+                    } as any}
                   />
                   
                   {/* Content */}
@@ -204,7 +204,7 @@ export default function BlogsScreen() {
                   style={{ 
                     backgroundImage: `url(${blog.image})`,
                     backdropFilter: 'blur(12.5px)'
-                  }}
+                  } as any}
                 />
                 
                 {/* Content */}
@@ -252,7 +252,7 @@ export default function BlogsScreen() {
             {/* Left Section - White Background */}
             <View className="w-full lg:w-1/2 bg-white relative min-h-[400px] lg:min-h-[520px] flex items-center justify-center py-12 lg:py-0">
               <View className="absolute inset-0">
-                <img src="/bg.png" alt="" className="w-full h-full object-cover" />
+                <img src="/bg.webp" alt="" className="w-full h-full object-cover" />
               </View>
               {/* Left Section Content - Centered */}
               <View className="max-w-[740px] w-full items-center px-8 z-10">
@@ -268,19 +268,19 @@ export default function BlogsScreen() {
                 {/* Image Grid - Centered */}
                 <View className="flex flex-row flex-wrap justify-center gap-4 lg:gap-16 mb-12">
                   <View className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px]">
-                    <img src="/award1.png" className="w-full h-full object-contain" />
+                    <img src="/award1.webp" className="w-full h-full object-contain" />
                   </View>
                   <View className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px]">
-                    <img src="/award2.png" className="w-full h-full object-contain" />
+                    <img src="/award2.webp" className="w-full h-full object-contain" />
                   </View>
                   <View className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px]">
-                    <img src="/award3.png" className="w-full h-full object-contain" />
+                    <img src="/award3.webp" className="w-full h-full object-contain" />
                   </View>
                   <View className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px]">
-                    <img src="/award4.png" className="w-full h-full object-contain" />
+                    <img src="/award4.webp" className="w-full h-full object-contain" />
                   </View>
                   <View className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px]">
-                    <img src="/award5.png" className="w-full h-full object-contain" />
+                    <img src="/award5.webp" className="w-full h-full object-contain" />
                   </View>
                 </View>
               </View>

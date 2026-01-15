@@ -50,7 +50,7 @@ const Navbar: React.FC = () => {
                 {/* Logo */}
                 <div className="flex-shrink-0 flex items-center">
                     <img 
-                        src="/logo.png"
+                        src="/logo.webp"
                         alt="FULFILX Logo"
                         className="w-32 h-8 md:w-40 md:h-10 lg:w-48 lg:h-12 object-contain"
                     />

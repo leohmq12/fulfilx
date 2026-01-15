@@ -33,7 +33,7 @@ export default function ContactScreen() {
           {/* PNG Background */}
           <View className="absolute inset-0 z-0">
             <img 
-              src="/bg.png"
+              src="/bg.webp"
               alt="Background pattern"
               className="w-full h-full lg:w-[1920px] lg:h-[600px] object-cover"
             />
@@ -196,7 +196,7 @@ export default function ContactScreen() {
             {/* Left Column - Image */}
             <div className="w-full lg:w-[720px] h-[300px] sm:h-[420px] lg:h-[936px] rounded-[30px] overflow-hidden">
               <img 
-                src="/locate.png" 
+                src="/locate.webp" 
                 alt="Contact"
                 className="w-full h-full object-cover"
               />
@@ -336,7 +336,7 @@ export default function ContactScreen() {
             
             {/* Left Section - White Background */}
             <div className="w-full lg:w-1/2 bg-white relative min-h-[400px] lg:min-h-[520px] flex items-center justify-center py-12 lg:py-0">
-              <img src="/bg.png" alt="" className="absolute inset-0 w-full h-full object-cover" />
+              <img src="/bg.webp" alt="" className="absolute inset-0 w-full h-full object-cover" />
               {/* Left Section Content - Centered */}
               <div className="max-w-[740px] w-full text-center px-8">
                 
@@ -350,11 +350,11 @@ export default function ContactScreen() {
 
                 {/* Image Grid - Centered */}
                 <div className="flex flex-wrap justify-center gap-4 lg:gap-16 mb-12">
-                  <div className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award1.png)'}}></div>
-                  <div className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award2.png)'}}></div>
-                  <div className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award3.png)'}}></div>
-                  <div className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award4.png)'}}></div>
-                  <div className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award5.png)'}}></div>
+                  <div className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award1.webp)'}}></div>
+                  <div className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award2.webp)'}}></div>
+                  <div className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award3.webp)'}}></div>
+                  <div className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award4.webp)'}}></div>
+                  <div className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award5.webp)'}}></div>
                 </div>
               </div>
             </div>

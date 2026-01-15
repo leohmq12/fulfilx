@@ -29,7 +29,7 @@ export default function LuxuryScreen() {
                     {/* PNG Background */}
                     <View className="absolute inset-0 z-0 h-[calc(100%-100px)]">
                         <img 
-                            src="/bg.png"
+                            src="/bg.webp"
                             alt="Background pattern"
                             className="w-full h-full lg:w-[1920px] lg:h-[600px] object-cover"
                         />
@@ -62,9 +62,9 @@ export default function LuxuryScreen() {
                             <View 
                                 className="w-full h-[250px] lg:w-[1296px] lg:h-[650px] rounded-[24px] lg:rounded-[34px] bg-cover bg-center"
                                 style={{ 
-                                    backgroundImage: 'url(/poi.png)',
+                                    backgroundImage: 'url(/poi.webp)',
                                     backdropFilter: 'blur(12.5px)'
-                                }}
+                                } as any}
                             />
                         </View>
                     </View>
@@ -105,9 +105,9 @@ export default function LuxuryScreen() {
                                 <View 
                                     className="w-full h-[400px] lg:w-[600px] lg:h-[760px] rounded-[30px] bg-cover bg-center"
                                     style={{ 
-                                        backgroundImage: 'url(/heels.png)',
+                                        backgroundImage: 'url(/heels.webp)',
                                         backdropFilter: 'blur(12.5px)'
-                                    }}
+                                    } as any}
                                 />
                             </View>
 
@@ -171,7 +171,7 @@ export default function LuxuryScreen() {
                     {/* Background */}
                     <View className="absolute inset-0 z-0">
                         <img 
-                            src="/bg.png"
+                            src="/bg.webp"
                             alt="Background pattern"
                             className="w-full h-full object-cover"
                         />
@@ -244,9 +244,9 @@ export default function LuxuryScreen() {
                                 <View 
                                     className="w-full h-[400px] lg:w-[600px] lg:h-[760px] rounded-[30px] bg-cover bg-center"
                                     style={{ 
-                                        backgroundImage: 'url(/shipper.png)',
+                                        backgroundImage: 'url(/shipper.webp)',
                                         backdropFilter: 'blur(12.5px)'
-                                    }}
+                                    } as any}
                                 />
                             </View>
                         </View>
@@ -271,9 +271,9 @@ export default function LuxuryScreen() {
                                 <View 
                                     className="w-full h-[400px] lg:w-[600px] lg:h-[760px] rounded-[30px] bg-cover bg-center"
                                     style={{ 
-                                        backgroundImage: 'url(/laptop.png)',
+                                        backgroundImage: 'url(/laptop.webp)',
                                         backdropFilter: 'blur(12.5px)'
-                                    }}
+                                    } as any}
                                 />
                             </View>
 
@@ -337,7 +337,7 @@ export default function LuxuryScreen() {
                     {/* Background */}
                     <View className="absolute inset-0 z-0">
                         <img 
-                            src="/bg.png"
+                            src="/bg.webp"
                             alt="Background pattern"
                             className="w-full h-full object-cover"
                         />
@@ -429,7 +429,7 @@ export default function LuxuryScreen() {
             
                         {/* Left Section - White Background */}
                         <View className="w-full lg:w-1/2 bg-white relative min-h-[520px] flex items-center justify-center py-12 lg:py-0">
-                            <img src="/bg.png" alt="" className="absolute inset-0 w-full h-full object-cover" />
+                            <img src="/bg.webp" alt="" className="absolute inset-0 w-full h-full object-cover" />
                             {/* Left Section Content - Centered */}
                             <View className="max-w-[740px] w-full text-center px-8 relative z-10">
                 
@@ -443,11 +443,11 @@ export default function LuxuryScreen() {
 
                                 {/* Image Grid - Centered */}
                                 <View className="flex flex-row flex-wrap justify-center gap-8 lg:gap-16 mb-12">
-                                    <View className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award1.png)'}} />
-                                    <View className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award2.png)'}} />
-                                    <View className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award3.png)'}} />
-                                    <View className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award4.png)'}} />
-                                    <View className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award5.png)'}} />
+                                    <View className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award1.webp)'} as any} />
+                                    <View className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award2.webp)'} as any} />
+                                    <View className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award3.webp)'} as any} />
+                                    <View className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award4.webp)'} as any} />
+                                    <View className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award5.webp)'} as any} />
                                 </View>
                             </View>
                         </View>

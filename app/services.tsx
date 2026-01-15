@@ -237,7 +237,7 @@ const LogisticsServicesSection = () => {
       id: 1,
       title: 'Import & Export Handling',
       icon: ImportExportIcon,
-      imageUrl: '/ie.png', // Add your image URLs here
+      imageUrl: '/ie.webp', // Add your image URLs here
       features: [
         'UK import management (port-to-warehouse)',
         'Export shipping to global destinations',
@@ -252,7 +252,7 @@ const LogisticsServicesSection = () => {
       id: 2,
       title: 'Pallet Handling & Transport',
       icon: PalletTransportIcon,
-      imageUrl: '/ph.png', // Add your image URLs here
+      imageUrl: '/ph.webp', // Add your image URLs here
       features: [
         'Pallet collections',
         'Pallet deliveries',
@@ -509,7 +509,7 @@ const TechnologyIntegrationsSection = () => {
       
       {/* Right Image - image 82 */}
       <View className="hidden lg:block absolute w-[253px] h-[253px] right-[390px] top-1/2 transform -translate-y-1/2">
-        <img src="/r.png" alt="Right Image" className="w-full h-full" />
+        <img src="/r.webp" alt="Right Image" className="w-full h-full" />
       </View>
     </View>
   );
@@ -521,29 +521,29 @@ export default function ServicesScreen(){
     const [isPaused, setIsPaused] = useState(false);
     const carouselRef = useRef<HTMLDivElement>(null);
     const testimonials = [
-      { image: '/audenza.png', alt: 'Testimonial 1' },
-      { image: '/hot.png', alt: 'Testimonial 2' },
-      { image: '/milk.png', alt: 'Testimonial 3' },
-      { image: '/pops.png', alt: 'Testimonial 4' },
-      { image: '/har.png', alt: 'Testimonial 5' }
+      { image: '/audenza.webp', alt: 'Testimonial 1' },
+      { image: '/hot.webp', alt: 'Testimonial 2' },
+      { image: '/milk.webp', alt: 'Testimonial 3' },
+      { image: '/pops.webp', alt: 'Testimonial 4' },
+      { image: '/har.webp', alt: 'Testimonial 5' }
     ];
     const row1Logos = [
-        { src: "/amazon.png", alt: "Amazon" },
-        { src: "/shopify.png", alt: "Shopify" },
-        { src: "/tiktok.png", alt: "TikTok" }
+        { src: "/amazon.webp", alt: "Amazon" },
+        { src: "/shopify.webp", alt: "Shopify" },
+        { src: "/tiktok.webp", alt: "TikTok" }
       ];
     
       const row2Logos = [
-        { src: "/ebay.png", alt: "eBay" },
-        { src: "/magento.png", alt: "Magento" },
-        { src: "/etsy.png", alt: "Etsy" },
-        { src: "/woo.png", alt: "WooCommerce" }
+        { src: "/ebay.webp", alt: "eBay" },
+        { src: "/magento.webp", alt: "Magento" },
+        { src: "/etsy.webp", alt: "Etsy" },
+        { src: "/woo.webp", alt: "WooCommerce" }
       ];
     
       const row3Logos = [
-        { src: "/onbuy.png", alt: "OnBuy" },
-        { src: "/dpd.png", alt: "DPD" },
-        { src: "/shipstation.png", alt: "ShipStation" }
+        { src: "/onbuy.webp", alt: "OnBuy" },
+        { src: "/dpd.webp", alt: "DPD" },
+        { src: "/shipstation.webp", alt: "ShipStation" }
       ];
     
       const nextSlide = () => {
@@ -568,11 +568,11 @@ export default function ServicesScreen(){
         }
       };
       const images = [
-          { id: 1, src: '/bike.png' },
-          { id: 2, src: '/wh.png' },
-          { id: 3, src: '/ct.png' },
-          { id: 4, src: '/box.png' },
-          { id: 5, src: '/happy.png' }
+          { id: 1, src: '/bike.webp' },
+          { id: 2, src: '/wh.webp' },
+          { id: 3, src: '/ct.webp' },
+          { id: 4, src: '/box.webp' },
+          { id: 5, src: '/happy.webp' }
         ];
         useEffect(() => {
         if (isPaused) return;
@@ -612,7 +612,7 @@ export default function ServicesScreen(){
           {/* PNG Background */}
           <View className="absolute inset-0 z-0">
             <img 
-              src="/bg.png"
+              src="/bg.webp"
               alt="Background pattern"
               className="w-full h-full lg:w-[1920px] lg:h-[600px] object-cover"
             />
@@ -739,7 +739,7 @@ export default function ServicesScreen(){
   {/* PNG Background */}
   <View className="absolute inset-0 z-0">
     <img 
-      src="/bg.png"
+      src="/bg.webp"
       alt="Background pattern"
       className="w-full h-full object-cover" /* Change to full width/height */
     />
@@ -754,7 +754,7 @@ export default function ServicesScreen(){
   <div 
     className="absolute inset-0 bg-black/65"
     style={{
-      backgroundImage: `url('/vas.png')`,
+      backgroundImage: `url('/vas.webp')`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       transform: 'scaleX(-1)'
@@ -775,7 +775,7 @@ export default function ServicesScreen(){
       { 
         line1:"Kitting", 
         line2:"& Assembly",
-        img: "/shiphappens1.png", 
+        img: "/shiphappens1.webp", 
         logo:"/k.svg",
         features: [
           "Custom product bundling",
@@ -787,7 +787,7 @@ export default function ServicesScreen(){
       { 
         line1:"Quality Control", 
         line2: "(QC)",
-        img: "/qc.png", 
+        img: "/qc.webp", 
         logo: "/q.svg",
         features: [
           "Inspection & verification",
@@ -799,7 +799,7 @@ export default function ServicesScreen(){
       {
         line1:"Recommence",
         line2:"Services",
-        img: "/shiphappens3.png", 
+        img: "/shiphappens3.webp", 
         logo: "/r.svg",
         features: [
           "Returns processing",
@@ -811,7 +811,7 @@ export default function ServicesScreen(){
       { 
         line1: "Product", 
         line2: "Personalisation", 
-        img: "/shiphappens4.png", 
+        img: "/shiphappens4.webp", 
         logo: "/p.svg",
         features: [
           "Custom engraving",
@@ -889,7 +889,7 @@ export default function ServicesScreen(){
   {/* PNG Background */}
   <View className="absolute inset-0 z-0">
     <img 
-      src="/bg.png"
+      src="/bg.webp"
       alt="Background pattern"
       className="w-full h-full object-cover" /* Change to full width/height */
     />
@@ -911,7 +911,7 @@ export default function ServicesScreen(){
   <div 
     className="absolute inset-0 bg-black/65"
     style={{
-      backgroundImage: `url('/bcs.png')`,
+      backgroundImage: `url('/bcs.webp')`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       transform: 'scaleX(-1)'
@@ -931,7 +931,7 @@ export default function ServicesScreen(){
       { 
         line1:"Content", 
         line2:"Creation",
-        img: "/shiphappens1.png", 
+        img: "/shiphappens1.webp", 
         logo:"/cc.svg",
         features: [
           "Product photography",
@@ -943,7 +943,7 @@ export default function ServicesScreen(){
       { 
         line1:"Brand Launch &", 
         line2: "Growth Support",
-        img: "/blgs.png", 
+        img: "/blgs.webp", 
         logo: "/blgs.svg",
         features: [
           "Shopify store setup (basic)",
@@ -955,7 +955,7 @@ export default function ServicesScreen(){
       {
         line1:"Custom Packaging",
         line2:"Supply",
-        img: "/shiphappens3.png", 
+        img: "/shiphappens3.webp", 
         logo: "/r.svg",
         features: [
           "Branded boxes",
@@ -1036,7 +1036,7 @@ export default function ServicesScreen(){
       background: `
         linear-gradient(0deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
         linear-gradient(0deg, #C10016, #C10016),
-        url(/leadingbrands.png)
+        url(/leadingbrands.webp)
       `,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
@@ -1180,7 +1180,7 @@ export default function ServicesScreen(){
     
     {/* Left Section - White Background */}
     <div className="w-full lg:w-1/2 bg-white relative min-h-[400px] lg:min-h-[520px] flex items-center justify-center py-12 lg:py-0">
-      <img src="/bg.png" alt="" className="absolute inset-0 w-full h-full object-cover" />
+      <img src="/bg.webp" alt="" className="absolute inset-0 w-full h-full object-cover" />
       {/* Left Section Content - Centered */}
       <div className="max-w-[740px] w-full text-center px-8">
         
@@ -1194,11 +1194,11 @@ export default function ServicesScreen(){
 
         {/* Image Grid - Centered */}
         <div className="flex flex-wrap justify-center gap-8 lg:gap-16 mb-12">
-          <div className="w-[84px] h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award1.png)'}}></div>
-          <div className="w-[84px] h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award2.png)'}}></div>
-          <div className="w-[84px] h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award3.png)'}}></div>
-          <div className="w-[84px] h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award4.png)'}}></div>
-          <div className="w-[84px] h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award5.png)'}}></div>
+          <div className="w-[84px] h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award1.webp)'}}></div>
+          <div className="w-[84px] h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award2.webp)'}}></div>
+          <div className="w-[84px] h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award3.webp)'}}></div>
+          <div className="w-[84px] h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award4.webp)'}}></div>
+          <div className="w-[84px] h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award5.webp)'}}></div>
         </div>
 
       </div>

@@ -5,14 +5,14 @@ const Footer = () => {
   const [agreedToPolicy, setAgreedToPolicy] = useState(false);
 
   return (
-<footer className="w-full relative min-h-screen" style={{ backgroundImage: "url(/footerbg.png)", backgroundSize: "cover", backgroundRepeat: "no-repeat" }}>
+<footer className="w-full relative min-h-screen" style={{ backgroundImage: "url(/footerbg.webp)", backgroundSize: "cover", backgroundRepeat: "no-repeat" }}>
   <div className="max-w-7xl mx-auto px-8 py-20">
     <div className="flex flex-col lg:flex-row justify-between gap-16">
 
       {/* Left Column (Logo + Subscribe) */}
       <div className="flex flex-col gap-6 w-full lg:w-2/5">
         <div className="h-16 w-80">
-          <img src="/wlogo.png" alt="logo" />
+          <img src="/wlogo.webp" alt="logo" />
         </div>
 
         <p className="text-[18px] font-normal text-white">

@@ -31,7 +31,7 @@ export default function LocationsScreen() {
           {/* PNG Background */}
           <View className="absolute inset-0 z-0">
             <Image 
-              source={{ uri: "/bg.png" }}
+              source={{ uri: "/bg.webp" }}
               alt="Background pattern"
               className="w-full h-full lg:w-[1920px] lg:h-[600px]"
               resizeMode="cover"
@@ -83,7 +83,7 @@ export default function LocationsScreen() {
   {/* Flag Circle - Full flag in circle, no red background */}
   <View className="absolute w-[94px] h-[94px] left-1/2 transform -translate-x-1/2 top-[15px] rounded-full overflow-hidden">
     <Image 
-      source={{ uri: "/rounduk.png" }}
+      source={{ uri: "/rounduk.webp" }}
       alt="UK Flag" 
       className="w-full h-full"
       resizeMode="cover"
@@ -137,7 +137,7 @@ export default function LocationsScreen() {
   {/* Flag Circle - Full flag in circle, no red background */}
   <View className="absolute w-[94px] h-[94px] left-1/2 transform -translate-x-1/2 top-[15px] rounded-full overflow-hidden">
     <Image 
-      source={{ uri: "/roundus.png" }}
+      source={{ uri: "/roundus.webp" }}
       alt="US Flag" 
       className="w-full h-full"
       resizeMode="cover"
@@ -191,7 +191,7 @@ export default function LocationsScreen() {
   {/* Flag Circle - Full flag in circle, no red background */}
   <View className="absolute w-[94px] h-[94px] left-1/2 transform -translate-x-1/2 top-[15px] rounded-full overflow-hidden">
     <Image 
-      source={{ uri: "/rounduae.png" }}
+      source={{ uri: "/rounduae.webp" }}
       alt="UAE Flag" 
       className="w-full h-full"
       resizeMode="cover"
@@ -249,7 +249,7 @@ export default function LocationsScreen() {
   {/* Flag Circle - Full flag in circle, no red background */}
   <View className="absolute w-[94px] h-[94px] left-1/2 transform -translate-x-1/2 top-[15px] rounded-full overflow-hidden">
     <Image 
-      source={{ uri: "/roundsaudi.png" }}
+      source={{ uri: "/roundsaudi.webp" }}
       alt="Saudi Flag" 
       className="w-full h-full"
       resizeMode="cover"
@@ -303,7 +303,7 @@ export default function LocationsScreen() {
   {/* Flag Circle - Full flag in circle, no red background */}
   <View className="absolute w-[94px] h-[94px] left-1/2 transform -translate-x-1/2 top-[15px] rounded-full overflow-hidden">
     <Image 
-      source={{ uri: "/roundb.png" }}
+      source={{ uri: "/roundb.webp" }}
       alt="Bahrain Flag" 
       className="w-full h-full"
       resizeMode="cover"
@@ -357,7 +357,7 @@ export default function LocationsScreen() {
   {/* Flag Circle - Full flag in circle, no red background */}
   <View className="absolute w-[94px] h-[94px] left-1/2 transform -translate-x-1/2 top-[15px] rounded-full overflow-hidden">
     <Image 
-      source={{ uri: "/roundaus.png" }}
+      source={{ uri: "/roundaus.webp" }}
       alt="Australia Flag" 
       className="w-full h-full"
       resizeMode="cover"
@@ -406,7 +406,7 @@ export default function LocationsScreen() {
 <View className="relative w-full min-h-screen bg-white">
   <View className="relative w-full h-[600px] lg:h-[800px] -mt-24">
      <Image 
-      source={{ uri: "/bg.png" }}
+      source={{ uri: "/bg.webp" }}
       alt="Background" 
       className="absolute w-full h-full"
       resizeMode="cover"
@@ -431,7 +431,7 @@ export default function LocationsScreen() {
       {/* United Kingdom */}
       <View className="flex flex-row items-center gap-3">
         <View className="w-[30px] h-[20px] rounded-[2px] overflow-hidden">
-          <Image source={{ uri: "/UK.png" }} className="w-full h-full" resizeMode="cover" />
+          <Image source={{ uri: "/UK.webp" }} className="w-full h-full" resizeMode="cover" />
         </View>
         <Text className="font-helvetica font-normal text-[18px] leading-[30px] text-black">United Kingdom</Text>
       </View>
@@ -439,7 +439,7 @@ export default function LocationsScreen() {
       {/* United States */}
       <View className="flex flex-row items-center gap-3">
         <View className="w-[30px] h-[20px] rounded-[2px] overflow-hidden">
-           <Image source={{ uri: "/US.png" }} className="w-full h-full" resizeMode="cover" />
+           <Image source={{ uri: "/US.webp" }} className="w-full h-full" resizeMode="cover" />
         </View>
         <Text className="font-helvetica font-normal text-[18px] leading-[30px] text-black">United States</Text>
       </View>
@@ -447,7 +447,7 @@ export default function LocationsScreen() {
       {/* San Francisco */}
       <View className="flex flex-row items-center gap-3">
         <View className="w-[30px] h-[20px] rounded-[2px] overflow-hidden">
-           <Image source={{ uri: "/SF.png" }} className="w-full h-full" resizeMode="cover" />
+           <Image source={{ uri: "/SF.webp" }} className="w-full h-full" resizeMode="cover" />
         </View>
         <Text className="font-helvetica font-normal text-[18px] leading-[30px] text-black">San Francisco</Text>
       </View>
@@ -455,7 +455,7 @@ export default function LocationsScreen() {
       {/* Georgia */}
       <View className="flex flex-row items-center gap-3">
         <View className="w-[30px] h-[20px] border border-black/10 rounded-[2px] overflow-hidden">
-           <Image source={{ uri: "/G.png" }} className="w-full h-full" resizeMode="cover" />
+           <Image source={{ uri: "/G.webp" }} className="w-full h-full" resizeMode="cover" />
         </View>
         <Text className="font-helvetica font-normal text-[18px] leading-[30px] text-black">Georgia</Text>
       </View>
@@ -463,7 +463,7 @@ export default function LocationsScreen() {
       {/* UAE */}
       <View className="flex flex-row items-center gap-3">
         <View className="w-[30px] h-[20px] rounded-[2px] overflow-hidden">
-           <Image source={{ uri: "/UAE.png" }} className="w-full h-full" resizeMode="cover" />
+           <Image source={{ uri: "/UAE.webp" }} className="w-full h-full" resizeMode="cover" />
         </View>
         <Text className="font-helvetica font-normal text-[18px] leading-[30px] text-black">UAE</Text>
       </View>
@@ -474,7 +474,7 @@ export default function LocationsScreen() {
       {/* Saudi */}
       <View className="flex flex-row items-center gap-3">
         <View className="w-[30px] h-[20px] rounded-[2px] overflow-hidden">
-           <Image source={{ uri: "/Saudi.png" }} className="w-full h-full" resizeMode="cover" />
+           <Image source={{ uri: "/Saudi.webp" }} className="w-full h-full" resizeMode="cover" />
         </View>
         <Text className="font-helvetica font-normal text-[18px] leading-[30px] text-black">Saudi</Text>
       </View>
@@ -482,7 +482,7 @@ export default function LocationsScreen() {
       {/* Bahrain */}
       <View className="flex flex-row items-center gap-3">
         <View className="w-[30px] h-[20px] border border-black/10 rounded-[2px] overflow-hidden">
-           <Image source={{ uri: "/B.png" }} className="w-full h-full" resizeMode="cover" />
+           <Image source={{ uri: "/B.webp" }} className="w-full h-full" resizeMode="cover" />
         </View>
         <Text className="font-helvetica font-normal text-[18px] leading-[30px] text-black">Bahrain</Text>
       </View>
@@ -490,7 +490,7 @@ export default function LocationsScreen() {
       {/* Australia */}
       <View className="flex flex-row items-center gap-3">
         <View className="w-[30px] h-[20px] rounded-[2px] overflow-hidden">
-           <Image source={{ uri: "/Aus.png" }} className="w-full h-full" resizeMode="cover" />
+           <Image source={{ uri: "/Aus.webp" }} className="w-full h-full" resizeMode="cover" />
         </View>
         <Text className="font-helvetica font-normal text-[18px] leading-[30px] text-black">Australia</Text>
       </View>
@@ -498,7 +498,7 @@ export default function LocationsScreen() {
 
     {/* World Map Image */}
     <View className="relative w-full h-[300px] lg:h-[698px] mt-20">
-      <Image source={{ uri: "/world-map.png" }} className="w-full h-full rounded-lg" resizeMode="contain" />
+      <Image source={{ uri: "/world-map.webp" }} className="w-full h-full rounded-lg" resizeMode="contain" />
       
 {/* Location Markers - Hidden on mobile for simplicity or positioned relatively? keeping absolute but adjusted */}
 {/* UK Marker */}
@@ -557,7 +557,7 @@ export default function LocationsScreen() {
             
             {/* Left Section - White Background */}
             <View className="w-full lg:w-1/2 bg-white relative min-h-[400px] lg:min-h-[520px] flex items-center justify-center py-12 lg:py-0">
-              <Image source={{ uri: "/bg.png" }} className="absolute inset-0 w-full h-full" resizeMode="cover" />
+              <Image source={{ uri: "/bg.webp" }} className="absolute inset-0 w-full h-full" resizeMode="cover" />
               {/* Left Section Content - Centered */}
               <View className="max-w-[740px] w-full items-center px-8">
                 
@@ -572,19 +572,19 @@ export default function LocationsScreen() {
                 {/* Image Grid - Centered */}
                 <View className="flex flex-row flex-wrap justify-center gap-4 lg:gap-16 mb-12">
                   <View className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] overflow-hidden">
-                     <Image source={{ uri: "/award1.png" }} className="w-full h-full" resizeMode="contain" />
+                     <Image source={{ uri: "/award1.webp" }} className="w-full h-full" resizeMode="contain" />
                   </View>
                   <View className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] overflow-hidden">
-                     <Image source={{ uri: "/award2.png" }} className="w-full h-full" resizeMode="contain" />
+                     <Image source={{ uri: "/award2.webp" }} className="w-full h-full" resizeMode="contain" />
                   </View>
                   <View className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] overflow-hidden">
-                     <Image source={{ uri: "/award3.png" }} className="w-full h-full" resizeMode="contain" />
+                     <Image source={{ uri: "/award3.webp" }} className="w-full h-full" resizeMode="contain" />
                   </View>
                   <View className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] overflow-hidden">
-                     <Image source={{ uri: "/award4.png" }} className="w-full h-full" resizeMode="contain" />
+                     <Image source={{ uri: "/award4.webp" }} className="w-full h-full" resizeMode="contain" />
                   </View>
                   <View className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] overflow-hidden">
-                     <Image source={{ uri: "/award5.png" }} className="w-full h-full" resizeMode="contain" />
+                     <Image source={{ uri: "/award5.webp" }} className="w-full h-full" resizeMode="contain" />
                   </View>
                 </View>
               </View>

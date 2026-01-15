@@ -105,7 +105,7 @@ const panResponder = useRef(
           {/* PNG Background */}
           <View className="absolute inset-0 z-0">
             <Image 
-              source={require('../public/bg.png')}
+              source={require('../public/bg.webp')}
               className="w-full h-full object-cover"
               resizeMode="cover"
             />
@@ -380,7 +380,7 @@ const panResponder = useRef(
           {/* Background Gradient */}
           <View className="absolute inset-0">
              <Image 
-                source={require('../public/job.png')} 
+                source={require('../public/job.webp')} 
                 className="w-full h-full" 
                 resizeMode="cover" 
              />
@@ -542,7 +542,7 @@ const panResponder = useRef(
           {/* Left Section - White Background */}
           <View className="w-full lg:w-1/2 bg-white relative min-h-[400px] lg:min-h-[520px] items-center justify-center py-12 lg:py-0">
              <View className="absolute inset-0">
-                <Image source={require('../public/bg.png')} className="w-full h-full" resizeMode="cover" />
+                <Image source={require('../public/bg.webp')} className="w-full h-full" resizeMode="cover" />
              </View>
             {/* Left Section Content */}
             <View className="max-w-[740px] w-full items-center px-8 z-10">
@@ -555,7 +555,7 @@ const panResponder = useRef(
               <View className="flex-row flex-wrap justify-center gap-4 lg:gap-16 mb-12">
                  {[1, 2, 3, 4, 5].map((i) => (
                     <View key={i} className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px]">
-                       <Image source={{ uri: `/award${i}.png` }} className="w-full h-full" resizeMode="contain" />
+                       <Image source={{ uri: `/award${i}.webp` }} className="w-full h-full" resizeMode="contain" />
                     </View>
                  ))}
               </View>

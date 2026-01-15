@@ -12,11 +12,11 @@ export default function TeamScreen() {
   
   
   const images = [
-    { id: 1, src: '/bike.png' },
-    { id: 2, src: '/wh.png' },
-    { id: 3, src: '/ct.png' },
-    { id: 4, src: '/box.png' },
-    { id: 5, src: '/happy.png' }
+    { id: 1, src: '/bike.webp' },
+    { id: 2, src: '/wh.webp' },
+    { id: 3, src: '/ct.webp' },
+    { id: 4, src: '/box.webp' },
+    { id: 5, src: '/happy.webp' }
   ];
   useEffect(() => {
   if (isPaused) return;
@@ -52,7 +52,7 @@ export default function TeamScreen() {
           {/* PNG Background */}
           <View className="absolute inset-0 z-0">
             <Image 
-              source={{ uri: "/bg.png" }}
+              source={{ uri: "/bg.webp" }}
               className="w-full h-full"
               resizeMode="cover"
             />
@@ -103,7 +103,7 @@ export default function TeamScreen() {
   {/* Member Image with Social Icons Popup */}
   <View className="relative lg:absolute w-full lg:w-[300px] h-[300px] lg:h-[340px] lg:left-8 lg:top-4 rounded-[12px] overflow-hidden mb-6 lg:mb-0">
     <Image
-      source={{ uri: "/nas.png" }}
+      source={{ uri: "/nas.webp" }}
       className="w-full h-full"
       resizeMode="cover"
     />
@@ -138,7 +138,7 @@ export default function TeamScreen() {
   {/* Member Image with Social Icons Popup */}
   <View className="relative lg:absolute w-full lg:w-[300px] h-[300px] lg:h-[340px] lg:left-8 lg:top-4 rounded-[12px] overflow-hidden mb-6 lg:mb-0">
     <Image 
-      source={{ uri: "/Anson.png" }}
+      source={{ uri: "/Anson.webp" }}
       className="w-full h-full"
       resizeMode="cover"
     />
@@ -179,7 +179,7 @@ export default function TeamScreen() {
   {/* Member Image with Social Icons Popup */}
   <View className="relative lg:absolute w-full lg:w-[300px] h-[300px] lg:h-[340px] lg:left-8 lg:top-4 rounded-[12px] overflow-hidden mb-6 lg:mb-0">
     <Image 
-      source={{ uri: "/Nat.png" }}
+      source={{ uri: "/Nat.webp" }}
       className="w-full h-full"
       resizeMode="cover"
     />
@@ -214,7 +214,7 @@ export default function TeamScreen() {
   {/* Member Image with Social Icons Popup */}
   <View className="relative lg:absolute w-full lg:w-[300px] h-[300px] lg:h-[340px] lg:left-8 lg:top-4 rounded-[12px] overflow-hidden mb-6 lg:mb-0">
     <Image 
-      source={{ uri: "/Ste.png" }}
+      source={{ uri: "/Ste.webp" }}
       className="w-full h-full"
       resizeMode="cover"
     />
@@ -254,7 +254,7 @@ export default function TeamScreen() {
   {/* Member Image with Social Icons Popup */}
   <View className="relative lg:absolute w-full lg:w-[300px] h-[300px] lg:h-[340px] lg:left-8 lg:top-4 rounded-[12px] overflow-hidden mb-6 lg:mb-0">
     <Image 
-      source={{ uri: "/jordy.png" }}
+      source={{ uri: "/jordy.webp" }}
       className="w-full h-full"
       resizeMode="cover"
     />
@@ -292,7 +292,7 @@ export default function TeamScreen() {
           {/* Background Gradient Fix */}
           <View className="absolute inset-0">
             <Image 
-              source={{ uri: "/job.png" }}
+              source={{ uri: "/job.webp" }}
               className="w-full h-full"
               resizeMode="cover"
             />
@@ -476,7 +476,7 @@ export default function TeamScreen() {
             
             {/* Left Section - White Background */}
             <View className="w-full lg:w-1/2 bg-white relative min-h-[520px] flex items-center justify-center py-12 lg:py-0">
-              <Image source={{ uri: "/bg.png" }} className="absolute inset-0 w-full h-full" resizeMode="cover" />
+              <Image source={{ uri: "/bg.webp" }} className="absolute inset-0 w-full h-full" resizeMode="cover" />
               {/* Left Section Content - Centered */}
               <View className="max-w-[740px] w-full text-center px-8">
                 
@@ -490,11 +490,11 @@ export default function TeamScreen() {
 
                 {/* Image Grid - Centered */}
                 <View className="flex flex-row justify-center gap-4 lg:gap-16 mb-12 flex-wrap">
-                  <Image source={{ uri: "/award1.png" }} className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px]" resizeMode="cover" />
-                  <Image source={{ uri: "/award2.png" }} className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px]" resizeMode="cover" />
-                  <Image source={{ uri: "/award3.png" }} className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px]" resizeMode="cover" />
-                  <Image source={{ uri: "/award4.png" }} className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px]" resizeMode="cover" />
-                  <Image source={{ uri: "/award5.png" }} className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px]" resizeMode="cover" />
+                  <Image source={{ uri: "/award1.webp" }} className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px]" resizeMode="cover" />
+                  <Image source={{ uri: "/award2.webp" }} className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px]" resizeMode="cover" />
+                  <Image source={{ uri: "/award3.webp" }} className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px]" resizeMode="cover" />
+                  <Image source={{ uri: "/award4.webp" }} className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px]" resizeMode="cover" />
+                  <Image source={{ uri: "/award5.webp" }} className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px]" resizeMode="cover" />
                 </View>
               </View>
             </View>

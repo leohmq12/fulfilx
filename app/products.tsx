@@ -34,7 +34,7 @@ export default function ProductsScreen() {
           {/* PNG Background */}
           <View className="absolute inset-0 z-0">
             <Image 
-              source={require('../public/bg.png')}
+              source={require('../public/bg.webp')}
               className="w-full h-full object-cover"
               resizeMode="cover"
             />
@@ -174,10 +174,10 @@ export default function ProductsScreen() {
                     {/* View Toggle Icons */}
                     <View className="flex-row items-center gap-2">
                       <TouchableOpacity className="w-6 h-4">
-                        <Image source={require('../public/viewas.png')} className="w-5 h-4" resizeMode="contain" />
+                        <Image source={require('../public/viewas.webp')} className="w-5 h-4" resizeMode="contain" />
                       </TouchableOpacity>
                       <TouchableOpacity className="w-6 h-4 opacity-50">
-                        <Image source={require('../public/listing.png')} className="w-5 h-4" resizeMode="contain" />
+                        <Image source={require('../public/listing.webp')} className="w-5 h-4" resizeMode="contain" />
                       </TouchableOpacity>
                     </View>
                   </View>
@@ -198,7 +198,7 @@ export default function ProductsScreen() {
                     <View className="bg-white border border-gray-300 rounded-2xl overflow-hidden relative">
                       <View className="w-full h-80 relative">
                         <Image 
-                          source={{ uri: `/product-${(index % 5) + 1}.png` }}
+                          source={{ uri: `/product-${(index % 5) + 1}.webp` }}
                           className="w-full h-full"
                           resizeMode="cover"
                         />
@@ -250,7 +250,7 @@ export default function ProductsScreen() {
           {/* Left Section - White Background */}
           <View className="w-full lg:w-1/2 bg-white relative min-h-[400px] lg:min-h-[520px] items-center justify-center py-12 lg:py-0">
              <View className="absolute inset-0">
-                <Image source={require('../public/bg.png')} className="w-full h-full" resizeMode="cover" />
+                <Image source={require('../public/bg.webp')} className="w-full h-full" resizeMode="cover" />
              </View>
             {/* Left Section Content */}
             <View className="max-w-[740px] w-full items-center px-8 z-10">
@@ -263,7 +263,7 @@ export default function ProductsScreen() {
               <View className="flex-row flex-wrap justify-center gap-4 lg:gap-16 mb-12">
                  {[1, 2, 3, 4, 5].map((i) => (
                     <View key={i} className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px]">
-                       <Image source={{ uri: `/award${i}.png` }} className="w-full h-full" resizeMode="contain" />
+                       <Image source={{ uri: `/award${i}.webp` }} className="w-full h-full" resizeMode="contain" />
                     </View>
                  ))}
               </View>
