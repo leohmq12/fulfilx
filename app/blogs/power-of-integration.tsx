@@ -31,7 +31,7 @@ export default function LuxuryScreen() {
                         <img 
                             src="/bg.webp"
                             alt="Background pattern"
-                            className="w-full h-full lg:w-[1920px] lg:h-[600px] object-cover"
+                            className="w-full h-full lg:h-[600px] object-cover"
                         />
                     </View>
 

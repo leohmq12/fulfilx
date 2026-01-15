@@ -95,99 +95,86 @@ const row1Logos = [
             {/*Navbar*/}
             <Navbar/>
             {/* Home Content */}
-<div className="min-h-screen relative bg-white pt-40 md:pt-60 lg:pt-80 overflow-auto">
+<div className="min-h-screen relative bg-white pt-40 md:pt-60 lg:pt-80 overflow-x-hidden">
     {/* PNG Background - MOVE ABOVE WHITE BACKGROUND */}
     <div className="absolute inset-0 z-0">
         <img 
             src="/bg.webp"
             alt="Background pattern"
-            className="w-full h-full lg:w-[1920px] lg:h-[1000px] object-cover"
+            className="w-full h-full object-cover"
         />
     </div>
 
                 {/* Main Content */}
                 <div className="relative z-10 pb-16">
-                    <div className="container mx-auto px-4 md:px-6 lg:px-8">
-                        
-                        {/* GET SHIP DONE Badge */}
-                        <div className="w-full max-w-[300px] mx-auto lg:mx-0 mb-8 mt-10 lg:-mt-28 lg:mb-12">
-                            <div className="flex flex-row items-center justify-center py-3 px-7 gap-2.5 bg-red-50 border border-[#C10016] rounded-full">
-                                <div className="w-1.5 h-1.5 bg-[#C10016] rounded-full" />
-                                <span className="text-[#C10016] text-base md:text-[18px] font-medium tracking-widest text-center">
-                                    GET SHIP DONE
-                                </span>
-                                <div className="w-1.5 h-1.5 bg-[#C10016] rounded-full" />
+                    <div className="w-full px-4 md:px-6 lg:px-8 2xl:px-16">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-10">
+                            <div className="flex flex-col items-center lg:items-start">
+                                <div className="w-full max-w-[300px] mb-8 mt-10 lg:mt-0">
+                                    <div className="flex flex-row items-center justify-center py-3 px-7 gap-2.5 bg-red-50 border border-[#C10016] rounded-full">
+                                        <div className="w-1.5 h-1.5 bg-[#C10016] rounded-full" />
+                                        <span className="text-[#C10016] text-base md:text-[18px] font-medium tracking-widest text-center">
+                                            GET SHIP DONE
+                                        </span>
+                                        <div className="w-1.5 h-1.5 bg-[#C10016] rounded-full" />
+                                    </div>
+                                </div>
+
+                                <div className="w-full mb-8 lg:mb-12">
+                                    <h1 className="text-4xl lg:text-[68px] font-bold leading-tight text-black text-center lg:text-left">
+                                        Bespoke Fulfilment, Built to Help Brands Scale
+                                    </h1>
+                                </div>
+
+                                <div className="w-full max-w-[759px] mb-12 lg:mb-16">
+                                    <p className="text-lg lg:text-[24px] font-helvetica font-thin leading-[2] text-black text-center lg:text-left">
+                                        At FulfilX, we are more than just a 3PL. We are your Partner in Fulfilment. &quot;Your success is Our Success.&quot;
+                                    </p>
+                                </div>
+
+                                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center w-full">
+                                    <a 
+                                        href="#explore"
+                                        className={`
+                                            flex flex-row items-center gap-2
+                                            ${primaryRed} 
+                                            px-8 py-4 md:px-10 md:py-5
+                                            rounded-lg
+                                            transition duration-300 hover:brightness-110
+                                        `}
+                                    >
+                                        <span className="text-white text-base md:text-[18px] font-helvetica">
+                                            Explore Now
+                                        </span>
+                                        <img 
+                                            src="/arrow.svg"
+                                            alt="Explore icon"
+                                            className="w-2 h-2 md:w-3 md:h-3 lg:w-3 lg:h-4 object-contain"
+                                        />
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div className="flex justify-center lg:justify-end w-full">
+                                <img 
+                                    src="/helement.webp"
+                                    alt="Fulfilment illustration"
+                                    className="w-full max-w-[520px] sm:max-w-[640px] lg:max-w-[900px] xl:max-w-[1000px] 2xl:max-w-[1100px] max-h-[420px] sm:max-h-[520px] lg:max-h-[650px] object-contain"
+                                />
                             </div>
                         </div>
 
-                        {/* Main Heading */}
-                        <div className="w-full max-w-[900px] mx-auto lg:mx-0 mb-8 lg:mb-12">
-                            <h1 className="text-4xl lg:text-[68px] font-bold leading-tight text-black text-center lg:text-left">
-                                Bespoke Fulfilment, Built to Help Brands Scale
-                            </h1>
+                        <div className="mt-10 flex justify-center lg:justify-start">
+                            <img 
+                                src="/google_rev.png" 
+                                alt="Design Element" 
+                                className="w-[620px] h-[28px] object-contain"
+                            />
                         </div>
-
-                        {/* Description */}
-                        <div className="w-full max-w-[759px] mx-auto lg:mx-0 mb-12 lg:mb-16">
-                            <p className="text-lg lg:text-[24px] font-helvetica font-thin leading-[2] text-black text-center lg:text-left">
-                                At FulfilX, we are more than just a 3PL. We are your Partner in Fulfilment. &quot;Your success is Our Success.&quot;
-                            </p>
-                        </div>
-
-                        {/* Buttons */}
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
-                            {/* Explore Now Button */}
-                            <a 
-                                href="#explore"
-                                className={`
-                                    flex flex-row items-center gap-2
-                                    ${primaryRed} 
-                                    px-8 py-4 md:px-10 md:py-5
-                                    rounded-lg
-                                    transition duration-300 hover:brightness-110
-                                `}
-                            >
-                                <span className="text-white text-base md:text-[18px] font-helvetica">
-                                    Explore Now
-                                </span>
-                                <img 
-                                    src="/arrow.svg"
-                                    alt="Explore icon"
-                                    className="w-2 h-2 md:w-3 md:h-3 lg:w-3 lg:h-4 object-contain"
-                                />
-                            </a>
-                        </div>
-                        {/* Image aligned with content but on the right */}
-<div className="flex flex-col lg:flex-row items-center justify-between -mt-50 lg:mt-24">
-    {/* Left content - can be empty or have other content */}
-    <div className="flex-1"></div>
-    
-    {/* Right aligned image */}
-    <div className="flex-1 flex justify-center lg:justify-end -mr-40 transform translate-y-[-250px] lg:translate-y-[-600px] relative z-0">
-        <img 
-            src="/helement.webp"
-            alt="Your image description"
-            className="max-w-[765px] lg:max-w-[765px] object-contain hidden lg:block"
-        />
-    </div>
-</div>
-{/* Middle PNG Section */}
-<section className="relative w-full h-[120px]">
-  <div className="absolute -top-[480px] left-1/2 -translate-x-1/2 w-[320px] h-[18px]">
-    <img 
-      src="/stars.webp" 
-      alt="Design Element" 
-      className="w-[320px] h-[18px] object-contain"
-    />
-  </div>
-</section>
-
-
-
                     </div>
                 </div>
                 {/* Stats Section */}
-<div className="relative w-full min-h-[725px] mt-0 lg:-mt-[600px] bg-[#A31E1E]">
+<div className="relative w-full min-h-[725px] mt-0 bg-[#A31E1E]">
   {/* Background Image */}
   <div className="absolute inset-0">
     <img 
@@ -198,8 +185,8 @@ const row1Logos = [
   </div>
 
   {/* Content Container aligned with hero section */}
-  <div className="relative z-10 pt-40 pb-24">
-    <div className="container mx-auto px-4 md:px-6 lg:px-8">
+  <div className="relative z-10 pt-16 lg:pt-32 pb-24">
+    <div className="w-full px-4 md:px-6 lg:px-8 2xl:px-16">
 
       {/* Main Heading */}
       <h2 className="text-3xl lg:text-[54px] font-bold leading-tight lg:leading-[84px] tracking-[-0.01em] text-white mb-10 lg:mb-20">
@@ -264,7 +251,7 @@ const row1Logos = [
     <img 
       src="/bg.webp"
       alt="Background"
-      className="w-full h-full lg:w-[1920px] lg:h-[1000px] object-cover"
+      className="w-full h-full object-cover"
     />
   </div>
   {/* Decorative rectangle image - Fixed positioning */}
@@ -284,7 +271,8 @@ const row1Logos = [
 </div>
 
   {/* Content */}
-  <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
+  <div className="w-full px-4 md:px-6 lg:px-8 2xl:px-16 relative z-10">
+  <div className="mx-auto w-full max-w-[1490px]">
     {/* Badge */}
     <div className="inline-flex items-center justify-center px-11 py-4 gap-2.5 rounded-[120px] bg-[#C10016]/10 mb-8">
       <span className="text-[#C10016] font-normal text-[16px] tracking-[0.2em] uppercase">
@@ -317,6 +305,7 @@ const row1Logos = [
         className="w-4 h-4 object-contain"
       />
     </a>
+    </div>
   </div>
 </section>
 <section className="relative w-full h-auto py-20 lg:h-[1020px] overflow-hidden">
@@ -331,59 +320,50 @@ const row1Logos = [
     }}
   />
 
-  {/* Title lowered slightly */}
-  <div className="relative lg:absolute lg:top-32 w-full text-center text-white mb-10 lg:mb-0">
-    <h2 className="text-4xl lg:text-[64px] font-bold leading-tight lg:leading-[80px] tracking-[-0.01em]">
-      We Make Ship Happen
-    </h2>
-  </div>
+  <div className="relative z-10 w-full px-4 md:px-6 lg:px-8 2xl:px-16 py-16 lg:py-24">
+    <div className="mx-auto w-full max-w-[1490px]">
+      <h2 className="text-center text-white text-4xl lg:text-[64px] font-bold leading-tight lg:leading-[80px] tracking-[-0.01em]">
+        We Make Ship Happen
+      </h2>
 
-  {/* Grid moved slightly upward + reduced spacing */}
-  <div className="relative lg:absolute lg:bottom-[150px] lg:left-1/2 lg:-translate-x-1/2 flex flex-col lg:flex-row gap-[20px] items-center px-4">
+      <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
+        {[
+          { title: "Fulfilment Services", img: "/shiphappens1.webp" },
+          { title: "Amazon FBA & SFP", img: "/shiphappens2.webp" },
+          { title: "Packaging Solutions", img: "/shiphappens3.webp" },
+          { title: "Freight Services", img: "/shiphappens4.webp" },
+          { title: "Rework & Quality Control", img: "/shiphappens5.webp" },
+        ].map((item, i) => (
+          <div key={i} className="relative h-[260px] sm:h-[320px] lg:h-[480px] w-full group overflow-hidden rounded-xl">
+            <div 
+              className="absolute inset-0 rounded-xl transition-all duration-300 opacity-0 group-hover:opacity-100 group-hover:blur-none group-hover:scale-105 blur-sm scale-100"
+              style={{
+                backgroundImage: `url(${item.img})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+              }}
+            />
 
-    {[
-      { title: "Fulfilment Services", img: "/shiphappens1.webp" },
-      { title: "Amazon FBA & SFP", img: "/shiphappens2.webp" },
-      { title: "Packaging Solutions", img: "/shiphappens3.webp" },
-      { title: "Freight Services", img: "/shiphappens4.webp" },
-      { title: "Rework & Quality Control", img: "/shiphappens5.webp" },
-    ].map((item, i) => (
-      <div key={i} className="relative h-[300px] w-full lg:h-[480px] lg:w-[250px] group overflow-hidden rounded-xl">
+            <h3 className="absolute left-6 bottom-4 lg:left-11 text-white font-normal text-2xl lg:text-[32px] tracking-[-0.01em] rotate-0 lg:rotate-[-90deg] whitespace-nowrap origin-bottom-left">
+              {item.title}
+            </h3>
 
-        {/* Divider line left of each except first - hidden on mobile */}
-        {i !== 0 && <div className="absolute -left-0 top-0 h-full w-px bg-white/30 hidden lg:block" />}
-
-        {/* Background blurred image */}
-        <div 
-          className="absolute inset-0 rounded-xl transition-all duration-300 opacity-0 group-hover:opacity-100 group-hover:blur-none group-hover:scale-105 blur-sm scale-100"
-          style={{
-            backgroundImage: `url(${item.img})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center'
-          }}
-        />
-        
-
-        {/* Vertical title */}
-        <h3 className="absolute left-6 bottom-4 lg:left-11 text-white font-normal text-2xl lg:text-[32px] tracking-[-0.01em] rotate-0 lg:rotate-[-90deg] whitespace-nowrap origin-bottom-left">
-        {item.title}
-        </h3>
-        {/* Arrow Icon on right */}
-        <img 
-          src="/arrow.svg"
-          alt="arrow"
-          className="absolute right-4 top-4 w-6 h-6 opacity-70 group-hover:opacity-100 transition"
-        />
+            <img 
+              src="/arrow.svg"
+              alt="arrow"
+              className="absolute right-4 top-4 w-6 h-6 opacity-70 group-hover:opacity-100 transition"
+            />
+          </div>
+        ))}
       </div>
-    ))}
-  </div>
 
-  {/* CTA remains at the bottom */}
-  <div className="relative lg:absolute lg:bottom-10 lg:left-1/2 lg:-translate-x-1/2 mt-10 lg:mt-0 text-center flex justify-center">
-    <button className="flex items-center gap-3 bg-[#C10016] text-white px-8 py-4 rounded-md font-bold text-[18px]">
-      View All Services
-      <img src="/arrow.svg" className="w-4 h-4" />
-    </button>
+      <div className="mt-10 flex justify-center">
+        <button className="flex items-center gap-3 bg-[#C10016] text-white px-8 py-4 rounded-md font-bold text-[18px]">
+          View All Services
+          <img src="/arrow.svg" className="w-4 h-4" />
+        </button>
+      </div>
+    </div>
   </div>
 </section>
 <section className="relative w-full bg-white py-16 md:py-32 overflow-hidden">
@@ -443,9 +423,11 @@ const row1Logos = [
       </div>
     </div>
   </div>
-    <h3 className="text-center text-black font-bold text-[28px] md:text-[40px]">Easy <span className="text-[#C10016]">Setup</span></h3>
+  <div className="w-full px-4 md:px-6 lg:px-8 2xl:px-16">
+    <div className="mx-auto w-full max-w-[1490px]">
+      <h3 className="text-center text-black font-bold text-[28px] md:text-[40px]">Easy <span className="text-[#C10016]">Setup</span></h3>
 
- <div className="relative max-w-[1400px] mx-auto mt-12 md:mt-20 px-4 pt-20 transform -translate-x-10 -translate-y-6">
+ <div className="relative mt-12 md:mt-20 pt-20 md:-translate-x-10 md:-translate-y-6">
       
       {/* Curved connecting line - hidden on mobile, visible on md+ */}
       <div className="hidden md:block absolute top-[60px] left-0 right-0 w-full pointer-events-none">
@@ -552,8 +534,10 @@ const row1Logos = [
       </div>
     </div>
   ))}
-</div>
+      </div>
     </div>
+  </div>
+</div>
 </section>
 <section className="relative w-full h-auto py-20 lg:h-[512px]">
   {/* Background Image with Gradient Overlay */}
@@ -567,35 +551,29 @@ const row1Logos = [
   >
   </div>
 
-  {/* Content Container */}
-  <div className="relative w-full max-w-[835px] h-auto lg:h-[264px] lg:left-1/2 lg:transform lg:-translate-x-1/2 lg:top-[124px] flex flex-col items-center px-4 mx-auto">
-    
-    {/* Main Heading */}
-    <h1 className="relative lg:absolute w-full lg:w-[835px] lg:left-1/2 lg:transform lg:-translate-x-1/2 lg:top-0 font-bold text-4xl lg:text-[74px] leading-tight lg:leading-[80px] tracking-tight text-white text-center">
-      Ready to have a Chat?
-    </h1>
-    
-    {/* Subheading */}
-    <p className="relative lg:absolute w-full lg:w-[403px] lg:left-1/2 lg:transform lg:-translate-x-1/2 lg:top-[107px] font-normal text-xl lg:text-[28px] leading-relaxed lg:leading-[44px] text-white text-center mt-6 lg:mt-2">
-      Do not hesitate to say Nǐn hǎo
-    </p>
-    
-    {/* Button */}
-    <div className="relative lg:absolute w-[160px] h-[60px] lg:left-1/2 lg:transform lg:-translate-x-1/2 lg:top-[204px] border border-white rounded-[6px] flex flex-col justify-center items-center gap-[10px] cursor-pointer transition duration-300 mt-10 lg:mt-6">
-      <div className="flex flex-row items-center gap-[10px]">
+  <div className="relative z-10 w-full px-4 md:px-6 lg:px-8 2xl:px-16 py-16 lg:py-24">
+    <div className="flex flex-col items-center text-center">
+      <h1 className="font-bold text-4xl lg:text-[74px] leading-tight lg:leading-[80px] tracking-tight text-white">
+        Ready to have a Chat?
+      </h1>
+
+      <p className="font-normal text-xl lg:text-[28px] leading-relaxed lg:leading-[44px] text-white mt-6">
+        Do not hesitate to say Nǐn hǎo
+      </p>
+
+      <button className="mt-10 border border-white rounded-[6px] flex items-center justify-center gap-[10px] px-8 py-4 transition duration-300">
         <span className="text-white font-normal text-[18px] leading-[36px]">Let&apos;s Talk</span>
         <img 
           src="/arrow.svg" 
           alt="Arrow icon" 
-        className="w-4 h-4 object-contain"
-      />
-        
-      </div>
+          className="w-4 h-4 object-contain"
+        />
+      </button>
     </div>
   </div>
 </section>
 <section className="relative w-full bg-cover bg-center bg-no-repeat" style={{backgroundImage: 'url(/donebg.webp)'}}>
-  <div className="relative max-w-[1490px] mx-auto px-4 py-16">
+  <div className="relative w-full px-4 md:px-6 lg:px-8 2xl:px-16 py-16">
     
    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12">
   
@@ -690,7 +668,7 @@ const row1Logos = [
       backgroundImage: `url(${
         activeDot === 0 ? '/box.webp' :
         activeDot === 1 ? '/peep.webp' :
-        activeDot === 2 ? 'shipdone.webp' :
+        activeDot === 2 ? '/shipdone.webp' :
         '/image3.jpg'
       })`
     }}
@@ -728,7 +706,7 @@ const row1Logos = [
     
 
   </div>
-    <div className="relative max-w-[1490px] mx-auto px-4 py-16">
+    <div className="relative w-full px-4 md:px-6 lg:px-8 2xl:px-16 py-16">
     
     {/* "Global Presence" Badge */}
     <div className="flex justify-center">
@@ -740,12 +718,12 @@ const row1Logos = [
     </div>
 
     {/* Main Heading */}
-    <h2 className="text-center font-bold text-[64px] leading-[74px] text-black mt-16 max-w-[700px] mx-auto">
+    <h2 className="text-center font-bold text-4xl lg:text-[64px] leading-tight lg:leading-[74px] text-black mt-10 lg:mt-16 max-w-[700px] mx-auto px-2">
   Our <span className="text-[#C10016]">Worldwide Network</span>
 </h2>
 
     {/* First Row of Countries */}
-    <div className="flex justify-center items-center gap-16 mt-20">
+    <div className="flex flex-wrap justify-center items-center gap-6 md:gap-10 lg:gap-16 mt-10 lg:mt-20">
       {/* United Kingdom */}
       <div className="flex items-center gap-3">
         <div className="w-[30px] h-[20px] bg-cover bg-center rounded-[2px]" style={{backgroundImage: 'url(/UK.webp)'}}></div>
@@ -778,7 +756,7 @@ const row1Logos = [
     </div>
 
     {/* Second Row of Countries */}
-    <div className="flex justify-center items-center gap-12 mt-8">
+    <div className="flex flex-wrap justify-center items-center gap-6 md:gap-10 lg:gap-12 mt-6 lg:mt-8">
       {/* Saudi */}
       <div className="flex items-center gap-3">
         <div className="w-[30px] h-[20px] bg-cover bg-center rounded-[2px]" style={{backgroundImage: 'url(/Saudi.webp)'}}></div>
@@ -799,7 +777,7 @@ const row1Logos = [
     </div>
 
     {/* World Map Image */}
-    <div className="relative w-full h-[698px] mt-20">
+    <div className="relative w-full h-[300px] sm:h-[420px] lg:h-[698px] mt-10 lg:mt-20">
       <div className="w-full h-full bg-cover bg-center rounded-lg" style={{backgroundImage: 'url(/world-map.webp)'}}></div>
       
 {/* Location Markers */}
@@ -922,7 +900,7 @@ const row1Logos = [
 
 <div className="w-full overflow-hidden py-10">
   {/* First Row - Scroll Left */}
-<div className="mt-20 slider-container">
+<div className="mt-20 slider-container overflow-hidden">
   <div className="flex animate-infinite-scroll">
     {[...row1Logos, ...row1Logos].map((logo, index) => (
       <div key={index} className="group relative flex-shrink-0 mx-16">
@@ -939,7 +917,7 @@ const row1Logos = [
 </div>
 
 {/* Second Row - Scroll Right */}
-<div className="mt-12 slider-container">
+<div className="mt-12 slider-container overflow-hidden">
   <div className="flex animate-infinite-scroll-reverse">
     {[...row2Logos, ...row2Logos].map((logo, index) => (
       <div key={index} className="group relative flex-shrink-0 mx-16">
@@ -956,7 +934,7 @@ const row1Logos = [
 </div>
 
 {/* Third Row - Scroll Left */}
-<div className="mt-12 slider-container">
+<div className="mt-12 slider-container overflow-hidden">
   <div className="flex animate-infinite-scroll">
     {[...row3Logos, ...row3Logos].map((logo, index) => (
       <div key={index} className="group relative flex-shrink-0 mx-16">
@@ -974,7 +952,7 @@ const row1Logos = [
 </div>
 
   </div>
-  <div className="relative max-w-[1490px] mx-auto px-4 pt-24 z-10">
+  <div className="relative w-full px-4 md:px-6 lg:px-8 2xl:px-16 pt-16 lg:pt-24 z-10">
     
     {/* "our partners" Badge */}
     <div className="flex justify-start">
@@ -986,12 +964,12 @@ const row1Logos = [
     </div>
 
     {/* Main Heading */}
-    <h2 className="text-left font-bold text-[64px] leading-[80px] tracking-tight text-white mt-16 max-w-[960px]">
+    <h2 className="text-left font-bold text-3xl sm:text-4xl lg:text-[64px] leading-tight lg:leading-[80px] tracking-tight text-white mt-10 lg:mt-16 max-w-[960px]">
       Meet the people we make happy
     </h2>
 
     {/* Navigation Arrows - Aligned with badge and heading */}
-    <div className="absolute right-4 top-24 flex gap-4">
+    <div className="flex gap-4 mt-8 lg:mt-0 lg:absolute lg:right-4 lg:top-24">
       {/* Left Arrow */}
       <button 
         onClick={prevSlide}
@@ -1034,16 +1012,16 @@ const row1Logos = [
 </section>
 <section className="relative w-full">
   {/* Two Column Layout */}
-  <div className="flex">
+  <div className="flex flex-col lg:flex-row">
     
     {/* Left Section - White Background */}
-    <div className="w-1/2 bg-white relative min-h-[520px] flex items-center justify-center">
+    <div className="w-full lg:w-1/2 bg-white relative min-h-[520px] flex items-center justify-center py-12 lg:py-0">
       <img src="/bg.webp" alt="" className="absolute inset-0 w-full h-full object-cover" />
       {/* Left Section Content - Centered */}
       <div className="max-w-[740px] w-full text-center px-8">
         
         {/* Heading */}
-        <h2 className="font-bold text-[42px] leading-[54px] tracking-tight text-black mb-8">
+        <h2 className="font-bold text-3xl lg:text-[42px] leading-tight lg:leading-[54px] tracking-tight text-black mb-8">
           Our Awards
         </h2>
 
@@ -1051,7 +1029,7 @@ const row1Logos = [
         <div className="w-[100px] h-[1px] bg-[#C10016] mx-auto mb-12"></div>
 
         {/* Image Grid - Centered */}
-        <div className="flex justify-center gap-16 mb-12">
+        <div className="flex flex-wrap justify-center gap-6 lg:gap-16 mb-12">
           <div className="w-[84px] h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award1.webp)'}}></div>
           <div className="w-[84px] h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award2.webp)'}}></div>
           <div className="w-[84px] h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award3.webp)'}}></div>
@@ -1063,12 +1041,12 @@ const row1Logos = [
     </div>
 
     {/* Right Section - Red Background */}
-    <div className="w-1/2 bg-[#DA192F] relative min-h-[520px] flex items-center justify-center">
+    <div className="w-full lg:w-1/2 bg-[#DA192F] relative min-h-[520px] flex items-center justify-center py-12 lg:py-0">
       {/* Right Section Content - Centered */}
       <div className="max-w-[650px] w-full text-center px-8">
         
         {/* Heading */}
-        <h2 className="font-bold text-[42px] leading-[54px] tracking-tight text-white mb-8">
+        <h2 className="font-bold text-3xl lg:text-[42px] leading-tight lg:leading-[54px] tracking-tight text-white mb-8">
           Accreditations
         </h2>
 
@@ -1076,7 +1054,7 @@ const row1Logos = [
         <div className="w-[100px] h-[1px] bg-white mx-auto mb-12"></div>
 
         {/* Subtitle - Centered */}
-        <p className="font-normal text-[24px] leading-[44px] text-white mb-12">
+        <p className="font-normal text-xl lg:text-[24px] leading-relaxed lg:leading-[44px] text-white mb-12">
           Exceptional Quality Service
         </p>
 

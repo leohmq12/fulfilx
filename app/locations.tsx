@@ -33,7 +33,7 @@ export default function LocationsScreen() {
             <Image 
               source={{ uri: "/bg.webp" }}
               alt="Background pattern"
-              className="w-full h-full lg:w-[1920px] lg:h-[600px]"
+              className="w-full h-full lg:h-[600px]"
               resizeMode="cover"
             />
           </View>

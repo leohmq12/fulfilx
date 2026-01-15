@@ -35,7 +35,7 @@ export default function ContactScreen() {
             <img 
               src="/bg.webp"
               alt="Background pattern"
-              className="w-full h-full lg:w-[1920px] lg:h-[600px] object-cover"
+              className="w-full h-full lg:h-[600px] object-cover"
             />
           </View>
 
@@ -189,7 +189,7 @@ export default function ContactScreen() {
         </View>
 
         {/* Contact Form Section */}
-        <div className="relative w-full bg-white transform -translate-y-24">
+        <div className="relative w-full bg-white transform -translate-y-12 lg:-translate-y-24">
           {/* Two Column Layout */}
           <div className="flex flex-col lg:flex-row justify-center items-start gap-10 lg:gap-16 px-4 lg:px-8">
             
@@ -231,7 +231,7 @@ export default function ContactScreen() {
 
                     {/* Last Name */}
                     <div className="flex-1">
-                      <label className="block font-medium text-[18px] text-black mb-2 invisible">
+                      <label className="block font-medium text-[18px] text-black mb-2 lg:invisible">
                         Last Name
                       </label>
                       <input 
@@ -314,7 +314,7 @@ export default function ContactScreen() {
 
               {/* Submit Button at the bottom */}
               <div className="px-6 sm:px-8 lg:px-12 pb-10 lg:pb-12">
-                <button className="bg-[#C10016] rounded-[6px] px-8 py-4 flex flex-row items-center justify-center gap-3 w-full sm:w-[200px] hover:bg-[#a00012] transition-colors">
+                <button className="bg-[#C10016] rounded-[6px] px-8 py-4 flex flex-row items-center justify-center gap-3 w-full sm:w-[200px] hover:bg-[#a00012] transition-colors mx-auto lg:mx-0">
                   <span className="font-bold text-[18px] text-white">
                     Submit Now
                   </span>

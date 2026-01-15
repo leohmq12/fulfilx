@@ -7,3 +7,8 @@
 .slider-container:hover .animate-infinite-scroll-reverse {
   animation-play-state: paused;
 }
+
+html,
+body {
+  overflow-x: hidden;
+}

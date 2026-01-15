@@ -1,6 +1,6 @@
 // components/layout/Navbar.tsx
 import { useRouter } from 'expo-router';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { TouchableOpacity } from 'react-native';
 
 interface NavItemProps {
@@ -41,11 +41,54 @@ const NavItem: React.FC<NavItemProps> = ({ children, isActive = false, onPress, 
 const Navbar: React.FC = () => {
     const router = useRouter();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
+    const [scrollbarGutter, setScrollbarGutter] = useState(0);
     const primaryRed = 'bg-[#C10016]';
 
+    useEffect(() => {
+        const onScroll = (e: Event) => {
+            const target = e.target as any;
+            const scrollTop =
+                typeof target?.scrollTop === 'number'
+                    ? target.scrollTop
+                    : window.scrollY || document.documentElement.scrollTop || 0;
+
+            setIsScrolled(scrollTop > 20);
+        };
+
+        document.addEventListener('scroll', onScroll, true);
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll(new Event('scroll'));
+
+        return () => {
+            document.removeEventListener('scroll', onScroll, true);
+            window.removeEventListener('scroll', onScroll as any);
+        };
+    }, []);
+
+    useEffect(() => {
+        const update = () => {
+            const w = window.innerWidth - document.documentElement.clientWidth;
+            setScrollbarGutter(Math.max(0, w));
+        };
+
+        update();
+        window.addEventListener('resize', update, { passive: true });
+
+        return () => {
+            window.removeEventListener('resize', update as any);
+        };
+    }, []);
+
     return (
-        <header className="fixed top-0 left-0 right-0 w-full py-4 md:py-6 lg:py-8 px-4 md:px-6 lg:px-8 z-50 backdrop-blur-sm bg-white/10">
-            <div className="relative flex items-center justify-between">
+        <header
+            className={`fixed top-0 z-50 overflow-hidden transition-colors duration-300 pointer-events-none ${
+                isScrolled ? 'bg-white shadow-sm' : 'bg-white/90'
+            }`}
+            style={{ left: 0, right: scrollbarGutter }}
+        >
+            <div className="mx-auto w-full max-w-[1490px] px-4 md:px-6 lg:px-8 py-4 md:py-6 lg:py-8 pointer-events-auto">
+                <div className="relative flex items-center justify-between">
                 
                 {/* Logo */}
                 <div className="flex-shrink-0 flex items-center">
@@ -80,7 +123,7 @@ const Navbar: React.FC = () => {
                             flex flex-row items-center justify-center gap-2 
                             px-4 py-2 md:px-5 md:py-3 lg:px-6 lg:py-3
                             rounded-lg ${primaryRed} text-white 
-                            text-sm md:text-base lg:text[18px]
+                            text-sm md:text-base lg:text-[18px]
                             transition duration-300 hover:brightness-110 
                             whitespace-nowrap font-helvetica
                         `}
@@ -145,6 +188,7 @@ const Navbar: React.FC = () => {
                      </div>
                 </div>
             )}
+            </div>
         </header>
     );
 };
