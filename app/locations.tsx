@@ -91,19 +91,19 @@ export default function LocationsScreen() {
   </View>
 
   {/* Country Name */}
-  <Text className="absolute left-6 top-[110px] font-helvetica font-bold text-[32px] leading-[74px] tracking-[-0.01em] text-black">
-    UK
+  <Text className="text-center top-[110px] font-helvetica font-bold text-[24px] leading-[74px] tracking-[-0.01em] text-black">
+    United Kingdom
   </Text>
 
   {/* Contact Info */}
   {/* Phone */}
   <View className="absolute left-6 top-[180px] flex flex-row items-center gap-3 space-y-2">
-    <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-2">
+    {/* <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-2">
       <Image source={{ uri: "/phone.svg" }} alt="Phone" className="w-4 h-4" resizeMode="contain" />
     </View>
     <Text className="font-helvetica font-normal text-[16px] leading-[44px] text-black">
       +1 234 567 8900
-    </Text>
+    </Text> */}
   </View>
 
   {/* Email */}
@@ -112,17 +112,17 @@ export default function LocationsScreen() {
       <Image source={{ uri: "/mail.svg" }} alt="Email" className="w-4 h-4" resizeMode="contain" />
     </View>
     <Text className="font-helvetica font-normal text-[16px] leading-[44px] text-black">
-      info.john@fulfilx.co.uk
+      Info@fulfilx.co.uk
     </Text>
   </View>
 
   {/* Address */}
-  <View className="absolute left-6 top-[270px] flex flex-row items-start gap-3 space-y-10">
+  <View className="absolute left-6 top-[270px] flex flex-row items-center gap-3 space-y-10">
     <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-10">
       <Image source={{ uri: "/map.svg" }} alt="Location" className="w-4 h-4" resizeMode="contain" />
     </View>
     <Text className="font-helvetica font-normal text-[16px] leading-[22px] text-black">
-      Lorem Ipsum is simply dummy<br/>text of the printing & typing.
+      Manchester
     </Text>
   </View>
 </View>
@@ -145,19 +145,19 @@ export default function LocationsScreen() {
   </View>
 
   {/* Country Name */}
-  <Text className="absolute left-6 top-[110px] font-helvetica font-bold text-[32px] leading-[74px] tracking-[-0.01em] text-black">
-    USA
+  <Text className="text-center top-[110px] font-helvetica font-bold text-[24px] leading-[74px] tracking-[-0.01em] text-black">
+    United States of America
   </Text>
 
   {/* Contact Info */}
   {/* Phone */}
   <View className="absolute left-6 top-[180px] flex flex-row items-center gap-3 space-y-2">
-    <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-2">
+    {/* <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-2">
       <Image source={{ uri: "/phone.svg" }} alt="Phone" className="w-4 h-4" resizeMode="contain" />
     </View>
     <Text className="font-helvetica font-normal text-[16px] leading-[44px] text-black">
       +1 234 567 8900
-    </Text>
+    </Text> */}
   </View>
 
   {/* Email */}
@@ -166,17 +166,17 @@ export default function LocationsScreen() {
       <Image source={{ uri: "/mail.svg" }} alt="Email" className="w-4 h-4" resizeMode="contain" />
     </View>
     <Text className="font-helvetica font-normal text-[16px] leading-[44px] text-black">
-      info.john@fulfilx.co.uk
+      USA@fulfilx.co.uk
     </Text>
   </View>
 
   {/* Address */}
-  <View className="absolute left-6 top-[270px] flex flex-row items-start gap-3 space-y-10">
+  <View className="absolute left-6 top-[270px] flex flex-row items-center gap-3 space-y-10">
     <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-10">
       <Image source={{ uri: "/map.svg" }} alt="Location" className="w-4 h-4" resizeMode="contain" />
     </View>
     <Text className="font-helvetica font-normal text-[16px] leading-[22px] text-black">
-      Lorem Ipsum is simply dummy<br/>text of the printing & typing.
+      California/Georgia
     </Text>
   </View>
 </View>
@@ -199,19 +199,19 @@ export default function LocationsScreen() {
   </View>
 
   {/* Country Name */}
-  <Text className="absolute left-6 top-[110px] font-helvetica font-bold text-[32px] leading-[74px] tracking-[-0.01em] text-black">
-    UAE
+  <Text className="text-center top-[110px] font-helvetica font-bold text-[24px] leading-[74px] tracking-[-0.01em] text-black">
+    United Arab Emirates
   </Text>
 
   {/* Contact Info */}
   {/* Phone */}
   <View className="absolute left-6 top-[180px] flex flex-row items-center gap-3 space-y-2">
-    <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-2">
+    {/* <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-2">
       <Image source={{ uri: "/phone.svg" }} alt="Phone" className="w-4 h-4" resizeMode="contain" />
     </View>
     <Text className="font-helvetica font-normal text-[16px] leading-[44px] text-black">
       +1 234 567 8900
-    </Text>
+    </Text> */}
   </View>
 
   {/* Email */}
@@ -220,17 +220,17 @@ export default function LocationsScreen() {
       <Image source={{ uri: "/mail.svg" }} alt="Email" className="w-4 h-4" resizeMode="contain" />
     </View>
     <Text className="font-helvetica font-normal text-[16px] leading-[44px] text-black">
-      info.john@fulfilx.co.uk
+      UAE@fulfilx.co.uk
     </Text>
   </View>
 
   {/* Address */}
-  <View className="absolute left-6 top-[270px] flex flex-row items-start gap-3 space-y-10">
+  <View className="absolute left-6 top-[270px] flex flex-row items-center gap-3 space-y-10">
     <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-10">
       <Image source={{ uri: "/map.svg" }} alt="Location" className="w-4 h-4" resizeMode="contain" />
     </View>
     <Text className="font-helvetica font-normal text-[16px] leading-[22px] text-black">
-      Lorem Ipsum is simply dummy<br/>text of the printing & typing.
+      Dubai
     </Text>
   </View>
 </View>
@@ -257,19 +257,19 @@ export default function LocationsScreen() {
   </View>
 
   {/* Country Name */}
-  <Text className="absolute left-6 top-[110px] font-helvetica font-bold text-[32px] leading-[74px] tracking-[-0.01em] text-black">
-    Saudi
+  <Text className=" text-center top-[110px] font-helvetica font-bold text-[24px] leading-[74px] tracking-[-0.01em] text-black">
+    Saudi Arabia 
   </Text>
 
   {/* Contact Info */}
   {/* Phone */}
   <View className="absolute left-6 top-[180px] flex flex-row items-center gap-3 space-y-2">
-    <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-2">
+    {/* <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-2">
       <Image source={{ uri: "/phone.svg" }} alt="Phone" className="w-4 h-4" resizeMode="contain" />
     </View>
     <Text className="font-helvetica font-normal text-[16px] leading-[44px] text-black">
       +1 234 567 8900
-    </Text>
+    </Text> */}
   </View>
 
   {/* Email */}
@@ -278,17 +278,17 @@ export default function LocationsScreen() {
       <Image source={{ uri: "/mail.svg" }} alt="Email" className="w-4 h-4" resizeMode="contain" />
     </View>
     <Text className="font-helvetica font-normal text-[16px] leading-[44px] text-black">
-      info.john@fulfilx.co.uk
+      Saudi@fulfilx.co.uk
     </Text>
   </View>
 
   {/* Address */}
-  <View className="absolute left-6 top-[270px] flex flex-row items-start gap-3 space-y-10">
+  <View className="absolute left-6 top-[270px] flex flex-row items-center gap-3 space-y-10">
     <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-10">
       <Image source={{ uri: "/map.svg" }} alt="Location" className="w-4 h-4" resizeMode="contain" />
     </View>
     <Text className="font-helvetica font-normal text-[16px] leading-[22px] text-black">
-      Lorem Ipsum is simply dummy<br/>text of the printing & typing.
+      Riyadh
     </Text>
   </View>
 </View>
@@ -311,19 +311,19 @@ export default function LocationsScreen() {
   </View>
 
   {/* Country Name */}
-  <Text className="absolute left-6 top-[110px] font-helvetica font-bold text-[32px] leading-[74px] tracking-[-0.01em] text-black">
+  <Text className="text-center top-[110px] font-helvetica font-bold text-[24px] leading-[74px] tracking-[-0.01em] text-black">
     Bahrain
   </Text>
 
   {/* Contact Info */}
   {/* Phone */}
   <View className="absolute left-6 top-[180px] flex flex-row items-center gap-3 space-y-2">
-    <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-2">
+    {/* <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-2">
       <Image source={{ uri: "/phone.svg" }} alt="Phone" className="w-4 h-4" resizeMode="contain" />
     </View>
     <Text className="font-helvetica font-normal text-[16px] leading-[44px] text-black">
       +1 234 567 8900
-    </Text>
+    </Text> */}
   </View>
 
   {/* Email */}
@@ -332,17 +332,17 @@ export default function LocationsScreen() {
       <Image source={{ uri: "/mail.svg" }} alt="Email" className="w-4 h-4" resizeMode="contain" />
     </View>
     <Text className="font-helvetica font-normal text-[16px] leading-[44px] text-black">
-      info.john@fulfilx.co.uk
+      Bahrain@fulfilx.co.uk
     </Text>
   </View>
 
   {/* Address */}
-  <View className="absolute left-6 top-[270px] flex flex-row items-start gap-3 space-y-10">
+  <View className="absolute left-6 top-[270px] flex flex-row items-center gap-3 space-y-10">
     <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-10">
       <Image source={{ uri: "/map.svg" }} alt="Location" className="w-4 h-4" resizeMode="contain" />
     </View>
     <Text className="font-helvetica font-normal text-[16px] leading-[22px] text-black">
-      Lorem Ipsum is simply dummy<br/>text of the printing & typing.
+      Manama
     </Text>
   </View>
 </View>
@@ -365,19 +365,19 @@ export default function LocationsScreen() {
   </View>
 
   {/* Country Name */}
-  <Text className="absolute left-6 top-[110px] font-helvetica font-bold text-[32px] leading-[74px] tracking-[-0.01em] text-black">
+  <Text className="text-center top-[110px] font-helvetica font-bold text-[24px] leading-[74px] tracking-[-0.01em] text-black">
     Australia
   </Text>
 
   {/* Contact Info */}
   {/* Phone */}
   <View className="absolute left-6 top-[180px] flex flex-row items-center gap-3 space-y-2">
-    <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-2">
+    {/* <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-2">
       <Image source={{ uri: "/phone.svg" }} alt="Phone" className="w-4 h-4" resizeMode="contain" />
     </View>
     <Text className="font-helvetica font-normal text-[16px] leading-[44px] text-black">
       +1 234 567 8900
-    </Text>
+    </Text> */}
   </View>
 
   {/* Email */}
@@ -386,17 +386,17 @@ export default function LocationsScreen() {
       <Image source={{ uri: "/mail.svg" }} alt="Email" className="w-4 h-4" resizeMode="contain" />
     </View>
     <Text className="font-helvetica font-normal text-[16px] leading-[44px] text-black">
-      info.john@fulfilx.co.uk
+      Austailia@fulfilx.co.uk
     </Text>
   </View>
 
   {/* Address */}
-  <View className="absolute left-6 top-[270px] flex flex-row items-start gap-3 space-y-10">
+  <View className="absolute left-6 top-[270px] flex flex-row items-center gap-3 space-y-10">
     <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-10">
       <Image source={{ uri: "/map.svg" }} alt="Location" className="w-4 h-4" resizeMode="contain" />
     </View>
-    <Text className="font-helvetica font-normal text-[16px] leading-[22px] text-black">
-      Lorem Ipsum is simply dummy<br/>text of the printing & typing.
+    <Text className="font-helvetica font-normal text-[16px]  leading-[22px] text-black flex-1 justify-center items-center text-center">
+      Melbourne
     </Text>
   </View>
 </View>
@@ -497,7 +497,7 @@ export default function LocationsScreen() {
     </View>
 
     {/* World Map Image */}
-    <View className="relative w-full h-[300px] lg:h-[698px] mt-20">
+    <View className="relative w-full h-[300px] lg:h-[698px] ">
       <Image source={{ uri: "/world-map.webp" }} className="w-full h-full rounded-lg" resizeMode="contain" />
       
 {/* Location Markers - Hidden on mobile for simplicity or positioned relatively? keeping absolute but adjusted */}
@@ -551,9 +551,9 @@ export default function LocationsScreen() {
 </View>
 
         {/* Accomplishments Section */}
-        <View className="relative w-full">
+        <View className="relative w-full ">
           {/* Two Column Layout */}
-          <View className="flex flex-col lg:flex-row">
+          <View className="flex flex-col lg:flex-row mt-80">
             
             {/* Left Section - White Background */}
             <View className="w-full lg:w-1/2 bg-white relative min-h-[400px] lg:min-h-[520px] flex items-center justify-center py-12 lg:py-0">
