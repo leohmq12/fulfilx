@@ -1,7 +1,19 @@
 import { useRouter } from 'expo-router';
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Footer from './footer';
 import Navbar from './navbar';
+
+const defaultMarkerPositions: Record<string, { x: number; y: number }> = {
+  uk: { x: 49.96, y: 21.38 },
+  ca: { x: 16.5, y: 27.8 },
+  us: { x: 22.61, y: 27.89 },
+  atl: { x: 25.8, y: 34.2 },
+  nl: { x: 52.2, y: 22.4 },
+  uae: { x: 65.35, y: 36.0 },
+  bh: { x: 66.0, y: 38.1 },
+  au: { x: 92.0, y: 68.82 },
+  sa: { x: 62.97, y: 36.27 },
+};
 
 interface NavItemProps {
     children: React.ReactNode;
@@ -39,6 +51,55 @@ const NavItem: React.FC<NavItemProps> = ({ children, isActive = false }) => {
 const Home: React.FC = () => {
 const [currentSlide, setCurrentSlide] = useState(0);
 const carouselRef = useRef<HTMLDivElement>(null);
+const mapOverlayRef = useRef<HTMLDivElement>(null);
+const [markerPositions, setMarkerPositions] = useState<Record<string, { x: number; y: number }>>(
+  () => ({ ...defaultMarkerPositions })
+);
+const [draggingMarkerId, setDraggingMarkerId] = useState<string | null>(null);
+const draggingPointerIdRef = useRef<number | null>(null);
+
+useEffect(() => {
+  setMarkerPositions((prev) => {
+    for (const key of Object.keys(defaultMarkerPositions)) {
+      if (!prev[key]) return { ...defaultMarkerPositions, ...prev };
+    }
+    return prev;
+  });
+}, []);
+
+const getMarkerPos = (id: string) => markerPositions[id] ?? defaultMarkerPositions[id] ?? { x: 0, y: 0 };
+
+useEffect(() => {
+  if (!draggingMarkerId) return;
+
+  const onPointerMove = (e: PointerEvent) => {
+    if (draggingPointerIdRef.current !== null && e.pointerId !== draggingPointerIdRef.current) return;
+    const rect = mapOverlayRef.current?.getBoundingClientRect();
+    if (!rect) return;
+
+    const x = Math.max(0, Math.min(100, ((e.clientX - rect.left) / rect.width) * 100));
+    const y = Math.max(0, Math.min(100, ((e.clientY - rect.top) / rect.height) * 100));
+
+    setMarkerPositions((prev) => ({ ...prev, [draggingMarkerId]: { x, y } }));
+  };
+
+  const onPointerUp = (e: PointerEvent) => {
+    if (draggingPointerIdRef.current !== null && e.pointerId !== draggingPointerIdRef.current) return;
+    draggingPointerIdRef.current = null;
+    setDraggingMarkerId(null);
+  };
+
+  window.addEventListener('pointermove', onPointerMove);
+  window.addEventListener('pointerup', onPointerUp);
+  window.addEventListener('pointercancel', onPointerUp);
+
+  return () => {
+    window.removeEventListener('pointermove', onPointerMove);
+    window.removeEventListener('pointerup', onPointerUp);
+    window.removeEventListener('pointercancel', onPointerUp);
+  };
+}, [draggingMarkerId]);
+
 const testimonials = [
   { image: '/audenza.webp', alt: 'Testimonial 1' },
   { image: '/hot.webp', alt: 'Testimonial 2' },
@@ -821,12 +882,26 @@ focus on growing.    </p>
     </div>
 
     {/* World Map Image */}
-    <div className="relative w-full h-[300px] sm:h-[420px] lg:h-[698px] mt-10 lg:mt-20">
-      <div className="w-full h-full bg-cover bg-center rounded-lg" style={{backgroundImage: 'url(/world-map.webp)'}}></div>
-      
+    <div className="relative w-full mt-10 lg:mt-20">
+      <img
+        src="/world-map.webp"
+        alt="World map"
+        className="w-full h-auto rounded-lg"
+      />
+
 {/* Location Markers */}
+<div className="absolute inset-0" ref={mapOverlayRef}>
 {/* UK Marker */}
-<div className="absolute left-[49%] top-[50%] group">
+<div
+  className="absolute group -translate-x-1/2 -translate-y-1/2"
+  style={{ left: `${getMarkerPos('uk').x}%`, top: `${getMarkerPos('uk').y}%`, touchAction: 'none' }}
+  onPointerDown={(e) => {
+    e.preventDefault();
+    (e.currentTarget as HTMLDivElement).setPointerCapture(e.pointerId);
+    draggingPointerIdRef.current = e.pointerId;
+    setDraggingMarkerId('uk');
+  }}
+>
   <div className="w-[48px] h-[48px] border border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110">
     <div className="w-[32px] h-[32px] border border-[#C10016] rounded-full flex items-center justify-center">
       <div className="w-[16px] h-[16px] bg-[#C10016] rounded-full"></div>
@@ -843,8 +918,42 @@ focus on growing.    </p>
   </div>
 </div>
 
+{/* California Marker */}
+<div
+  className="absolute group -translate-x-1/2 -translate-y-1/2"
+  style={{ left: `${getMarkerPos('ca').x}%`, top: `${getMarkerPos('ca').y}%`, touchAction: 'none' }}
+  onPointerDown={(e) => {
+    e.preventDefault();
+    (e.currentTarget as HTMLDivElement).setPointerCapture(e.pointerId);
+    draggingPointerIdRef.current = e.pointerId;
+    setDraggingMarkerId('ca');
+  }}
+>
+  <div className="w-[48px] h-[48px] border border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110">
+    <div className="w-[32px] h-[32px] border border-[#C10016] rounded-full flex items-center justify-center">
+      <div className="w-[16px] h-[16px] bg-[#C10016] rounded-full"></div>
+    </div>
+  </div>
+  <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+    <div className="bg-white px-6 py-2 rounded-lg shadow-lg border border-gray-200 whitespace-nowrap flex items-center gap-2">
+      <img src="/US.webp" alt="US Flag" className="w-[16px] h-[12px]" />
+      <p className="text-sm font-medium text-gray-800">California</p>
+    </div>
+    <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-white"></div>
+  </div>
+</div>
+
 {/* US Marker */}
-<div className="absolute left-[13%] top-[51%] group">
+<div
+  className="absolute group -translate-x-1/2 -translate-y-1/2"
+  style={{ left: `${getMarkerPos('us').x}%`, top: `${getMarkerPos('us').y}%`, touchAction: 'none' }}
+  onPointerDown={(e) => {
+    e.preventDefault();
+    (e.currentTarget as HTMLDivElement).setPointerCapture(e.pointerId);
+    draggingPointerIdRef.current = e.pointerId;
+    setDraggingMarkerId('us');
+  }}
+>
   <div className="w-[48px] h-[48px] border border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110">
     <div className="w-[32px] h-[32px] border border-[#C10016] rounded-full flex items-center justify-center">
       <div className="w-[16px] h-[16px] bg-[#C10016] rounded-full"></div>
@@ -861,8 +970,67 @@ focus on growing.    </p>
   </div>
 </div>
 
+{/* Atlanta Marker */}
+<div
+  className="absolute group -translate-x-1/2 -translate-y-1/2"
+  style={{ left: `${getMarkerPos('atl').x}%`, top: `${getMarkerPos('atl').y}%`, touchAction: 'none' }}
+  onPointerDown={(e) => {
+    e.preventDefault();
+    (e.currentTarget as HTMLDivElement).setPointerCapture(e.pointerId);
+    draggingPointerIdRef.current = e.pointerId;
+    setDraggingMarkerId('atl');
+  }}
+>
+  <div className="w-[48px] h-[48px] border border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110">
+    <div className="w-[32px] h-[32px] border border-[#C10016] rounded-full flex items-center justify-center">
+      <div className="w-[16px] h-[16px] bg-[#C10016] rounded-full"></div>
+    </div>
+  </div>
+  <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+    <div className="bg-white px-6 py-2 rounded-lg shadow-lg border border-gray-200 whitespace-nowrap flex items-center gap-2">
+      <img src="/US.webp" alt="US Flag" className="w-[16px] h-[12px]" />
+      <p className="text-sm font-medium text-gray-800">Atlanta</p>
+    </div>
+    <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-white"></div>
+  </div>
+</div>
+
+{/* Netherlands Marker */}
+<div
+  className="absolute group -translate-x-1/2 -translate-y-1/2"
+  style={{ left: `${getMarkerPos('nl').x}%`, top: `${getMarkerPos('nl').y}%`, touchAction: 'none' }}
+  onPointerDown={(e) => {
+    e.preventDefault();
+    (e.currentTarget as HTMLDivElement).setPointerCapture(e.pointerId);
+    draggingPointerIdRef.current = e.pointerId;
+    setDraggingMarkerId('nl');
+  }}
+>
+  <div className="w-[48px] h-[48px] border border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110">
+    <div className="w-[32px] h-[32px] border border-[#C10016] rounded-full flex items-center justify-center">
+      <div className="w-[16px] h-[16px] bg-[#C10016] rounded-full"></div>
+    </div>
+  </div>
+  <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+    <div className="bg-white px-6 py-2 rounded-lg shadow-lg border border-gray-200 whitespace-nowrap flex items-center gap-2">
+      <img src="/NET.webp" alt="Netherlands Flag" className="w-[16px] h-[12px]" />
+      <p className="text-sm font-medium text-gray-800">Netherlands</p>
+    </div>
+    <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-white"></div>
+  </div>
+</div>
+
 {/* UAE Marker */}
-<div className="absolute left-[54%] top-[60%] group">
+<div
+  className="absolute group -translate-x-1/2 -translate-y-1/2"
+  style={{ left: `${getMarkerPos('uae').x}%`, top: `${getMarkerPos('uae').y}%`, touchAction: 'none' }}
+  onPointerDown={(e) => {
+    e.preventDefault();
+    (e.currentTarget as HTMLDivElement).setPointerCapture(e.pointerId);
+    draggingPointerIdRef.current = e.pointerId;
+    setDraggingMarkerId('uae');
+  }}
+>
   <div className="w-[48px] h-[48px] border border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110">
     <div className="w-[32px] h-[32px] border border-[#C10016] rounded-full flex items-center justify-center">
       <div className="w-[16px] h-[16px] bg-[#C10016] rounded-full"></div>
@@ -879,8 +1047,42 @@ focus on growing.    </p>
   </div>
 </div>
 
+{/* Bahrain Marker */}
+<div
+  className="absolute group -translate-x-1/2 -translate-y-1/2"
+  style={{ left: `${getMarkerPos('bh').x}%`, top: `${getMarkerPos('bh').y}%`, touchAction: 'none' }}
+  onPointerDown={(e) => {
+    e.preventDefault();
+    (e.currentTarget as HTMLDivElement).setPointerCapture(e.pointerId);
+    draggingPointerIdRef.current = e.pointerId;
+    setDraggingMarkerId('bh');
+  }}
+>
+  <div className="w-[40px] h-[40px] border border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110">
+    <div className="w-[26.67px] h-[26.67px] border border-[#C10016] rounded-full flex items-center justify-center">
+      <div className="w-[13.33px] h-[13.33px] bg-[#C10016] rounded-full"></div>
+    </div>
+  </div>
+  <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+    <div className="bg-white px-6 py-2 rounded-lg shadow-lg border border-gray-200 whitespace-nowrap flex items-center gap-2">
+      <img src="/B.webp" alt="Bahrain Flag" className="w-[16px] h-[12px]" />
+      <p className="text-sm font-medium text-gray-800">Bahrain</p>
+    </div>
+    <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-white"></div>
+  </div>
+</div>
+
 {/* Australia Marker */}
-<div className="absolute left-[86%] top-[70%] group">
+<div
+  className="absolute group -translate-x-1/2 -translate-y-1/2"
+  style={{ left: `${getMarkerPos('au').x}%`, top: `${getMarkerPos('au').y}%`, touchAction: 'none' }}
+  onPointerDown={(e) => {
+    e.preventDefault();
+    (e.currentTarget as HTMLDivElement).setPointerCapture(e.pointerId);
+    draggingPointerIdRef.current = e.pointerId;
+    setDraggingMarkerId('au');
+  }}
+>
   <div className="w-[48px] h-[48px] border border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110">
     <div className="w-[32px] h-[32px] border border-[#C10016] rounded-full flex items-center justify-center">
       <div className="w-[16px] h-[16px] bg-[#C10016] rounded-full"></div>
@@ -897,8 +1099,17 @@ focus on growing.    </p>
   </div>
 </div>
 
-{/* Small UK Marker */}
-<div className="absolute left-[25%] top-[62%] group">
+{/* Saudi Arabia Marker */}
+<div
+  className="absolute group -translate-x-1/2 -translate-y-1/2"
+  style={{ left: `${getMarkerPos('sa').x}%`, top: `${getMarkerPos('sa').y}%`, touchAction: 'none' }}
+  onPointerDown={(e) => {
+    e.preventDefault();
+    (e.currentTarget as HTMLDivElement).setPointerCapture(e.pointerId);
+    draggingPointerIdRef.current = e.pointerId;
+    setDraggingMarkerId('sa');
+  }}
+>
   <div className="w-[40px] h-[40px] border border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110">
     <div className="w-[26.67px] h-[26.67px] border border-[#C10016] rounded-full flex items-center justify-center">
       <div className="w-[13.33px] h-[13.33px] bg-[#C10016] rounded-full"></div>
@@ -913,6 +1124,18 @@ focus on growing.    </p>
     {/* Arrow */}
     <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-white"></div>
   </div>
+</div>
+</div>
+<div className="absolute right-4 bottom-4 bg-white/90 px-3 py-2 rounded-md text-xs font-mono text-black shadow border border-black/10">
+  <div>uk: {getMarkerPos('uk').x.toFixed(2)}%, {getMarkerPos('uk').y.toFixed(2)}%</div>
+  <div>ca: {getMarkerPos('ca').x.toFixed(2)}%, {getMarkerPos('ca').y.toFixed(2)}%</div>
+  <div>us: {getMarkerPos('us').x.toFixed(2)}%, {getMarkerPos('us').y.toFixed(2)}%</div>
+  <div>atl: {getMarkerPos('atl').x.toFixed(2)}%, {getMarkerPos('atl').y.toFixed(2)}%</div>
+  <div>nl: {getMarkerPos('nl').x.toFixed(2)}%, {getMarkerPos('nl').y.toFixed(2)}%</div>
+  <div>uae: {getMarkerPos('uae').x.toFixed(2)}%, {getMarkerPos('uae').y.toFixed(2)}%</div>
+  <div>bh: {getMarkerPos('bh').x.toFixed(2)}%, {getMarkerPos('bh').y.toFixed(2)}%</div>
+  <div>au: {getMarkerPos('au').x.toFixed(2)}%, {getMarkerPos('au').y.toFixed(2)}%</div>
+  <div>sa: {getMarkerPos('sa').x.toFixed(2)}%, {getMarkerPos('sa').y.toFixed(2)}%</div>
 </div>
     </div>
   </div>
