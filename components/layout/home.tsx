@@ -137,7 +137,7 @@ const row1Logos = [
 
                                 <div className="w-full max-w-[759px] mb-12 lg:mb-16">
                                     <p className="text-lg lg:text-[18px] font-helvetica font-thin leading-[2] text-black text-center lg:text-left">
-                                        At FulfilX, we are more than just a 3PL. We are your Partner in Fulfilment. &quot;Your success is Our Success.&quot;
+                                        At FulfilX, we are more than just a 3PL. We are your Partner in Fulfilment.<br/> &quot;Your success is Our Success.&quot;
                                     </p>
                                 </div>
 
@@ -456,7 +456,7 @@ const row1Logos = [
         >
           <path 
             opacity="0.15" 
-            d="M0.385742 27.1976C88.8857 -9.80318 264.486 -4.20236 360.886 68.1976C426.719 92.031 597.386 129.196 748.886 19.1963C822.886 -9.13697 1011.39 -12.3024 1130.89 68.1976" 
+            d="M0.385742 67.1976C88.8857 9.80311 264.486 -4.20236 360.886 79.1976C426.719 82.031 400.386 129.196 700.886 19.1963C822.886 -9.13697 1011.39 160.3024 900.89 68.1976" 
             stroke="#C10016" 
             strokeWidth="2" 
             strokeDasharray="6 6"
@@ -467,10 +467,10 @@ const row1Logos = [
       {/* Step Circles aligned with text */}
       <style>{`
         @media (min-width: 1024px) {
-          .step-0-circle { transform: translate(clamp(-40px, -3vw, -20px), clamp(-40px, -3vw, -20px)); }
-          .step-1-circle { transform: translate(clamp(20px, 3vw, 40px), clamp(10px, 1.5vw, 20px)); }
-          .step-2-circle { transform: translate(clamp(60px, 10vw, 150px), clamp(-30px, -2vw, -10px)); }
-          .step-3-circle { transform: translate(clamp(90px, 16vw, 240px), clamp(0px, 0.5vw, 5px)); }
+          // .step-0-circle { transform: translate(clamp(2px, -3vw, -20px), clamp(-40px, -3vw, -20px)); }
+          // .step-1-circle { transform: translate(clamp(10px, 3vw, 40px), clamp(10px, 1.5vw, 20px)); }
+          // .step-2-circle { transform: translate(clamp(60px, 10vw, 150px), clamp(-30px, -2vw, -10px)); }
+          // .step-3-circle { transform: translate(clamp(90px, 16vw, 240px), clamp(0px, 0.5vw, 5px)); }
         }
       `}</style>
 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-8 justify-items-center lg:justify-items-stretch">
