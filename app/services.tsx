@@ -266,13 +266,13 @@ const LogisticsServicesSection = () => {
       icon: InternationalShippingIcon,
       imageUrl: '/is.jpg', // Add your image URLs here
       features: [
-        'Lorem Ipsum is simply dummy text',
-        'Printing and typesetting industry',
-        'Lorem Ipsum is simply dummy text',
-        'Printing and typesetting industry',
-        'Lorem Ipsum is simply dummy text',
-        'Printing and typesetting industry',
-        'Lorem Ipsum is simply dummy text'
+        'DDU',
+        'DDP',
+        'IOR Globally',
+        'EOR Globally',
+        'Hazardous Goods',
+        'IOSS/Non IOSS',
+        'USA taxes & Duties'
       ]
     }
   ];
@@ -895,7 +895,7 @@ export default function ServicesScreen(){
     />
   </View>
   <Text className="font-helvetica font-bold text-3xl lg:text-[54px] lg:leading-[84px] text-black text-center relative z-10 transform -translate-y-10">
-    Logistics, Frieght & <Text className="text-[#C10016]">International</Text>
+    Logistics, Freight & <Text className="text-[#C10016]">International</Text>
   </Text>
   <LogisticsServicesSection/>
 </View>

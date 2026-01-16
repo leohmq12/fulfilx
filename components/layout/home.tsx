@@ -93,11 +93,11 @@ const row1Logos = [
     const router = useRouter();
     const whyChooseContent: Record<typeof whyChooseTab, string> = {
       history:
-        'At FulfilX we are more than just a logistics company. Our motto is "Your success is our success" that\'s why we see every brand as a partner, not just a customer. We are on hand to help your business grow and build customer-centric solutions.',
+        'FULFIL.X was born out of frustration. As brand owners, we experienced firsthand the challenges of working with complex fulfilment providers and systems that offered little transparency. Drawing on years of expertise in global logistics, we set out to build a 3PL that does things differently.',
       mission:
-        'At FulfilX our mission is to help brands scale with customer-first fulfilment. We combine real-time visibility, reliable operations, and seamless integrations to keep your deliveries fast and your customers happy.',
+        'FULFIL.X exists to disrupt the logistics industry with a radically brand-centric approach to fulfilment. We empower brands to own their customer experience from click to delivery.',
       vision:
-        'At FulfilX our vision is to set the standard for modern fulfilment by building scalable, tech-enabled logistics that adapts to every brand and every market, without compromising the customer experience.',
+        'To redefine fulfilment with a brand-centric approach that gives businesses the transparency, control, and confidence to own their customer experience end to end. FULFIL.X envisions a logistics ecosystem where fulfilment is simple, visible, and aligned with each brand’s identity — enabling faster growth, stronger customer relationships, and seamless delivery experiences that reflect the brand at every touchpoint.',
     };
     return (
         <>
@@ -137,7 +137,7 @@ const row1Logos = [
 
                                 <div className="w-full max-w-[759px] mb-12 lg:mb-16">
                                     <p className="text-lg lg:text-[18px] font-helvetica font-thin leading-[2] text-black text-center lg:text-left">
-                                        At FulfilX, we are more than just a 3PL. We are your Partner in Fulfilment.<br/> &quot;Your success is Our Success.&quot;
+                                        At FulfilX, we are more than just a 3PL. We are your partner in fulfilment. &quot;Your success is Our Success.&quot;
                                     </p>
                                 </div>
 
@@ -206,8 +206,7 @@ const row1Logos = [
 
       {/* Main Heading */}
       <h2 className="text-3xl lg:text-[54px] font-bold leading-tight lg:leading-[84px] tracking-[-0.01em] text-white mb-10 lg:mb-20">
-        The fastest growing 3PL partner assisting in the First, Middle, and Last Mile with Global Reach. Helping You Expand with ease.
-      </h2>
+  The fastest growing 3PL partner assisting in the first, middle, and last mile with Global reach. Helping you expand with ease.      </h2>
 
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
@@ -251,7 +250,7 @@ const row1Logos = [
             >
               4
             </span>
-            <span className="text-4xl lg:text-[54px] font-bold leading-tight lg:leading-[80px] tracking-[-0.01em] text-white">Continents</span>
+            <span className="text-4xl lg:text-[54px] font-bold leading-tight lg:leading-[80px] tracking-[-0.01em] text-white">Global Hubs</span>
           </div>
           <div className="h-px bg-white/10 w-full my-6"></div>
           <p className="text-[20px] font-normal leading-[44px] text-white">North America, UK & Europe, UAE, Australia</p>
@@ -303,8 +302,9 @@ const row1Logos = [
 
     {/* Paragraph */}
     <p className="text-lg lg:text-[22px] font-normal leading-loose lg:leading-[44px] text-black max-w-3xl mb-10">
-    We work with startup and scale up brands our bespoke fulfilment services are a game changer in the 3PL market. We help brands get there logistics right so you can focus on growing.
-    </p>
+We work with startup and scale up brands, our bespoke fulfilment services are a
+game changer in the 3PL market. We help brands get their logistics right so you can
+focus on growing.    </p>
     <p className="text-lg lg:text-[22px] font-normal leading-loose lg:leading-[44px] text-black max-w-3xl mb-10">
     Ready to have <span className="text-[#C10016]">Stress-Free Logistics?</span>
     </p>
@@ -473,7 +473,7 @@ const row1Logos = [
           // .step-3-circle { transform: translate(clamp(90px, 16vw, 240px), clamp(0px, 0.5vw, 5px)); }
         }
       `}</style>
-<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-8 justify-items-center lg:justify-items-stretch">
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-8 justify-items-center lg:justify-items-stretch ">
   {[
     { 
       step: 1, 
@@ -498,7 +498,7 @@ const row1Logos = [
       title: "Pick & Pack",
       circleBg: "bg-black",
       titleColor: "text-black",
-      description: "Our software ensures that your Pick and Pack remain error free and we have maintained a 100% accuracy record since 2023.",
+      description: "Our software ensures that your Pick and Pack remain error free and we have maintained a near 100% accuracy record since 2023",
     },
     { 
       step: 4, 
@@ -510,22 +510,22 @@ const row1Logos = [
       description: "Real-time tracking, multiple carrier options & automated processes. Delight customers with reliable logistics.",
     }
   ].map((item, i) => (
-    <div key={i} className="flex flex-col items-center sm:items-start text-center sm:text-left w-full max-w-[420px] sm:max-w-none px-2 sm:px-0 min-w-0">
+    <div key={i} className="flex flex-col items-center sm:items-start text-center sm:text-left w-full max-w-[420px] sm:max-w-none px-2 sm:px-0 min-w-0 ">
       {/* Step Circle with custom positioning */}
       <div 
-        className={`relative mb-6 z-10 step-${i}-circle`} 
+        className={`relative mb-6 z-10 step-${i}-circle `} 
       >
         {/* Step number */}
-        <span className={`absolute -top-2.5 -right-2.5 z-10 text-white text-sm font-bold ${item.stepNumberBg || 'bg-[#C10016]'} rounded-full w-10 h-10 flex items-center justify-center border-4 border-white`}>
+        <span className={`absolute -top-2.5 -right-2.5 z-10 text-white text-sm font-bold ${item.stepNumberBg || 'bg-[#C10016]'} rounded-full w-10 h-10 flex items-center justify-center border-4 border-white `}>
           {`0${item.step}`}
         </span>
         
         {/* Main circle with icon */}
-        <div className={`w-16 h-16 md:w-[104px] md:h-[104px] rounded-full ${item.circleBg} flex items-center justify-center overflow-hidden`}>
+        <div className={`w-16 h-16 md:w-[104px] md:h-[104px] rounded-full ${item.circleBg} flex items-center justify-center overflow-hidden p-0 ml-6 shrink-0 `}>
           <img 
             src={item.icon} 
             alt={`${item.title} icon`}
-            className="w-18 h-18 object-cover p-2"
+            className="w-18 h-18 object-cover p-2 m-0" 
           />
         </div>
       </div>
@@ -658,7 +658,7 @@ const row1Logos = [
 <div className="flex items-center gap-4">
   <div className="w-[150px] h-[80px] bg-black/10 rounded-[10px] flex items-center justify-center">
     <span className="font-bold text-3xl lg:text-[40px] leading-[80px] tracking-tight text-black">
-      5-Stars
+      <img src="/reviews.webp" alt="" />
     </span>
   </div>
   <p className="font-normal text-lg lg:text-[20px] leading-[30px] lg:leading-[40px] text-[#C10016]">
@@ -774,9 +774,15 @@ const row1Logos = [
         <span className="font-normal text-[18px] leading-[30px] text-black">California</span>
       </div>
 
+      {/* United States */}
+      <div className="flex items-center gap-3">
+        <div className="w-[30px] h-[20px] bg-cover bg-center rounded-[2px]" style={{backgroundImage: 'url(/US.webp)'}}></div>
+        <span className="font-normal text-[18px] leading-[30px] text-black">United States</span>
+      </div>
+
       {/* San Francisco */}
       <div className="flex items-center gap-3">
-        <div className="w-[30px] h-[20px] bg-cover bg-center rounded-[2px]" style={{backgroundImage: 'url(/AT.webp)'}}></div>
+        <div className="w-[30px] h-[20px] bg-cover bg-center rounded-[2px]" style={{backgroundImage: 'url(/US.webp)'}}></div>
         <span className="font-normal text-[18px] leading-[30px] text-black">Atlanta</span>
       </div>
 
@@ -820,7 +826,7 @@ const row1Logos = [
       
 {/* Location Markers */}
 {/* UK Marker */}
-<div className="absolute left-[49%] top-[30%] group">
+<div className="absolute left-[49%] top-[50%] group">
   <div className="w-[48px] h-[48px] border border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110">
     <div className="w-[32px] h-[32px] border border-[#C10016] rounded-full flex items-center justify-center">
       <div className="w-[16px] h-[16px] bg-[#C10016] rounded-full"></div>

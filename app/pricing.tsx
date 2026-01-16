@@ -119,11 +119,11 @@ const panResponder = useRef(
             </Text>
             
             {/* Breadcrumb Navigation */}
-            <View className="flex flex-row items-center justify-center mt-4">
+            <View className="flex flex-row items-center justify-center mt-48">
               <Text className="font-helvetica font-normal text-base lg:text-[20px] leading-[40px] text-black">
                 Home
               </Text>
-              <View className="w-1 h-1 bg-[#C10016] rounded-full mx-4" />
+              <View className="w-full h-full bg-[#C10016] rounded-full" />
               <Text className="font-helvetica font-medium text-base lg:text-[20px] leading-[40px] text-[#C10016]">
                 Pricing Plans
               </Text>
@@ -144,7 +144,7 @@ const panResponder = useRef(
           <Text className="text-center font-helvetica font-bold text-3xl lg:text-[64px] leading-tight lg:leading-[74px] tracking-[-0.01em] text-black mb-8 lg:mb-16">
             Pricing <Text className='text-[#C10016]'>plans</Text> for companies{'\n'}of all <Text className='text-[#C10016]'>sizes</Text>
           </Text>
-          <Text className="text-center font-helvetica font-normal text-lg lg:text-[22px] leading-relaxed lg:leading-[36px] tracking-[-0.01em] text-black mb-16 max-w-[800px] mx-auto">
+          <Text className="text-center font-helvetica font-normal text-lg lg:text-[22px] leading-relaxed lg:leading-[36px] tracking-[-0.01em] text-black mb-72 max-w-[800px] mx-auto">
             We offer competitive pricing plans to fit your organization&apos;s needs as well as your budget. For custom pricing, please <Text 
             className='font-bold text-[#C10016]'
             onPress={() => router.push('/contact')}
@@ -309,10 +309,10 @@ const panResponder = useRef(
                 *from
               </Text>
               <Text className="font-helvetica font-medium text-[28px] leading-[74px] tracking-tight text-black">
-                £0.28p
+                £0.28
               </Text>
               <Text className="font-helvetica font-normal text-[14px] leading-[26px] text-black opacity-60">
-                /m3 per day
+                /0.20 per location
               </Text>
             </View>
             
