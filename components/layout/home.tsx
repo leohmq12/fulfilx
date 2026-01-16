@@ -115,7 +115,7 @@ const row1Logos = [
     </div>
 
                 {/* Main Content */}
-                <div className="relative z-10 pb-16">
+                <div className="relative z-10 pb-4">
                     <div className="w-full px-4 md:px-6 lg:px-8 2xl:px-16">
                         <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-10">
                             <div className="flex flex-col items-center lg:items-start">
@@ -162,13 +162,13 @@ const row1Logos = [
                                         />
                                     </a>
                                 </div>
-                                      <div className="mt-6 flex justify-center w-full">
+                                      {/* <div className="mt-6 flex justify-end w-full">
                                     <img 
                                         src="/google_rev.webp" 
                                         alt="Google reviews" 
                                         className="w-full max-w-[220px] sm:max-w-[260px] lg:max-w-[80px] h-auto object-contain mx-auto"
                                     />
-                                </div>
+                                </div> */}
                             </div>
 
                             <div className="flex justify-center lg:justify-end w-full">
@@ -181,6 +181,13 @@ const row1Logos = [
                         </div>
 
                     </div>
+                    <div className=" flex justify-end w-full">
+                                    <img 
+                                        src="/google_rev.webp" 
+                                        alt="Google reviews" 
+                                        className="w-full max-w-[220px] sm:max-w-[260px] lg:max-w-[80px] h-auto object-contain mx-auto"
+                                    />
+                                </div>
                 </div>
                 {/* Stats Section */}
 <div className="relative w-full min-h-[725px] mt-0 bg-[#A31E1E]">
