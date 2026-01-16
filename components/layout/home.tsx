@@ -93,11 +93,11 @@ const row1Logos = [
     const router = useRouter();
     const whyChooseContent: Record<typeof whyChooseTab, string> = {
       history:
-        'At FulfilX we are more than just a logistics company. Our motto is "Your success is our success" that\'s why we see every brand as a partner, not just a customer. We are on hand to help your business grow and build customer-centric solutions.',
+        'FULFIL.X was born out of frustration. As brand owners, we experienced firsthand the challenges of working with complex fulfilment providers and systems that offered little transparency. Drawing on years of expertise in global logistics, we set out to build a 3PL that does things differently.',
       mission:
-        'At FulfilX our mission is to help brands scale with customer-first fulfilment. We combine real-time visibility, reliable operations, and seamless integrations to keep your deliveries fast and your customers happy.',
+        'FULFIL.X exists to disrupt the logistics industry with a radically brand-centric approach to fulfilment. We empower brands to own their customer experience from click to delivery.',
       vision:
-        'At FulfilX our vision is to set the standard for modern fulfilment by building scalable, tech-enabled logistics that adapts to every brand and every market, without compromising the customer experience.',
+        'To redefine fulfilment with a brand-centric approach that gives businesses the transparency, control, and confidence to own their customer experience end to end. FULFIL.X envisions a logistics ecosystem where fulfilment is simple, visible, and aligned with each brand’s identity — enabling faster growth, stronger customer relationships, and seamless delivery experiences that reflect the brand at every touchpoint.',
     };
     return (
         <>
@@ -658,7 +658,7 @@ focus on growing.    </p>
 <div className="flex items-center gap-4">
   <div className="w-[150px] h-[80px] bg-black/10 rounded-[10px] flex items-center justify-center">
     <span className="font-bold text-3xl lg:text-[40px] leading-[80px] tracking-tight text-black">
-      5-Stars
+      <img src="/reviews.webp" alt="" />
     </span>
   </div>
   <p className="font-normal text-lg lg:text-[20px] leading-[30px] lg:leading-[40px] text-[#C10016]">
