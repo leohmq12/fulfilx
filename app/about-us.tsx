@@ -152,7 +152,14 @@ export default function AboutUsScreen(){
     <div className="space-y-4">
       {/* Content */}
       <p className="font-normal text-base sm:text-lg lg:text-[20px] leading-relaxed lg:leading-[48px] text-black">
-        Our founders, with experience in international brands, identified a need for change in the 3PL market. Frustrated by impersonal interactions and limitations, they launched FulfilX. We grasp the needs of modern brands aim to disrupt the market. More than just a logistics company, we embrace a motto of “Your success is our success,” viewing each brand as a partner, not just a customer. We’re dedicated to building your business growth with customer-centric solutions. 
+        Fulfil.X was born from a vision for something better. Our founders, veterans of the international brand world, grew frustrated with the status quo in fulfilment —the impersonal partnerships, the one-size-fits-all limitations. They knew brands deserved more.
+That’s why we exist: to disrupt the 3PL market by putting brands at the center
+of everything we do. We operate on a powerful belief, "Your Success is our
+Success". You are not just a client; you are a partner in growth.
+We are transforming the movement of goods from a logistical task into a
+strategic advantage. With innovation as our engine, we provide the dynamic
+partnership and streamlined solutions modern brands need to scale and
+thrive. 
       </p>
     </div>
     <div className="space-y-4">
@@ -228,22 +235,22 @@ export default function AboutUsScreen(){
   {/* Timeline Items Container */}
 <View className="relative max-w-[1400px] mx-auto px-4">
     {/* Item 1 - Image Left, Content Right */}
-<View className="flex flex-col lg:flex-row items-center justify-between mb-20 lg:mb-60 w-full">
+<View className="flex flex-col lg:flex-row items-center justify-between mb-20 lg:mb-40 w-full">
   {/* Left Side - Image */}
-  <View className="w-full h-[300px] lg:w-[500px] lg:h-[500px] rounded-[32px] backdrop-blur-[12.5px] bg-cover bg-center lg:transform lg:-translate-x-60 mb-8 lg:mb-0" 
+  <View className="w-full h-[300px] lg:w-[500px] lg:h-[500px] rounded-[32px] backdrop-blur-[12.5px] bg-cover bg-center lg:transform lg:-translate-x-40 mb-8 lg:mb-0" 
     style={{backgroundImage: 'url(/trolley.webp)'} as any} />
   
   {/* Center Dot - Hidden on mobile */}
   <View className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-[40px] h-[40px] bg-[#C10016] rounded-full" />
   
   {/* Right Side - Content */}
-  <View className="w-full lg:w-[451px] lg:transform lg:translate-x-60">
+  <View className="w-full lg:w-[451px] lg:transform lg:translate-x-55">
     <Text className="font-medium text-6xl lg:text-[94px] leading-tight lg:leading-[74px] tracking-tight text-white mb-4 lg:mb-20 text-left lg:text-right">01.</Text>
     <Text className="font-helvetica font-bold text-3xl lg:text-[40px] leading-tight lg:leading-[74px] tracking-tight text-white mb-4 text-left lg:text-right">
       Humble <Text className="text-[#C10016]">Beginnings</Text>
     </Text>
     <Text className="font-helvetica font-normal text-lg lg:text-[22px] leading-relaxed lg:leading-[42px] text-white text-left lg:text-right">
-      FulfilX started with our founders from a storage unit to get a proof of concept.
+      FULFIL.X started with our founders from a storage unit to get a proof of concept
     </Text>
   </View>
 </View>
@@ -251,13 +258,13 @@ export default function AboutUsScreen(){
 {/* Item 2 - Content Left, Image Right */}
 <View className="flex flex-col-reverse lg:flex-row items-center justify-between mb-20 lg:mb-60 w-full">
   {/* Left Side - Content */}
-  <View className="w-full lg:w-[460px] lg:transform lg:-translate-x-60">
+  <View className="w-full lg:w-[460px] lg:transform lg:-translate-x-40">
     <Text className="font-medium text-6xl lg:text-[94px] leading-tight lg:leading-[74px] tracking-tight text-white mb-4 lg:mb-20 text-left">02.</Text>
     <Text className="font-helvetica font-bold text-3xl lg:text-[40px] leading-tight lg:leading-[74px] tracking-tight text-white mb-4 text-left">
       New <Text className="text-[#C10016]">HQ</Text>
     </Text>
     <Text className="font-helvetica font-normal text-lg lg:text-[22px] leading-relaxed lg:leading-[42px] text-white text-left">
-      After rapidly expanding our new warehouse expands to 50,000sqft
+      Rapidly expanding our new warehouse to 50,000sqft
     </Text>
   </View>
   
@@ -265,27 +272,27 @@ export default function AboutUsScreen(){
   <View className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-[40px] h-[40px] bg-[#C10016] rounded-full" />
   
   {/* Right Side - Image */}
-  <View className="w-full h-[300px] lg:w-[500px] lg:h-[500px] rounded-[32px] backdrop-blur-[12.5px] bg-cover bg-center lg:transform lg:translate-x-60 mb-8 lg:mb-0" 
+  <View className="w-full h-[300px] lg:w-[500px] lg:h-[500px] rounded-[32px] backdrop-blur-[12.5px] bg-cover bg-center lg:transform lg:translate-x-40 mb-8 lg:mb-0" 
     style={{backgroundImage: 'url(/head.webp)'} as any} />
 </View>
 
 {/* Item 3 */}
 <View className="flex flex-col lg:flex-row items-center justify-between w-full">
   {/* Left Side - Image */}
-  <View className="w-full h-[300px] lg:w-[500px] lg:h-[500px] rounded-[32px] backdrop-blur-[12.5px] bg-cover bg-center lg:transform lg:-translate-x-60 mb-8 lg:mb-0" 
+  <View className="w-full h-[300px] lg:w-[500px] lg:h-[500px] rounded-[32px] backdrop-blur-[12.5px] bg-cover bg-center lg:transform lg:-translate-x-40 mb-8 lg:mb-0" 
     style={{backgroundImage: 'url(/trolley.webp)'} as any} />
   
   {/* Center Dot */}
   <View className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-[40px] h-[40px] bg-[#C10016] rounded-full" />
   
   {/* Right Side - Content */}
-  <View className="w-full lg:w-[451px] lg:transform lg:translate-x-60">
+  <View className="w-full lg:w-[451px] lg:transform lg:translate-x-55">
     <Text className="font-medium text-6xl lg:text-[94px] leading-tight lg:leading-[74px] tracking-tight text-white mb-4 lg:mb-20 text-left lg:text-right">03.</Text>
     <Text className="font-helvetica font-bold text-3xl lg:text-[40px] leading-tight lg:leading-[74px] tracking-tight text-white mb-4 text-left lg:text-right">
       Expa<Text className="text-[#C10016]">nsion</Text>
     </Text>
     <Text className="font-helvetica font-normal text-lg lg:text-[22px] leading-relaxed lg:leading-[42px] text-white text-left lg:text-right">
-      Phase 1 of global expansion FulfilX UAE is open, handling IOR and Fulfilment services.
+      Phase 1 of global expansion FULFIL.X UAE, Australia and USA is open, handling IOR and Fulfilment services.
     </Text>
   </View>
 </View>
