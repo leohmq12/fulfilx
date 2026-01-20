@@ -154,8 +154,8 @@ export default function AboutUsScreen(){
       <p className="font-normal text-base sm:text-lg lg:text-[20px] leading-relaxed lg:leading-[48px] text-black">
         Fulfil.X was born from a vision for something better. Our founders, veterans of the international brand world, grew frustrated with the status quo in fulfilment —the impersonal partnerships, the one-size-fits-all limitations. They knew brands deserved more.
 That’s why we exist: to disrupt the 3PL market by putting brands at the center
-of everything we do. We operate on a powerful belief, "Your Success is our
-Success". You are not just a client; you are a partner in growth.
+of everything we do. We operate on a powerful belief, &quot;Your Success is our
+Success&quot;. You are not just a client; you are a partner in growth.
 We are transforming the movement of goods from a logistical task into a
 strategic advantage. With innovation as our engine, we provide the dynamic
 partnership and streamlined solutions modern brands need to scale and
