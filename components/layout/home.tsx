@@ -1,4 +1,3 @@
-import { useRouter } from 'expo-router';
 import React, { useRef, useState } from 'react';
 import Footer from './footer';
 import Navbar from './navbar';
@@ -15,38 +14,7 @@ const defaultMarkerPositions: Record<string, { x: number; y: number }> = {
   sa: { x: 62.94, y: 36.49 },
 };
 
-interface NavItemProps {
-    children: React.ReactNode;
-    isActive?: boolean;
-}
 
-const NavItem: React.FC<NavItemProps> = ({ children, isActive = false }) => {
-    const primaryTextColor = 'text-black';
-    const activeTextColor = 'text-[#C10016]';
-    
-    
-    return (
-        <a 
-            href="#" 
-            className={`
-                group flex items-center p-2 transition duration-150 ease-in-out 
-                hover:opacity-75 focus:outline-none 
-                ${isActive ? activeTextColor : primaryTextColor}
-            `}
-        >
-            {isActive && (
-                <div className="w-1 h-1 rounded-full bg-[#C10016] mr-2"></div>
-            )}
-            <span className={`
-                text-sm md:text-base lg:text-lg font-sans
-                ${isActive ? 'font-medium' : 'font-normal'} 
-                whitespace-nowrap
-            `}>
-                {children}
-            </span>
-        </a>
-    );
-};
 
 const Home: React.FC = () => {
 const [currentSlide, setCurrentSlide] = useState(0);
@@ -106,7 +74,7 @@ const row1Logos = [
     const primaryRed = 'bg-[#C10016]';
     const [activeDot, setActiveDot] = useState(1); // Start with middle dot active
     const [whyChooseTab, setWhyChooseTab] = useState<'history' | 'mission' | 'vision'>('history');
-    const router = useRouter();
+
     const whyChooseContent: Record<typeof whyChooseTab, string> = {
       history:
         'FULFIL.X was born out of frustration. As brand owners, we experienced firsthand the challenges of working with complex fulfilment providers and systems that offered little transparency. Drawing on years of expertise in global logistics, we set out to build a 3PL that does things differently.',
@@ -188,9 +156,12 @@ const row1Logos = [
                             </div>
 
                             <div className="flex justify-center lg:justify-end w-full">
-                                <img 
-                                    src="/helement.webp"
-                                    alt="Fulfilment illustration"
+                                <video 
+                                    src="/banner-animation.webm"
+                                    autoPlay
+                                    loop
+                                    muted
+                                    playsInline
                                     className="w-full max-w-[520px] sm:max-w-[640px] lg:max-w-[900px] xl:max-w-[1000px] 2xl:max-w-[1100px] max-h-[420px] sm:max-h-[520px] lg:max-h-[650px] object-contain"
                                 />
                             </div>
@@ -340,9 +311,10 @@ focus on growing.    </p>
     </div>
   </div>
 </section>
+
 <section className="relative w-full h-auto py-20 lg:h-[1020px] overflow-hidden">
   {/* Background with overlay */}
-  <div 
+  <div
     className="absolute inset-0 bg-black/65"
     style={{
       backgroundImage: `url('/shiphome.webp')`,
@@ -760,7 +732,7 @@ focus on growing.    </p>
     
 
   </div>
-    <div className="relative w-full px-4 md:px-6 lg:px-8 2xl:px-16 py-16">
+    <div className="relative w-full px-4 md:px-6 lg:px-8 2xl:px-16 pt-16 pb-8">
     
     {/* "Global Presence" Badge */}
     <div className="flex justify-center">

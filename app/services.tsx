@@ -260,7 +260,7 @@ const LogisticsServicesSection = () => {
   const Arrow = ArrowIco;
 
   return (
-    <View className="w-full px-4">
+    <View className="w-full px-4 relative">
       {/* Centered container */}
       <View className="flex-row flex-wrap justify-center gap-6 px-5 lg:px-20">
           {services.map((service) => {
@@ -423,49 +423,50 @@ const TechnologyIntegrationsSection = () => {
       
       {/* ADDITIONAL ICON SETS - POSITIONED ABSOLUTELY OUTSIDE */}
       
+      {/* Right Image - image 82 */}
+      <View className="hidden lg:block absolute w-[253px] h-[253px] right-[255px] top-1/2 transform -translate-y-1/2">
+        <img src="/r.webp" alt="Right Image" className="w-full h-full" />
+      </View>
+      
       {/* Left Icon Set - Group 1160445162 */}
-      <View className="hidden lg:block absolute w-[208px] h-[342px] left-[640px] top-1/2 transform -translate-y-1/2">
+      <View className="hidden lg:block absolute w-[175px] h-[285px] left-[558px] top-1/2 transform -translate-y-1/2">
         {/* Group 1160445156 */}
-        <View className="absolute w-[94px] h-[94px] left-[114px] top-0">
-          <View className="absolute w-full h-full rounded-full bg-[#D9D9D9] opacity-40" />
-          <img src="/shopify.svg" alt="Icon 1" className="absolute w-[48px] h-[48px] left-[23px] top-[23px]" />
+        <View className="absolute w-[80px] h-[80px] left-[95px] top-0 group">
+          <View className="absolute w-full h-full rounded-full bg-[#D9D9D9] opacity-40 group-hover:bg-[#C10016] group-hover:opacity-100 transition-colors duration-300" />
+          <img src="/shopify.svg" alt="Icon 1" className="absolute w-[45px] h-[45px] left-[17.5px] top-[17.5px]" />
         </View>
         
         {/* Group 1160445158 */}
-        <View className="absolute w-[94px] h-[94px] left-[114px] top-[114px]">
-          <View className="absolute w-full h-full rounded-full bg-[#D9D9D9] opacity-40" />
-          <img src="/amazon.svg" alt="Icon 2" className="absolute w-[48px] h-[48px] left-[23px] top-[23px]" />
+        <View className="absolute w-[80px] h-[80px] left-[95px] top-[95px] group">
+          <View className="absolute w-full h-full rounded-full bg-[#D9D9D9] opacity-40 group-hover:bg-[#C10016] group-hover:opacity-100 transition-colors duration-300" />
+          <img src="/amazon.svg" alt="Icon 2" className="absolute w-[45px] h-[45px] left-[17.5px] top-[17.5px]" />
         </View>
         
         {/* Group 1160445160 */}
-        <View className="absolute w-[94px] h-[94px] left-[114px] top-[228px]">
-          <View className="absolute w-full h-full rounded-full bg-[#D9D9D9] opacity-40" />
-          <img src="/etsy.svg" alt="Icon 3" className="absolute w-[48px] h-[48px] left-[23px] top-[23px]" />
+        <View className="absolute w-[80px] h-[80px] left-[95px] top-[190px] group">
+          <View className="absolute w-full h-full rounded-full bg-[#D9D9D9] opacity-40 group-hover:bg-[#C10016] group-hover:opacity-100 transition-colors duration-300" />
+          <img src="/etsy.svg" alt="Icon 3" className="absolute w-[45px] h-[45px] left-[17.5px] top-[17.5px]" />
         </View>
         
         {/* Group 1160445157 */}
-        <View className="absolute w-[94px] h-[94px] left-0 top-[20px]">
-          <View className="absolute w-full h-full rounded-full bg-[#D9D9D9] opacity-40" />
-          <img src="/woo.svg" alt="Icon 4" className="absolute w-[48px] h-[48px] left-[23px] top-[23px]" />
+        <View className="absolute w-[80px] h-[80px] left-0 top-[15px] group">
+          <View className="absolute w-full h-full rounded-full bg-[#D9D9D9] opacity-40 group-hover:bg-[#C10016] group-hover:opacity-100 transition-colors duration-300" />
+          <img src="/woo.svg" alt="Icon 4" className="absolute w-[45px] h-[45px] left-[17.5px] top-[17.5px]" />
         </View>
         
         {/* Group 1160445159 */}
-        <View className="absolute w-[94px] h-[94px] left-0 top-[134px]">
-          <View className="absolute w-full h-full rounded-full bg-[#D9D9D9] opacity-40" />
-          <img src="/tiktok.svg" alt="Icon 5" className="absolute w-[42px] h-[42px] left-[26px] top-[26px]" />
+        <View className="absolute w-[80px] h-[80px] left-0 top-[110px] group">
+          <View className="absolute w-full h-full rounded-full bg-[#D9D9D9] opacity-40 group-hover:bg-[#C10016] group-hover:opacity-100 transition-colors duration-300" />
+          <img src="/tiktok.svg" alt="Icon 5" className="absolute w-[39px] h-[39px] left-[20.5px] top-[20.5px]" />
         </View>
         
         {/* Group 1160445161 */}
-        <View className="absolute w-[94px] h-[94px] left-0 top-[248px]">
-          <View className="absolute w-full h-full rounded-full bg-[#D9D9D9] opacity-40" />
-          <img src="/ebay.svg" alt="Icon 6" className="absolute w-[48px] h-[48px] left-[22px] top-[22px]" />
+        <View className="absolute w-[80px] h-[80px] left-0 top-[205px] group">
+          <View className="absolute w-full h-full rounded-full bg-[#D9D9D9] opacity-40 group-hover:bg-[#C10016] group-hover:opacity-100 transition-colors duration-300" />
+          <img src="/ebay.svg" alt="Icon 6" className="absolute w-[45px] h-[45px] left-[17.5px] top-[17.5px]" />
         </View>
       </View>
-      
-      {/* Right Image - image 82 */}
-      <View className="hidden lg:block absolute w-[253px] h-[253px] right-[390px] top-1/2 transform -translate-y-1/2">
-        <img src="/r.webp" alt="Right Image" className="w-full h-full" />
-      </View>
+
     </View>
   );
 };

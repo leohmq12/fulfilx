@@ -112,18 +112,18 @@ const panResponder = useRef(
           </View>
 
           {/* Hero Content */}
-          <View className="relative z-10 min-h-[60vh] lg:min-h-screen flex items-center justify-center pb-20 pt-20 lg:pt-60 px-4">
+          <View className="relative z-10 min-h-[60vh] lg:min-h-screen flex items-center justify-center py-20 px-4">
             {/* Main Title */}
             <Text className="font-helvetica font-bold text-4xl lg:text-[84px] leading-tight lg:leading-[84px] text-black text-center mb-8">
               Pricing Plans
             </Text>
             
             {/* Breadcrumb Navigation */}
-            <View className="flex flex-row items-center justify-center mt-48">
+            <View className="flex flex-row items-center justify-center mt-8">
               <Text className="font-helvetica font-normal text-base lg:text-[20px] leading-[40px] text-black">
                 Home
               </Text>
-              <View className="w-full h-full bg-[#C10016] rounded-full" />
+              <View className="w-2 h-2 bg-[#C10016] rounded-full mx-4" />
               <Text className="font-helvetica font-medium text-base lg:text-[20px] leading-[40px] text-[#C10016]">
                 Pricing Plans
               </Text>
@@ -444,12 +444,12 @@ const panResponder = useRef(
 
                 {/* Destination Country Section */}
                 <View className="mt-12 w-full max-w-[600px]">
-                  <Text className="font-helvetica font-bold text-[22px] leading-[44px] text-white mb-4" style={{ marginTop: isDesktop ? -64 : 0 }}>
+                  <Text className="font-helvetica font-bold text-[22px] leading-[44px] text-white mb-4">
                     Destination Country
                   </Text>
                   
                   {/* Country Selector Dropdown */}
-                  <View className="relative z-10" style={{ marginTop: isDesktop ? -64 : 0 }}>
+                  <View className="relative z-10">
                     <TouchableOpacity 
                       className="border border-white/30 rounded-[8px] w-full h-[54px] flex flex-row items-center justify-between px-4 py-1 mb-4"
                       onPress={() => setIsDropdownOpen(!isDropdownOpen)}
@@ -489,7 +489,7 @@ const panResponder = useRef(
                     )}
                   </View>
                   
-                  <Text className="font-helvetica font-normal text-[18px] leading-[44px] text-white/50 z-0" style={{ marginTop: isDesktop ? -64 : 0 }}>
+                  <Text className="font-helvetica font-normal text-[18px] leading-[44px] text-white/50 z-0">
                     Select the country to which you want to ship the package
                   </Text>
                 </View>
