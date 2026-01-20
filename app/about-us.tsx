@@ -237,14 +237,14 @@ thrive.
     {/* Item 1 - Image Left, Content Right */}
 <View className="flex flex-col lg:flex-row items-center justify-between mb-20 lg:mb-40 w-full">
   {/* Left Side - Image */}
-  <View className="w-full h-[300px] lg:w-[500px] lg:h-[500px] rounded-[32px] backdrop-blur-[12.5px] bg-cover bg-center lg:transform lg:-translate-x-40 mb-8 lg:mb-0" 
+  <View className="w-full h-[300px] lg:w-[500px] lg:h-[500px] rounded-[32px] backdrop-blur-[12.5px] bg-cover bg-center mb-8 lg:mb-0" 
     style={{backgroundImage: 'url(/trolley.webp)'} as any} />
   
   {/* Center Dot - Hidden on mobile */}
   <View className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-[40px] h-[40px] bg-[#C10016] rounded-full" />
   
   {/* Right Side - Content */}
-  <View className="w-full lg:w-[451px] lg:transform lg:translate-x-55">
+  <View className="w-full lg:w-[451px]">
     <Text className="font-medium text-6xl lg:text-[94px] leading-tight lg:leading-[74px] tracking-tight text-white mb-4 lg:mb-20 text-left lg:text-right">01.</Text>
     <Text className="font-helvetica font-bold text-3xl lg:text-[40px] leading-tight lg:leading-[74px] tracking-tight text-white mb-4 text-left lg:text-right">
       Humble <Text className="text-[#C10016]">Beginnings</Text>
@@ -258,7 +258,7 @@ thrive.
 {/* Item 2 - Content Left, Image Right */}
 <View className="flex flex-col-reverse lg:flex-row items-center justify-between mb-20 lg:mb-60 w-full">
   {/* Left Side - Content */}
-  <View className="w-full lg:w-[460px] lg:transform lg:-translate-x-40">
+  <View className="w-full lg:w-[460px]">
     <Text className="font-medium text-6xl lg:text-[94px] leading-tight lg:leading-[74px] tracking-tight text-white mb-4 lg:mb-20 text-left">02.</Text>
     <Text className="font-helvetica font-bold text-3xl lg:text-[40px] leading-tight lg:leading-[74px] tracking-tight text-white mb-4 text-left">
       New <Text className="text-[#C10016]">HQ</Text>
@@ -272,7 +272,7 @@ thrive.
   <View className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-[40px] h-[40px] bg-[#C10016] rounded-full" />
   
   {/* Right Side - Image */}
-  <View className="w-full h-[300px] lg:w-[500px] lg:h-[500px] rounded-[32px] backdrop-blur-[12.5px] bg-cover bg-center lg:transform lg:translate-x-40 mb-8 lg:mb-0" 
+  <View className="w-full h-[300px] lg:w-[500px] lg:h-[500px] rounded-[32px] backdrop-blur-[12.5px] bg-cover bg-center mb-8 lg:mb-0" 
     style={{backgroundImage: 'url(/head.webp)'} as any} />
 </View>
 
@@ -286,7 +286,7 @@ thrive.
   <View className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-[40px] h-[40px] bg-[#C10016] rounded-full" />
   
   {/* Right Side - Content */}
-  <View className="w-full lg:w-[451px] lg:transform lg:translate-x-55">
+  <View className="w-full lg:w-[451px] lg:transform lg:translate-x-40">
     <Text className="font-medium text-6xl lg:text-[94px] leading-tight lg:leading-[74px] tracking-tight text-white mb-4 lg:mb-20 text-left lg:text-right">03.</Text>
     <Text className="font-helvetica font-bold text-3xl lg:text-[40px] leading-tight lg:leading-[74px] tracking-tight text-white mb-4 text-left lg:text-right">
       Expa<Text className="text-[#C10016]">nsion</Text>

@@ -66,22 +66,13 @@ const FulfillmentServicesSection = () => {
         Core Fulfilment <Text className="text-[#C10016]">Services</Text>
       </Text>
       
-      <ScrollView 
-        horizontal 
-        showsHorizontalScrollIndicator={false}
-        contentContainerStyle={{
-          justifyContent: 'center',
-          flexDirection: 'row',
-          paddingHorizontal: isMobile ? 20 : 180,
-        }}
-      >
+      <View className="flex-row flex-wrap justify-center gap-6 px-5 lg:px-20">
         {services.map((service) => {
           const IconComponent = service.icon;
           return (
             <View 
               key={service.id}
-              style={{ marginHorizontal: 12 }} 
-              className="w-[300px] lg:w-[350px] min-h-[430px] bg-white border border-[#D9D9D9] rounded-[20px] backdrop-blur-[12.5px] flex-shrink-0 p-8 flex flex-col justify-between"
+              className="w-[300px] lg:w-[350px] min-h-[430px] bg-white border border-[#D9D9D9] rounded-[20px] backdrop-blur-[12.5px] p-8 flex flex-col justify-between"
             >
               <View>
                 {/* Icon */}
@@ -117,7 +108,7 @@ const FulfillmentServicesSection = () => {
             </View>
           );
         })}
-      </ScrollView>
+      </View>
     </View>
   );
 };
@@ -165,24 +156,13 @@ const WarehouseServicesSection = () => {
   return (
     <View className="w-full px-4 py-12">
       {/* Centered container */}
-      <ScrollView 
-        horizontal 
-        showsHorizontalScrollIndicator={false}
-        contentContainerStyle={{
-          justifyContent: 'center',
-          alignItems: 'center',
-          flexDirection: 'row',
-          paddingHorizontal: isMobile ? 20 : 365,
-        }}
-      >
-        {/* Inner container with flex row and gap */}
-        <View style={{ flexDirection: 'row', gap: 20, paddingHorizontal: 16 }}>
+      <View className="flex-row flex-wrap justify-center gap-6 px-5 lg:px-20">
           {services.map((service) => {
             const IconComponent = service.icon;
             return (
               <View 
                 key={service.id} 
-                className="w-[300px] lg:w-[350px] min-h-[334px] bg-white/10 border border-[#D9D9D9]/50 rounded-[20px] backdrop-blur-[20px] flex-shrink-0 p-8 flex flex-col justify-between"
+                className="w-[300px] lg:w-[350px] min-h-[334px] bg-white/10 border border-[#D9D9D9]/50 rounded-[20px] backdrop-blur-[20px] p-8 flex flex-col justify-between"
               >
                 <View>
                   {/* Icon */}
@@ -218,8 +198,7 @@ const WarehouseServicesSection = () => {
               </View>
             );
           })}
-        </View>
-      </ScrollView>
+      </View>
     </View>
   );
 };
@@ -283,24 +262,13 @@ const LogisticsServicesSection = () => {
   return (
     <View className="w-full px-4">
       {/* Centered container */}
-      <ScrollView 
-        horizontal 
-        showsHorizontalScrollIndicator={false}
-        contentContainerStyle={{
-          justifyContent: 'center',
-          alignItems: 'center',
-          flexDirection: 'row',
-          paddingHorizontal: isMobile ? 20 : 200,
-        }}
-      >
-        {/* Inner container with flex row and gap */}
-        <View style={{ flexDirection: 'row', gap: 20 }}>
+      <View className="flex-row flex-wrap justify-center gap-6 px-5 lg:px-20">
           {services.map((service) => {
             const IconComponent = service.icon;
             return (
               <View 
                 key={service.id} 
-                className="w-[300px] lg:w-[470px] min-h-[550px] lg:min-h-[650px] bg-white/10 border border-[#D9D9D9]/50 rounded-[20px] backdrop-blur-[20px] flex-shrink-0 p-4 lg:p-8 flex flex-col justify-between"
+                className="w-[300px] lg:w-[470px] min-h-[550px] lg:min-h-[650px] bg-white/10 border border-[#D9D9D9]/50 rounded-[20px] backdrop-blur-[20px] p-4 lg:p-8 flex flex-col justify-between"
               >
                 <View>
                   {/* Image Container with cutting icon */}
@@ -350,8 +318,7 @@ const LogisticsServicesSection = () => {
               </View>
             );
           })}
-        </View>
-      </ScrollView>
+      </View>
     </View>
   );
 };
@@ -406,24 +373,13 @@ const TechnologyIntegrationsSection = () => {
   return (
     <View className="w-full px-4">
       {/* Centered container */}
-      <ScrollView 
-        horizontal 
-        showsHorizontalScrollIndicator={false}
-        contentContainerStyle={{
-          justifyContent: 'center',
-          alignItems: 'center',
-          flexDirection: 'row',
-          paddingHorizontal: isMobile ? 20 : 270,
-        }}
-      >
-        {/* Inner container with flex row and gap */}
-        <View style={{ flexDirection: 'row', gap: 20, position: 'relative' }}>
+      <View className="flex-row flex-wrap justify-center gap-6 px-5 lg:px-20">
           {services.map((service) => {
             const IconComponent = service.icon;
             return (
               <View 
                 key={service.id} 
-                className="w-[300px] lg:w-[620px] min-h-[440px] bg-white/10 border border-[#D9D9D9]/50 rounded-[20px] backdrop-blur-[20px] flex-shrink-0 p-8 flex flex-col justify-between"
+                className="w-[300px] lg:w-[500px] min-h-[440px] bg-white/10 border border-[#D9D9D9]/50 rounded-[20px] backdrop-blur-[20px] p-8 flex flex-col justify-between"
               >
                 <View>
                   {/* Icon inside card - KEEP THIS */}
@@ -463,8 +419,7 @@ const TechnologyIntegrationsSection = () => {
               </View>
             );
           })}
-        </View>
-      </ScrollView>
+      </View>
       
       {/* ADDITIONAL ICON SETS - POSITIONED ABSOLUTELY OUTSIDE */}
       

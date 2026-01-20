@@ -1,18 +1,18 @@
 import { useRouter } from 'expo-router';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import Footer from './footer';
 import Navbar from './navbar';
 
 const defaultMarkerPositions: Record<string, { x: number; y: number }> = {
-  uk: { x: 49.96, y: 21.38 },
-  ca: { x: 16.5, y: 27.8 },
-  us: { x: 22.61, y: 27.89 },
-  atl: { x: 25.8, y: 34.2 },
-  nl: { x: 52.2, y: 22.4 },
-  uae: { x: 65.35, y: 36.0 },
-  bh: { x: 66.0, y: 38.1 },
-  au: { x: 92.0, y: 68.82 },
-  sa: { x: 62.97, y: 36.27 },
+  uk: { x: 45.84, y: 16.59 },
+  ca: { x: 10.57, y: 53.58 },
+  us: { x: 14.53, y: 41.47 },
+  atl: { x: 21.68, y: 44.29 },
+  nl: { x: 48.33, y: 19.41 },
+  uae: { x: 66.51, y: 42.13 },
+  bh: { x: 64.72, y: 36.16 },
+  au: { x: 85.55, y: 86.42 },
+  sa: { x: 62.94, y: 36.49 },
 };
 
 interface NavItemProps {
@@ -52,53 +52,8 @@ const Home: React.FC = () => {
 const [currentSlide, setCurrentSlide] = useState(0);
 const carouselRef = useRef<HTMLDivElement>(null);
 const mapOverlayRef = useRef<HTMLDivElement>(null);
-const [markerPositions, setMarkerPositions] = useState<Record<string, { x: number; y: number }>>(
-  () => ({ ...defaultMarkerPositions })
-);
-const [draggingMarkerId, setDraggingMarkerId] = useState<string | null>(null);
-const draggingPointerIdRef = useRef<number | null>(null);
 
-useEffect(() => {
-  setMarkerPositions((prev) => {
-    for (const key of Object.keys(defaultMarkerPositions)) {
-      if (!prev[key]) return { ...defaultMarkerPositions, ...prev };
-    }
-    return prev;
-  });
-}, []);
-
-const getMarkerPos = (id: string) => markerPositions[id] ?? defaultMarkerPositions[id] ?? { x: 0, y: 0 };
-
-useEffect(() => {
-  if (!draggingMarkerId) return;
-
-  const onPointerMove = (e: PointerEvent) => {
-    if (draggingPointerIdRef.current !== null && e.pointerId !== draggingPointerIdRef.current) return;
-    const rect = mapOverlayRef.current?.getBoundingClientRect();
-    if (!rect) return;
-
-    const x = Math.max(0, Math.min(100, ((e.clientX - rect.left) / rect.width) * 100));
-    const y = Math.max(0, Math.min(100, ((e.clientY - rect.top) / rect.height) * 100));
-
-    setMarkerPositions((prev) => ({ ...prev, [draggingMarkerId]: { x, y } }));
-  };
-
-  const onPointerUp = (e: PointerEvent) => {
-    if (draggingPointerIdRef.current !== null && e.pointerId !== draggingPointerIdRef.current) return;
-    draggingPointerIdRef.current = null;
-    setDraggingMarkerId(null);
-  };
-
-  window.addEventListener('pointermove', onPointerMove);
-  window.addEventListener('pointerup', onPointerUp);
-  window.addEventListener('pointercancel', onPointerUp);
-
-  return () => {
-    window.removeEventListener('pointermove', onPointerMove);
-    window.removeEventListener('pointerup', onPointerUp);
-    window.removeEventListener('pointercancel', onPointerUp);
-  };
-}, [draggingMarkerId]);
+const getMarkerPos = (id: string) => defaultMarkerPositions[id] ?? { x: 0, y: 0 };
 
 const testimonials = [
   { image: '/audenza.webp', alt: 'Testimonial 1' },
@@ -894,13 +849,7 @@ focus on growing.    </p>
 {/* UK Marker */}
 <div
   className="absolute group -translate-x-1/2 -translate-y-1/2"
-  style={{ left: `${getMarkerPos('uk').x}%`, top: `${getMarkerPos('uk').y}%`, touchAction: 'none' }}
-  onPointerDown={(e) => {
-    e.preventDefault();
-    (e.currentTarget as HTMLDivElement).setPointerCapture(e.pointerId);
-    draggingPointerIdRef.current = e.pointerId;
-    setDraggingMarkerId('uk');
-  }}
+  style={{ left: `${getMarkerPos('uk').x}%`, top: `${getMarkerPos('uk').y}%` }}
 >
   <div className="w-[48px] h-[48px] border border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110">
     <div className="w-[32px] h-[32px] border border-[#C10016] rounded-full flex items-center justify-center">
@@ -921,13 +870,7 @@ focus on growing.    </p>
 {/* California Marker */}
 <div
   className="absolute group -translate-x-1/2 -translate-y-1/2"
-  style={{ left: `${getMarkerPos('ca').x}%`, top: `${getMarkerPos('ca').y}%`, touchAction: 'none' }}
-  onPointerDown={(e) => {
-    e.preventDefault();
-    (e.currentTarget as HTMLDivElement).setPointerCapture(e.pointerId);
-    draggingPointerIdRef.current = e.pointerId;
-    setDraggingMarkerId('ca');
-  }}
+  style={{ left: `${getMarkerPos('ca').x}%`, top: `${getMarkerPos('ca').y}%` }}
 >
   <div className="w-[48px] h-[48px] border border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110">
     <div className="w-[32px] h-[32px] border border-[#C10016] rounded-full flex items-center justify-center">
@@ -946,13 +889,7 @@ focus on growing.    </p>
 {/* US Marker */}
 <div
   className="absolute group -translate-x-1/2 -translate-y-1/2"
-  style={{ left: `${getMarkerPos('us').x}%`, top: `${getMarkerPos('us').y}%`, touchAction: 'none' }}
-  onPointerDown={(e) => {
-    e.preventDefault();
-    (e.currentTarget as HTMLDivElement).setPointerCapture(e.pointerId);
-    draggingPointerIdRef.current = e.pointerId;
-    setDraggingMarkerId('us');
-  }}
+  style={{ left: `${getMarkerPos('us').x}%`, top: `${getMarkerPos('us').y}%` }}
 >
   <div className="w-[48px] h-[48px] border border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110">
     <div className="w-[32px] h-[32px] border border-[#C10016] rounded-full flex items-center justify-center">
@@ -973,13 +910,7 @@ focus on growing.    </p>
 {/* Atlanta Marker */}
 <div
   className="absolute group -translate-x-1/2 -translate-y-1/2"
-  style={{ left: `${getMarkerPos('atl').x}%`, top: `${getMarkerPos('atl').y}%`, touchAction: 'none' }}
-  onPointerDown={(e) => {
-    e.preventDefault();
-    (e.currentTarget as HTMLDivElement).setPointerCapture(e.pointerId);
-    draggingPointerIdRef.current = e.pointerId;
-    setDraggingMarkerId('atl');
-  }}
+  style={{ left: `${getMarkerPos('atl').x}%`, top: `${getMarkerPos('atl').y}%` }}
 >
   <div className="w-[48px] h-[48px] border border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110">
     <div className="w-[32px] h-[32px] border border-[#C10016] rounded-full flex items-center justify-center">
@@ -998,13 +929,7 @@ focus on growing.    </p>
 {/* Netherlands Marker */}
 <div
   className="absolute group -translate-x-1/2 -translate-y-1/2"
-  style={{ left: `${getMarkerPos('nl').x}%`, top: `${getMarkerPos('nl').y}%`, touchAction: 'none' }}
-  onPointerDown={(e) => {
-    e.preventDefault();
-    (e.currentTarget as HTMLDivElement).setPointerCapture(e.pointerId);
-    draggingPointerIdRef.current = e.pointerId;
-    setDraggingMarkerId('nl');
-  }}
+  style={{ left: `${getMarkerPos('nl').x}%`, top: `${getMarkerPos('nl').y}%` }}
 >
   <div className="w-[48px] h-[48px] border border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110">
     <div className="w-[32px] h-[32px] border border-[#C10016] rounded-full flex items-center justify-center">
@@ -1023,13 +948,7 @@ focus on growing.    </p>
 {/* UAE Marker */}
 <div
   className="absolute group -translate-x-1/2 -translate-y-1/2"
-  style={{ left: `${getMarkerPos('uae').x}%`, top: `${getMarkerPos('uae').y}%`, touchAction: 'none' }}
-  onPointerDown={(e) => {
-    e.preventDefault();
-    (e.currentTarget as HTMLDivElement).setPointerCapture(e.pointerId);
-    draggingPointerIdRef.current = e.pointerId;
-    setDraggingMarkerId('uae');
-  }}
+  style={{ left: `${getMarkerPos('uae').x}%`, top: `${getMarkerPos('uae').y}%` }}
 >
   <div className="w-[48px] h-[48px] border border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110">
     <div className="w-[32px] h-[32px] border border-[#C10016] rounded-full flex items-center justify-center">
@@ -1050,13 +969,7 @@ focus on growing.    </p>
 {/* Bahrain Marker */}
 <div
   className="absolute group -translate-x-1/2 -translate-y-1/2"
-  style={{ left: `${getMarkerPos('bh').x}%`, top: `${getMarkerPos('bh').y}%`, touchAction: 'none' }}
-  onPointerDown={(e) => {
-    e.preventDefault();
-    (e.currentTarget as HTMLDivElement).setPointerCapture(e.pointerId);
-    draggingPointerIdRef.current = e.pointerId;
-    setDraggingMarkerId('bh');
-  }}
+  style={{ left: `${getMarkerPos('bh').x}%`, top: `${getMarkerPos('bh').y}%` }}
 >
   <div className="w-[40px] h-[40px] border border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110">
     <div className="w-[26.67px] h-[26.67px] border border-[#C10016] rounded-full flex items-center justify-center">
@@ -1075,13 +988,7 @@ focus on growing.    </p>
 {/* Australia Marker */}
 <div
   className="absolute group -translate-x-1/2 -translate-y-1/2"
-  style={{ left: `${getMarkerPos('au').x}%`, top: `${getMarkerPos('au').y}%`, touchAction: 'none' }}
-  onPointerDown={(e) => {
-    e.preventDefault();
-    (e.currentTarget as HTMLDivElement).setPointerCapture(e.pointerId);
-    draggingPointerIdRef.current = e.pointerId;
-    setDraggingMarkerId('au');
-  }}
+  style={{ left: `${getMarkerPos('au').x}%`, top: `${getMarkerPos('au').y}%` }}
 >
   <div className="w-[48px] h-[48px] border border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110">
     <div className="w-[32px] h-[32px] border border-[#C10016] rounded-full flex items-center justify-center">
@@ -1102,13 +1009,7 @@ focus on growing.    </p>
 {/* Saudi Arabia Marker */}
 <div
   className="absolute group -translate-x-1/2 -translate-y-1/2"
-  style={{ left: `${getMarkerPos('sa').x}%`, top: `${getMarkerPos('sa').y}%`, touchAction: 'none' }}
-  onPointerDown={(e) => {
-    e.preventDefault();
-    (e.currentTarget as HTMLDivElement).setPointerCapture(e.pointerId);
-    draggingPointerIdRef.current = e.pointerId;
-    setDraggingMarkerId('sa');
-  }}
+  style={{ left: `${getMarkerPos('sa').x}%`, top: `${getMarkerPos('sa').y}%` }}
 >
   <div className="w-[40px] h-[40px] border border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110">
     <div className="w-[26.67px] h-[26.67px] border border-[#C10016] rounded-full flex items-center justify-center">
@@ -1125,19 +1026,9 @@ focus on growing.    </p>
     <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-white"></div>
   </div>
 </div>
-</div>
-<div className="absolute right-4 bottom-4 bg-white/90 px-3 py-2 rounded-md text-xs font-mono text-black shadow border border-black/10">
-  <div>uk: {getMarkerPos('uk').x.toFixed(2)}%, {getMarkerPos('uk').y.toFixed(2)}%</div>
-  <div>ca: {getMarkerPos('ca').x.toFixed(2)}%, {getMarkerPos('ca').y.toFixed(2)}%</div>
-  <div>us: {getMarkerPos('us').x.toFixed(2)}%, {getMarkerPos('us').y.toFixed(2)}%</div>
-  <div>atl: {getMarkerPos('atl').x.toFixed(2)}%, {getMarkerPos('atl').y.toFixed(2)}%</div>
-  <div>nl: {getMarkerPos('nl').x.toFixed(2)}%, {getMarkerPos('nl').y.toFixed(2)}%</div>
-  <div>uae: {getMarkerPos('uae').x.toFixed(2)}%, {getMarkerPos('uae').y.toFixed(2)}%</div>
-  <div>bh: {getMarkerPos('bh').x.toFixed(2)}%, {getMarkerPos('bh').y.toFixed(2)}%</div>
-  <div>au: {getMarkerPos('au').x.toFixed(2)}%, {getMarkerPos('au').y.toFixed(2)}%</div>
-  <div>sa: {getMarkerPos('sa').x.toFixed(2)}%, {getMarkerPos('sa').y.toFixed(2)}%</div>
-</div>
+
     </div>
+  </div>
   </div>
 </section>
 <section className="relative w-full min-h-[800px] py-20">
