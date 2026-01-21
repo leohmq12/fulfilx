@@ -5,6 +5,22 @@ import { Stack, useRouter } from 'expo-router';
 import { useState } from 'react';
 import { Image, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 
+const LocationMarker = ({ left, top, children }: { left: any, top: any, children: React.ReactNode }) => {
+  return (
+    <View
+      style={{
+        position: 'absolute',
+        left: left,
+        top: top,
+        zIndex: 100,
+        elevation: 5
+      }}
+    >
+      {children}
+    </View>
+  );
+};
+
 export default function LocationsScreen() {
   const router = useRouter();
   const [agreedToPolicy, setAgreedToPolicy] = useState(false);
@@ -119,7 +135,7 @@ export default function LocationsScreen() {
   {/* Address */}
   <View className="absolute left-6 top-[270px] flex flex-row items-center gap-3 space-y-10">
     <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-10">
-      <Image source={{ uri: "/map.svg" }} alt="Location" className="w-4 h-4" resizeMode="contain" />
+      <Image source={{ uri: "/map.svg" }} alt="Location" className="w-full h-full" resizeMode="contain" />
     </View>
     <Text className="font-helvetica font-normal text-[16px] leading-[22px] text-black">
       Manchester
@@ -173,7 +189,7 @@ export default function LocationsScreen() {
   {/* Address */}
   <View className="absolute left-6 top-[270px] flex flex-row items-center gap-3 space-y-10">
     <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-10">
-      <Image source={{ uri: "/map.svg" }} alt="Location" className="w-4 h-4" resizeMode="contain" />
+      <Image source={{ uri: "/map.svg" }} alt="Location" className="w-full h-full" resizeMode="contain" />
     </View>
     <Text className="font-helvetica font-normal text-[16px] leading-[22px] text-black">
       California/Georgia
@@ -227,7 +243,7 @@ export default function LocationsScreen() {
   {/* Address */}
   <View className="absolute left-6 top-[270px] flex flex-row items-center gap-3 space-y-10">
     <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-10">
-      <Image source={{ uri: "/map.svg" }} alt="Location" className="w-4 h-4" resizeMode="contain" />
+      <Image source={{ uri: "/map.svg" }} alt="Location" className="w-full h-full" resizeMode="contain" />
     </View>
     <Text className="font-helvetica font-normal text-[16px] leading-[22px] text-black">
       Dubai
@@ -285,7 +301,7 @@ export default function LocationsScreen() {
   {/* Address */}
   <View className="absolute left-6 top-[270px] flex flex-row items-center gap-3 space-y-10">
     <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-10">
-      <Image source={{ uri: "/map.svg" }} alt="Location" className="w-4 h-4" resizeMode="contain" />
+      <Image source={{ uri: "/map.svg" }} alt="Location" className="w-full h-full" resizeMode="contain" />
     </View>
     <Text className="font-helvetica font-normal text-[16px] leading-[22px] text-black">
       Riyadh
@@ -393,7 +409,7 @@ export default function LocationsScreen() {
   {/* Address */}
   <View className="absolute left-6 top-[270px] flex flex-row items-center gap-3 space-y-10">
     <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-10">
-      <Image source={{ uri: "/map.svg" }} alt="Location" className="w-4 h-4" resizeMode="contain" />
+      <Image source={{ uri: "/map.svg" }} alt="Location" className="w-full h-full" resizeMode="contain" />
     </View>
     <Text className="font-helvetica font-normal text-[16px]  leading-[22px] text-black flex-1 justify-center items-center text-center">
       Melbourne
@@ -435,6 +451,14 @@ export default function LocationsScreen() {
         </View>
         <Text className="font-helvetica font-normal text-[18px] leading-[30px] text-black">United Kingdom</Text>
       </View>
+ {/* United Kingdom */}
+      <View className="flex flex-row items-center gap-3">
+        <View className="w-[30px] h-[20px] rounded-[2px] overflow-hidden">
+          <Image source={{ uri: "/US.webp" }} className="w-full h-full" resizeMode="cover" />
+        </View>
+        <Text className="font-helvetica font-normal text-[18px] leading-[30px] text-black">California</Text>
+      </View>
+      
 
       {/* United States */}
       <View className="flex flex-row items-center gap-3">
@@ -447,17 +471,17 @@ export default function LocationsScreen() {
       {/* San Francisco */}
       <View className="flex flex-row items-center gap-3">
         <View className="w-[30px] h-[20px] rounded-[2px] overflow-hidden">
-           <Image source={{ uri: "/SF.webp" }} className="w-full h-full" resizeMode="cover" />
+           <Image source={{ uri: "/US.webp" }} className="w-full h-full" resizeMode="cover" />
         </View>
-        <Text className="font-helvetica font-normal text-[18px] leading-[30px] text-black">San Francisco</Text>
+        <Text className="font-helvetica font-normal text-[18px] leading-[30px] text-black">Atlanta</Text>
       </View>
 
       {/* Georgia */}
       <View className="flex flex-row items-center gap-3">
         <View className="w-[30px] h-[20px] border border-black/10 rounded-[2px] overflow-hidden">
-           <Image source={{ uri: "/G.webp" }} className="w-full h-full" resizeMode="cover" />
+           <Image source={{ uri: "/NET.webp" }} className="w-full h-full" resizeMode="cover" />
         </View>
-        <Text className="font-helvetica font-normal text-[18px] leading-[30px] text-black">Georgia</Text>
+        <Text className="font-helvetica font-normal text-[18px] leading-[30px] text-black">Netherlands</Text>
       </View>
 
       {/* UAE */}
@@ -496,21 +520,23 @@ export default function LocationsScreen() {
       </View>
     </View>
 
+    </View>
     {/* World Map Image */}
-    <View className="relative w-full h-[300px] lg:h-[698px] mb-40">
-      {/* <Image source={{ uri: "/world-map.webp" }} className="w-full h-full rounded-lg" resizeMode="contain" /> */}
-      <img
-        src="/world-map.webp"
+    <View className="relative w-full h-[300px] lg:h-[698px]">
+      <Image 
+        source={{ uri: "/world-map.webp" }} 
         alt="World map"
-        className="w-full h-auto rounded-lg"
+        className="w-full h-full rounded-lg" 
+        resizeMode="contain" 
       />
 {/* Location Markers - Positioned to match the flags list with hover tooltips */}
 
 {/* United Kingdom */}
-<View className="absolute z-50" style={{ left: '47%', top: '26%' }}>
+<LocationMarker left="69.84%" top="16.59%">
   <View className="group relative items-center">
-    <View className="absolute -top-12 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/80 px-3 py-1 rounded pointer-events-none">
-      <Text className="text-white text-xs font-bold whitespace-nowrap">United Kingdom</Text>
+    <View className="absolute -top-14 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white px-3 py-1.5 rounded shadow-sm pointer-events-none flex flex-row items-center gap-2">
+      <Image source={{ uri: "/UK.webp" }} className="w-5 h-3 rounded-[1px]" resizeMode="cover" />
+      <Text className="text-black text-xs font-bold whitespace-nowrap">United Kingdom</Text>
     </View>
     <View className="w-[48px] h-[48px] border border-[#C10016] rounded-full flex items-center justify-center bg-white/10 backdrop-blur-sm cursor-pointer">
       <View className="w-[32px] h-[32px] border border-[#C10016] rounded-full flex items-center justify-center">
@@ -518,13 +544,29 @@ export default function LocationsScreen() {
       </View>
     </View>
   </View>
-</View>
+</LocationMarker>
+
+{/* California */}
+<LocationMarker left="10.57%" top="53.58%">
+  <View className="group relative items-center">
+    <View className="absolute left-14 top-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white px-3 py-1.5 rounded shadow-sm pointer-events-none flex flex-row items-center gap-2 z-50">
+      <Image source={{ uri: "/US.webp" }} className="w-5 h-3 rounded-[1px]" resizeMode="cover" />
+      <Text className="text-black text-xs font-bold whitespace-nowrap">California</Text>
+    </View>
+    <View className="w-[48px] h-[48px] border border-[#C10016] rounded-full flex items-center justify-center bg-white/10 backdrop-blur-sm cursor-pointer">
+      <View className="w-[32px] h-[32px] border border-[#C10016] rounded-full flex items-center justify-center">
+        <View className="w-[16px] h-[16px] bg-[#C10016] rounded-full"></View>
+      </View>
+    </View>
+  </View>
+</LocationMarker>
 
 {/* United States */}
-<View className="absolute z-50" style={{ left: '22%', top: '35%' }}>
+<LocationMarker left="14.53%" top="41.47%">
   <View className="group relative items-center">
-    <View className="absolute -top-12 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/80 px-3 py-1 rounded pointer-events-none">
-      <Text className="text-white text-xs font-bold whitespace-nowrap">United States</Text>
+    <View className="absolute left-14 top-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white px-3 py-1.5 rounded shadow-sm pointer-events-none flex flex-row items-center gap-2 z-50">
+      <Image source={{ uri: "/US.webp" }} className="w-5 h-3 rounded-[1px]" resizeMode="cover" />
+      <Text className="text-black text-xs font-bold whitespace-nowrap">United States</Text>
     </View>
     <View className="w-[48px] h-[48px] border border-[#C10016] rounded-full flex items-center justify-center bg-white/10 backdrop-blur-sm cursor-pointer">
       <View className="w-[32px] h-[32px] border border-[#C10016] rounded-full flex items-center justify-center">
@@ -532,13 +574,14 @@ export default function LocationsScreen() {
       </View>
     </View>
   </View>
-</View>
+</LocationMarker>
 
-{/* San Francisco */}
-<View className="absolute z-50" style={{ left: '12%', top: '38%' }}>
+{/* Atlanta */}
+<LocationMarker left="21.68%" top="44.29%">
   <View className="group relative items-center">
-    <View className="absolute -top-12 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/80 px-3 py-1 rounded pointer-events-none">
-      <Text className="text-white text-xs font-bold whitespace-nowrap">San Francisco</Text>
+    <View className="absolute -top-14 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white px-3 py-1.5 rounded shadow-sm pointer-events-none flex flex-row items-center gap-2">
+      <Image source={{ uri: "/US.webp" }} className="w-5 h-3 rounded-[1px]" resizeMode="cover" />
+      <Text className="text-black text-xs font-bold whitespace-nowrap">Atlanta</Text>
     </View>
     <View className="w-[48px] h-[48px] border border-[#C10016] rounded-full flex items-center justify-center bg-white/10 backdrop-blur-sm cursor-pointer">
       <View className="w-[32px] h-[32px] border border-[#C10016] rounded-full flex items-center justify-center">
@@ -546,13 +589,14 @@ export default function LocationsScreen() {
       </View>
     </View>
   </View>
-</View>
+</LocationMarker>
 
-{/* Georgia */}
-<View className="absolute z-50" style={{ left: '28%', top: '36%' }}>
+{/* Netherlands */}
+<LocationMarker left="48.33%" top="19.41%">
   <View className="group relative items-center">
-    <View className="absolute -top-12 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/80 px-3 py-1 rounded pointer-events-none">
-      <Text className="text-white text-xs font-bold whitespace-nowrap">Georgia</Text>
+    <View className="absolute -top-14 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white px-3 py-1.5 rounded shadow-sm pointer-events-none flex flex-row items-center gap-2">
+      <Image source={{ uri: "/NET.webp" }} className="w-5 h-3 rounded-[1px]" resizeMode="cover" />
+      <Text className="text-black text-xs font-bold whitespace-nowrap">Netherlands</Text>
     </View>
     <View className="w-[48px] h-[48px] border border-[#C10016] rounded-full flex items-center justify-center bg-white/10 backdrop-blur-sm cursor-pointer">
       <View className="w-[32px] h-[32px] border border-[#C10016] rounded-full flex items-center justify-center">
@@ -560,13 +604,14 @@ export default function LocationsScreen() {
       </View>
     </View>
   </View>
-</View>
+</LocationMarker>
 
 {/* UAE */}
-<View className="absolute z-50" style={{ left: '62%', top: '44%' }}>
+<LocationMarker left="66.51%" top="42.13%">
   <View className="group relative items-center">
-    <View className="absolute -top-12 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/80 px-3 py-1 rounded pointer-events-none">
-      <Text className="text-white text-xs font-bold whitespace-nowrap">UAE</Text>
+    <View className="absolute -top-14 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white px-3 py-1.5 rounded shadow-sm pointer-events-none flex flex-row items-center gap-2">
+      <Image source={{ uri: "/UAE.webp" }} className="w-5 h-3 rounded-[1px]" resizeMode="cover" />
+      <Text className="text-black text-xs font-bold whitespace-nowrap">UAE</Text>
     </View>
     <View className="w-[48px] h-[48px] border border-[#C10016] rounded-full flex items-center justify-center bg-white/10 backdrop-blur-sm cursor-pointer">
       <View className="w-[32px] h-[32px] border border-[#C10016] rounded-full flex items-center justify-center">
@@ -574,13 +619,14 @@ export default function LocationsScreen() {
       </View>
     </View>
   </View>
-</View>
+</LocationMarker>
 
 {/* Saudi */}
-<View className="absolute z-50" style={{ left: '58%', top: '44%' }}>
+<LocationMarker left="62.94%" top="36.49%">
   <View className="group relative items-center">
-    <View className="absolute -top-12 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/80 px-3 py-1 rounded pointer-events-none">
-      <Text className="text-white text-xs font-bold whitespace-nowrap">Saudi</Text>
+    <View className="absolute left-14 top-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white px-3 py-1.5 rounded shadow-sm pointer-events-none flex flex-row items-center gap-2 z-50">
+      <Image source={{ uri: "/Saudi.webp" }} className="w-5 h-3 rounded-[1px]" resizeMode="cover" />
+      <Text className="text-black text-xs font-bold whitespace-nowrap">Saudi</Text>
     </View>
     <View className="w-[48px] h-[48px] border border-[#C10016] rounded-full flex items-center justify-center bg-white/10 backdrop-blur-sm cursor-pointer">
       <View className="w-[32px] h-[32px] border border-[#C10016] rounded-full flex items-center justify-center">
@@ -588,13 +634,14 @@ export default function LocationsScreen() {
       </View>
     </View>
   </View>
-</View>
+</LocationMarker>
 
 {/* Bahrain */}
-<View className="absolute z-50" style={{ left: '60%', top: '42%' }}>
+<LocationMarker left="64.72%" top="36.16%">
   <View className="group relative items-center">
-    <View className="absolute -top-12 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/80 px-3 py-1 rounded pointer-events-none">
-      <Text className="text-white text-xs font-bold whitespace-nowrap">Bahrain</Text>
+    <View className="absolute left-14 top-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white px-3 py-1.5 rounded shadow-sm pointer-events-none flex flex-row items-center gap-2 z-50">
+      <Image source={{ uri: "/B.webp" }} className="w-5 h-3 rounded-[1px]" resizeMode="cover" />
+      <Text className="text-black text-xs font-bold whitespace-nowrap">Bahrain</Text>
     </View>
     <View className="w-[48px] h-[48px] border border-[#C10016] rounded-full flex items-center justify-center bg-white/10 backdrop-blur-sm cursor-pointer">
       <View className="w-[32px] h-[32px] border border-[#C10016] rounded-full flex items-center justify-center">
@@ -602,13 +649,14 @@ export default function LocationsScreen() {
       </View>
     </View>
   </View>
-</View>
+</LocationMarker>
 
 {/* Australia */}
-<View className="absolute z-50" style={{ left: '86%', top: '72%' }}>
+<LocationMarker left="85.55%" top="86.42%">
   <View className="group relative items-center">
-    <View className="absolute -top-12 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/80 px-3 py-1 rounded pointer-events-none">
-      <Text className="text-white text-xs font-bold whitespace-nowrap">Australia</Text>
+    <View className="absolute -top-14 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white px-3 py-1.5 rounded shadow-sm pointer-events-none flex flex-row items-center gap-2">
+      <Image source={{ uri: "/Aus.webp" }} className="w-5 h-3 rounded-[1px]" resizeMode="cover" />
+      <Text className="text-black text-xs font-bold whitespace-nowrap">Australia</Text>
     </View>
     <View className="w-[48px] h-[48px] border border-[#C10016] rounded-full flex items-center justify-center bg-white/10 backdrop-blur-sm cursor-pointer">
       <View className="w-[32px] h-[32px] border border-[#C10016] rounded-full flex items-center justify-center">
@@ -616,16 +664,15 @@ export default function LocationsScreen() {
       </View>
     </View>
   </View>
-</View>
+</LocationMarker>
     </View>
-  </View>
   </View>
 </View>
 
         {/* Accomplishments Section */}
-        <View className="relative w-full mt-48">
+        <View className="relative w-full mt-4">
           {/* Two Column Layout */}
-          <View className="flex flex-col lg:flex-row mt-80">
+          <View className="flex flex-col lg:flex-row ">
             
             {/* Left Section - White Background */}
             <View className="w-full lg:w-1/2 bg-white relative min-h-[400px] lg:min-h-[520px] flex items-center justify-center py-12 lg:py-0">

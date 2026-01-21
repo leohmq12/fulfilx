@@ -633,12 +633,12 @@ can build a greener future while achieving your logistics goals.
         <View className="flex flex-row items-start gap-6 mb-6">
           {/* Avatar */}
           <View className="w-[80px] h-[80px] rounded-full bg-cover bg-center" 
-            style={{backgroundImage: 'url(/A.webp)'} as any} />
+            style={{backgroundImage: 'url(/Sabir-Rajpoot.png)'} as any} />
           
           {/* User Info */}
           <View className="flex-1">
             <Text className="font-helvetica font-bold text-[20px] leading-[38px] text-black">
-              John Doe
+              Sabir Rajpoot
             </Text>
             <Text className="font-helvetica font-normal text-[16px] leading-[38px] text-black opacity-50">
               November 11, 2025
@@ -657,7 +657,7 @@ can build a greener future while achieving your logistics goals.
         
         {/* Review Text */}
         <Text className="font-helvetica font-normal text-[20px] leading-[38px] text-black opacity-70">
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type.
+          Excellent Services, Fast Delivery and Cooperative Support We are working with FULFIL.X since last 6 months and it's really a good experience with them. Staff is really good and cooperative environment. Fulfil.x is super fast in Inventory tracking, orders management and fast delivery.
         </Text>
       </View>
 
@@ -667,15 +667,15 @@ can build a greener future while achieving your logistics goals.
         <View className="flex flex-row items-start gap-6 mb-6">
           {/* Avatar */}
           <View className="w-[80px] h-[80px] rounded-full bg-cover bg-center" 
-            style={{backgroundImage: 'url(/N.webp)'} as any} />
+            style={{backgroundImage: 'url(/Jeanel-Dangilan.png)'} as any} />
           
           {/* User Info */}
           <View className="flex-1">
             <Text className="font-helvetica font-bold text-[20px] leading-[38px] text-black">
-              John Doe
+              Jeanel Dangilan
             </Text>
             <Text className="font-helvetica font-normal text-[16px] leading-[38px] text-black opacity-50">
-              November 11, 2025
+              November 21, 2025
             </Text>
           </View>
           
@@ -690,7 +690,8 @@ can build a greener future while achieving your logistics goals.
         
         {/* Review Text */}
         <Text className="font-helvetica font-normal text-[20px] leading-[38px] text-black opacity-70">
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type.
+         Really happy with the service from FulfilX. They make fulfilment super easy and stress-free. Orders are always handled on time and the team is friendly and quick to respond whenever I have questions. It’s been such a big help for my business knowing I can rely on them. Definitely recommend them if you need a fulfilment partner you can trust.
+
         </Text>
       </View>
       
@@ -699,12 +700,12 @@ can build a greener future while achieving your logistics goals.
         <View className="flex flex-row items-start gap-6 mb-6">
           {/* Avatar */}
           <View className="w-[80px] h-[80px] rounded-full bg-cover bg-center" 
-            style={{backgroundImage: 'url(/V.webp)'} as any} />
+            style={{backgroundImage: 'url(/Milcah-Cortez.png)'} as any} />
           
           {/* User Info */}
           <View className="flex-1">
             <Text className="font-helvetica font-bold text-[20px] leading-[38px] text-black">
-              John Doe
+              Milcah Cortez
             </Text>
             <Text className="font-helvetica font-normal text-[16px] leading-[38px] text-black opacity-50">
               November 11, 2025
@@ -721,7 +722,7 @@ can build a greener future while achieving your logistics goals.
         </View>
         {/* Review Text */}
         <Text className="font-helvetica font-normal text-[20px] leading-[38px] text-black opacity-70">
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type.
+         I’ve been really impressed with the service. The team at Fulfil.X is helpful, responsive, and always gets things done on time. My business runs a lot easier with them handling fulfilment. Definitely a trusted partner.
         </Text>
       </View>
     </View>
