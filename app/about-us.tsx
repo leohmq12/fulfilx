@@ -459,16 +459,16 @@ can build a greener future while achieving your logistics goals.
     
     {/* "We integrate with" Badge */}
     <div className="flex justify-center">
-      <div className="w-[280px] h-[48px] bg-[rgba(193,0,22,0.1)] rounded-[120px] flex items-center justify-center">
+      {/* <div className="w-[280px] h-[48px] bg-[rgba(193,0,22,0.1)] rounded-[120px] flex items-center justify-center">
         <span className="font-medium text-[16px] leading-[40px] tracking-[0.2em] uppercase text-[#C10016]">
           We integrate with
         </span>
-      </div>
+      </div> */}
     </div>
 
     {/* Main Heading */}
     <h2 className="text-center font-bold text-4xl lg:text-[74px] leading-tight lg:leading-[80px] tracking-tight text-white mt-16">
-      Leading Brands...
+      We Integrate With
     </h2>
 
 <div className="w-full overflow-hidden py-10">
@@ -807,7 +807,7 @@ can build a greener future while achieving your logistics goals.
                 
                 {/* Heading */}
                 <h2 className="font-bold text-3xl lg:text-[42px] leading-tight lg:leading-[54px] tracking-tight text-black mb-8">
-                  Our Accomplishments
+                  Our Awards
                 </h2>
 
                 {/* Red Line - Centered */}
@@ -831,7 +831,7 @@ can build a greener future while achieving your logistics goals.
                 
                 {/* Heading */}
                 <h2 className="font-bold text-3xl lg:text-[42px] leading-tight lg:leading-[54px] tracking-tight text-white mb-8">
-                  Advanced Tech Solutions
+                  Accreditations
                 </h2>
 
                 {/* White Line - Centered */}

@@ -342,7 +342,7 @@ export default function ContactScreen() {
                 
                 {/* Heading */}
                 <h2 className="font-bold text-3xl lg:text-[42px] leading-tight lg:leading-[54px] tracking-tight text-black mb-8">
-                  Our Accomplishments
+                  Our Awards
                 </h2>
 
                 {/* Red Line - Centered */}
@@ -366,7 +366,7 @@ export default function ContactScreen() {
                 
                 {/* Heading */}
                 <h2 className="font-bold text-3xl lg:text-[42px] leading-tight lg:leading-[54px] tracking-tight text-white mb-8">
-                  Advanced Tech Solutions
+                  Accreditations
                 </h2>
 
                 {/* White Line - Centered */}

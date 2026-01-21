@@ -443,11 +443,11 @@ focus on growing.    </p>
           preserveAspectRatio="none"
         >
           <path 
-            opacity="0.15" 
-            d="M0.385742 67.1976C88.8857 9.80311 264.486 -4.20236 360.886 79.1976C426.719 82.031 400.386 129.196 700.886 19.1963C822.886 -9.13697 1011.39 160.3024 900.89 68.1976" 
+            opacity="0.25" 
+            d="M50.285742 89.1976C88.8857 9.80311 264.486 -4.20236 360.886 69.1976C426.719 72.031 400.386 129.196 700.886 29.1963C822.886 -9.13697 1011.39 115.3024 900.89 48.1976" 
             stroke="#C10016" 
             strokeWidth="2" 
-            strokeDasharray="6 6"
+            strokeDasharray="6 7"
           />
         </svg>
       </div>
@@ -523,7 +523,7 @@ focus on growing.    </p>
         className={`step-${i}-content min-w-0 w-full`}
       >
         {/* Title */}
-        <h3 className={`font-bold text-xl md:text-2xl mb-4 ${item.titleColor} break-words`}>
+        <h3 className={`font-bold text-xl md:text-2xl mb-4 ${item.titleColor}`}>
           {item.title}
         </h3>
 

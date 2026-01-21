@@ -481,8 +481,8 @@ export default function TeamScreen() {
               <View className="max-w-[740px] w-full text-center px-8">
                 
                 {/* Heading */}
-                <Text className="font-bold text-[32px] lg:text-[42px] leading-[44px] lg:leading-[54px] tracking-tight text-black mb-8">
-                  Our Accomplishments
+                <Text className="font-bold text-[32px] lg:text-[42px] leading-[44px] lg:leading-[54px] tracking-tight text-center text-black mb-8">
+                  Our Awards
                 </Text>
 
                 {/* Red Line - Centered */}
@@ -505,15 +505,15 @@ export default function TeamScreen() {
               <View className="max-w-[650px] w-full text-center px-8">
                 
                 {/* Heading */}
-                <Text className="font-bold text-[32px] lg:text-[42px] leading-[44px] lg:leading-[54px] tracking-tight text-white mb-8">
-                  Advanced Tech Solutions
+                <Text className="font-bold text-[32px] lg:text-[42px] leading-[44px] lg:leading-[54px] tracking-tight text-center text-white mb-8">
+                  Accreditations
                 </Text>
 
                 {/* White Line - Centered */}
                 <View className="w-[100px] h-[1px] bg-white mx-auto mb-12"></View>
 
                 {/* Subtitle - Centered */}
-                <Text className="font-normal text-[20px] lg:text-[24px] leading-[36px] lg:leading-[44px] text-white mb-12">
+                <Text className="font-normal text-[20px] lg:text-[24px] leading-[36px] lg:leading-[44px] text-center text-white mb-12">
                   Exceptional Quality Service
                 </Text>
 

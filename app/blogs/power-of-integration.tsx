@@ -435,7 +435,7 @@ export default function LuxuryScreen() {
                 
                                 {/* Heading */}
                                 <Text className="font-helvetica font-bold text-3xl lg:text-[42px] lg:leading-[54px] tracking-tight text-black mb-8">
-                                    Our Accomplishments
+                                    Our Awards
                                 </Text>
 
                                 {/* Red Line - Centered */}
@@ -459,7 +459,7 @@ export default function LuxuryScreen() {
                 
                                 {/* Heading */}
                                 <Text className="font-helvetica font-bold text-3xl lg:text-[42px] lg:leading-[54px] tracking-tight text-white mb-8">
-                                    Advanced Tech Solutions
+                                    Accreditations
                                 </Text>
 
                                 {/* White Line - Centered */}

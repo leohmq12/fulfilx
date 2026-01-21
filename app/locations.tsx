@@ -563,7 +563,7 @@ export default function LocationsScreen() {
                 
                 {/* Heading */}
                 <Text className="font-helvetica font-bold text-3xl lg:text-[42px] leading-tight lg:leading-[54px] tracking-tight text-black mb-8 text-center">
-                  Our Accomplishments
+                  Our Awards
                 </Text>
 
                 {/* Red Line - Centered */}
@@ -597,7 +597,7 @@ export default function LocationsScreen() {
                 
                 {/* Heading */}
                 <Text className="font-helvetica font-bold text-3xl lg:text-[42px] leading-tight lg:leading-[54px] tracking-tight text-white mb-8 text-center">
-                  Advanced Tech Solutions
+                  Accreditations
                 </Text>
 
                 {/* White Line - Centered */}

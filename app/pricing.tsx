@@ -746,7 +746,7 @@ export default function LuxuryScreen() {
             {/* Left Section Content */}
             <View className="max-w-[740px] w-full items-center px-8 z-10">
               <Text className="font-bold text-3xl lg:text-[42px] leading-tight lg:leading-[54px] text-black mb-8 text-center">
-                Our Accomplishments
+                Our Awards
               </Text>
 
               <View className="w-[100px] h-[1px] bg-[#C10016] mb-12" />
@@ -765,7 +765,7 @@ export default function LuxuryScreen() {
           <View className="w-full lg:w-1/2 bg-[#DA192F] relative min-h-[400px] lg:min-h-[520px] items-center justify-center py-12 lg:py-0">
             <View className="max-w-[650px] w-full items-center px-8">
               <Text className="font-bold text-3xl lg:text-[42px] leading-tight lg:leading-[54px] text-white mb-8 text-center">
-                Advanced Tech Solutions
+                Accreditations
               </Text>
 
               <View className="w-[100px] h-[1px] bg-white mb-12" />

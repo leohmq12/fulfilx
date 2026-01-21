@@ -249,8 +249,8 @@ export default function SectorsScreen() {
                     <View className="max-w-[740px] w-full text-center px-8 relative z-10">
         
                         {/* Heading */}
-                        <Text className="font-helvetica font-bold text-3xl lg:text-[42px] lg:leading-[54px] tracking-tight text-black mb-8">
-                            Our Accomplishments
+                        <Text className="font-helvetica font-bold text-3xl lg:text-[42px] lg:leading-[54px] tracking-tight text-center text-black mb-8">
+                            Our Awards
                         </Text>
 
                         {/* Red Line - Centered */}
@@ -273,15 +273,15 @@ export default function SectorsScreen() {
                     <View className="max-w-[650px] w-full text-center px-8">
         
                         {/* Heading */}
-                        <Text className="font-helvetica font-bold text-3xl lg:text-[42px] lg:leading-[54px] tracking-tight text-white mb-8">
-                            Advanced Tech Solutions
+                        <Text className="font-helvetica font-bold text-3xl lg:text-[42px] lg:leading-[54px] tracking-tight text-center text-white mb-8">
+                            Accreditations
                         </Text>
 
                         {/* White Line - Centered */}
                         <View className="w-[100px] h-[1px] bg-white mx-auto mb-12" />
 
                         {/* Subtitle - Centered */}
-                        <Text className="font-helvetica font-normal text-xl lg:text-[24px] lg:leading-[44px] text-white mb-12">
+                        <Text className="font-helvetica font-normal text-xl lg:text-[24px] lg:leading-[44px] text-white text-center mb-12">
                             Exceptional Quality Service
                         </Text>
 
