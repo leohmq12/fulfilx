@@ -5,8 +5,8 @@ const Footer = () => {
   const [agreedToPolicy, setAgreedToPolicy] = useState(false);
 
   return (
-<footer className="w-full relative min-h-screen" style={{ backgroundImage: "url(/footerbg.webp)", backgroundSize: "cover", backgroundRepeat: "no-repeat" }}>
-  <div className="w-full px-4 md:px-6 lg:px-8 2xl:px-16 py-16 lg:py-20">
+<footer className="w-full relative min-h-[400px]" style={{ backgroundImage: "url(/footerbg.webp)", backgroundSize: "cover", backgroundRepeat: "no-repeat" }}>
+  <div className="w-full px-4 md:px-6 lg:px-8 2xl:px-16 py-16 lg:py-6">
   <div className="mx-auto w-full max-w-[1490px]">
     <div className="flex flex-col lg:flex-row justify-between gap-12 lg:gap-16">
 
@@ -144,7 +144,7 @@ const Footer = () => {
 
         </div>
         {/* Quick Links Section */}
-<div className="w-full mt-16">
+<div className="w-full mt-16 mb-8">
   
   {/* Quick Links Title - Left Aligned */}
   <div className="text-left mb-1">
@@ -219,8 +219,8 @@ const Footer = () => {
     </div>
 
     {/* Bottom Copyright */}
-     {/* Bottom Copyright - Absolutely positioned at bottom */}
-  <div className="absolute bottom-0 left-0 right-0 border-t border-white/10 pt-4 pb-4 text-center">
+     {/* Bottom Copyright - Positioned at bottom */}
+  <div className="relative border-t border-white/10 pt-4 text-center">
     <p className="text-white text-[16px] opacity-90">
       Copyright © 2025. <span className='text-[#C10016]'>Fulfil X</span>. All rights reserved.
     </p>

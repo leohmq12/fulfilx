@@ -26,7 +26,6 @@ export default function ContactScreen() {
       {/* Main Scrollable Content */}
       <ScrollView 
         className="flex-1 bg-white"
-        showsVerticalScrollIndicator={false}
       >
         {/* Hero Section */}
         <View className="relative min-h-[60vh] lg:min-h-screen">

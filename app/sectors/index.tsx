@@ -120,7 +120,6 @@ export default function SectorsScreen() {
       {/* Main Scrollable Content */}
       <ScrollView 
         className="flex-1 bg-white"
-        showsVerticalScrollIndicator={false}
         style={{ scrollbarGutter: 'stable both-edges' } as any}
       >
         {/* Hero Section */}

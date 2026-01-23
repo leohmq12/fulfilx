@@ -4,14 +4,14 @@ import Slider from '@react-native-community/slider';
 import { Stack, useRouter } from 'expo-router';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
-  FlatList,
-  Image,
-  ScrollView,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-  useWindowDimensions,
+    FlatList,
+    Image,
+    ScrollView,
+    Text,
+    TextInput,
+    TouchableOpacity,
+    View,
+    useWindowDimensions,
 } from 'react-native';
 
 const DEFAULT_WEIGHT_STEPS = [
@@ -235,7 +235,6 @@ export default function LuxuryScreen() {
       {/* Main Scrollable Content */}
       <ScrollView 
         className="flex-1 bg-white"
-        showsVerticalScrollIndicator={false}
         onScrollBeginDrag={() => setIsDropdownOpen(false)}
       >
         {/* Hero Section */}

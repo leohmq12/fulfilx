@@ -22,7 +22,6 @@ export default function LuxuryScreen() {
             {/* Main Scrollable Content */}
             <ScrollView 
                 className="flex-1 bg-white"
-                showsVerticalScrollIndicator={false}
             >
                 {/* Hero Section */}
                 <View className="relative">

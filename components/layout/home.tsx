@@ -1,6 +1,6 @@
+import Footer from '@/components/layout/footer';
 import React, { useEffect, useRef, useState } from 'react';
 import Animated, { FadeIn, FadeInUp, FadeOut } from 'react-native-reanimated';
-import Footer from './footer';
 import Navbar from './navbar';
 
 const defaultMarkerPositions: Record<string, { x: number; y: number }> = {
@@ -210,11 +210,13 @@ const row1Logos = [
                         </div>
 
                     </div>
-                    <div className=" flex justify-end w-full">
+                    <div className=" flex justify-end w-full " >
+                      
                                     <img 
                                         src="/google_rev.webp" 
+                                        onClick=  { () => window.open("https://www.google.com/search?sca_esv=20541e4f21a9d7f7&sxsrf=ANbL-n6la1mt9rMC2V7vLj6jDkpCGr-jEQ:1769008694039&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOXwAv3YEXZKPsl-nUlT6wYhGXlXqsFVh-oyC0tyABjEyjZCBk0CoEdNhj27Sl2hsvpDFgHFs0bQGfY1mnSWew6jYRo_p8GX0AXTemkh_XqBhnnH1O0hKt0daRKCE0qah_J7B7GeROHFzzyEWMS5BWx0syl6v&q=FULFIL.X+-+Storage+and+3pl+For+E-commerce+Brands+Reviews&sa=X&ved=2ahUKEwilh8D29pySAxUXQ0EAHVezKAcQ0bkNegQIKBAH&biw=1536&bih=730&dpr=1.25&aic=0","_blank") }
                                         alt="Google reviews" 
-                                        className="w-full max-w-[220px] sm:max-w-[260px] lg:max-w-[80px] h-auto object-contain mx-auto"
+                                        className="w-full max-w-[220px] sm:max-w-[260px] lg:max-w-[80px] h-auto object-contain mx-auto cursor-pointer transition-transform duration-300 hover:scale-105"
                                     />
                                 </div>
                 </div>
@@ -1299,6 +1301,7 @@ focus on growing.    </p>
 </section>
 <Footer/>
 </div>
+
         </>
         
     );
