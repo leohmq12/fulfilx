@@ -498,25 +498,25 @@ export default function ServicesScreen(){
   { image: '/Superdrug.png', alt: 'Testimonial 5' }
     ];
     const row1Logos = [
-         { src: "/0x0.png", alt: "" },
-    { src: "/SUPRIVA_logo.png", alt: "" },
-    { src: "/Asset.png", alt: "" }
-      ];
+    { src: "/amazon.webp", alt: "" },
+    { src: "/shopify.webp", alt: "" },
+    { src: "/woo.webp", alt: "" }
     
-      const row2Logos = [
-       { src: "/atelier-de-glow.png", alt: "" },
-    { src: "/beautifect_logo.png", alt: "" },
-    { src: "/hubb_red.png", alt: "Etsy" },
-    { src: "/I_want_great_sleep.png", alt: "" }
-      ];
+  ];
+
+  const row2Logos = [
+    { src: "/ebay.webp", alt: "" },
+    { src: "/dpd.webp", alt: "" },
+    { src: "/onbuy.webp", alt: "Etsy" },
+    { src: "/magento.webp", alt: "" }
     
-      const row3Logos = [
-         { src: "/Logo_and_font.png", alt: "Logo and Font" },
-    { src: "/Nicpic.png", alt: "Nicpic" },
-    { src: "/OPULENSI_Luxury.png", alt: "Opulensi Luxury" },
-    { src: "/S2O-Black.png", alt: "S2O" },
-    { src: "/yummos.avif", alt: "Yummos" }
-      ];
+  ];
+
+  const row3Logos = [
+    { src: "/tiktok.webp", alt: "Logo and Font" },
+    { src: "/shipstation.webp", alt: "Nicpic" },
+    { src: "/etsy.webp", alt: "Opulensi Luxury" },
+  ];
     
       const nextSlide = () => {
         const nextIndex = (currentSlide + 1) % testimonials.length;
@@ -1057,7 +1057,7 @@ export default function ServicesScreen(){
 
     {/* Main Heading */}
     <h2 className="text-center font-bold text-4xl lg:text-[74px] leading-tight lg:leading-[80px] tracking-tight text-white mt-8 lg:mt-16">
-      We Integrate With
+      Meet the People we make happy
     </h2>
 
 <div className="w-full overflow-hidden py-10">
@@ -1127,7 +1127,7 @@ export default function ServicesScreen(){
 
     {/* Main Heading */}
     <h2 className="text-left font-bold text-3xl lg:text-[64px] leading-tight lg:leading-[80px] tracking-tight text-white mt-8 lg:mt-16 max-w-[960px]">
-      Meet the people we make happy
+      We Integrate With
     </h2>
 
     {/* Navigation Arrows - Aligned with badge and heading */}
