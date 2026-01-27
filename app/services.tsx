@@ -1000,13 +1000,6 @@ export default function ServicesScreen(){
   </Text>
   <LogisticsServicesSection/>
 </View>
-{}{/* Technology & Integrations Section */}
-<View className="relative py-20"> {/* Add vertical padding */}
-  <Text className="font-helvetica font-bold text-3xl lg:text-[54px] lg:leading-[84px] text-black text-center relative z-10 transform -translate-y-8">
-    Technology & <Text className="text-[#C10016]">Integrations</Text>
-  </Text>
-  <TechnologyIntegrationsSection/>
-</View>
 <section className="relative w-full h-auto py-14 lg:py-16 overflow-hidden">
   <div
     className="absolute inset-0 bg-black/65"
@@ -1104,6 +1097,13 @@ export default function ServicesScreen(){
     </div>
   </div>
 </section>
+{/* Technology & Integrations Section */}
+<View className="relative py-20"> {/* Add vertical padding */}
+  <Text className="font-helvetica font-bold text-3xl lg:text-[54px] lg:leading-[84px] text-black text-center relative z-10 transform -translate-y-8">
+    Technology & <Text className="text-[#C10016]">Integrations</Text>
+  </Text>
+  <TechnologyIntegrationsSection/>
+</View>
   <section className="relative w-full min-h-[800px] py-20">
   {/* Background with Linear Gradient */}
   <div 
