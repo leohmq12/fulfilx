@@ -88,11 +88,6 @@ const Footer = () => {
                 UK Warehouse
               </span>
             </div>
-            <div className="flex items-center">
-              <span className="text-white font-bold text-xl">
-                UAE Warehouse
-              </span>
-            </div>
           </button>
           {/* Contact Info Grid */}
 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -189,7 +184,7 @@ const Footer = () => {
   </Link>
   
   <Link href="/locations" asChild>
-    <a className="block hover:text-[#C10016] transition-colors cursor-pointer">Store Locations</a>
+    <a className="block hover:text-[#C10016] transition-colors cursor-pointer">Locations</a>
   </Link>
     <Link href="/contact" asChild>
     <a className="block hover:text-[#C10016] transition-colors cursor-pointer">Contact Us</a>

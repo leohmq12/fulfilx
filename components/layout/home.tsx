@@ -1,4 +1,5 @@
 import Footer from '@/components/layout/footer';
+import { useRouter } from 'expo-router';
 import React, { useEffect, useRef, useState } from 'react';
 import Animated, { FadeIn, FadeInUp, FadeOut } from 'react-native-reanimated';
 import Navbar from './navbar';
@@ -18,6 +19,7 @@ const defaultMarkerPositions: Record<string, { x: number; y: number }> = {
 
 
 const Home: React.FC = () => {
+const router = useRouter();
 const [currentSlide, setCurrentSlide] = useState(0);
 const carouselRef = useRef<HTMLDivElement>(null);
 const mapOverlayRef = useRef<HTMLDivElement>(null);
@@ -166,8 +168,8 @@ const row1Logos = [
                                 </div>
 
                                 <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center w-full">
-                                    <a 
-                                        href="#explore"
+                                    <button 
+                                        onClick={() => router.push('/services')}
                                         className={`
                                             flex flex-row items-center gap-2
                                             ${primaryRed} 
@@ -184,7 +186,7 @@ const row1Logos = [
                                             alt="Explore icon"
                                             className="w-2 h-2 md:w-3 md:h-3 lg:w-3 lg:h-4 object-contain"
                                         />
-                                    </a>
+                                    </button>
                                 </div>
                                       {/* <div className="mt-6 flex justify-end w-full">
                                     <img 
@@ -339,8 +341,8 @@ focus on growing.    </p>
     </p>
 
     {/* CTA Button with icon */}
-    <a 
-      href="#contact"
+    <button 
+      onClick={() => router.push('/contact')}
       className="inline-flex items-center px-6 py-2 gap-2.5 rounded-md bg-[#C10016] cursor-pointer transition duration-300 hover:brightness-110 mt-12"
     >
       <span className="text-white font-normal text-[18px] leading-[36px]">Let&apos;s Talk</span>
@@ -349,7 +351,7 @@ focus on growing.    </p>
         alt="Arrow icon" 
         className="w-4 h-4 object-contain"
       />
-    </a>
+    </button>
     </div>
   </div>
 </section>
@@ -443,7 +445,10 @@ focus on growing.    </p>
       </div>
 
       <div className="mt-10 flex justify-center">
-        <button className="flex items-center gap-3 bg-[#C10016] text-white px-8 py-4 rounded-md font-bold text-[18px]">
+        <button 
+          onClick={() => router.push('/services')}
+          className="flex items-center gap-3 bg-[#C10016] text-white px-8 py-4 rounded-md font-bold text-[18px]"
+        >
           View All Services
           <img src="/arrow.svg" className="w-4 h-4" />
         </button>
@@ -642,7 +647,10 @@ focus on growing.    </p>
         Do not hesitate to say Nǐn hǎo
       </p>
 
-      <button className="mt-10 border border-white rounded-[6px] flex items-center justify-center gap-[10px] px-8 py-4 transition duration-300">
+      <button 
+        onClick={() => router.push('/contact')}
+        className="mt-10 border border-white rounded-[6px] flex items-center justify-center gap-[10px] px-8 py-4 transition duration-300"
+      >
         <span className="text-white font-normal text-[18px] leading-[36px]">Let&apos;s Talk</span>
         <img 
           src="/arrow.svg" 
@@ -1291,7 +1299,10 @@ focus on growing.    </p>
         </p>
 
         {/* CTA Button - Centered */}
-        <button className="border border-white rounded-[6px] flex items-center justify-center gap-[10px] px-8 py-4 transition-colors duration-300 mx-auto">
+        <button 
+          onClick={() => router.push('/contact')}
+          className="border border-white rounded-[6px] flex items-center justify-center gap-[10px] px-8 py-4 transition-colors duration-300 mx-auto"
+        >
           <span className="text-white font-bold text-[18px] leading-[36px]">Let&apos;s Talk</span>
           <img src="/arrow.svg" alt="arrow" className="w-4 h-4 object-contain" />
         </button>

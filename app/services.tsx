@@ -2,7 +2,7 @@ import Footer from '@/components/layout/footer';
 import Navbar from '@/components/layout/navbar';
 import { Stack, useRouter } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
-import { ScrollView, Text, TouchableOpacity, View, useWindowDimensions } from 'react-native';
+import { ScrollView, Text, View, useWindowDimensions } from 'react-native';
 
 // Import SVG icons (make sure these files exist in your assets folder)
 // If using Expo web, you can use regular img tags for SVG files
@@ -14,6 +14,7 @@ const ArrowIcon = () => <img src="/arrow-dark.svg" alt="Arrow" width={10} height
 const CheckIcon = () => <img src="/check.svg" alt="Check" width={14} height={14} />;
 
 const FulfillmentServicesSection = () => {
+  const router = useRouter();
   const { width } = useWindowDimensions();
   const isMobile = width < 1024;
   
@@ -180,7 +181,10 @@ const FulfillmentServicesSection = () => {
           </div>
 
           <div className="mt-10 flex justify-center">
-            <button className="flex items-center gap-3 bg-[#C10016] text-white px-8 py-4 rounded-md font-bold text-[18px]">
+            <button 
+              onClick={() => router.push('/contact')}
+              className="flex items-center gap-3 bg-[#C10016] text-white px-8 py-4 rounded-md font-bold text-[18px]"
+            >
               Contact Sales
               <img src="/arrow.svg" className="w-4 h-4" />
             </button>
@@ -198,6 +202,7 @@ const Arrow = () => <img src="/arrow-dark.svg" alt="Arrow" width={10} height={10
 const Check = () => <img src="/check.svg" alt="Check" width={14} height={14} />;
 
 const WarehouseServicesSection = () => {
+  const router = useRouter();
   const { width } = useWindowDimensions();
   const isMobile = width < 1024;
   const services = [
@@ -265,18 +270,19 @@ const WarehouseServicesSection = () => {
                     ))}
                   </View>
                 </View>
-                
-                {/* Contact Sales Button */}
-                <TouchableOpacity className="flex-row items-center gap-2 mt-6 relative z-10">
-                  <Text className="font-helvetica font-bold text-[16px] leading-normal text-[#C10016]">
-                    Contact Sales
-                  </Text>
-                  <Arrow />
-                </TouchableOpacity>
               </View>
             );
           })}
       </View>
+      <div className="mt-10 flex justify-center">
+        <button 
+          onClick={() => router.push('/contact')}
+          className="flex items-center gap-3 bg-[#C10016] text-white px-8 py-4 rounded-md font-bold text-[18px]"
+        >
+          Contact Sales
+          <img src="/arrow.svg" className="w-4 h-4" />
+        </button>
+      </div>
     </View>
   );
 };
@@ -287,6 +293,7 @@ const ArrowIco = () => <img src="/arrow-dark.svg" alt="Arrow" width={10} height=
 const CheckIco = () => <img src="/check.svg" alt="Check" width={14} height={14} />;
 
 const LogisticsServicesSection = () => {
+  const router = useRouter();
   const { width } = useWindowDimensions();
   const isMobile = width < 1024;
   const services = [
@@ -385,18 +392,19 @@ const LogisticsServicesSection = () => {
                     ))}
                   </View>
                 </View>
-                
-                {/* Contact Sales Button */}
-                <TouchableOpacity className="flex-row items-center gap-2 mt-6">
-                  <Text className="font-helvetica font-bold text-[16px] leading-normal text-[#C10016]">
-                    Contact Sales
-                  </Text>
-                  <Arrow />
-                </TouchableOpacity>
               </View>
             );
           })}
       </View>
+      <div className="mt-10 flex justify-center">
+        <button 
+          onClick={() => router.push('/contact')}
+          className="flex items-center gap-3 bg-[#C10016] text-white px-8 py-4 rounded-md font-bold text-[18px]"
+        >
+          Contact Sales
+          <img src="/arrow.svg" className="w-4 h-4" />
+        </button>
+      </div>
     </View>
   );
 };
@@ -406,6 +414,7 @@ const Arrows = () => <img src="/arrow-dark.svg" alt="Arrow" width={10} height={1
 const Checks = () => <img src="/check.svg" alt="Check" width={14} height={14} />;
 
 const TechnologyIntegrationsSection = () => {
+  const router = useRouter();
   const { width } = useWindowDimensions();
   const isMobile = width < 1024;
   const services = [
@@ -491,13 +500,7 @@ const TechnologyIntegrationsSection = () => {
                   </View>
                 </View>
                 
-                {/* Contact Sales Button */}
-                <TouchableOpacity className="flex-row items-center gap-2 mt-6">
-                  <Text className="font-helvetica font-bold text-[16px] leading-normal text-[#C10016]">
-                    Contact Sales
-                  </Text>
-                  <Arrow />
-                </TouchableOpacity>
+
 
                 {service.id === 2 && (
                   <View className="hidden lg:block absolute w-[200px] h-[200px] right-8 top-1/2 transform -translate-y-1/2 z-0">
@@ -548,7 +551,15 @@ const TechnologyIntegrationsSection = () => {
             );
           })}
       </View>
-
+      <div className="mt-10 flex justify-center">
+        <button 
+          onClick={() => router.push('/contact')}
+          className="flex items-center gap-3 bg-[#C10016] text-white px-8 py-4 rounded-md font-bold text-[18px]"
+        >
+          Contact Sales
+          <img src="/arrow.svg" className="w-4 h-4" />
+        </button>
+      </div>
     </View>
   );
 };
@@ -977,7 +988,10 @@ export default function ServicesScreen(){
       </div>
 
       <div className="mt-10 flex justify-center">
-        <button className="flex items-center gap-3 bg-[#C10016] text-white px-8 py-4 rounded-md font-bold text-[18px]">
+        <button 
+          onClick={() => router.push('/contact')}
+          className="flex items-center gap-3 bg-[#C10016] text-white px-8 py-4 rounded-md font-bold text-[18px]"
+        >
           Contact Sales
           <img src="/arrow.svg" className="w-4 h-4" />
         </button>
@@ -1089,7 +1103,10 @@ export default function ServicesScreen(){
       </div>
 
       <div className="mt-10 flex justify-center">
-        <button className="flex items-center gap-3 bg-[#C10016] text-white px-8 py-4 rounded-md font-bold text-[18px]">
+        <button 
+          onClick={() => router.push('/contact')}
+          className="flex items-center gap-3 bg-[#C10016] text-white px-8 py-4 rounded-md font-bold text-[18px]"
+        >
           Contact Sales
           <img src="/arrow.svg" className="w-4 h-4" />
         </button>

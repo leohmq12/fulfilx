@@ -4,14 +4,14 @@ import Slider from '@react-native-community/slider';
 import { Stack, useRouter } from 'expo-router';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
-    FlatList,
-    Image,
-    ScrollView,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    View,
-    useWindowDimensions,
+  FlatList,
+  Image,
+  ScrollView,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+  useWindowDimensions,
 } from 'react-native';
 
 const DEFAULT_WEIGHT_STEPS = [
@@ -221,6 +221,79 @@ export default function LuxuryScreen() {
   const weightLineHeight = useMemo(() => Math.round((18 + weightRatio * 10) * 1.4), [weightRatio]);
 
   const router = useRouter();
+
+  const pricingItems = [
+    {
+      title: ['Pick', '& Pack'],
+      img: '/shiphappens1.jpg',
+      logo: '/d2c.svg',
+      description: 'The essentials to provide with customisability for shipping.',
+      price: '£1.27',
+      priceUnit: '/package',
+      pricePrefix: '*from',
+      features: [
+        'Includes Packaging',
+        'Includes Labelling',
+        'Includes Picking',
+        'Includes Packing',
+        'Shipping (additional cost)'
+      ]
+    },
+    {
+      title: ['Next Day', 'Shipping'],
+      img: '/shiphappens3.webp',
+      logo: '/amf.svg',
+      badge: 'Most Popular',
+      description: 'We offer next day shipping for all orders placed before 3pm.',
+      price: '£2.18',
+      priceUnit: '/shipment',
+      pricePrefix: '*from',
+      features: [
+        'Fully Tracked',
+        'Next Day Delivery',
+        'Small to Large Parcels',
+        'International Shipping Available',
+        'Insured Parcels'
+      ]
+    },
+    {
+      title: ['Storage', ''],
+      img: '/qc.webp',
+      logo: '/b2b.svg',
+      description: 'Affordable storage scalable for your needs.',
+      price: '£0.28',
+      priceUnit: '/0.20 per location',
+      pricePrefix: '*from',
+      features: [
+        'Secure Warehousing',
+        'Flexible Storage Options',
+        'Short & Long Term Storage',
+        'Pallet Storage',
+        'Inventory Management'
+      ]
+    }
+  ];
+
+  const [activePricingIndex, setActivePricingIndex] = useState(0);
+  const [pricingPrevIndex, setPricingPrevIndex] = useState<number | null>(null);
+  const pricingTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (pricingTimerRef.current) clearTimeout(pricingTimerRef.current);
+    };
+  }, []);
+
+  const activatePricing = (index: number) => {
+    if (index === activePricingIndex) return;
+    if (pricingTimerRef.current) clearTimeout(pricingTimerRef.current);
+    setPricingPrevIndex(activePricingIndex);
+    setActivePricingIndex(index);
+    pricingTimerRef.current = setTimeout(() => {
+      setPricingPrevIndex(null);
+    }, 750);
+  };
+
   return (
     <>
       <Stack.Screen 
@@ -294,199 +367,107 @@ export default function LuxuryScreen() {
     <View className="relative w-full py-10">
       {/* Content Container */}
       <View className="max-w-[1400px] mx-auto px-4" style={{ marginTop: isDesktop ? -160 : -40 }}>
-        {/* Pricing Cards Container */}
-        <View className="flex flex-col lg:flex-row justify-center items-center lg:items-stretch gap-8 lg:gap-0">
+        {/* List View Container */}
+        <View className="mt-10 flex flex-col lg:flex-row gap-8 lg:gap-10 items-stretch">
           
-          {/* Left Card - Pick & Pack */}
-          <View className="w-full max-w-[500px] lg:w-[496px] bg-white border border-[#D9D9D9] lg:border-r-0 rounded-[24px] lg:rounded-r-none lg:rounded-l-[24px] p-8">
-            {/* Title */}
-            <Text className="font-helvetica font-medium text-[24px] leading-[74px] tracking-tight text-black mb-4">
-              Pick & Pack
-            </Text>
-            
-            {/* Description */}
-            <Text className="font-helvetica font-normal text-[16px] leading-[26px] text-black opacity-60 mb-8">
-              The essentials to provide with customisability for shipping.
-            </Text>
-            
-            {/* Price */}
-            <View className="flex flex-row items-baseline gap-2 mb-8">
-            <Text className="font-helvetica font-normal text-[14px] leading-[26px] text-black opacity-60">
-                *from
-              </Text>
-              <Text className="font-helvetica font-medium text-[28px] leading-[74px] tracking-tight text-black">
-                £1.27
-              </Text>
-                <Text className="font-helvetica font-normal text-[14px] leading-[26px] text-black opacity-60">
-                /package
-              </Text>
-            </View>
-            
-            {/* Features List */}
-            <View className="gap-4 mb-8">
-              {[
-                'Includes Packaging',
-                'Includes Labelling',
-                'Includes Picking',
-                'Includes Packing',
-                'Shipping (additional cost)'
-              ].map((feature, i) => (
-                <View key={i} className="flex flex-row items-center gap-3">
-                  <View className="w-4 h-4">
-                    <Image source={require('../public/check.svg')} className="w-full h-full" resizeMode="contain" />
-                  </View>  
-                  <Text className="font-helvetica font-normal text-[14px] leading-[26px] text-black opacity-60">
-                    {feature}
-                  </Text>
-                </View>
-              ))}
-            </View>
-            
-            {/* Contact Button */}
-            <TouchableOpacity 
-              className="border border-[#C10016]/20 rounded-[6px] py-2 px-4 mt-4"
-              onPress={() => router.push('/contact')}
-            >
-              <View className="flex flex-row items-center justify-center gap-3">
-                <Text className="font-helvetica font-bold text-[18px] leading-[36px] text-[#C10016]">
-                  Contact Sales
-                </Text>
-                <View className="w-3 h-3">
-                  <Image source={require('../public/arrow-dark.svg')} className="w-full h-full" resizeMode="contain" />
-                </View>
-              </View>
-            </TouchableOpacity>
-          </View>
-
-          {/* Middle Card - Next Day Shipping (Most Popular) */}
-          <View className="w-full max-w-[500px] lg:w-[500px] bg-white border border-[#D9D9D9] rounded-[24px] lg:rounded-b-none lg:rounded-t-[24px] relative z-10 shadow-lg lg:shadow-none" style={{ marginTop: isDesktop ? -48 : 0 }}>
-            {/* Most Popular Badge */}
-            <View className="absolute top-8 right-8 bg-[#C10016]/10 rounded-[120px] px-6 py-2">
-              <Text className="font-helvetica font-medium text-[16px] leading-[40px] text-[#C10016]">
-                Most Popular
-              </Text>
-            </View>
-            
-            <View className="p-8">
-              {/* Title */}
-              <Text className="font-helvetica font-medium text-[24px] leading-[74px] tracking-tight text-[#C10016] mb-4">
-                Next Day Shipping
-              </Text>
-              
-              {/* Description */}
-              <Text className="font-helvetica font-normal text-[16px] leading-[26px] text-black opacity-60 mb-8">
-                We offer next day shipping for all orders placed before 3pm.
-              </Text>
-              
-              {/* Price */}
-              <View className="flex flex-row items-baseline gap-2 mb-8">
-                <Text className="font-helvetica font-normal text-[14px] leading-[26px] text-black opacity-60">
-                  *from
-                </Text>
-                <Text className="font-helvetica font-medium text-[28px] leading-[74px] tracking-tight text-black">
-                  £2.18
-                </Text>
-                <Text className="font-helvetica font-normal text-[14px] leading-[26px] text-black opacity-60">
-                  /shipment
-                </Text>
-              </View>
-              
-              {/* Features List */}
-              <View className="gap-4 mb-8">
-                {[
-                  'Fully Tracked',
-                  'Next Day Delivery',
-                  'Small to Large Parcels',
-                  'International Shipping Available',
-                  'Insured Parcels'
-                ].map((feature, i) => (
-                  <View key={i} className="flex flex-row items-center gap-3">
-                    <View className="w-4 h-4">
-                      <Image source={require('../public/check.svg')} className="w-full h-full" resizeMode="contain" />
-                    </View>  
-                    <Text className="font-helvetica font-normal text-[14px] leading-[26px] text-black opacity-60">
-                      {feature}
+          {/* Sidebar (Left Column) */}
+          <View className="w-full lg:w-[350px] flex flex-col gap-3">
+            {pricingItems.map((item, i) => {
+              const isActive = i === activePricingIndex;
+              return (
+                <TouchableOpacity
+                  key={i}
+                  onPress={() => activatePricing(i)}
+                  className={`w-full flex-row items-center gap-4 rounded-xl border px-5 py-4 text-left transition ${
+                    isActive ? "bg-[#C10016]/10 border-[#C10016]" : "bg-white border-[#D9D9D9]"
+                  }`}
+                >
+                  <Image source={{ uri: item.logo }} className="w-10 h-10" resizeMode="contain" />
+                  <View className="flex-1">
+                    <Text className={`font-helvetica font-medium text-[20px] ${isActive ? "text-[#C10016]" : "text-black"}`}>
+                      {item.title.join(' ')}
                     </Text>
                   </View>
-                ))}
-              </View>
-              
-              {/* Contact Button */}
-              <TouchableOpacity 
-                className="bg-[#C10016] rounded-[6px] py-2 px-4 mt-16" 
-                onPress={() => router.push('/contact')}
-              >
-                <View className="flex flex-row items-center justify-center gap-3">
-                  <Text className="font-helvetica font-bold text-[18px] leading-[36px] text-white">
-                    Contact Sales
-                  </Text>
-                  <View className="w-3 h-3">
-                    <Image source={require('../public/arrow.svg')} className="w-full h-full" resizeMode="contain" />
-                  </View>
-                </View>
-              </TouchableOpacity>
-            </View>
+                  <Image
+                    source={require('../public/arrow-dark.svg')}
+                    className={`w-5 h-5 opacity-70 ${isActive ? "opacity-100" : ""}`}
+                    resizeMode="contain"
+                  />
+                </TouchableOpacity>
+              );
+            })}
           </View>
 
-          {/* Right Card - Storage */}
-          <View className="w-full max-w-[500px] lg:w-[496px] bg-white border border-[#D9D9D9] lg:border-l-0 rounded-[24px] lg:rounded-l-none lg:rounded-r-[24px] p-8">
-            {/* Title */}
-            <Text className="font-helvetica font-medium text-[24px] leading-[74px] tracking-tight text-black mb-4">
-              Storage
-            </Text>
-            
-            {/* Description */}
-            <Text className="font-helvetica font-normal text-[16px] leading-[26px] text-black opacity-60 mb-8">
-              Affordable storage scalable for your needs.
-            </Text>
-            
-            {/* Price */}
-            <View className="flex flex-row items-baseline gap-2 mb-8">
-                <Text className="font-helvetica font-normal text-[14px] leading-[26px] text-black opacity-60">
-                *from
-              </Text>
-              <Text className="font-helvetica font-medium text-[28px] leading-[74px] tracking-tight text-black">
-                £0.28
-              </Text>
-              <Text className="font-helvetica font-normal text-[14px] leading-[26px] text-black opacity-60">
-                /0.20 per location
-              </Text>
-            </View>
-            
-            {/* Features List */}
-            <View className="gap-4 mb-8">
-              {[
-                'Secure Warehousing',
-                'Flexible Storage Options',
-                'Short & Long Term Storage',
-                'Pallet Storage',
-                'Inventory Management'
-              ].map((feature, i) => (
-                <View key={i} className="flex flex-row items-center gap-3">
-                  <View className="w-4 h-4">
-                    <Image source={require('../public/check.svg')} className="w-full h-full" resizeMode="contain" />
-                  </View>  
-                  <Text className="font-helvetica font-normal text-[14px] leading-[26px] text-black opacity-60">
-                    {feature}
+          {/* Active Content (Right Column) */}
+          <View className="flex-1">
+            <View className="relative w-full min-h-[500px] lg:h-full rounded-2xl overflow-hidden border border-[#D9D9D9] bg-white">
+               {/* Background Image - Prev */}
+               {pricingPrevIndex !== null && (
+                  <Image
+                    source={{ uri: pricingItems[pricingPrevIndex]?.img }}
+                    className="absolute inset-0 w-full h-full"
+                    resizeMode="cover"
+                  />
+                )}
+               {/* Background Image - Current */}
+               <Image 
+                source={{ uri: pricingItems[activePricingIndex].img }}
+                className="absolute inset-0 w-full h-full z-10"
+                resizeMode="cover"
+               />
+               
+               {/* Overlay */}
+               <View className="absolute inset-0 bg-black/60 z-20" /> 
+
+               {/* Badge */}
+               {pricingItems[activePricingIndex].badge && (
+                  <View className="absolute top-6 right-6 z-40 bg-[#C10016] px-4 py-2 rounded-full">
+                    <Text className="text-white font-helvetica font-bold text-xs uppercase tracking-wider">
+                      {pricingItems[activePricingIndex].badge}
+                    </Text>
+                  </View>
+               )}
+
+               {/* Content */}
+               <View className="relative z-30 h-full flex flex-col justify-end p-8">
+                  <Text className="text-white font-helvetica font-bold text-3xl lg:text-4xl mb-4">
+                    {pricingItems[activePricingIndex].title.join(' ')}
                   </Text>
-                </View>
-              ))}
+                  <Text className="text-white/80 font-helvetica text-lg mb-6 max-w-[600px]">
+                    {pricingItems[activePricingIndex].description}
+                  </Text>
+
+                  {/* Price */}
+                  <View className="flex flex-row items-baseline gap-2 mb-6">
+                    <Text className="text-white/60 font-helvetica text-sm">{pricingItems[activePricingIndex].pricePrefix}</Text>
+                    <Text className="text-white font-helvetica font-bold text-4xl">{pricingItems[activePricingIndex].price}</Text>
+                    <Text className="text-white/60 font-helvetica text-sm">{pricingItems[activePricingIndex].priceUnit}</Text>
+                  </View>
+
+                  {/* Features */}
+                  <View className="gap-3 mb-8">
+                    {pricingItems[activePricingIndex].features.map((feature, i) => (
+                      <View key={i} className="flex-row items-center gap-3">
+                        <View className="w-4 h-4">
+                           <Image source={require('../public/checkw.svg')} className="w-full h-full" resizeMode="contain" />
+                        </View>
+                        <Text className="text-white font-helvetica text-base">{feature}</Text>
+                      </View>
+                    ))}
+                  </View>
+
+                  {/* Contact Button */}
+                  <TouchableOpacity 
+                    onPress={() => router.push('/contact')}
+                    className="bg-[#C10016] py-3 px-6 rounded-md self-start flex-row items-center gap-3"
+                  >
+                    <Text className="text-white font-helvetica font-bold text-lg">Contact Sales</Text>
+                    <View className="w-3 h-3">
+                      <Image source={require('../public/arrow.svg')} className="w-full h-full" resizeMode="contain" />
+                    </View>
+                  </TouchableOpacity>
+               </View>
             </View>
-            
-            {/* Contact Button */}
-            <TouchableOpacity 
-              className="border border-[#C10016]/20 rounded-[6px] py-2 px-4 mt-4"
-              onPress={() => router.push('/contact')}
-            >
-              <View className="flex flex-row items-center justify-center gap-3">
-                <Text className="font-helvetica font-bold text-[18px] leading-[36px] text-[#C10016]">
-                  Contact Sales
-                </Text>
-                <View className="w-3 h-3">
-                  <Image source={require('../public/arrow-dark.svg')} className="w-full h-full" resizeMode="contain" />
-                </View>
-              </View>
-            </TouchableOpacity>
           </View>
         </View>
       </View>
@@ -513,7 +494,10 @@ export default function LuxuryScreen() {
     </View>
 
         {/* Shipping Calculator Section */}
-        <View className="relative w-full min-h-[900px] py-20 overflow-visible">
+        <View 
+          className="relative w-full py-20 lg:py-32"
+          style={{ zIndex: isDropdownOpen ? 50 : 1 }}
+        >
           {/* Background Gradient */}
           <View className="absolute inset-0">
              <Image 
@@ -524,15 +508,14 @@ export default function LuxuryScreen() {
           </View>
           
           {/* Content Container */}
-          <View className="relative z-10 max-w-[1500px] mx-auto px-4 lg:px-8 h-full flex items-center">
-            <View className="flex flex-col lg:flex-row gap-12 lg:gap-20 w-full items-center">
+          <View className="relative z-10 max-w-[1400px] mx-auto px-4 lg:px-8 h-full flex items-center justify-center">
+            <View className="flex flex-col lg:flex-row gap-12 lg:gap-16 w-full items-center lg:items-start justify-center">
 
               {/* LEFT COLUMN */}
               <View
-                className="flex-1 w-full lg:w-auto items-center lg:items-start"
+                className="flex-1 w-full max-w-[600px] lg:max-w-none items-center lg:items-start"
                 style={{
                   zIndex: isDropdownOpen ? 50 : 20,
-                  transform: isDesktop ? [{ translateX: -80 }, { translateY: 48 }] : [],
                 }}
               >
                 <Text className="font-helvetica font-bold text-4xl lg:text-[60px] leading-tight lg:leading-[74px] text-white mb-8 text-center lg:text-left">
@@ -540,9 +523,9 @@ export default function LuxuryScreen() {
                 </Text>
                 
                 {/* Package Weight Section */}
-                <View className="mb-16 mt-12 w-full max-w-[600px]">
+                <View className="mb-16 mt-6 lg:mt-12 w-full max-w-[600px]">
                   <View className="flex flex-row items-center justify-between w-full mb-4">
-                    <Text className="font-helvetica font-bold text-[22px] leading-[44px] text-white">
+                    <Text className="font-helvetica font-bold text-[20px] lg:text-[22px] leading-[44px] text-white">
                       Package Weight
                     </Text>
                     
@@ -556,10 +539,10 @@ export default function LuxuryScreen() {
                     </View>
                   </View>
                   
-                  <View className="w-full" style={{ width: sliderWidth }}>
+                  <View className="w-full" style={{ width: '100%' }}>
                     <View className="justify-center" style={{ height: 40 }}>
                       <Slider
-                        style={{ width: sliderWidth, height: 40 }}
+                        style={{ width: '100%', height: 40 }}
                         minimumValue={sliderMinWeight}
                         maximumValue={sliderMaxWeight}
                         value={weight}
@@ -576,23 +559,23 @@ export default function LuxuryScreen() {
                     </View>
                     
                     <View className="flex flex-row justify-between mt-4">
-                      <Text className="font-helvetica font-normal text-[18px] leading-[44px] text-white">
+                      <Text className="font-helvetica font-normal text-[16px] lg:text-[18px] leading-[44px] text-white">
                         {sliderMinWeight} kg
                       </Text>
-                      <Text className="font-helvetica font-normal text-[18px] leading-[44px] text-white">
+                      <Text className="font-helvetica font-normal text-[16px] lg:text-[18px] leading-[44px] text-white">
                         {sliderMaxWeight} kg
                       </Text>
                     </View>
                   </View>
                   
-                  <Text className="font-helvetica font-normal text-[18px] leading-[44px] text-white/50">
+                  <Text className="font-helvetica font-normal text-[16px] lg:text-[18px] leading-[32px] lg:leading-[44px] text-white/50">
                     Select the weight of the package in kilograms.
                   </Text>
                 </View>
 
                 {/* Destination Country Section */}
-                <View className="mt-12 w-full max-w-[600px]">
-                  <Text className="font-helvetica font-bold text-[22px] leading-[44px] text-white mb-4">
+                <View className="mt-4 lg:mt-12 w-full max-w-[600px]">
+                  <Text className="font-helvetica font-bold text-[20px] lg:text-[22px] leading-[44px] text-white mb-4">
                     Destination Country
                   </Text>
                   
@@ -614,7 +597,7 @@ export default function LuxuryScreen() {
                     {/* Dropdown Options */}
                     {isDropdownOpen && (
                       <View
-                        className="absolute top-full left-0 w-full bg-white border border-gray-200 rounded-[8px] mt-1 shadow-lg"
+                        className="absolute top-full left-0 w-full bg-white border border-gray-200 rounded-[8px] mt-1 shadow-lg max-h-[320px] overflow-hidden"
                         style={{ zIndex: 9999, elevation: 40 }}
                       >
                         <View className="px-3 py-2 border-b border-gray-100">
@@ -630,7 +613,7 @@ export default function LuxuryScreen() {
                         </View>
                         <FlatList
                           keyboardShouldPersistTaps="handled"
-                          style={{ maxHeight: 240 }}
+                          className="max-h-[240px]"
                           data={
                             filteredDestinations.length
                               ? filteredDestinations
@@ -683,7 +666,7 @@ export default function LuxuryScreen() {
                     </Text>
                   )}
                   {!ratesLoadError && (
-                    <Text className="font-helvetica font-normal text-[18px] leading-[44px] text-white/50">
+                    <Text className="font-helvetica font-normal text-[16px] lg:text-[18px] leading-[32px] lg:leading-[44px] text-white/50">
                       Select the country to which you want to ship the package
                     </Text>
                   )}
@@ -692,35 +675,35 @@ export default function LuxuryScreen() {
 
               {/* RIGHT COLUMN */}
               <View
-                className="flex-none w-full lg:w-auto flex justify-center items-center"
-                style={{ zIndex: 10, transform: isDesktop ? [{ translateX: 80 }] : [] }}
+                className="flex-none w-full lg:w-1/2 lg:max-w-[600px] flex justify-center items-center"
+                style={{ zIndex: 10 }}
               >
-                <View className="w-full max-w-[680px] lg:w-[680px] h-auto lg:h-[490px] bg-white rounded-[24px] shadow-lg p-8 lg:p-12">
-                  <Text className="font-helvetica font-bold text-[24px] leading-[44px] text-black justify-start mb-6">
+                <View className="w-full bg-white rounded-[24px] shadow-lg p-6 lg:p-12">
+                  <Text className="font-helvetica font-bold text-[20px] lg:text-[24px] leading-[32px] lg:leading-[44px] text-black justify-start mb-4 lg:mb-6">
                     Shipping Cost
                   </Text>
                   
-                  <Text className="font-helvetica font-bold text-[64px] leading-[44px] text-[#C10016] justify-start mb-4">
+                  <Text className="font-helvetica font-bold text-[48px] lg:text-[64px] leading-[1.2] text-[#C10016] justify-start mb-4">
                     {formatPrice(shippingCost)}
                   </Text>
                   
-                  <Text className="font-helvetica font-normal text-[18px] leading-[44px] text-black opacity-50 justify-start mb-10">
+                  <Text className="font-helvetica font-normal text-[16px] lg:text-[18px] leading-[28px] lg:leading-[44px] text-black opacity-50 justify-start mb-8 lg:mb-10">
                     Estimated shipping cost based on weight and destination country.
                   </Text>
                   
-                  <Text className="font-helvetica font-bold text-[24px] leading-[44px] text-black justify-start">
+                  <Text className="font-helvetica font-bold text-[20px] lg:text-[24px] leading-[32px] lg:leading-[44px] text-black justify-start mb-2">
                     Get your Package on its Way!
                   </Text>
                   
-                  <Text className="font-helvetica font-normal text-[18px] leading-[44px] text-black opacity-50 justify-start mb-10">
+                  <Text className="font-helvetica font-normal text-[16px] lg:text-[18px] leading-[28px] lg:leading-[44px] text-black opacity-50 justify-start mb-8 lg:mb-10">
                     Ready to ship? Complete your order by confirming the details.
                   </Text>
                   
                   <TouchableOpacity 
-                    className="w-[260px] h-[60px] bg-[#C10016] rounded-[6px] flex flex-row items-center justify-center gap-[10px] mx-auto"
+                    className="w-full sm:w-[260px] h-[54px] lg:h-[60px] bg-[#C10016] rounded-[6px] flex flex-row items-center justify-center gap-[10px] mx-auto"
                     activeOpacity={0.8}
                   >
-                    <Text className="font-helvetica font-bold text-[18px] leading-[36px] text-white">
+                    <Text className="font-helvetica font-bold text-[16px] lg:text-[18px] leading-[36px] text-white">
                       Proceed to Checkout
                     </Text>
                     <View className="w-3 h-3">
