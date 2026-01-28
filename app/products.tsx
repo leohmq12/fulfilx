@@ -282,7 +282,10 @@ export default function ProductsScreen() {
                 Exceptional Quality Service
               </Text>
 
-              <TouchableOpacity className="border border-white rounded-[6px] flex-row items-center justify-center gap-[10px] px-8 py-4">
+              <TouchableOpacity 
+                onPress={() => router.push('/contact')}
+                className="border border-white rounded-[6px] flex-row items-center justify-center gap-[10px] px-8 py-4"
+              >
                 <Text className="text-white font-bold text-[18px] leading-[36px]">Let&apos;s Talk</Text>
                 <Image source={require('../public/arrow.svg')} className="w-4 h-4" resizeMode="contain" style={{ tintColor: 'white' }} />
               </TouchableOpacity>

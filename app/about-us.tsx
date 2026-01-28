@@ -1,10 +1,11 @@
 import Footer from '@/components/layout/footer';
 import Navbar from '@/components/layout/navbar';
-import { Stack } from 'expo-router';
+import { Stack, useRouter } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
 import { ScrollView, Text, TouchableOpacity, useWindowDimensions, View } from 'react-native';
 
 export default function AboutUsScreen(){
+    const router = useRouter();
     const [currentSlide, setCurrentSlide] = useState(0);
     const [isPaused, setIsPaused] = useState(false);
     const carouselRef = useRef<HTMLDivElement>(null);

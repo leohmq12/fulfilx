@@ -18,8 +18,57 @@ const defaultMarkerPositions: Record<string, { x: number; y: number }> = {
 
 
 
+const Typewriter = ({ text, speed = 50, start = false, onComplete }: { text: string, speed?: number, start?: boolean, onComplete?: () => void }) => {
+  const [displayedText, setDisplayedText] = useState('');
+  const onCompleteRef = useRef(onComplete);
+
+  useEffect(() => {
+    onCompleteRef.current = onComplete;
+  }, [onComplete]);
+
+  useEffect(() => {
+    if (!start) {
+      setDisplayedText('');
+      return;
+    }
+    
+    let i = 0;
+    const timer = setInterval(() => {
+      if (i < text.length) {
+        setDisplayedText(text.substring(0, i + 1));
+        i++;
+      } else {
+        clearInterval(timer);
+        if (onCompleteRef.current) onCompleteRef.current();
+      }
+    }, speed);
+
+    return () => clearInterval(timer);
+  }, [start, text, speed]);
+
+  return <span>{displayedText}</span>;
+};
+
 const Home: React.FC = () => {
 const router = useRouter();
+const [startTyping, setStartTyping] = useState(false);
+const [firstLineDone, setFirstLineDone] = useState(false);
+const chatSectionRef = useRef<HTMLDivElement>(null);
+
+useEffect(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      if (entries[0].isIntersecting) {
+        setStartTyping(true);
+        observer.disconnect();
+      }
+    },
+    { threshold: 0.3 }
+  );
+  if (chatSectionRef.current) observer.observe(chatSectionRef.current);
+  return () => observer.disconnect();
+}, []);
+
 const [currentSlide, setCurrentSlide] = useState(0);
 const carouselRef = useRef<HTMLDivElement>(null);
 const mapOverlayRef = useRef<HTMLDivElement>(null);
@@ -637,14 +686,14 @@ focus on growing.    </p>
   >
   </div>
 
-  <div className="relative z-10 w-full px-4 md:px-6 lg:px-8 2xl:px-16 py-16 lg:py-24">
+  <div ref={chatSectionRef} className="relative z-10 w-full px-4 md:px-6 lg:px-8 2xl:px-16 py-16 lg:py-24">
     <div className="flex flex-col items-center text-center">
-      <h1 className="font-bold text-4xl lg:text-[74px] leading-tight lg:leading-[80px] tracking-tight text-white">
-        Ready to have a Chat?
+      <h1 className="font-bold text-4xl lg:text-[74px] leading-tight lg:leading-[80px] tracking-tight text-white min-h-[48px] lg:min-h-[80px]">
+        <Typewriter text="Ready to have a Chat?" start={startTyping} onComplete={() => setFirstLineDone(true)} speed={70} />
       </h1>
 
-      <p className="font-normal text-xl lg:text-[28px] leading-relaxed lg:leading-[44px] text-white mt-6">
-        Do not hesitate to say Nǐn hǎo
+      <p className="font-normal text-xl lg:text-[28px] leading-relaxed lg:leading-[44px] text-white mt-6 min-h-[28px] lg:min-h-[44px]">
+        <Typewriter text="Do not hesitate to say Nǐn hǎo" start={firstLineDone} speed={50} />
       </p>
 
       <button 

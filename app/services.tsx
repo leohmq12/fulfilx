@@ -1316,7 +1316,10 @@ export default function ServicesScreen(){
         </p>
 
         {/* CTA Button - Centered */}
-        <button className="border border-white rounded-[6px] flex items-center justify-center gap-[10px] px-8 py-4 transition-colors duration-300 mx-auto">
+        <button 
+          onClick={() => router.push('/contact')}
+          className="border border-white rounded-[6px] flex items-center justify-center gap-[10px] px-8 py-4 transition-colors duration-300 mx-auto cursor-pointer hover:bg-white/10"
+        >
           <span className="text-white font-bold text-[18px] leading-[36px]">Let&apos;s Talk</span>
           <img src="/arrow.svg" alt="arrow" className="w-4 h-4 object-contain" />
         </button>
