@@ -1,8 +1,69 @@
 import { Link } from 'expo-router';
 import React, { useState } from 'react';
 
+function isValidEmail(email: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
 const Footer = () => {
   const [agreedToPolicy, setAgreedToPolicy] = useState(false);
+  const [newsletterEmail, setNewsletterEmail] = useState('');
+  const [newsletterStatus, setNewsletterStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [newsletterMessage, setNewsletterMessage] = useState('');
+
+  const submitNewsletter = async () => {
+    if (newsletterStatus === 'loading') return;
+
+    const email = newsletterEmail.trim();
+    if (!email) {
+      setNewsletterStatus('error');
+      setNewsletterMessage('Please enter your email.');
+      return;
+    }
+    if (!isValidEmail(email)) {
+      setNewsletterStatus('error');
+      setNewsletterMessage('Please enter a valid email.');
+      return;
+    }
+    if (!agreedToPolicy) {
+      setNewsletterStatus('error');
+      setNewsletterMessage('Please agree to the privacy policy.');
+      return;
+    }
+
+    setNewsletterStatus('loading');
+    setNewsletterMessage('');
+    try {
+      const res = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          name: '',
+          source: 'footer',
+        }),
+      });
+
+      if (!res.ok) {
+        const text = await res.text().catch(() => '');
+        throw new Error(text || `Request failed (${res.status})`);
+      }
+
+      const json = (await res.json().catch(() => null)) as null | { ok?: boolean; error?: string };
+      if (!json?.ok) {
+        throw new Error(json?.error || 'Request failed');
+      }
+
+      setNewsletterStatus('success');
+      setNewsletterMessage('You are subscribed successfully.');
+      setNewsletterEmail('');
+    } catch {
+      setNewsletterStatus('error');
+      setNewsletterMessage('Something went wrong. Please try again.');
+    }
+  };
 
   return (
 <footer className="w-full relative min-h-[400px]" style={{ backgroundImage: "url(/footerbg.webp)", backgroundSize: "cover", backgroundRepeat: "no-repeat" }}>
@@ -25,11 +86,27 @@ const Footer = () => {
             className="bg-transparent text-white font-normal placeholder-white/40 outline-none flex-1"
             type="email"
             placeholder="Enter your email"
+            value={newsletterEmail}
+            onChange={(e) => setNewsletterEmail(e.target.value)}
+            disabled={newsletterStatus === 'loading'}
           />
-          <div className="h-6 w-6 rounded flex items-center justify-center cursor-pointer">
+          <button
+            type="button"
+            className="h-6 w-6 rounded flex items-center justify-center cursor-pointer disabled:opacity-50"
+            onClick={submitNewsletter}
+            disabled={newsletterStatus === 'loading'}
+            aria-label="Subscribe"
+          >
             <img src="/sub.svg" alt="plane" className='w-6 h-6 object-contain' />
-          </div>
+          </button>
         </div>
+        {newsletterMessage ? (
+          <p
+            className={`text-sm ${newsletterStatus === 'success' ? 'text-green-200' : 'text-red-200'}`}
+          >
+            {newsletterMessage}
+          </p>
+        ) : null}
 
         <label 
           className="flex items-center gap-3 mt-3 cursor-pointer"
