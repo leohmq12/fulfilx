@@ -10,7 +10,7 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": false,
     "web": {
-      "output": "static",
+      "output": "server",
       "favicon": "./expo-assets/images/favicon.png"
     },
     "plugins": [
