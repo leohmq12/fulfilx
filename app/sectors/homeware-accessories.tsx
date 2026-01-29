@@ -125,7 +125,7 @@ export default function HomewareScreen() {
                       Specialist Handling & Presentation-Focused Packaging:
                     </Text>
                     <Text className="font-helvetica font-normal text-base lg:text-[20px] lg:leading-[40px] text-black">
-                      From hand-blown glass and fragile ceramics to heavy candles and soft furnishings, every item is processed with expertise and respect. FULFIL.X specialises in careful picking, protective packing, and elegant gift boxing, utilising materials that ensure safety without sacrificing the premium unboxing moment. We ensure your brand's attention to detail is evident from the very first glance.
+                      From hand-blown glass and fragile ceramics to heavy candles and soft furnishings, every item is processed with expertise and respect. FULFIL.X specialises in careful picking, protective packing, and elegant gift boxing, utilising materials that ensure safety without sacrificing the premium unboxing moment. We ensure your brand&apos;s attention to detail is evident from the very first glance.
                     </Text>
                   </View>
                 </View>
@@ -153,7 +153,7 @@ export default function HomewareScreen() {
         <View className="bg-white py-16 lg:py-24">
           <View className="max-w-[1000px] mx-auto px-4 text-center">
             <Text className="font-helvetica font-medium text-2xl lg:text-[32px] lg:leading-[52px] text-black text-center">
-              With FULFIL.X, homeware and accessories fulfillment transforms from an operational task into a brand-enhancing experience, delivering elegance and reliability from our warehouse to your customer's door.
+              With FULFIL.X, homeware and accessories fulfillment transforms from an operational task into a brand-enhancing experience, delivering elegance and reliability from our warehouse to your customer&apos;s door.
             </Text>
           </View>
         </View>

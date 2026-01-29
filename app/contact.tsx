@@ -5,6 +5,9 @@ import { Stack, useRouter } from 'expo-router';
 import { useState } from 'react';
 import { ScrollView, Text, useWindowDimensions, View } from 'react-native';
   
+const CONTACT_ENDPOINT =
+  process.env.NODE_ENV === 'development' ? '/api/contact' : '/api/contact.php';
+
 
 function isValidEmail(email: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -74,7 +77,7 @@ export default function ContactScreen() {
     setSubmitStatus('loading');
     setSubmitMessage('');
     try {
-      const res = await fetch('/api/contact', {
+      const res = await fetch(CONTACT_ENDPOINT, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

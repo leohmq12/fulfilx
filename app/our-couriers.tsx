@@ -9,22 +9,28 @@ export default function OurCouriersScreen() {
     const router = useRouter();
 
     const row1Logos = [
-        { src: "/amazon.webp", alt: "" },
-        { src: "/shopify.webp", alt: "" },
-        { src: "/woo.webp", alt: "" }
+        { src: "/couriers/logos%20%20amazon.webp", alt: "Amazon" },
+        { src: "/couriers/logos%20%20dhl.webp", alt: "DHL" },
+        { src: "/couriers/logos%20%20dpd.webp", alt: "DPD" },
+        { src: "/couriers/logos%20%20evri.webp", alt: "Evri" },
+        { src: "/couriers/logos%20%20Royal%20mail.webp", alt: "Royal Mail" },
+        
     ];
 
     const row2Logos = [
-        { src: "/ebay.webp", alt: "" },
-        { src: "/dpd.webp", alt: "" },
-        { src: "/onbuy.webp", alt: "Etsy" },
-        { src: "/magento.webp", alt: "" }
+        { src: "/couriers/logos%20anpost.webp", alt: "An Post" },
+        { src: "/couriers/logos%20emx.webp", alt: "EMX" },
+        { src: "/couriers/logos%20fedex.webp", alt: "FedEx" },
+        { src: "/couriers/logos%20inpost.webp", alt: "InPost" },
+        { src: "/couriers/logos%20postnl.webp", alt: "PostNL" },
     ];
 
     const row3Logos = [
-        { src: "/tiktok.webp", alt: "Logo and Font" },
-        { src: "/shipstation.webp", alt: "Nicpic" },
-        { src: "/etsy.webp", alt: "Opulensi Luxury" },
+        { src: "/couriers/logos%20%20pro%20carrier.webp", alt: "Pro Carrier" },
+        { src: "/couriers/logos%20samos.webp", alt: "Samos" },
+        { src: "/couriers/logos%20ups.webp", alt: "UPS" },
+        { src: "/couriers/logos%20xpress.webp", alt: "Xpress" },
+        { src: "/couriers/logos%20%20yodel.webp", alt: "Yodel" },
     ];
 
     return (
@@ -117,12 +123,12 @@ export default function OurCouriersScreen() {
                             <div className="mt-20 slider-container overflow-hidden">
                                 <div className="flex animate-infinite-scroll">
                                     {[...row1Logos, ...row1Logos].map((logo, index) => (
-                                        <div key={index} className="group relative flex-shrink-0 mx-16">
+                                        <div key={index} className="group relative flex-shrink-0 mx-12">
                                             <div className="w-[240px] h-[100px] rounded-lg flex items-center justify-center transition-all duration-300 hover:bg-transparent hover:scale-105">
                                                 <img 
                                                     src={logo.src}
                                                     alt={logo.alt}
-                                                    className="h-16 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                                                    className="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
                                                 />
                                             </div>
                                         </div>
@@ -134,12 +140,12 @@ export default function OurCouriersScreen() {
                             <div className="mt-12 slider-container overflow-hidden">
                                 <div className="flex animate-infinite-scroll-reverse">
                                     {[...row2Logos, ...row2Logos].map((logo, index) => (
-                                        <div key={index} className="group relative flex-shrink-0 mx-16">
-                                            <div className="w-[200px] h-[80px] rounded-lg flex items-center justify-center backdrop-blur-sm transition-all duration-300 hover:bg-transparent hover:scale-105">
+                                        <div key={index} className="group relative flex-shrink-0 mx-12">
+                                            <div className="w-[300px] h-[130px] rounded-lg flex items-center justify-center backdrop-blur-sm transition-all duration-300 hover:bg-transparent hover:scale-105">
                                                 <img 
                                                     src={logo.src}
                                                     alt={logo.alt}
-                                                    className="h-14 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                                                    className="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
                                                 />
                                             </div>
                                         </div>
@@ -151,12 +157,12 @@ export default function OurCouriersScreen() {
                             <div className="mt-12 slider-container overflow-hidden">
                                 <div className="flex animate-infinite-scroll">
                                     {[...row3Logos, ...row3Logos].map((logo, index) => (
-                                        <div key={index} className="group relative flex-shrink-0 mx-16">
-                                            <div className="w-[240px] h-[100px] rounded-lg flex items-center justify-center backdrop-blur-sm transition-all duration-300 hover:bg-transparent hover:scale-105">
+                                        <div key={index} className="group relative flex-shrink-0 mx-12">
+                                            <div className="w-[340px] h-[150px] rounded-lg flex items-center justify-center backdrop-blur-sm transition-all duration-300 hover:bg-transparent hover:scale-105">
                                                 <img 
                                                     src={logo.src}
                                                     alt={logo.alt}
-                                                    className="h-16 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                                                    className="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
                                                 />
                                             </div>
                                         </div>

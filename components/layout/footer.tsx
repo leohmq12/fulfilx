@@ -1,6 +1,9 @@
 import { Link } from 'expo-router';
 import React, { useState } from 'react';
 
+const NEWSLETTER_ENDPOINT =
+  process.env.NODE_ENV === 'development' ? '/api/newsletter' : '/api/newsletter.php';
+
 function isValidEmail(email: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
@@ -34,7 +37,7 @@ const Footer = () => {
     setNewsletterStatus('loading');
     setNewsletterMessage('');
     try {
-      const res = await fetch('/api/newsletter', {
+      const res = await fetch(NEWSLETTER_ENDPOINT, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
