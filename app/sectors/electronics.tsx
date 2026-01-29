@@ -5,7 +5,7 @@ import AwardsAccreditations from "../../components/layout/awards-accreditations"
 import Footer from "../../components/layout/footer";
 import Navbar from "../../components/layout/navbar";
 
-export default function LuxuryFulfilmentScreen() {
+export default function ElectronicsScreen() {
   const { width } = useWindowDimensions();
   const isMobile = width < 1024;
   const router = useRouter();
@@ -31,7 +31,7 @@ export default function LuxuryFulfilmentScreen() {
           <View className="relative z-10 min-h-[60vh] lg:min-h-screen flex items-center justify-center pb-20">
             {/* Main Title */}
             <Text className="font-helvetica font-bold text-4xl lg:text-[84px] leading-tight lg:leading-[84px] text-black text-center mb-8">
-              Luxury Fulfilment
+              Electronics
             </Text>
             
             {/* Breadcrumb Navigation */}
@@ -41,7 +41,7 @@ export default function LuxuryFulfilmentScreen() {
               </Text>
               <View className="w-1 h-1 bg-[#C10016] rounded-full mx-4" />
               <Text className="font-helvetica font-medium text-base lg:text-[20px] leading-[40px] text-[#C10016]">
-                Luxury Fulfilment
+                Electronics
               </Text>
             </View>
           </View>
@@ -54,22 +54,22 @@ export default function LuxuryFulfilmentScreen() {
               {/* Left Column - Main Text */}
               <View className="flex-1">
                 <Text className="font-helvetica font-bold text-3xl lg:text-[54px] lg:leading-[68px] tracking-tight text-black mb-8">
-                  Mastering Luxury Logistics with FULFILX. <Text className="text-[#C10016]">Exclusivity, Excellence, Experience.</Text>
+                  Mastering Electronics Fulfilment with FULFILX. <Text className="text-[#C10016]">Precision, Protection, Performance.</Text>
                 </Text>
                 
                 <Text className="font-helvetica font-normal text-lg lg:text-[22px] lg:leading-[44px] text-black mb-8">
-                  In the world of luxury goods, where value is defined as much by experience as by the product itself, specialist fulfillment is essential. FULFIL.X is a leading provider in luxury fulfillment, delivering services designed to protect brand integrity at every touchpoint. We understand that luxury brands demand absolute consistency—from the moment an order is placed to the final unboxing.
+                  FULFIL.X provides the essential fulfilment partnership for electronics brands, where product integrity, customer trust, and flawless delivery are fundamental to commercial success. We deliver precision-engineered logistics solutions designed to secure sensitive inventory and uphold brand reputation.
                 </Text>
 
                 <Text className="font-helvetica font-normal text-lg lg:text-[22px] lg:leading-[44px] text-black mb-8">
-                  This includes the careful handling of VIP orders and PR packages, where precision, presentation, and discretion are paramount. FULFIL.X upholds the same exacting standards across every shipment, supported by a trusted courier network and advanced e-commerce integrations, ensuring your products are delivered with the refinement, reliability, and exclusivity your customers expect.
+                  From consumer electronics and smart devices to high-value components and audio equipment, our operation is built to meet the exacting standards of the sector—including comprehensive anti-static protocols, meticulous protective packaging, and complete serialised traceability. Leveraging advanced warehouse systems, rigorous security, and seamless platform integrations, FULFIL.X ensures your electronics fulfilment is a reliable, scalable, and brand-enhancing component of your operation.
                 </Text>
               </View>
 
               {/* Right Column - Image */}
               <View className="w-full lg:w-[500px] flex-shrink-0">
                 <Image 
-                  source={{ uri: "/lux.webp" }}
+                  source={{ uri: "/laptop.webp" }}
                   className="w-full h-[400px] lg:h-[600px] rounded-[30px]"
                   resizeMode="cover"
                 />
@@ -91,10 +91,10 @@ export default function LuxuryFulfilmentScreen() {
               {/* Left Column - Title */}
               <View className="w-full lg:w-1/3">
                 <Text className="font-helvetica font-bold text-3xl lg:text-[54px] lg:leading-[68px] text-black mb-6">
-                  Bespoke Fulfillment Solutions for <Text className="text-[#C10016]">Luxury Brands</Text>
+                  Bespoke Fulfilment Solutions for <Text className="text-[#C10016]">Electronics Brands</Text>
                 </Text>
                 <Text className="font-helvetica font-normal text-lg lg:text-[20px] lg:leading-[40px] text-black">
-                  FULFIL.X offers tailored fulfillment services built around the specific needs of luxury brands. We recognise that high-value products require white-glove handling, secure storage, and elevated presentation to maintain their desirability and prestige. From standard customer orders to influencer seeding, VIP shipments, and PR mailers, every order receives the same meticulous attention to detail.
+                  FULFIL.X delivers tailored electronics fulfilment services designed to meet the stringent demands of technology and gadget brands. We recognise that electronics require secure handling, comprehensive warranty tracking, and packaging that ensures flawless delivery while reinforcing brand quality.
                 </Text>
               </View>
 
@@ -107,10 +107,10 @@ export default function LuxuryFulfilmentScreen() {
                   </View>
                   <View className="flex-1">
                     <Text className="font-helvetica font-bold text-lg lg:text-[20px] lg:leading-[38px] text-black">
-                      Secure, Climate-Controlled Storage:
+                      Secure, Anti-Static & Climate-Controlled Storage:
                     </Text>
                     <Text className="font-helvetica font-normal text-base lg:text-[20px] lg:leading-[40px] text-black">
-                      Luxury goods often require controlled storage conditions to preserve their quality, materials, and craftsmanship. FULFIL.X provides secure, climate-controlled warehousing that protects your products from environmental exposure, ensuring they remain in impeccable condition until delivery.
+                      Electronic components and devices are sensitive to static, moisture, and temperature fluctuations. FULFIL.X provides secure, climate-controlled warehousing with dedicated anti-static zones to prevent damage and preserve functionality. Our facilities support advanced serial number tracking, batch control, and warranty-life management, ensuring full inventory integrity and compliance.
                     </Text>
                   </View>
                 </View>
@@ -122,25 +122,25 @@ export default function LuxuryFulfilmentScreen() {
                   </View>
                   <View className="flex-1">
                     <Text className="font-helvetica font-bold text-lg lg:text-[20px] lg:leading-[38px] text-black">
-                      White-Glove Handling, Packaging & Personalisation:
+                      Specialist Handling & Protective Packaging:
                     </Text>
                     <Text className="font-helvetica font-normal text-base lg:text-[20px] lg:leading-[40px] text-black">
-                      Every stage of our fulfillment process is managed with precision and care. FULFIL.X delivers white-glove handling alongside premium packaging solutions that reflect the standards of your brand. We also offer personalised touches, including handwritten notes, bespoke inserts, and printed ribbon, allowing each delivery—whether a VIP order or PR package—to feel intentional, exclusive, and on-brand.
+                      From fragile circuit boards to premium consumer electronics, every item is handled with technical care and precision. FULFIL.X specialises in electronics-safe picking, packing, and kitting, utilising anti-static, shock-absorbent, and tamper-evident packaging materials. Whether your product requires discreet security or branded unboxing excellence, we ensure every parcel arrives safely and reinforces your brand’s premium standards.
                     </Text>
                   </View>
                 </View>
 
-                {/* Feature 3 (Added for balance, derived from content) */}
+                {/* Feature 3 */}
                 <View className="flex flex-row items-start gap-4">
                   <View className="w-5 h-5 flex items-center justify-center mt-2 flex-shrink-0">
                     <Image source={{ uri: "/check.svg" }} alt="check" className="w-[19px] h-[16px]" resizeMode="contain"/>
                   </View>
                   <View className="flex-1">
                     <Text className="font-helvetica font-bold text-lg lg:text-[20px] lg:leading-[38px] text-black">
-                      Trusted Network & Global Reach:
+                      Compliance, Traceability & Scalability:
                     </Text>
                     <Text className="font-helvetica font-normal text-base lg:text-[20px] lg:leading-[40px] text-black">
-                      We uphold the same exacting standards across every shipment, supported by a trusted courier network and advanced e-commerce integrations. This ensures your products are delivered globally with the refinement, reliability, and exclusivity your customers expect, maintaining brand integrity across borders.
+                      Electronics fulfilment demands rigorous accuracy and end-to-end traceability. FULFIL.X supports serialised inventory management, regulatory labelling, and secure data handling throughout the supply chain. As your brand innovates and grows, our scalable infrastructure and multi-channel integrations enable seamless expansion into new markets, retail partnerships, and global regions without operational disruption.
                     </Text>
                   </View>
                 </View>
@@ -153,7 +153,7 @@ export default function LuxuryFulfilmentScreen() {
         <View className="bg-white py-16 lg:py-24">
           <View className="max-w-[1000px] mx-auto px-4 text-center">
             <Text className="font-helvetica font-medium text-2xl lg:text-[32px] lg:leading-[52px] text-black text-center">
-              With FULFIL.X, luxury fulfillment becomes a seamless extension of your brand promise—delivering refinement, reliability, and exclusivity from our warehouse to your customer.
+              With FULFIL.X, electronics fulfilment transforms from a logistical task into a brand asset—delivering precision, security, and flawless execution from our warehouse to your customer’s hands.
             </Text>
           </View>
         </View>

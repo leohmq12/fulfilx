@@ -204,7 +204,7 @@ const Footer = () => {
   <Link href="/team#jobs" asChild>
     <a className="block hover:text-[#C10016] transition-colors cursor-pointer">Careers</a>
   </Link>
-    <Link href="/" asChild>
+    <Link href="/our-couriers" asChild>
     <a className="block hover:text-[#C10016] transition-colors cursor-pointer">Our Couriers</a>
   </Link>
 </div>

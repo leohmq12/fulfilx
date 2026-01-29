@@ -1,11 +1,11 @@
+import AwardsAccreditations from "@/components/layout/awards-accreditations";
 import { Stack, useRouter } from "expo-router";
 import React from "react";
 import { Image, ScrollView, Text, useWindowDimensions, View } from "react-native";
-import AwardsAccreditations from "../../components/layout/awards-accreditations";
 import Footer from "../../components/layout/footer";
 import Navbar from "../../components/layout/navbar";
 
-export default function LuxuryFulfilmentScreen() {
+export default function FragrancesScreen() {
   const { width } = useWindowDimensions();
   const isMobile = width < 1024;
   const router = useRouter();
@@ -31,7 +31,7 @@ export default function LuxuryFulfilmentScreen() {
           <View className="relative z-10 min-h-[60vh] lg:min-h-screen flex items-center justify-center pb-20">
             {/* Main Title */}
             <Text className="font-helvetica font-bold text-4xl lg:text-[84px] leading-tight lg:leading-[84px] text-black text-center mb-8">
-              Luxury Fulfilment
+              Fragrances
             </Text>
             
             {/* Breadcrumb Navigation */}
@@ -41,7 +41,7 @@ export default function LuxuryFulfilmentScreen() {
               </Text>
               <View className="w-1 h-1 bg-[#C10016] rounded-full mx-4" />
               <Text className="font-helvetica font-medium text-base lg:text-[20px] leading-[40px] text-[#C10016]">
-                Luxury Fulfilment
+                Fragrances
               </Text>
             </View>
           </View>
@@ -54,22 +54,22 @@ export default function LuxuryFulfilmentScreen() {
               {/* Left Column - Main Text */}
               <View className="flex-1">
                 <Text className="font-helvetica font-bold text-3xl lg:text-[54px] lg:leading-[68px] tracking-tight text-black mb-8">
-                  Mastering Luxury Logistics with FULFILX. <Text className="text-[#C10016]">Exclusivity, Excellence, Experience.</Text>
+                  Mastering Fragrances with FULFILX. <Text className="text-[#C10016]">Elegance, Efficiency, Exclusivity.</Text>
                 </Text>
                 
                 <Text className="font-helvetica font-normal text-lg lg:text-[22px] lg:leading-[44px] text-black mb-8">
-                  In the world of luxury goods, where value is defined as much by experience as by the product itself, specialist fulfillment is essential. FULFIL.X is a leading provider in luxury fulfillment, delivering services designed to protect brand integrity at every touchpoint. We understand that luxury brands demand absolute consistency—from the moment an order is placed to the final unboxing.
+                  In fragrance, every detail matters—from formulation to presentation to final delivery. FULFIL.X specializes in fragrance fulfillment for brands that value precision, protection, and premium customer experience. We understand the challenges of storing and shipping delicate, alcohol-based products and provide compliant, secure solutions that protect both product and brand.
                 </Text>
 
                 <Text className="font-helvetica font-normal text-lg lg:text-[22px] lg:leading-[44px] text-black mb-8">
-                  This includes the careful handling of VIP orders and PR packages, where precision, presentation, and discretion are paramount. FULFIL.X upholds the same exacting standards across every shipment, supported by a trusted courier network and advanced e-commerce integrations, ensuring your products are delivered with the refinement, reliability, and exclusivity your customers expect.
+                  With advanced fulfillment infrastructure and streamlined UK-to-EU shipping capabilities, FULFIL.X enables fragrance brands to deliver with confidence across borders.
                 </Text>
               </View>
 
               {/* Right Column - Image */}
               <View className="w-full lg:w-[500px] flex-shrink-0">
                 <Image 
-                  source={{ uri: "/lux.webp" }}
+                  source={{ uri: "/product-1.webp" }}
                   className="w-full h-[400px] lg:h-[600px] rounded-[30px]"
                   resizeMode="cover"
                 />
@@ -91,10 +91,10 @@ export default function LuxuryFulfilmentScreen() {
               {/* Left Column - Title */}
               <View className="w-full lg:w-1/3">
                 <Text className="font-helvetica font-bold text-3xl lg:text-[54px] lg:leading-[68px] text-black mb-6">
-                  Bespoke Fulfillment Solutions for <Text className="text-[#C10016]">Luxury Brands</Text>
+                  Bespoke Fulfillment Solutions for <Text className="text-[#C10016]">Fragrance Brands</Text>
                 </Text>
                 <Text className="font-helvetica font-normal text-lg lg:text-[20px] lg:leading-[40px] text-black">
-                  FULFIL.X offers tailored fulfillment services built around the specific needs of luxury brands. We recognise that high-value products require white-glove handling, secure storage, and elevated presentation to maintain their desirability and prestige. From standard customer orders to influencer seeding, VIP shipments, and PR mailers, every order receives the same meticulous attention to detail.
+                  FULFIL.X offers tailored fulfillment services designed specifically for fragrance and scent-based brands. We recognize that perfumes and fragrances require specialist handling, compliant documentation, and packaging that protects both the product and the brand experience.
                 </Text>
               </View>
 
@@ -110,7 +110,7 @@ export default function LuxuryFulfilmentScreen() {
                       Secure, Climate-Controlled Storage:
                     </Text>
                     <Text className="font-helvetica font-normal text-base lg:text-[20px] lg:leading-[40px] text-black">
-                      Luxury goods often require controlled storage conditions to preserve their quality, materials, and craftsmanship. FULFIL.X provides secure, climate-controlled warehousing that protects your products from environmental exposure, ensuring they remain in impeccable condition until delivery.
+                      Fragrances are sensitive to temperature fluctuations and light exposure, which can compromise scent integrity. FULFIL.X provides secure, climate-controlled warehousing to preserve fragrance stability, quality, and shelf life. Our facilities support batch tracking and inventory accuracy, ensuring your products remain in optimal condition from storage to shipment.
                     </Text>
                   </View>
                 </View>
@@ -122,25 +122,25 @@ export default function LuxuryFulfilmentScreen() {
                   </View>
                   <View className="flex-1">
                     <Text className="font-helvetica font-bold text-lg lg:text-[20px] lg:leading-[38px] text-black">
-                      White-Glove Handling, Packaging & Personalisation:
+                      Specialist Handling, Packaging & Compliance:
                     </Text>
                     <Text className="font-helvetica font-normal text-base lg:text-[20px] lg:leading-[40px] text-black">
-                      Every stage of our fulfillment process is managed with precision and care. FULFIL.X delivers white-glove handling alongside premium packaging solutions that reflect the standards of your brand. We also offer personalised touches, including handwritten notes, bespoke inserts, and printed ribbon, allowing each delivery—whether a VIP order or PR package—to feel intentional, exclusive, and on-brand.
+                      From glass bottles to luxury presentation boxes, every fragrance order is handled with exceptional care. FULFIL.X specializes in compliant packing for alcohol-based products, using protective materials that meet courier and transport regulations while delivering a premium unboxing experience. Our expertise ensures safe shipping for regulated goods without compromising aesthetics.
                     </Text>
                   </View>
                 </View>
 
-                {/* Feature 3 (Added for balance, derived from content) */}
+                {/* Feature 3 */}
                 <View className="flex flex-row items-start gap-4">
                   <View className="w-5 h-5 flex items-center justify-center mt-2 flex-shrink-0">
                     <Image source={{ uri: "/check.svg" }} alt="check" className="w-[19px] h-[16px]" resizeMode="contain"/>
                   </View>
                   <View className="flex-1">
                     <Text className="font-helvetica font-bold text-lg lg:text-[20px] lg:leading-[38px] text-black">
-                      Trusted Network & Global Reach:
+                      UK to EU Shipping Expertise:
                     </Text>
                     <Text className="font-helvetica font-normal text-base lg:text-[20px] lg:leading-[40px] text-black">
-                      We uphold the same exacting standards across every shipment, supported by a trusted courier network and advanced e-commerce integrations. This ensures your products are delivered globally with the refinement, reliability, and exclusivity your customers expect, maintaining brand integrity across borders.
+                      FULFIL.X enables seamless fragrance fulfillment from the UK into the EU. We manage the complexities of cross-border shipping, including customs processes and courier compliance, helping brands continue to serve European customers efficiently and reliably. Our established EU shipping capabilities reduce friction, delivery times, and operational risk.
                     </Text>
                   </View>
                 </View>
@@ -153,7 +153,7 @@ export default function LuxuryFulfilmentScreen() {
         <View className="bg-white py-16 lg:py-24">
           <View className="max-w-[1000px] mx-auto px-4 text-center">
             <Text className="font-helvetica font-medium text-2xl lg:text-[32px] lg:leading-[52px] text-black text-center">
-              With FULFIL.X, luxury fulfillment becomes a seamless extension of your brand promise—delivering refinement, reliability, and exclusivity from our warehouse to your customer.
+              With FULFIL.X, fragrance fulfillment becomes an extension of your brand’s artistry—secure, compliant, and capable of reaching customers across the UK and EU with confidence.
             </Text>
           </View>
         </View>

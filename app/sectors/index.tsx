@@ -42,68 +42,101 @@ export default function SectorsScreen() {
     // Column 1 - Left
     {
       id: 1,
-      title: "Luxury Fulfilment",
-      description: "Explore how FulFilx elevates luxury fulfillment, offering bespoke services to manage & deliver high-end goods through an extensive courier network & seamless e-commerce platform integrations, ensuring an unmatched experience for your clients.",
-      image: "/lux.webp",
+      title: "Cosmetics",
+      description: "Discover how FulFilx revolutionizes cosmetics fulfillment, offering tailored services, multiple courier options & seamless e-commerce platform integrations to deliver your beauty products flawlessly to clients worldwide.",
+      image: "/cos.webp",
+      link: "/sectors/cosmetics",
       position: { left: 215, top: 200 }
     },
     {
       id: 2,
-      title: "Supplements & Vitamins",
-      description: "Uncover how FulFilx transforms the fulfillment process for supplements and vitamins through comprehensive services, leveraging an extensive courier network & seamless e-commerce platform integrations, ensuring your health products reach clients efficiently.",
+      title: "Supplements & Health",
+      description: "Uncover how FulFilx transforms the fulfillment process for supplements and health products through comprehensive services, leveraging an extensive courier network & seamless e-commerce platform integrations.",
       image: "/sup.webp",
+      link: "/sectors/supplements-health",
       position: { left: 215, top: 982 }
     },
     {
       id: 3,
-      title: "Consumable Goods",
-      description: "Discover how FulFilx offers unparalleled services in managing & delivering consumable goods to your clients through an extensive network of couriers and seamless platform integrations, ensuring efficiency and customer satisfaction.",
-      image: "/1_con.webp",
+      title: "Fragrances",
+      description: "Explore our specialized fulfillment for fragrances, ensuring safe handling, compliant shipping, and premium delivery experiences for your perfumes and scents worldwide.",
+      image: "/product-1.webp",
+      link: "/sectors/fragrances",
       position: { left: 215, top: 1764 }
+    },
+    {
+      id: 4,
+      title: "Luxury Fulfilment",
+      description: "Explore how FulFilx elevates luxury fulfillment, offering bespoke services to manage & deliver high-end goods through an extensive courier network & seamless e-commerce platform integrations.",
+      image: "/lux.webp",
+      link: "/sectors/luxury-fulfilment",
+      position: { left: 215, top: 2546 }
     },
     // Column 2 - Middle
     {
-      id: 4,
+      id: 5,
       title: "Electronics",
-      description: "Discover FulFilx's cutting-edge approach to electronics fulfillment, leveraging an extensive courier network and seamless e-commerce platform integrations to ensure efficient management & delivery of your electronics to clients globally.",
+      description: "Discover FulFilx's cutting-edge approach to electronics fulfillment, leveraging an extensive courier network and seamless e-commerce platform integrations to ensure efficient management & delivery.",
       image: "/mic.webp",
+      link: "/sectors/electronics",
       position: { left: 735, top: 140 }
     },
     {
-      id: 5,
-      title: "Cosmetics",
-      description: "Discover how FulFilx revolutionizes cosmetics fulfillment, offering tailored services, multiple courier options & seamless e-commerce platform integrations to deliver your beauty products flawlessly to clients worldwide.",
-      image: "/cos.webp",
+      id: 6,
+      title: "Pet Supplies",
+      description: "From food to accessories, FulFilx ensures your pet supply business runs smoothly with efficient inventory management and reliable delivery services for pet owners everywhere.",
+      image: "/tra.webp",
+      link: "/sectors/pet-supplies",
       position: { left: 735, top: 922 }
     },
     {
-      id: 6,
-      title: "Trade Supplies",
-      description: "Learn how FulFilx transforms the management and delivery of trade supplies through its extensive courier network and seamless e-commerce platform integrations, ensuring your business stays ahead in the fulfillment center industry.",
-      image: "/tra.webp",
-      position: { left: 735, top: 1704 }
-    },
-    // Column 3 - Right
-    {
       id: 7,
-      title: "Homeware & accessories",
-      description: "Discover how FulFilx elevates the fulfillment process for homeware and accessories through specialized services, an extensive courier network, and seamless e-commerce platform integrations, ensuring your products enrich homes worldwide.",
-      image: "/home.webp",
-      position: { left: 1255, top: 80 }
+      title: "Stationary & Gifts",
+      description: "Ensure your stationary and gift products are handled with care and delivered on time. FulFilx offers precise picking and packing for delicate and seasonal items.",
+      image: "/product-2.webp",
+      link: "/sectors/stationary-gifts",
+      position: { left: 735, top: 1704 }
     },
     {
       id: 8,
-      title: "Fashion",
-      description: "Explore how FulFilx revolutionizes fashion fulfillment with comprehensive services, including managing and delivering fashion goods through an extensive courier network & seamless integrations with e-commerce platforms.",
-      image: "/fas.webp",
+      title: "Toys & Games",
+      description: "Discover how FulFilx elevates the management and delivery of toys and games through its robust network of couriers and seamless integrations with major e-commerce platforms.",
+      image: "/toy.webp",
+      link: "/sectors/toys-games",
+      position: { left: 735, top: 2486 }
+    },
+    // Column 3 - Right
+    {
+      id: 9,
+      title: "Homeware & Accessories",
+      description: "Discover how FulFilx elevates the fulfillment process for homeware and accessories through specialized services, ensuring your products enrich homes worldwide.",
+      image: "/home.webp",
+      link: "/sectors/homeware-accessories",
+      position: { left: 1255, top: 80 }
+    },
+    {
+      id: 10,
+      title: "Chilled Products",
+      description: "FulFilx offers specialized cold chain solutions for chilled products, ensuring your perishable goods arrive fresh and in perfect condition to your customers.",
+      image: "/1_con.webp",
+      link: "/sectors/chilled-products",
       position: { left: 1255, top: 862 }
     },
     {
-      id: 9,
-      title: "Toys & Games",
-      description: "Discover how FulFilx elevates the management and delivery of toys and games through its robust network of couriers and seamless integrations with major e-commerce platforms, ensuring your products delight clients everywhere.",
-      image: "/toy.webp",
+      id: 11,
+      title: "Fashion & Apparel",
+      description: "Explore how FulFilx revolutionizes fashion fulfillment with comprehensive services, including managing and delivering fashion goods through an extensive courier network.",
+      image: "/fas.webp",
+      link: "/sectors/fashion-apparel",
       position: { left: 1255, top: 1644 }
+    },
+    {
+      id: 12,
+      title: "Subscription Boxes",
+      description: "Maximize your subscription box business with our kitting and assembly services, delivering a delightful and consistent unboxing experience every month.",
+      image: "/box.webp",
+      link: "/sectors/subscription-boxes",
+      position: { left: 1255, top: 2426 }
     }
   ];
     return (
@@ -176,9 +209,8 @@ export default function SectorsScreen() {
                     containerClassName="mb-4"
                   />
                   
-                  {sector.id === 1 ? (
-                    <TouchableOpacity 
-                      onPress={() => router.push('/sectors/luxury-fulfilment')}
+                  <TouchableOpacity 
+                      onPress={() => router.push(sector.link as any)}
                       className="flex flex-row items-center gap-[10px]"
                     >
                       <Text className="font-helvetica font-bold text-lg text-[#C10016]">
@@ -186,14 +218,6 @@ export default function SectorsScreen() {
                       </Text>
                       <img src="/arrow-dark.svg" alt="arrow" className="w-[13px] h-[14px]" />
                     </TouchableOpacity>
-                  ) : (
-                    <View className="flex flex-row items-center gap-[10px]">
-                      <Text className="font-helvetica font-bold text-lg text-[#C10016]">
-                        Learn More
-                      </Text>
-                      <img src="/arrow-dark.svg" alt="arrow" className="w-[13px] h-[14px]" />
-                    </View>
-                  )}
                 </View>
               ))}
             </View>
@@ -236,23 +260,14 @@ export default function SectorsScreen() {
                         containerClassName="mb-2"
                       />
                       
-                      {sector.id === 1 ? (
-                        <Link href="/sectors/luxury-fulfilment" asChild>
-                          <TouchableOpacity className="flex flex-row items-center gap-[10px] cursor-pointer">
-                            <Text className="font-helvetica font-bold text-[20px] leading-[36px] text-[#C10016]">
-                              Learn More
-                            </Text>
-                            <img src="/arrow-dark.svg" alt="arrow" className="w-[13px] h-[14px]" />
-                          </TouchableOpacity>
-                        </Link>
-                      ) : (
-                        <View className="flex flex-row items-center gap-[10px] cursor-pointer">
+                      <Link href={sector.link as any} asChild>
+                        <TouchableOpacity className="flex flex-row items-center gap-[10px] cursor-pointer">
                           <Text className="font-helvetica font-bold text-[20px] leading-[36px] text-[#C10016]">
                             Learn More
                           </Text>
                           <img src="/arrow-dark.svg" alt="arrow" className="w-[13px] h-[14px]" />
-                        </View>
-                      )}
+                        </TouchableOpacity>
+                      </Link>
                     </View>
                   </View>
                 ))}
