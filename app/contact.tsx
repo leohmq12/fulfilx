@@ -310,7 +310,7 @@ export default function ContactScreen() {
             </div>
 
             {/* Right Column - Contact Form */}
-            <div className="w-full lg:w-[720px] h-auto lg:h-[936px] bg-white border border-black/10 rounded-[30px] flex flex-col">
+            <div className="w-full lg:w-[720px] h-auto lg:min-h-[936px] bg-white border border-black/10 rounded-[30px] flex flex-col">
               
               {/* Form Content with proper padding */}
               <div className="flex-1 px-6 sm:px-8 lg:px-12 pt-10 lg:pt-12 pb-6">
