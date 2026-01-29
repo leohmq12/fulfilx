@@ -125,7 +125,7 @@ export default function StationaryGiftsScreen() {
                       Specialist Handling & Presentation-Focused Packaging:
                     </Text>
                     <Text className="font-helvetica font-normal text-base lg:text-[20px] lg:leading-[40px] text-black">
-                      From embossed notebooks and fountain pens to fragile ceramics and seasonal decorations, every item is handled with consideration and care. FULFIL.X specialises in presentation-perfect picking, packing, and gift kitting, utilising protective, sustainable, and brand-reflective packaging solutions. Whether your brand requires elegant simplicity or festive celebration, we ensure every delivery delights and reinforces your brand's unique character.
+                      From embossed notebooks and fountain pens to fragile ceramics and seasonal decorations, every item is handled with consideration and care. FULFIL.X specialises in presentation-perfect picking, packing, and gift kitting, utilising protective, sustainable, and brand-reflective packaging solutions. Whether your brand requires elegant simplicity or festive celebration, we ensure every delivery delights and reinforces your brand&apos;s unique character.
                     </Text>
                   </View>
                 </View>
@@ -153,7 +153,7 @@ export default function StationaryGiftsScreen() {
         <View className="bg-white py-16 lg:py-24">
           <View className="max-w-[1000px] mx-auto px-4 text-center">
             <Text className="font-helvetica font-medium text-2xl lg:text-[32px] lg:leading-[52px] text-black text-center">
-              With FULFIL.X, stationery and gift fulfilment transforms from an operational requirement into a key brand ambassador—delivering beauty, care, and flawless execution from our warehouse to your customer’s door.
+              With FULFIL.X, stationery and gift fulfilment transforms from an operational requirement into a key brand ambassador—delivering beauty, care, and flawless execution from our warehouse to your customer&apos;s door.
             </Text>
           </View>
         </View>

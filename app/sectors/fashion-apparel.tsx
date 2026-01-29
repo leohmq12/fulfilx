@@ -153,7 +153,7 @@ export default function FashionScreen() {
         <View className="bg-white py-16 lg:py-24">
           <View className="max-w-[1000px] mx-auto px-4 text-center">
             <Text className="font-helvetica font-medium text-2xl lg:text-[32px] lg:leading-[52px] text-black text-center">
-              With FULFIL.X, fashion fulfilment becomes a seamless extension of your brand's ethos—delivering quality, care, and confidence from our wardrobe to your customer's door.
+              With FULFIL.X, fashion fulfilment becomes a seamless extension of your brand&apos;s ethos—delivering quality, care, and confidence from our wardrobe to your customer&apos;s door.
             </Text>
           </View>
         </View>
