@@ -9,28 +9,28 @@ export default function OurCouriersScreen() {
     const router = useRouter();
 
     const row1Logos = [
-        { src: "/couriers/logos%20%20amazon.webp", alt: "Amazon" },
-        { src: "/couriers/logos%20%20dhl.webp", alt: "DHL" },
-        { src: "/couriers/logos%20%20dpd.webp", alt: "DPD" },
-        { src: "/couriers/logos%20%20evri.webp", alt: "Evri" },
-        { src: "/couriers/logos%20%20Royal%20mail.webp", alt: "Royal Mail" },
+        { src: "/couires/logo%20amazon.webp", alt: "Amazon" },
+        { src: "/couires/logosDHL.webp", alt: "DHL" },
+        { src: "/couires/logos%20%20dpd%20%282%29.webp", alt: "DPD" },
+        { src: "/couires/logos%20%20evri%20%281%29.webp", alt: "Evri" },
+        { src: "/couires/logos%20ROYAL%20mail.webp", alt: "Royal Mail" },
         
     ];
 
     const row2Logos = [
-        { src: "/couriers/logos%20anpost.webp", alt: "An Post" },
-        { src: "/couriers/logos%20emx.webp", alt: "EMX" },
-        { src: "/couriers/logos%20fedex.webp", alt: "FedEx" },
-        { src: "/couriers/logos%20inpost.webp", alt: "InPost" },
-        { src: "/couriers/logos%20postnl.webp", alt: "PostNL" },
+        { src: "/couires/logo%20anpost.webp", alt: "An Post" },
+        { src: "/couires/logo%20%20emx.webp", alt: "EMX" },
+        { src: "/couires/logo%20fedx.webp", alt: "FedEx" },
+        { src: "/couires/logo%20inpost.webp", alt: "InPost" },
+        { src: "/couires/logo%20postnl.webp", alt: "PostNL" },
     ];
 
     const row3Logos = [
-        { src: "/couriers/logos%20%20pro%20carrier.webp", alt: "Pro Carrier" },
-        { src: "/couriers/logos%20samos.webp", alt: "Samos" },
-        { src: "/couriers/logos%20ups.webp", alt: "UPS" },
-        { src: "/couriers/logos%20xpress.webp", alt: "Xpress" },
-        { src: "/couriers/logos%20%20yodel.webp", alt: "Yodel" },
+        { src: "/couires/logos%20%20pro%20carrier%20%281%29.webp", alt: "Pro Carrier" },
+        { src: "/couires/logo%20samos.webp", alt: "Samos" },
+        { src: "/couires/logo%20ups.webp", alt: "UPS" },
+        { src: "/couires/logo%20xpres.webp", alt: "Xpress" },
+        { src: "/couires/logos%20yodel.webp", alt: "Yodel" },
     ];
 
     return (
@@ -128,7 +128,7 @@ export default function OurCouriersScreen() {
                                                 <img 
                                                     src={logo.src}
                                                     alt={logo.alt}
-                                                    className="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                                                    className="w-full h-[80px] object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
                                                 />
                                             </div>
                                         </div>
@@ -145,7 +145,7 @@ export default function OurCouriersScreen() {
                                                 <img 
                                                     src={logo.src}
                                                     alt={logo.alt}
-                                                    className="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                                                    className="w-full h-[80px] object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
                                                 />
                                             </div>
                                         </div>
@@ -162,7 +162,7 @@ export default function OurCouriersScreen() {
                                                 <img 
                                                     src={logo.src}
                                                     alt={logo.alt}
-                                                    className="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                                                    className="w-full h-[80px] object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
                                                 />
                                             </div>
                                         </div>
