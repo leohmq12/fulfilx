@@ -75,7 +75,6 @@ const mapOverlayRef = useRef<HTMLDivElement>(null);
 const getMarkerPos = (id: string) => defaultMarkerPositions[id] ?? { x: 0, y: 0 };
 
 const testimonials = [
-  { image: '/partners/4.png', alt: 'Partner 4' },
   { image: '/partners/5.png', alt: 'Partner 5' },
   { image: '/partners/6.png', alt: 'Partner 6' },
   { image: '/partners/7.png', alt: 'Partner 7' },
