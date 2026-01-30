@@ -689,11 +689,13 @@ export default function LuxuryScreen() {
               <View className="w-[100px] h-[1px] bg-[#C10016] mb-12" />
 
               <View className="flex-row flex-wrap justify-center gap-4 lg:gap-16 mb-12">
+                 {/*
                  {[1, 2, 3, 4, 5].map((i) => (
                     <View key={i} className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px]">
                        <Image source={{ uri: `/award${i}.webp` }} className="w-full h-full" resizeMode="contain" />
                     </View>
                  ))}
+                 */}
               </View>
             </View>
           </View>
@@ -706,10 +708,6 @@ export default function LuxuryScreen() {
               </Text>
 
               <View className="w-[100px] h-[1px] bg-white mb-12" />
-
-              <Text className="font-normal text-xl lg:text-[24px] leading-relaxed lg:leading-[44px] text-white mb-12 text-center">
-                Exceptional Quality Service
-              </Text>
 
               <TouchableOpacity className="border border-white rounded-[6px] flex-row items-center justify-center gap-[10px] px-8 py-4">
                 <Text className="text-white font-bold text-[18px] leading-[36px]">Let&apos;s Talk</Text>

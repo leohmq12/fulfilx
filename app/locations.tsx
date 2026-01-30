@@ -699,6 +699,7 @@ export default function LocationsScreen() {
 
                 {/* Image Grid - Centered */}
                 <View className="flex flex-row flex-wrap justify-center gap-4 lg:gap-16 mb-12">
+                  {/*
                   <View className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] overflow-hidden">
                      <Image source={{ uri: "/award1.webp" }} className="w-full h-full" resizeMode="contain" />
                   </View>
@@ -714,6 +715,7 @@ export default function LocationsScreen() {
                   <View className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] overflow-hidden">
                      <Image source={{ uri: "/award5.webp" }} className="w-full h-full" resizeMode="contain" />
                   </View>
+                  */}
                 </View>
               </View>
             </View>

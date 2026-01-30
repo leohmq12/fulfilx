@@ -81,7 +81,6 @@ const testimonials = [
   { image: '/partners/7.png', alt: 'Partner 7' },
   { image: '/partners/8.png', alt: 'Partner 8' },
   { image: '/partners/9.png', alt: 'Partner 9' },
-  { image: '/partners/10.png', alt: 'Partner 10' },
   { image: '/partners/11.png', alt: 'Partner 11' },
   { image: '/partners/12.png', alt: 'Partner 12' },
   { image: '/partners/13.png', alt: 'Partner 13' },

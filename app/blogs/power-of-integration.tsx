@@ -442,11 +442,13 @@ export default function LuxuryScreen() {
 
                                 {/* Image Grid - Centered */}
                                 <View className="flex flex-row flex-wrap justify-center gap-8 lg:gap-16 mb-12">
+                                    {/*
                                     <View className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award1.webp)'} as any} />
                                     <View className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award2.webp)'} as any} />
                                     <View className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award3.webp)'} as any} />
                                     <View className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award4.webp)'} as any} />
                                     <View className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award5.webp)'} as any} />
+                                    */}
                                 </View>
                             </View>
                         </View>

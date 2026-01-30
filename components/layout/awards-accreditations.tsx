@@ -29,13 +29,15 @@ export default function AwardsAccreditations() {
             <View className="w-[100px] h-[1px] bg-[#C10016] mx-auto mb-12" />
 
             {/* Image Grid - Centered */}
-            <View className="flex flex-row flex-wrap justify-center gap-6 lg:gap-16 mb-12">
-              <Image source={{ uri: '/award1.webp' }} className="w-[84px] h-[84px]" resizeMode="contain" />
-              <Image source={{ uri: '/award2.webp' }} className="w-[84px] h-[84px]" resizeMode="contain" />
-              <Image source={{ uri: '/award3.webp' }} className="w-[84px] h-[84px]" resizeMode="contain" />
-              <Image source={{ uri: '/award4.webp' }} className="w-[84px] h-[84px]" resizeMode="contain" />
-              <Image source={{ uri: '/award5.webp' }} className="w-[84px] h-[84px]" resizeMode="contain" />
-            </View>
+        <View className="flex flex-row flex-wrap justify-center gap-6 lg:gap-16 mb-12">
+          {/*
+          <Image source={{ uri: '/award1.webp' }} className="w-[84px] h-[84px]" resizeMode="contain" />
+          <Image source={{ uri: '/award2.webp' }} className="w-[84px] h-[84px]" resizeMode="contain" />
+          <Image source={{ uri: '/award3.webp' }} className="w-[84px] h-[84px]" resizeMode="contain" />
+          <Image source={{ uri: '/award4.webp' }} className="w-[84px] h-[84px]" resizeMode="contain" />
+          <Image source={{ uri: '/award5.webp' }} className="w-[84px] h-[84px]" resizeMode="contain" />
+          */}
+        </View>
 
           </View>
         </View>

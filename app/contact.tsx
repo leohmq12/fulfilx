@@ -518,11 +518,13 @@ export default function ContactScreen() {
 
                 {/* Image Grid - Centered */}
                 <div className="flex flex-wrap justify-center gap-4 lg:gap-16 mb-12">
+                  {/*
                   <div className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award1.webp)'}}></div>
                   <div className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award2.webp)'}}></div>
                   <div className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award3.webp)'}}></div>
                   <div className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award4.webp)'}}></div>
                   <div className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award5.webp)'}}></div>
+                  */}
                 </div>
               </div>
             </div>
@@ -539,11 +541,6 @@ export default function ContactScreen() {
 
                 {/* White Line - Centered */}
                 <div className="w-[100px] h-[1px] bg-white mx-auto mb-12"></div>
-
-                {/* Subtitle - Centered */}
-                <p className="font-normal text-xl lg:text-[24px] leading-relaxed lg:leading-[44px] text-white mb-12">
-                  Exceptional Quality Service
-                </p>
 
                 {/* CTA Button - Centered */}
                 <button 

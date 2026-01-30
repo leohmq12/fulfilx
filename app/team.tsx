@@ -604,11 +604,13 @@ export default function TeamScreen() {
 
                 {/* Image Grid - Centered */}
                 <View className="flex flex-row justify-center gap-4 lg:gap-16 mb-12 flex-wrap">
-                  <Image source={{ uri: "/award1.webp" }} className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px]" resizeMode="cover" />
-                  <Image source={{ uri: "/award2.webp" }} className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px]" resizeMode="cover" />
-                  <Image source={{ uri: "/award3.webp" }} className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px]" resizeMode="cover" />
-                  <Image source={{ uri: "/award4.webp" }} className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px]" resizeMode="cover" />
-                  <Image source={{ uri: "/award5.webp" }} className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px]" resizeMode="cover" />
+                  {/*
+                  <Image source={{ uri: "/aaward1.webp" }} className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px]" resizeMode="cover" />
+                  <Image source={{ uri: "/aaward2.webp" }} className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px]" resizeMode="cover" />
+                  <Image source={{ uri: "/aaward3.webp" }} className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px]" resizeMode="cover" />
+                  <Image source={{ uri: "/aaward4.webp" }} className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px]" resizeMode="cover" />
+                  <Image source={{ uri: "/aaward5.webp" }} className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px]" resizeMode="cover" />
+                  */}
                 </View>
               </View>
             </View>

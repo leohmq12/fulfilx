@@ -894,12 +894,14 @@ can build a greener future while achieving your logistics goals.
                 <div className="w-[100px] h-[1px] bg-[#C10016] mx-auto mb-12"></div>
 
                 {/* Image Grid - Centered */}
-                <div className="flex flex-wrap justify-center gap-4 lg:gap-16 mb-12">
+                <div className="flex flex-row flex-wrap justify-center gap-8 lg:gap-16 mb-12">
+                  {/*
                   <div className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award1.webp)'}}></div>
                   <div className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award2.webp)'}}></div>
                   <div className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award3.webp)'}}></div>
                   <div className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award4.webp)'}}></div>
                   <div className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award5.webp)'}}></div>
+                  */}
                 </div>
               </div>
             </div>

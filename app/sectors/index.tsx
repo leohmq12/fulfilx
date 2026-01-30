@@ -296,11 +296,13 @@ export default function SectorsScreen() {
 
                         {/* Image Grid - Centered */}
                         <View className="flex flex-row flex-wrap justify-center gap-8 lg:gap-16 mb-12">
+                            {/*
                             <View className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award1.webp)'} as any} />
                             <View className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award2.webp)'} as any} />
                             <View className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award3.webp)'} as any} />
                             <View className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award4.webp)'} as any} />
                             <View className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award5.webp)'} as any} />
+                            */}
                         </View>
                     </View>
                 </View>
@@ -317,11 +319,6 @@ export default function SectorsScreen() {
 
                         {/* White Line - Centered */}
                         <View className="w-[100px] h-[1px] bg-white mx-auto mb-12" />
-
-                        {/* Subtitle - Centered */}
-                        <Text className="font-helvetica font-normal text-xl lg:text-[24px] lg:leading-[44px] text-white text-center mb-12">
-                            Exceptional Quality Service
-                        </Text>
 
                         {/* CTA Button - Centered */}
                         <TouchableOpacity 

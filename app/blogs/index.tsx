@@ -257,6 +257,7 @@ export default function BlogsScreen() {
 
                 {/* Image Grid - Centered */}
                 <View className="flex flex-row flex-wrap justify-center gap-4 lg:gap-16 mb-12">
+                  {/*
                   <View className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px]">
                     <img src="/award1.webp" className="w-full h-full object-contain" />
                   </View>
@@ -272,6 +273,7 @@ export default function BlogsScreen() {
                   <View className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px]">
                     <img src="/award5.webp" className="w-full h-full object-contain" />
                   </View>
+                  */}
                 </View>
               </View>
             </View>
@@ -288,11 +290,6 @@ export default function BlogsScreen() {
 
                 {/* White Line - Centered */}
                 <View className="w-[100px] h-[1px] bg-white mb-12" />
-
-                {/* Subtitle - Centered */}
-                <Text className="font-helvetica font-normal text-xl lg:text-[24px] leading-relaxed lg:leading-[44px] text-white mb-12 text-center">
-                  Exceptional Quality Service
-                </Text>
 
                 {/* CTA Button - Centered */}
                 <TouchableOpacity 
