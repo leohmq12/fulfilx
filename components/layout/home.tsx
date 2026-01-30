@@ -5,12 +5,11 @@ import Animated, { FadeIn, FadeInUp, FadeOut } from 'react-native-reanimated';
 import Navbar from './navbar';
 
 const defaultMarkerPositions: Record<string, { x: number; y: number }> = {
-  uk: { x: 45.84, y: 16.59 },
-  ca: { x: 10.57, y: 53.58 },
-  us: { x: 14.53, y: 41.47 },
-  atl: { x: 21.68, y: 44.29 },
+  uk: { x: 47.84, y: 15.59 },
+  ca: { x: 11.07, y: 50.58 },
+  atl: { x: 21.68, y: 43.29 },
   nl: { x: 48.33, y: 19.41 },
-  uae: { x: 66.51, y: 42.13 },
+  uae: { x: 66.31, y: 39.13 },
   bh: { x: 64.72, y: 36.16 },
   au: { x: 85.55, y: 86.42 },
   sa: { x: 62.94, y: 36.49 },
@@ -76,21 +75,19 @@ const mapOverlayRef = useRef<HTMLDivElement>(null);
 const getMarkerPos = (id: string) => defaultMarkerPositions[id] ?? { x: 0, y: 0 };
 
 const testimonials = [
-  { image: '/Amazon.png', alt: 'Testimonial 1' },
-  { image: '/Argos-Logo.png', alt: 'Testimonial 2' },
-  { image: '/bloomingdales-logo.png', alt: 'Testimonial 3' },
-  { image: '/Boots.png', alt: 'Testimonial 4' },
-  { image: '/Costco_Wholesale.png', alt: 'Testimonial 5' }, 
-  { image: '/Currys.png', alt: 'Testimonial 5' },
-  { image: '/Fenwick.png', alt: 'Testimonial 5' },
-  { image: '/Harrods.png', alt: 'Testimonial 5' },
-  { image: '/Nordstrom.png', alt: 'Testimonial 5' },
-  { image: '/PetsAtHome.png', alt: 'Testimonial 5' },
-  { image: '/QVC.png', alt: 'Testimonial 5' },
-  { image: '/Saks_Fifth_Avenue.png', alt: 'Testimonial 5' },
-  { image: '/Selfridges.png', alt: 'Testimonial 5' },
-  { image: '/Sephora.png', alt: 'Testimonial 5' },
-  { image: '/Superdrug.png', alt: 'Testimonial 5' }
+  { image: '/partners/4.png', alt: 'Partner 4' },
+  { image: '/partners/5.png', alt: 'Partner 5' },
+  { image: '/partners/6.png', alt: 'Partner 6' },
+  { image: '/partners/7.png', alt: 'Partner 7' },
+  { image: '/partners/8.png', alt: 'Partner 8' },
+  { image: '/partners/9.png', alt: 'Partner 9' },
+  { image: '/partners/10.png', alt: 'Partner 10' },
+  { image: '/partners/11.png', alt: 'Partner 11' },
+  { image: '/partners/12.png', alt: 'Partner 12' },
+  { image: '/partners/13.png', alt: 'Partner 13' },
+  { image: '/partners/14.png', alt: 'Partner 14' },
+  { image: '/partners/15.png', alt: 'Partner 15' },
+  { image: '/partners/16.png', alt: 'Partner 16' }
 ];
 const row1Logos = [
     { src: "/amazon.webp", alt: "" },
@@ -730,7 +727,7 @@ focus on growing.    </p>
    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12">
   
   {/* Left Content */}
-  <div className="space-y-8">
+  <div className="space-y-8 lg:col-start-1 lg:row-start-1">
     
     {/* "Why Choose Us" Badge - Now aligned with right content */}
     <div className="w-[240px] h-[48px] bg-[rgba(193,0,22,0.1)] rounded-[120px] flex items-center justify-center">
@@ -808,66 +805,11 @@ focus on growing.    </p>
       </div>
     </div>
 
-    {/* Stats Grid */}
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-10 lg:pt-20">
-      
-      {/* Orders Shipped */}
-<div className="flex items-center gap-4">
-  <div className="w-[150px] h-[80px] bg-black/10 rounded-[10px] flex items-center justify-center">
-    <span className="font-bold text-3xl lg:text-[40px] leading-[80px] tracking-tight text-black">
-      <img 
-      src="/google_rev.webp" 
-      onClick=  { () => window.open("https://www.google.com/search?sca_esv=20541e4f21a9d7f7&sxsrf=ANbL-n6la1mt9rMC2V7vLj6jDkpCGr-jEQ:1769008694039&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOXwAv3YEXZKPsl-nUlT6wYhGXlXqsFVh-oyC0tyABjEyjZCBk0CoEdNhj27Sl2hsvpDFgHFs0bQGfY1mnSWew6jYRo_p8GX0AXTemkh_XqBhnnH1O0hKt0daRKCE0qah_J7B7GeROHFzzyEWMS5BWx0syl6v&q=FULFIL.X+-+Storage+and+3pl+For+E-commerce+Brands+Reviews&sa=X&ved=2ahUKEwilh8D29pySAxUXQ0EAHVezKAcQ0bkNegQIKBAH&biw=1536&bih=730&dpr=1.25&aic=0","_blank") }
-      alt="Google reviews"
-      className="w-full max-w-[220px] sm:max-w-[260px] lg:max-w-[80px] h-auto object-contain mx-auto cursor-pointer transition-transform duration-300 hover:scale-105"/>
-    </span>
-  </div>
-  <p className="font-normal text-lg lg:text-[20px] leading-[30px] lg:leading-[40px] text-[#C10016]">
-    On <br/> Google
-  </p>
-</div>
-
-      {/* Courier Partners Globally */}
-<div className="flex items-center gap-4">
-  <div className="w-[150px] h-[80px] bg-black/10 rounded-[10px] flex items-center justify-center">
-    <span className="font-bold text-3xl lg:text-[40px] leading-[80px] tracking-tight text-black">
-      20+
-    </span>
-  </div>
-  <p className="font-normal text-lg lg:text-[20px] leading-[30px] lg:leading-[40px] text-[#C10016]">
-    Courier Partners <br/> Globally
-  </p>
-</div>
-
-      {/* Customer Satisfaction */}
-<div className="flex items-center gap-4">
-  <div className="w-[150px] h-[80px] bg-black/10 rounded-[10px] flex items-center justify-center">
-    <span className="font-bold text-3xl lg:text-[40px] leading-[80px] tracking-tight text-black">
-      100+
-    </span>
-  </div>
-  <p className="font-normal text-lg lg:text-[20px] leading-[30px] lg:leading-[40px] text-[#C10016]">
-    Brands<br/>Managed
-  </p>
-</div>
-<div className="flex items-center gap-4">
-  <div className="w-[150px] h-[80px] bg-black/10 rounded-[10px] flex items-center justify-center">
-    <span className="font-bold text-3xl lg:text-[40px] leading-[80px] tracking-tight text-black">
-      99.5%
-    </span>
-  </div>
-  <p className="font-normal text-lg lg:text-[20px] leading-[30px] lg:leading-[40px] text-[#C10016]">
-    Accuracy<br/>Rate
-  </p>
-</div>
-
-    </div>
-
   </div>
 
 
       {/* Right Content */}
-      <div className="space-y-8">
+      <div className="space-y-8 lg:col-start-2 lg:row-start-1 lg:row-span-2">
         {/* Image with Pagination */}
         <div className="relative w-full h-[400px] lg:h-[900px] rounded-[24px] overflow-hidden backdrop-blur-[12.5px]">
           {/* Images with cross-fade animation */}
@@ -898,6 +840,72 @@ focus on growing.    </p>
                 />
               ))}
             </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="lg:col-start-1 lg:row-start-2">
+        {/* Stats Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-2 gap-4 md:gap-6 pt-10 lg:pt-20">
+          {/* Orders Shipped */}
+          <div className="flex flex-col items-center text-center gap-2 sm:flex-row sm:items-center sm:text-left sm:gap-4">
+            <div className="w-[120px] h-[70px] sm:w-[150px] sm:h-[80px] bg-black/10 rounded-[10px] flex items-center justify-center">
+              <span className="font-bold text-3xl lg:text-[40px] leading-[80px] tracking-tight text-black">
+                <img
+                  src="/google_rev.webp"
+                  onClick={() =>
+                    window.open(
+                      "https://www.google.com/search?sca_esv=20541e4f21a9d7f7&sxsrf=ANbL-n6la1mt9rMC2V7vLj6jDkpCGr-jEQ:1769008694039&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOXwAv3YEXZKPsl-nUlT6wYhGXlXqsFVh-oyC0tyABjEyjZCBk0CoEdNhj27Sl2hsvpDFgHFs0bQGfY1mnSWew6jYRo_p8GX0AXTemkh_XqBhnnH1O0hKt0daRKCE0qah_J7B7GeROHFzzyEWMS5BWx0syl6v&q=FULFIL.X+-+Storage+and+3pl+For+E-commerce+Brands+Reviews&sa=X&ved=2ahUKEwilh8D29pySAxUXQ0EAHVezKAcQ0bkNegQIKBAH&biw=1536&bih=730&dpr=1.25&aic=0",
+                      "_blank"
+                    )
+                  }
+                  alt="Google reviews"
+                  className="w-full max-w-[90px] sm:max-w-[120px] lg:max-w-[80px] h-auto object-contain mx-auto cursor-pointer transition-transform duration-300 hover:scale-105"
+                />
+              </span>
+            </div>
+            <p className="font-normal text-sm sm:text-lg lg:text-[20px] leading-[20px] sm:leading-[30px] lg:leading-[40px] text-[#C10016]">
+              On <br /> Google
+            </p>
+          </div>
+
+          {/* Courier Partners Globally */}
+          <div className="flex flex-col items-center text-center gap-2 sm:flex-row sm:items-center sm:text-left sm:gap-4">
+            <div className="w-[120px] h-[70px] sm:w-[150px] sm:h-[80px] bg-black/10 rounded-[10px] flex items-center justify-center">
+              <span className="font-bold text-3xl lg:text-[40px] leading-[80px] tracking-tight text-black">
+                20+
+              </span>
+            </div>
+            <p className="font-normal text-sm sm:text-lg lg:text-[20px] leading-[20px] sm:leading-[30px] lg:leading-[40px] text-[#C10016]">
+              Courier Partners <br /> Globally
+            </p>
+          </div>
+
+          {/* Customer Satisfaction */}
+          <div className="flex flex-col items-center text-center gap-2 sm:flex-row sm:items-center sm:text-left sm:gap-4">
+            <div className="w-[120px] h-[70px] sm:w-[150px] sm:h-[80px] bg-black/10 rounded-[10px] flex items-center justify-center">
+              <span className="font-bold text-3xl lg:text-[40px] leading-[80px] tracking-tight text-black">
+                100+
+              </span>
+            </div>
+            <p className="font-normal text-sm sm:text-lg lg:text-[20px] leading-[20px] sm:leading-[30px] lg:leading-[40px] text-[#C10016]">
+              Brands
+              <br />
+              Managed
+            </p>
+          </div>
+
+          <div className="flex flex-col items-center text-center gap-2 sm:flex-row sm:items-center sm:text-left sm:gap-4">
+            <div className="w-[120px] h-[70px] sm:w-[150px] sm:h-[80px] bg-black/10 rounded-[10px] flex items-center justify-center">
+              <span className="font-bold text-3xl lg:text-[40px] leading-[80px] tracking-tight text-black">
+                99.5%
+              </span>
+            </div>
+            <p className="font-normal text-sm sm:text-lg lg:text-[20px] leading-[20px] sm:leading-[30px] lg:leading-[40px] text-[#C10016]">
+              Accuracy
+              <br />
+              Rate
+            </p>
           </div>
         </div>
       </div>
@@ -992,8 +1000,9 @@ focus on growing.    </p>
   className="absolute group -translate-x-1/2 -translate-y-1/2"
   style={{ left: `${getMarkerPos('uk').x}%`, top: `${getMarkerPos('uk').y}%` }}
 >
-  <div className="w-[48px] h-[48px] border border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110">
-    <div className="w-[32px] h-[32px] border border-[#C10016] rounded-full flex items-center justify-center">
+  <div className="w-[24px] h-[24px] sm:w-[48px] sm:h-[48px] sm:border sm:border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 sm:hover:scale-110">
+    <img src="/location.png" alt="Location marker" className="w-[18px] h-[18px] object-contain sm:hidden" />
+    <div className="hidden sm:flex w-[32px] h-[32px] border border-[#C10016] rounded-full items-center justify-center">
       <div className="w-[16px] h-[16px] bg-[#C10016] rounded-full"></div>
     </div>
   </div>
@@ -1013,8 +1022,9 @@ focus on growing.    </p>
   className="absolute group -translate-x-1/2 -translate-y-1/2"
   style={{ left: `${getMarkerPos('ca').x}%`, top: `${getMarkerPos('ca').y}%` }}
 >
-  <div className="w-[48px] h-[48px] border border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110">
-    <div className="w-[32px] h-[32px] border border-[#C10016] rounded-full flex items-center justify-center">
+  <div className="w-[24px] h-[24px] sm:w-[48px] sm:h-[48px] sm:border sm:border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 sm:hover:scale-110">
+    <img src="/location.png" alt="Location marker" className="w-[18px] h-[18px] object-contain sm:hidden" />
+    <div className="hidden sm:flex w-[32px] h-[32px] border border-[#C10016] rounded-full items-center justify-center">
       <div className="w-[16px] h-[16px] bg-[#C10016] rounded-full"></div>
     </div>
   </div>
@@ -1027,34 +1037,16 @@ focus on growing.    </p>
   </div>
 </div>
 
-{/* US Marker */}
-<div
-  className="absolute group -translate-x-1/2 -translate-y-1/2"
-  style={{ left: `${getMarkerPos('us').x}%`, top: `${getMarkerPos('us').y}%` }}
->
-  <div className="w-[48px] h-[48px] border border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110">
-    <div className="w-[32px] h-[32px] border border-[#C10016] rounded-full flex items-center justify-center">
-      <div className="w-[16px] h-[16px] bg-[#C10016] rounded-full"></div>
-    </div>
-  </div>
-  {/* Hover Popup */}
-  <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-    <div className="bg-white px-6 py-2 rounded-lg shadow-lg border border-gray-200 whitespace-nowrap flex items-center gap-2">
-      <img src="/US.webp" alt="US Flag" className="w-[16px] h-[12px]" />
-      <p className="text-sm font-medium text-gray-800">United States</p>
-    </div>
-    {/* Arrow */}
-    <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-white"></div>
-  </div>
-</div>
+
 
 {/* Atlanta Marker */}
 <div
   className="absolute group -translate-x-1/2 -translate-y-1/2"
   style={{ left: `${getMarkerPos('atl').x}%`, top: `${getMarkerPos('atl').y}%` }}
 >
-  <div className="w-[48px] h-[48px] border border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110">
-    <div className="w-[32px] h-[32px] border border-[#C10016] rounded-full flex items-center justify-center">
+  <div className="w-[24px] h-[24px] sm:w-[48px] sm:h-[48px] sm:border sm:border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 sm:hover:scale-110">
+    <img src="/location.png" alt="Location marker" className="w-[18px] h-[18px] object-contain sm:hidden" />
+    <div className="hidden sm:flex w-[32px] h-[32px] border border-[#C10016] rounded-full items-center justify-center">
       <div className="w-[16px] h-[16px] bg-[#C10016] rounded-full"></div>
     </div>
   </div>
@@ -1072,8 +1064,9 @@ focus on growing.    </p>
   className="absolute group -translate-x-1/2 -translate-y-1/2"
   style={{ left: `${getMarkerPos('nl').x}%`, top: `${getMarkerPos('nl').y}%` }}
 >
-  <div className="w-[48px] h-[48px] border border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110">
-    <div className="w-[32px] h-[32px] border border-[#C10016] rounded-full flex items-center justify-center">
+  <div className="w-[24px] h-[24px] sm:w-[48px] sm:h-[48px] sm:border sm:border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 sm:hover:scale-110">
+    <img src="/location.png" alt="Location marker" className="w-[18px] h-[18px] object-contain sm:hidden" />
+    <div className="hidden sm:flex w-[32px] h-[32px] border border-[#C10016] rounded-full items-center justify-center">
       <div className="w-[16px] h-[16px] bg-[#C10016] rounded-full"></div>
     </div>
   </div>
@@ -1091,8 +1084,9 @@ focus on growing.    </p>
   className="absolute group -translate-x-1/2 -translate-y-1/2"
   style={{ left: `${getMarkerPos('uae').x}%`, top: `${getMarkerPos('uae').y}%` }}
 >
-  <div className="w-[48px] h-[48px] border border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110">
-    <div className="w-[32px] h-[32px] border border-[#C10016] rounded-full flex items-center justify-center">
+  <div className="w-[24px] h-[24px] sm:w-[48px] sm:h-[48px] sm:border sm:border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 sm:hover:scale-110">
+    <img src="/location.png" alt="Location marker" className="w-[18px] h-[18px] object-contain sm:hidden" />
+    <div className="hidden sm:flex w-[32px] h-[32px] border border-[#C10016] rounded-full items-center justify-center">
       <div className="w-[16px] h-[16px] bg-[#C10016] rounded-full"></div>
     </div>
   </div>
@@ -1112,8 +1106,9 @@ focus on growing.    </p>
   className="absolute group -translate-x-1/2 -translate-y-1/2"
   style={{ left: `${getMarkerPos('bh').x}%`, top: `${getMarkerPos('bh').y}%` }}
 >
-  <div className="w-[40px] h-[40px] border border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110">
-    <div className="w-[26.67px] h-[26.67px] border border-[#C10016] rounded-full flex items-center justify-center">
+  <div className="w-[24px] h-[24px] sm:w-[40px] sm:h-[40px] sm:border sm:border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 sm:hover:scale-110">
+    <img src="/location.png" alt="Location marker" className="w-[18px] h-[18px] object-contain sm:hidden" />
+    <div className="hidden sm:flex w-[26.67px] h-[26.67px] border border-[#C10016] rounded-full items-center justify-center">
       <div className="w-[13.33px] h-[13.33px] bg-[#C10016] rounded-full"></div>
     </div>
   </div>
@@ -1131,8 +1126,9 @@ focus on growing.    </p>
   className="absolute group -translate-x-1/2 -translate-y-1/2"
   style={{ left: `${getMarkerPos('au').x}%`, top: `${getMarkerPos('au').y}%` }}
 >
-  <div className="w-[48px] h-[48px] border border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110">
-    <div className="w-[32px] h-[32px] border border-[#C10016] rounded-full flex items-center justify-center">
+  <div className="w-[24px] h-[24px] sm:w-[48px] sm:h-[48px] sm:border sm:border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 sm:hover:scale-110">
+    <img src="/location.png" alt="Location marker" className="w-[18px] h-[18px] object-contain sm:hidden" />
+    <div className="hidden sm:flex w-[32px] h-[32px] border border-[#C10016] rounded-full items-center justify-center">
       <div className="w-[16px] h-[16px] bg-[#C10016] rounded-full"></div>
     </div>
   </div>
@@ -1152,8 +1148,9 @@ focus on growing.    </p>
   className="absolute group -translate-x-1/2 -translate-y-1/2"
   style={{ left: `${getMarkerPos('sa').x}%`, top: `${getMarkerPos('sa').y}%` }}
 >
-  <div className="w-[40px] h-[40px] border border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110">
-    <div className="w-[26.67px] h-[26.67px] border border-[#C10016] rounded-full flex items-center justify-center">
+  <div className="w-[24px] h-[24px] sm:w-[40px] sm:h-[40px] sm:border sm:border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 sm:hover:scale-110">
+    <img src="/location.png" alt="Location marker" className="w-[18px] h-[18px] object-contain sm:hidden" />
+    <div className="hidden sm:flex w-[26.67px] h-[26.67px] border border-[#C10016] rounded-full items-center justify-center">
       <div className="w-[13.33px] h-[13.33px] bg-[#C10016] rounded-full"></div>
     </div>
   </div>
@@ -1172,7 +1169,7 @@ focus on growing.    </p>
   </div>
   </div>
 </section>
-<section className="relative w-full min-h-[800px] py-20">
+<section className="relative w-full min-h-[560px] sm:min-h-[700px] lg:min-h-[800px] py-12 sm:py-16 lg:py-20">
   {/* Background with Linear Gradient */}
   <div 
     className="absolute inset-0 w-full h-full"
@@ -1193,21 +1190,21 @@ focus on growing.    </p>
   <div className="relative max-w-[1300px] mx-auto px-4 z-10">
     
     {/* Main Heading */}
-    <h2 className="text-center font-bold text-[74px] leading-[80px] tracking-tight text-white mt-16">
+    <h2 className="text-center font-bold text-3xl sm:text-4xl lg:text-[74px] leading-tight lg:leading-[80px] tracking-tight text-white mt-10 sm:mt-14 lg:mt-16">
       We Integrate With
     </h2>
 
-<div className="w-full overflow-hidden py-10">
+<div className="w-full overflow-hidden py-6 sm:py-10">
   {/* First Row - Scroll Left */}
-<div className="mt-20 slider-container overflow-hidden">
+<div className="mt-10 sm:mt-16 lg:mt-20 slider-container overflow-hidden">
   <div className="flex animate-infinite-scroll">
     {[...row1Logos, ...row1Logos].map((logo, index) => (
-      <div key={index} className="group relative flex-shrink-0 mx-16">
-        <div className="w-[240px] h-[100px] rounded-lg flex items-center justify-center transition-all duration-300 hover:bg-transparent hover:scale-105">
+      <div key={index} className="group relative flex-shrink-0 mx-8 sm:mx-12 lg:mx-16">
+        <div className="w-[160px] h-[70px] sm:w-[200px] sm:h-[85px] lg:w-[240px] lg:h-[100px] rounded-lg flex items-center justify-center transition-all duration-300 hover:bg-transparent hover:scale-105">
           <img 
             src={logo.src}
             alt={logo.alt}
-            className="h-16 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+            className="h-10 sm:h-12 lg:h-16 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
           />
         </div>
       </div>
@@ -1216,15 +1213,15 @@ focus on growing.    </p>
 </div>
 
 {/* Second Row - Scroll Right */}
-<div className="mt-12 slider-container overflow-hidden">
+<div className="mt-8 sm:mt-12 slider-container overflow-hidden">
   <div className="flex animate-infinite-scroll-reverse">
     {[...row2Logos, ...row2Logos].map((logo, index) => (
-      <div key={index} className="group relative flex-shrink-0 mx-16">
-        <div className="w-[200px] h-[80px] rounded-lg flex items-center justify-center backdrop-blur-sm transition-all duration-300 hover:bg-transparent hover:scale-105">
+      <div key={index} className="group relative flex-shrink-0 mx-8 sm:mx-12 lg:mx-16">
+        <div className="w-[150px] h-[60px] sm:w-[180px] sm:h-[72px] lg:w-[200px] lg:h-[80px] rounded-lg flex items-center justify-center backdrop-blur-sm transition-all duration-300 hover:bg-transparent hover:scale-105">
           <img 
             src={logo.src}
             alt={logo.alt}
-            className="h-14 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+            className="h-9 sm:h-11 lg:h-14 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
           />
         </div>
       </div>
@@ -1233,15 +1230,15 @@ focus on growing.    </p>
 </div>
 
 {/* Third Row - Scroll Left */}
-<div className="mt-12 slider-container overflow-hidden">
+<div className="mt-8 sm:mt-12 slider-container overflow-hidden">
   <div className="flex animate-infinite-scroll">
     {[...row3Logos, ...row3Logos].map((logo, index) => (
-      <div key={index} className="group relative flex-shrink-0 mx-16">
-        <div className="w-[240px] h-[100px] rounded-lg flex items-center justify-center backdrop-blur-sm transition-all duration-300 hover:bg-transparent hover:scale-105">
+      <div key={index} className="group relative flex-shrink-0 mx-8 sm:mx-12 lg:mx-16">
+        <div className="w-[160px] h-[70px] sm:w-[200px] sm:h-[85px] lg:w-[240px] lg:h-[100px] rounded-lg flex items-center justify-center backdrop-blur-sm transition-all duration-300 hover:bg-transparent hover:scale-105">
           <img 
             src={logo.src}
             alt={logo.alt}
-            className="h-16 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+            className="h-10 sm:h-12 lg:h-16 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
           />
         </div>
       </div>

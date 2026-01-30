@@ -30,7 +30,8 @@ module.exports = {
       animation: {
         marquee: 'marquee 15s linear infinite',
         'infinite-scroll': 'infinite-scroll 10s linear infinite',
-        'infinite-scroll-reverse': 'infinite-scroll-reverse 10s linear infinite'
+        'infinite-scroll-reverse': 'infinite-scroll-reverse 10s linear infinite',
+        'infinite-scroll-slow': 'infinite-scroll 35s linear infinite'
       },
     },
   },

@@ -325,17 +325,17 @@ export default function LuxuryScreen() {
          {/* Pricing Section */}
         <View className="w-full bg-white px-4" style={{ marginTop: isDesktop ? -192 : -60 }}>
           {/* Pricing Badge */}
-          <View className="flex flex-row justify-center items-center mx-auto w-[200px] h-[48px] bg-[#C10016]/10 rounded-[120px] mb-8">
-            <Text className="font-helvetica font-medium text-[16px] leading-[40px] tracking-[0.2em] uppercase text-[#C10016]">
+          <View className="flex flex-row justify-center items-center mx-auto w-[180px] h-[40px] sm:w-[200px] sm:h-[48px] bg-[#C10016]/10 rounded-[120px] mb-6 sm:mb-8">
+            <Text className="font-helvetica font-medium text-[14px] sm:text-[16px] leading-[32px] sm:leading-[40px] tracking-[0.2em] uppercase text-[#C10016]">
               pricing plans
             </Text>
           </View>
 
           {/* Pricing Plans */}
-          <Text className="text-center font-helvetica font-bold text-3xl lg:text-[64px] leading-tight lg:leading-[74px] tracking-[-0.01em] text-black mb-8 lg:mb-16">
+          <Text className="text-center font-helvetica font-bold text-2xl sm:text-3xl lg:text-[64px] leading-snug sm:leading-tight lg:leading-[74px] tracking-[-0.01em] text-black mb-6 sm:mb-8 lg:mb-16">
             Pricing <Text className='text-[#C10016]'>plans</Text> for companies{'\n'}of all <Text className='text-[#C10016]'>sizes</Text>
           </Text>
-          <Text className="text-center font-helvetica font-normal text-lg lg:text-[22px] leading-relaxed lg:leading-[36px] tracking-[-0.01em] text-black mb-8 max-w-[800px] mx-auto">
+          <Text className="text-center font-helvetica font-normal text-base sm:text-lg lg:text-[22px] leading-relaxed lg:leading-[36px] tracking-[-0.01em] text-black mb-6 sm:mb-8 max-w-[800px] mx-auto">
             We offer competitive pricing plans to fit your organisation&apos;s needs as well as your budget. For custom pricing, please <Text 
             className='font-bold text-[#C10016]'
             onPress={() => router.push('/contact')}
@@ -349,7 +349,7 @@ export default function LuxuryScreen() {
       {/* Content Container */}
       <View className="max-w-[1400px] mx-auto px-4">
       {/* Card Stack Container */}
-      <View className="flex flex-col lg:flex-row gap-6 lg:gap-0 justify-center items-end">
+      <View className="flex flex-col lg:flex-row gap-4 sm:gap-6 lg:gap-0 justify-center items-stretch lg:items-end">
         {pricingItems.map((item, i) => {
           const isMiddle = i === 1;
           const isFirst = i === 0;
@@ -362,45 +362,49 @@ export default function LuxuryScreen() {
                 isMiddle ? 'rounded-t-2xl z-20' : 'lg:mt-4'
               } ${isFirst ? 'lg:rounded-tl-2xl lg:rounded-bl-2xl' : ''} ${
                 isLast ? 'lg:rounded-tr-2xl lg:rounded-br-2xl' : ''
-              } ${!isDesktop ? 'rounded-2xl' : ''}`}
+              } ${!isDesktop ? 'rounded-2xl w-full' : ''}`}
               style={{
                  // Handle borders to avoid double borders
                  borderRightWidth: isLast || !isDesktop || isMiddle ? 1 : 0,
               }}
             >
-              <View className={`flex-1 flex flex-col ${isMiddle ? 'px-8 pt-16 pb-8' : 'p-8'}`}>
+              <View
+                className={`flex-1 flex flex-col ${
+                  isMiddle ? 'px-5 sm:px-8 pt-10 sm:pt-14 lg:pt-16 pb-6 sm:pb-8' : 'p-5 sm:p-6 lg:p-8'
+                }`}
+              >
                  {/* Header */}
-                 <View className="flex-row items-center justify-between mb-6">
-                   <View className="w-12 h-12 bg-gray-50 rounded-full items-center justify-center">
-                     <Image source={{ uri: item.logo }} className="w-8 h-8" resizeMode="contain" />
+                 <View className="flex-row items-center justify-between mb-4 sm:mb-6">
+                   <View className="w-10 h-10 sm:w-12 sm:h-12 bg-gray-50 rounded-full items-center justify-center">
+                     <Image source={{ uri: item.logo }} className="w-6 h-6 sm:w-8 sm:h-8" resizeMode="contain" />
                    </View>
                  </View>
 
-                 <Text className="font-helvetica font-bold text-2xl text-black mb-2">
+                 <Text className="font-helvetica font-bold text-xl sm:text-2xl text-black mb-2">
                    {item.title.join(' ')}
                  </Text>
-                 <Text className="font-helvetica text-gray-500 text-sm mb-6 min-h-[40px]">
+                 <Text className="font-helvetica text-gray-500 text-xs sm:text-sm mb-4 sm:mb-6 min-h-0 sm:min-h-[40px]">
                    {item.description}
                  </Text>
 
                  {/* Price */}
-                 <View className="flex-row items-baseline gap-1 mb-8">
+                 <View className="flex-row items-baseline gap-1 mb-6 sm:mb-8">
                     <Text className="text-gray-400 font-helvetica text-xs">{item.pricePrefix}</Text>
-                    <Text className="text-[#C10016] font-helvetica font-bold text-4xl">{item.price}</Text>
+                    <Text className="text-[#C10016] font-helvetica font-bold text-3xl sm:text-4xl leading-none">{item.price}</Text>
                     <Text className="text-gray-400 font-helvetica text-xs">{item.priceUnit}</Text>
                  </View>
 
                  {/* Divider */}
-                 <View className="h-[1px] bg-gray-100 w-full mb-8" />
+                 <View className="h-[1px] bg-gray-100 w-full mb-6 sm:mb-8" />
 
                  {/* Features */}
-                 <View className="flex-col gap-4 mb-8 flex-1">
+                 <View className="flex-col gap-3 sm:gap-4 mb-6 sm:mb-8 flex-1">
                     {item.features.map((feature, idx) => (
                       <View key={idx} className="flex-row items-start gap-3">
-                        <View className="w-5 h-5 mt-0.5">
+                        <View className="w-4 h-4 sm:w-5 sm:h-5 mt-0.5">
                            <Image source={require('../public/check.svg')} className="w-full h-full" resizeMode="contain" />
                         </View>
-                        <Text className="font-helvetica text-gray-700 text-sm leading-5 flex-1">{feature}</Text>
+                        <Text className="font-helvetica text-gray-700 text-[13px] sm:text-sm leading-5 flex-1">{feature}</Text>
                       </View>
                     ))}
                  </View>
@@ -412,30 +416,30 @@ export default function LuxuryScreen() {
       </View>
 
       {/* Contact Sales Button */}
-      <View className="w-full flex items-center justify-center mt-12">
+      <View className="w-full flex items-center justify-center mt-10 sm:mt-12">
         <TouchableOpacity 
           onPress={() => router.push('/contact')}
-          className="w-[250px] max-w-[400px] py-4 rounded-xl flex-row items-center justify-center gap-2 bg-[#C10016]"
+          className="w-[220px] sm:w-[250px] max-w-[400px] py-3 sm:py-4 rounded-xl flex-row items-center justify-center gap-2 bg-[#C10016]"
         >
-          <Text className="text-white font-helvetica font-bold text-base">Contact Sales</Text>
+          <Text className="text-white font-helvetica font-bold text-sm sm:text-base">Contact Sales</Text>
           <Image source={require('../public/arrow.svg')} className="w-4 h-4" resizeMode="contain" />
         </TouchableOpacity>
       </View>
       </View>
 
       {/* Key Benefits */}
-      <View className="mt-20 mb-12">
-        <Text className="font-helvetica font-bold text-4xl lg:text-[64px] leading-tight lg:leading-[84px] text-black text-center mb-12">
+      <View className="mt-14 sm:mt-20 mb-10 sm:mb-12">
+        <Text className="font-helvetica font-bold text-3xl sm:text-4xl lg:text-[64px] leading-tight lg:leading-[84px] text-black text-center mb-8 sm:mb-12">
           Key <Text className="text-[#C10016]">Benefits</Text>
         </Text>
 
-        <View className="flex flex-col lg:flex-row justify-center items-center gap-8 lg:gap-16 px-4">
+        <View className="flex flex-col lg:flex-row justify-center items-center gap-6 sm:gap-8 lg:gap-16 px-4">
           {['No Minimum Orders', 'No Setup Fees', 'Dedicated Account Manager'].map((benefit, i) => (
             <View key={i} className="flex flex-row items-center gap-4">
-              <View className="w-6 h-6">
+              <View className="w-5 h-5 sm:w-6 sm:h-6">
                 <Image source={require('../public/check.svg')} className="w-full h-full" resizeMode="contain" />
               </View>
-              <Text className="font-helvetica font-normal text-xl lg:text-[24px] leading-[32px] text-black">
+              <Text className="font-helvetica font-normal text-lg sm:text-xl lg:text-[24px] leading-7 sm:leading-[32px] text-black">
                 {benefit}
               </Text>
             </View>

@@ -1,11 +1,10 @@
 import Footer from '@/components/layout/footer';
 import Navbar from '@/components/layout/navbar';
-import { Stack, useRouter } from 'expo-router';
+import { Stack } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
-import { ScrollView, Text, TouchableOpacity, useWindowDimensions, View } from 'react-native';
+import { ScrollView, Text, useWindowDimensions, View } from 'react-native';
 
 export default function AboutUsScreen(){
-    const router = useRouter();
     const [currentSlide, setCurrentSlide] = useState(0);
     const [isPaused, setIsPaused] = useState(false);
     const carouselRef = useRef<HTMLDivElement>(null);
@@ -65,28 +64,38 @@ export default function AboutUsScreen(){
         return () => clearInterval(timer);
       }, [currentSlide]);
       const images = [
-          { id: 1, src: '/bike.webp' },
-          { id: 2, src: '/wh.webp' },
-          { id: 3, src: '/ct.webp' },
-          { id: 4, src: '/box.webp' },
-          { id: 5, src: '/happy.webp' }
+          { id: 1, src: '/instagram/frame_4_00-04.png' },
+          { id: 2, src: '/instagram/frame_5_00-27.png' },
+          { id: 3, src: '/instagram/frame_12_01-54.png' },
+          { id: 4, src: '/instagram/frame_15_00-17.png' },
+          { id: 5, src: '/instagram/fulflix%20image.png' }
         ];
         const [gallerySlide, setGallerySlide] = useState(0);
+        const [isGalleryTransitionEnabled, setIsGalleryTransitionEnabled] = useState(true);
         useEffect(() => {
         if (isPaused) return;
       
         const interval = setInterval(() => {
           setGallerySlide((prev) => {
-            const nextSlide = prev + 1;
-            // Reset to 0 when we reach the end of original images for seamless loop
-            return nextSlide >= images.length ? 0 : nextSlide;
+            if (prev >= images.length) return prev;
+            return prev + 1;
           });
         }, 3000);
       
         return () => clearInterval(interval);
       }, [isPaused, images.length]);
+        useEffect(() => {
+        if (gallerySlide !== images.length) return;
+
+        const timer = setTimeout(() => {
+          setIsGalleryTransitionEnabled(false);
+          setGallerySlide(0);
+          requestAnimationFrame(() => setIsGalleryTransitionEnabled(true));
+        }, 500);
+
+        return () => clearTimeout(timer);
+      }, [gallerySlide, images.length]);
           const [activeDot, setActiveDot] = useState(1); // Start with middle dot active
-          const [activeReview, setActiveReview] = useState(0);
       
   
   return (
@@ -105,7 +114,7 @@ export default function AboutUsScreen(){
         className="flex-1 bg-white"
       >
         {/* Hero Section */}
-        <View className="relative min-h-screen">
+        <View className="relative min-h-[45vh] lg:min-h-screen">
           {/* PNG Background */}
           <View className="absolute inset-0 z-0">
             <img 
@@ -116,9 +125,9 @@ export default function AboutUsScreen(){
           </View>
 
           {/* Hero Content */}
-          <View className="relative z-10 min-h-screen flex items-center justify-center pb-20">
+          <View className="relative z-10 min-h-[55vh] lg:min-h-screen flex items-center justify-center pb-6 lg:pb-20">
             {/* Main Title */}
-            <Text className="font-helvetica font-bold text-4xl lg:text-[84px] leading-tight lg:leading-[84px] text-black text-center mb-8">
+            <Text className="font-helvetica font-bold text-4xl lg:text-[84px] leading-tight lg:leading-[84px] text-black text-center mb-4 lg:mb-8">
               About Us
             </Text>
             
@@ -222,7 +231,7 @@ thrive.
   </div>
 </section>
 {/* Timeline Section */}
-<View className="relative w-full py-40">
+<View className="relative w-full py-16 sm:py-24 lg:py-40">
   {/* Background Image */}
   <View className="absolute inset-0">
     <img 
@@ -443,7 +452,7 @@ can build a greener future while achieving your logistics goals.
     </View>
   </View>
 </View>
-<section className="relative w-full min-h-[800px] py-20">
+<section className="relative w-full min-h-[600px] lg:min-h-[800px] py-12 lg:py-20">
   {/* Background with Linear Gradient */}
   <div 
     className="absolute inset-0 w-full h-full"
@@ -479,15 +488,15 @@ can build a greener future while achieving your logistics goals.
 
 <div className="w-full overflow-hidden py-10">
   {/* First Row - Scroll Left */}
-<div className="mt-20 slider-container">
+<div className="mt-10 lg:mt-20 slider-container">
   <div className="flex animate-infinite-scroll">
     {[...row1Logos, ...row1Logos].map((logo, index) => (
-      <div key={index} className="group relative flex-shrink-0 mx-16">
-        <div className="w-[240px] h-[100px] rounded-lg flex items-center justify-center transition-all duration-300 hover:bg-transparent hover:scale-105">
+      <div key={index} className="group relative flex-shrink-0 mx-6 sm:mx-10 lg:mx-16">
+        <div className="w-[160px] h-[70px] sm:w-[200px] sm:h-[90px] lg:w-[240px] lg:h-[100px] rounded-lg flex items-center justify-center transition-all duration-300 hover:bg-transparent hover:scale-105">
           <img 
             src={logo.src}
             alt={logo.alt}
-            className="h-16 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+            className="h-10 sm:h-12 lg:h-16 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
           />
         </div>
       </div>
@@ -496,15 +505,15 @@ can build a greener future while achieving your logistics goals.
 </div>
 
 {/* Second Row - Scroll Right */}
-<div className="mt-12 slider-container">
+<div className="mt-8 lg:mt-12 slider-container">
   <div className="flex animate-infinite-scroll-reverse">
     {[...row2Logos, ...row2Logos].map((logo, index) => (
-      <div key={index} className="group relative flex-shrink-0 mx-16">
-        <div className="w-[200px] h-[80px] rounded-lg flex items-center justify-center backdrop-blur-sm transition-all duration-300 hover:bg-transparent hover:scale-105">
+      <div key={index} className="group relative flex-shrink-0 mx-6 sm:mx-10 lg:mx-16">
+        <div className="w-[150px] h-[60px] sm:w-[180px] sm:h-[70px] lg:w-[200px] lg:h-[80px] rounded-lg flex items-center justify-center backdrop-blur-sm transition-all duration-300 hover:bg-transparent hover:scale-105">
           <img 
             src={logo.src}
             alt={logo.alt}
-            className="h-14 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+            className="h-9 sm:h-11 lg:h-14 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
           />
         </div>
       </div>
@@ -512,15 +521,15 @@ can build a greener future while achieving your logistics goals.
   </div>
 </div>
 {/* Third Row - Scroll Left */}
-<div className="mt-12 slider-container">
+<div className="mt-8 lg:mt-12 slider-container">
   <div className="flex animate-infinite-scroll">
     {[...row3Logos, ...row3Logos].map((logo, index) => (
-      <div key={index} className="group relative flex-shrink-0 mx-16">
-        <div className="w-[240px] h-[100px] rounded-lg flex items-center justify-center backdrop-blur-sm transition-all duration-300 hover:bg-transparent hover:scale-105">
+      <div key={index} className="group relative flex-shrink-0 mx-6 sm:mx-10 lg:mx-16">
+        <div className="w-[160px] h-[70px] sm:w-[200px] sm:h-[90px] lg:w-[240px] lg:h-[100px] rounded-lg flex items-center justify-center backdrop-blur-sm transition-all duration-300 hover:bg-transparent hover:scale-105">
           <img 
             src={logo.src}
             alt={logo.alt}
-            className="h-16 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+            className="h-10 sm:h-12 lg:h-16 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
           />
         </div>
       </div>
@@ -530,7 +539,7 @@ can build a greener future while achieving your logistics goals.
 </div>
 
   </div>
-  <div className="relative max-w-[1490px] mx-auto px-4 pt-24 z-10">
+  <div className="relative max-w-[1490px] mx-auto px-4 pt-16 lg:pt-24 z-10">
     
     {/* "our partners" Badge */}
     <div className="flex justify-start">
@@ -542,16 +551,16 @@ can build a greener future while achieving your logistics goals.
     </div>
 
     {/* Main Heading */}
-    <h2 className="text-left font-bold text-4xl lg:text-[64px] leading-tight lg:leading-[80px] tracking-tight text-white mt-16 max-w-[960px]">
+    <h2 className="text-left font-bold text-4xl lg:text-[64px] leading-tight lg:leading-[80px] tracking-tight text-white mt-10 lg:mt-16 max-w-[960px]">
       Meet the people we make happy
     </h2>
 
     {/* Navigation Arrows - Aligned with badge and heading */}
-    <div className="absolute right-4 top-24 lg:top-24 flex gap-4">
+    <div className="absolute right-4 top-4 sm:top-10 lg:top-24 flex gap-3 sm:gap-4">
       {/* Left Arrow */}
       <button 
         onClick={prevSlide}
-        className="w-[56px] h-[56px] bg-[rgba(193,0,22,0.1)] rounded-full flex items-center justify-center hover:bg-[#C10016] transition-colors duration-300 group"
+        className="w-[44px] h-[44px] sm:w-[56px] sm:h-[56px] bg-[rgba(193,0,22,0.1)] rounded-full flex items-center justify-center hover:bg-[#C10016] transition-colors duration-300 group"
       >
         <img src="/next.svg" alt="Previous" className="w-4 h-4 transform rotate-180" />
       </button>
@@ -559,7 +568,7 @@ can build a greener future while achieving your logistics goals.
       {/* Right Arrow */}
       <button 
         onClick={nextSlide}
-        className="w-[56px] h-[56px] bg-[rgba(193,0,22,0.1)] rounded-full flex items-center justify-center hover:bg-[rgba(193,0,22,0.8)] transition-colors duration-300"
+        className="w-[44px] h-[44px] sm:w-[56px] sm:h-[56px] bg-[rgba(193,0,22,0.1)] rounded-full flex items-center justify-center hover:bg-[rgba(193,0,22,0.8)] transition-colors duration-300"
       >
         <img src="/next.svg" alt="Next" className="w-4 h-4" />
       </button>
@@ -588,7 +597,7 @@ can build a greener future while achieving your logistics goals.
   </div>
 </section>
 {/* Reviews Section */}
-<View className="relative w-full py-20">
+<View className="relative w-full py-12 lg:py-20">
   {/* Background Image */}
   <View className="absolute inset-0">
     <img 
@@ -605,159 +614,223 @@ can build a greener future while achieving your logistics goals.
   <View className="relative max-w-[1400px] mx-auto px-4 z-10">
     
     {/* "OUR REVIEWS" Badge */}
-    <View className="flex flex-row justify-center items-center px-11 py-4 bg-[#C10016] bg-opacity-10 rounded-[120px] w-[250px]">
-      <Text className="font-helvetica font-medium text-[16px] leading-[40px] tracking-[0.2em] uppercase text-[#C10016]">
+    <View className="flex flex-row justify-center items-center px-8 sm:px-11 py-3 sm:py-4 bg-[#C10016] bg-opacity-10 rounded-[120px] self-center lg:self-start">
+      <Text
+        numberOfLines={1}
+        className="font-helvetica font-medium text-[14px] sm:text-[16px] leading-[18px] sm:leading-[40px] tracking-[0.18em] uppercase text-[#C10016]"
+      >
         OUR REVIEWS
       </Text>
     </View>
 
     {/* Header Section */}
-    <View className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8 lg:gap-0">
+    <View className="flex flex-col lg:flex-row justify-between items-center lg:items-end gap-6 lg:gap-0 mt-6 lg:mt-0">
       {/* Left Side - Title */}
       <View className="max-w-[600px]">
-        <Text className="font-helvetica font-bold text-4xl lg:text-[64px] leading-tight lg:leading-[80px] tracking-tight text-black lg:transform lg:-translate-y-20">
+        <Text className="font-helvetica font-bold text-3xl sm:text-4xl lg:text-[64px] leading-tight lg:leading-[80px] tracking-tight text-black text-center lg:text-left lg:transform lg:-translate-y-20">
           What our client says
         </Text>
       </View>
       
       {/* Right Side - Rating */}
-      <View className="text-left lg:text-right w-full lg:w-auto">
-        <Text className="font-helvetica font-normal text-5xl lg:text-[60px] leading-tight lg:leading-[80px] tracking-tight text-black lg:translate-x-16 lg:transform lg:-translate-y-12">
+      <View className="flex flex-row lg:flex-col items-center lg:items-end justify-center gap-4 sm:gap-6 w-full lg:w-auto">
+        <Text className="font-helvetica font-normal text-3xl sm:text-4xl lg:text-[60px] leading-tight lg:leading-[80px] tracking-tight text-black lg:translate-x-16 lg:transform lg:-translate-y-12">
           (5.0)
         </Text>
-        {/* Logo/Image */}
-        <View className="w-[180px] h-[72px] lg:w-[247px] lg:h-[100px] bg-cover bg-center mt-4 lg:mt-0 lg:transform lg:-translate-x-52 lg:-translate-y-32" 
-          style={{backgroundImage: 'url(/GR.webp)'} as any} />
+        <img
+          src="/GR.webp"
+          alt="Google Reviews"
+          className="w-[150px] sm:w-[180px] lg:w-[247px] h-auto object-contain lg:transform lg:-translate-x-52 lg:-translate-y-32"
+        />
       </View>
     </View>
 
     {/* Review Cards Grid */}
-    <View className="flex flex-col lg:flex-row gap-8 mb-16">
-      
-      {/* Review Card 1 */}
-      <View className="flex-1 bg-white border border-[#D9D9D9] rounded-[20px] p-8">
-        <View className="flex flex-row items-start gap-6 mb-6">
-          {/* Avatar */}
-          <View className="w-[80px] h-[80px] rounded-full bg-cover bg-center" 
-            style={{backgroundImage: 'url(/Sabir-Rajpoot.png)'} as any} />
-          
-          {/* User Info */}
-          <View className="flex-1">
-            <Text className="font-helvetica font-bold text-[20px] leading-[38px] text-black">
-              Sabir Rajpoot
-            </Text>
-            <Text className="font-helvetica font-normal text-[16px] leading-[38px] text-black opacity-50">
-              November 11, 2025
-            </Text>
-          </View>
-          
-          {/* Logo */}
-          <View className="w-[32px] h-[32px] bg-cover bg-center" 
-            style={{backgroundImage: 'url(/Goo.webp)'} as any} />
-        </View>
-        
-        {/* Star Rating */}
-        <View className="flex flex-row gap-2 mb-6">
-        <img src="reviews.webp" alt="stars" />
-        </View>
-        
-        {/* Review Text */}
-        <Text className="font-helvetica font-normal text-[20px] leading-[38px] text-black opacity-70">
-          Excellent Services, Fast Delivery and Cooperative Support We are working with FULFIL.X since last 6 months and it&apos;s really a good experience with them. Staff is really good and cooperative environment. Fulfil.x is super fast in Inventory tracking, orders management and fast delivery.
-        </Text>
-      </View>
+    {(() => {
+      type ReviewItem = {
+        name: string;
+        date: string;
+        avatar?: string;
+        text: string;
+      };
+      const mobileReviews: ReviewItem[] = [
+        {
+          name: 'Sabir Rajpoot',
+          date: 'November 11, 2025',
+          avatar: '/Sabir-Rajpoot.png',
+          text: "Excellent Services, Fast Delivery and Cooperative Support We are working with FULFIL.X since last 6 months and it's really a good experience with them. Staff is really good and cooperative environment. Fulfil.x is super fast in Inventory tracking, orders management and fast delivery.",
+        },
+        {
+          name: 'Jeanel Dangilan',
+          date: 'November 21, 2025',
+          avatar: '/Jeanel-Dangilan.png',
+          text: 'Really happy with the service from FulfilX. They make fulfilment super easy and stress-free. Orders are always handled on time and the team is friendly and quick to respond whenever I have questions. It’s been such a big help for my business knowing I can rely on them. Definitely recommend them if you need a fulfilment partner you can trust.',
+        },
+        {
+          name: 'Milcah Cortez',
+          date: 'November 11, 2025',
+          avatar: '/Milcah-Cortez.png',
+          text: 'I’ve been really impressed with the service. The team at Fulfil.X is helpful, responsive, and always gets things done on time. My business runs a lot easier with them handling fulfilment. Definitely a trusted partner.',
+        },
+      ];
 
-      {/* Repeat for Review Cards 2 and 3 with same structure */}
-      {/* Review Card 2 */}
-      <View className="flex-1 bg-white border border-[#D9D9D9] rounded-[20px] p-8">
-        <View className="flex flex-row items-start gap-6 mb-6">
-          {/* Avatar */}
-          <View className="w-[80px] h-[80px] rounded-full bg-cover bg-center" 
-            style={{backgroundImage: 'url(/Jeanel-Dangilan.png)'} as any} />
-          
-          {/* User Info */}
-          <View className="flex-1">
-            <Text className="font-helvetica font-bold text-[20px] leading-[38px] text-black">
-              Jeanel Dangilan
-            </Text>
-            <Text className="font-helvetica font-normal text-[16px] leading-[38px] text-black opacity-50">
-              November 21, 2025
-            </Text>
-          </View>
-          
-          {/* Logo */}
-          <View className="w-[32px] h-[32px] bg-cover bg-center" 
-            style={{backgroundImage: 'url(/Goo.webp)'} as any} />
-        </View>
-        {/* Star Rating */}
-        <View className="flex flex-row gap-2 mb-6">
-        <img src="reviews.webp" alt="stars" />
-        </View>
-        
-        {/* Review Text */}
-        <Text className="font-helvetica font-normal text-[20px] leading-[38px] text-black opacity-70">
-         Really happy with the service from FulfilX. They make fulfilment super easy and stress-free. Orders are always handled on time and the team is friendly and quick to respond whenever I have questions. It’s been such a big help for my business knowing I can rely on them. Definitely recommend them if you need a fulfilment partner you can trust.
+      const desktopReviews: ReviewItem[] = [
+        ...mobileReviews,
+        {
+          name: 'A great team',
+          date: 'November 27, 2025',
+          text: 'A great team, very professional and a smooth experience to work with.',
+        },
+        {
+          name: 'Outstanding onboarding support',
+          date: 'November 12, 2025',
+          text: 'The Fulfil.X team has been outstanding. From day one of onboarding, their communication and organisation have been first rate. I’d strongly recommend them to anyone seeking a dependable, responsive, and truly supportive fulfilment partner. Very excited to continue working together for many years ahead.',
+        },
+        {
+          name: 'Trusted 3PL partner',
+          date: 'October 31, 2025',
+          text: 'We have been working with Fulfil.x for almost a year now and the team has been a dream to work with! Very speedy and transparent communication and they have streamlined our logistics in a very efficient way. We will definitely recommend FULFIL.X as a trusted 3PL partner for your business. Thanks Mo and team.',
+        },
+        {
+          name: 'Outstanding service & support',
+          date: 'August 25, 2025',
+          text: 'The team at Fulfil.X have been nothing short of brilliant. From the very first day of onboarding, their communication and organisation have been exceptional. They’ve guided me through every step of the process and have always been quick to respond whenever I needed help. What’s stood out most is how proactive and accommodating they’ve been in navigating unexpected obstacles — nothing ever feels like too much trouble. Highly recommended to anyone looking for a reliable, responsive, and genuinely supportive fulfilment partner. Looking forward to continuing our collaboration for many years to come.',
+        },
+        {
+          name: 'Excellent service',
+          date: 'June 18, 2025',
+          text: 'Excellent Services, Fast Delivery and Cooperative Support. Really recommend to all e-commerce businesses due to the excellent service.',
+        },
+      ];
 
-        </Text>
-      </View>
-      
-      {/* Review Card 3 */}
-      <View className="flex-1 bg-white border border-[#D9D9D9] rounded-[20px] p-8">
-        <View className="flex flex-row items-start gap-6 mb-6">
-          {/* Avatar */}
-          <View className="w-[80px] h-[80px] rounded-full bg-cover bg-center" 
-            style={{backgroundImage: 'url(/Milcah-Cortez.png)'} as any} />
-          
-          {/* User Info */}
-          <View className="flex-1">
-            <Text className="font-helvetica font-bold text-[20px] leading-[38px] text-black">
-              Milcah Cortez
-            </Text>
-            <Text className="font-helvetica font-normal text-[16px] leading-[38px] text-black opacity-50">
-              November 11, 2025
-            </Text>
+      const ReviewCard = ({
+        item,
+        className,
+      }: {
+        item: ReviewItem;
+        className?: string;
+      }) => (
+        <View
+          className={`flex-1 flex flex-col bg-white border border-[#D9D9D9] rounded-[18px] px-5 pt-5 pb-7 sm:px-6 sm:pt-6 sm:pb-9 lg:p-8 lg:pb-10 shadow-sm ${className ?? ''}`}
+        >
+          <View className="flex flex-row items-start gap-4 lg:gap-6 mb-4 lg:mb-6">
+            {item.avatar ? (
+              <View
+                className="w-[56px] h-[56px] sm:w-[64px] sm:h-[64px] lg:w-[80px] lg:h-[80px] rounded-full bg-cover bg-center"
+                style={{ backgroundImage: `url(${item.avatar})` } as any}
+              />
+            ) : (
+              <View className="w-[56px] h-[56px] sm:w-[64px] sm:h-[64px] lg:w-[80px] lg:h-[80px] rounded-full bg-[#F2F2F2] flex items-center justify-center">
+                <Text className="font-helvetica font-bold text-[18px] lg:text-[22px] text-black opacity-60">
+                  {item.name.trim().slice(0, 1).toUpperCase()}
+                </Text>
+              </View>
+            )}
+
+            <View className="flex-1 min-w-0">
+              <Text
+                numberOfLines={1}
+                className="font-helvetica font-bold text-[16px] sm:text-[18px] lg:text-[20px] leading-[22px] sm:leading-[26px] lg:leading-[38px] text-black"
+              >
+                {item.name}
+              </Text>
+              <Text
+                numberOfLines={1}
+                className="font-helvetica font-normal text-[13px] sm:text-[14px] lg:text-[16px] leading-[18px] sm:leading-[22px] lg:leading-[38px] text-black opacity-50"
+              >
+                {item.date}
+              </Text>
+            </View>
+
+            <View
+              className="w-[28px] h-[28px] lg:w-[32px] lg:h-[32px] bg-cover bg-center"
+              style={{ backgroundImage: 'url(/Goo.webp)' } as any}
+            />
           </View>
-          
-          {/* Logo */}
-          <View className="w-[32px] h-[32px] bg-cover bg-center" 
-            style={{backgroundImage: 'url(/Goo.webp)'} as any} />
+
+          <View className="flex flex-row gap-2 mb-4 lg:mb-6">
+            <img src="/reviews.webp" alt="stars" className="h-4 sm:h-5 lg:h-6 w-auto object-contain" />
+          </View>
+
+          <Text className="font-helvetica font-normal text-[15px] sm:text-[16px] lg:text-[20px] leading-[24px] sm:leading-[28px] lg:leading-[38px] text-black opacity-70">
+            {item.text}
+          </Text>
         </View>
-        {/* Star Rating */}
-        <View className="flex flex-row gap-2 mb-6">
-        <img src="reviews.webp" alt="stars" />
-        </View>
-        {/* Review Text */}
-        <Text className="font-helvetica font-normal text-[20px] leading-[38px] text-black opacity-70">
-         I’ve been really impressed with the service. The team at Fulfil.X is helpful, responsive, and always gets things done on time. My business runs a lot easier with them handling fulfilment. Definitely a trusted partner.
-        </Text>
-      </View>
-    </View>
-{/* Pagination Dots */}
-<View className="flex items-center">
-  <View className="w-[72px] h-[24px] bg-[#C10016] rounded-[50px] flex flex-row items-center justify-center gap-3">
-    <TouchableOpacity onPress={() => setActiveReview(0)}>
-      <View 
-        className={`w-[10px] h-[10px] rounded-full ${
-          activeReview === 0 ? 'border border-white' : 'bg-white bg-opacity-50 w-[6px] h-[6px]'
-        }`}
-      />
-    </TouchableOpacity>
-    <TouchableOpacity onPress={() => setActiveReview(1)}>
-      <View 
-        className={`w-[10px] h-[10px] rounded-full ${
-          activeReview === 1 ? 'border border-white' : 'bg-white bg-opacity-50 w-[6px] h-[6px]'
-        }`}
-      />
-    </TouchableOpacity>
-    <TouchableOpacity onPress={() => setActiveReview(2)}>
-      <View 
-        className={`w-[10px] h-[10px] rounded-full ${
-          activeReview === 2 ? 'border border-white' : 'bg-white bg-opacity-50 w-[6px] h-[6px]'
-        }`}
-      />
-    </TouchableOpacity>
-  </View>
-</View>
+      );
+
+      const DesktopReviewCard = ({ item }: { item: ReviewItem }) => (
+        <div className="flex-none w-[360px] h-[290px] bg-white border border-[#D9D9D9] rounded-[18px] px-6 pt-6 pb-8 shadow-sm flex flex-col">
+          <div className="flex items-start gap-4">
+            {item.avatar ? (
+              <div
+                className="w-[56px] h-[56px] rounded-full bg-cover bg-center"
+                style={{ backgroundImage: `url(${item.avatar})` }}
+              />
+            ) : (
+              <div className="w-[56px] h-[56px] rounded-full bg-[#F2F2F2] flex items-center justify-center">
+                <span className="font-helvetica font-bold text-[18px] text-black opacity-60">
+                  {item.name.trim().slice(0, 1).toUpperCase()}
+                </span>
+              </div>
+            )}
+
+            <div className="flex-1 min-w-0">
+              <div className="font-helvetica font-bold text-[18px] leading-[24px] text-black truncate">
+                {item.name}
+              </div>
+              <div className="font-helvetica font-normal text-[14px] leading-[20px] text-black opacity-50 truncate">
+                {item.date}
+              </div>
+            </div>
+
+            <div
+              className="w-[28px] h-[28px] bg-cover bg-center"
+              style={{ backgroundImage: 'url(/Goo.webp)' }}
+            />
+          </div>
+
+          <div className="mt-4">
+            <img src="/reviews.webp" alt="stars" className="h-5 w-auto object-contain" />
+          </div>
+
+          <div className="mt-3 flex-1 overflow-hidden">
+            <p
+              className="font-helvetica font-normal text-[16px] leading-[24px] text-black opacity-70"
+              style={
+                {
+                  display: '-webkit-box',
+                  WebkitLineClamp: 4,
+                  WebkitBoxOrient: 'vertical',
+                  overflow: 'hidden',
+                } as any
+              }
+            >
+              {item.text}
+            </p>
+          </div>
+
+          <div className="h-3" />
+        </div>
+      );
+
+      return (
+        <>
+          <View className="flex flex-col lg:flex-row gap-4 sm:gap-6 lg:gap-8 mt-8 mb-4 lg:mb-16 max-w-[520px] lg:max-w-none mx-auto lg:mx-0 lg:hidden">
+            {mobileReviews.map((item) => (
+              <ReviewCard key={item.name} item={item} />
+            ))}
+          </View>
+
+          <div className="hidden lg:block mt-8 mb-16 slider-container overflow-hidden">
+            <div className="flex gap-16 animate-infinite-scroll-slow">
+              {[...desktopReviews, ...desktopReviews].map((item, index) => (
+                <DesktopReviewCard key={`${item.name}-${index}`} item={item} />
+              ))}
+            </div>
+          </div>
+        </>
+      );
+    })()}
   </View>
 </View>
 
@@ -775,7 +848,7 @@ can build a greener future while achieving your logistics goals.
     onMouseLeave={() => setIsPaused(false)}
   >
     <View 
-      className="flex flex-row absolute top-0 left-6 transition-transform duration-500 ease-in-out"
+      className={`flex flex-row absolute top-0 left-6 ${isGalleryTransitionEnabled ? 'transition-transform duration-500 ease-in-out' : ''}`}
       style={{ 
         transform: `translateX(-${gallerySlide * galleryStep}px)` 
       }}

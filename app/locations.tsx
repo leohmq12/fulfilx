@@ -6,12 +6,12 @@ import { useRef, useState } from 'react';
 import { Image, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 
 const defaultMarkerPositions: Record<string, { x: number; y: number }> = {
-  uk: { x: 45.84, y: 16.59 },
-  ca: { x: 10.57, y: 53.58 },
-  us: { x: 14.53, y: 41.47 },
-  atl: { x: 21.68, y: 44.29 },
+ uk: { x: 47.84, y: 15.59 },
+  ca: { x: 11.07, y: 50.58 },
+  
+  atl: { x: 21.68, y: 43.29 },
   nl: { x: 48.33, y: 19.41 },
-  uae: { x: 66.51, y: 42.13 },
+  uae: { x: 66.31, y: 39.13 },
   bh: { x: 64.72, y: 36.16 },
   au: { x: 85.55, y: 86.42 },
   sa: { x: 62.94, y: 36.49 },
@@ -101,7 +101,7 @@ export default function LocationsScreen() {
             Our Worldwide <Text className='text-[#C10016]'>Branches</Text>
           </Text>
 {/* Cards Container */}
-<View className="flex flex-row justify-center items-start gap-8 px-8">
+<View className="flex flex-row flex-wrap justify-center items-start gap-8 px-4 lg:px-8">
                       {/* UK Office Card */}
 <View className="relative w-full lg:w-[350px] h-[381px]">
   {/* Background Card */}
@@ -434,7 +434,7 @@ export default function LocationsScreen() {
 </View>
         </View>
 
-        <section className="relative w-full bg-white overflow-hidden">
+        <section className="relative w-full bg-white overflow-hidden mt-20">
           <div className="relative w-full px-4 md:px-6 lg:px-8 2xl:px-16">
             <div className="flex justify-center">
               <div className="w-[250px] h-[48px] bg-[rgba(193,0,22,0.1)] rounded-[120px] flex items-center justify-center">
@@ -444,7 +444,7 @@ export default function LocationsScreen() {
               </div>
             </div>
 
-            <h2 className="text-center font-bold text-4xl lg:text-[64px] leading-tight lg:leading-[74px] text-black mt-10 lg:mt-16 max-w-[700px] mx-auto px-2">
+            <h2 className="text-center font-bold text-4xl lg:text-[64px] leading-tight lg:leading-[74px] text-black mt-6 lg:mt-6 max-w-[700px] mx-auto px-2">
               Our <span className="text-[#C10016]">Worldwide Network</span>
             </h2>
 
@@ -524,8 +524,9 @@ export default function LocationsScreen() {
                   className="absolute group -translate-x-1/2 -translate-y-1/2"
                   style={{ left: `${getMarkerPos('uk').x}%`, top: `${getMarkerPos('uk').y}%` }}
                 >
-                  <div className="w-[48px] h-[48px] border border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110">
-                    <div className="w-[32px] h-[32px] border border-[#C10016] rounded-full flex items-center justify-center">
+                  <div className="w-[24px] h-[24px] sm:w-[48px] sm:h-[48px] sm:border sm:border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 sm:hover:scale-110">
+                    <img src="/location.png" alt="Location marker" className="w-[18px] h-[18px] object-contain sm:hidden" />
+                    <div className="hidden sm:flex w-[32px] h-[32px] border border-[#C10016] rounded-full items-center justify-center">
                       <div className="w-[16px] h-[16px] bg-[#C10016] rounded-full"></div>
                     </div>
                   </div>
@@ -542,8 +543,9 @@ export default function LocationsScreen() {
                   className="absolute group -translate-x-1/2 -translate-y-1/2"
                   style={{ left: `${getMarkerPos('ca').x}%`, top: `${getMarkerPos('ca').y}%` }}
                 >
-                  <div className="w-[48px] h-[48px] border border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110">
-                    <div className="w-[32px] h-[32px] border border-[#C10016] rounded-full flex items-center justify-center">
+                  <div className="w-[24px] h-[24px] sm:w-[48px] sm:h-[48px] sm:border sm:border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 sm:hover:scale-110">
+                    <img src="/location.png" alt="Location marker" className="w-[18px] h-[18px] object-contain sm:hidden" />
+                    <div className="hidden sm:flex w-[32px] h-[32px] border border-[#C10016] rounded-full items-center justify-center">
                       <div className="w-[16px] h-[16px] bg-[#C10016] rounded-full"></div>
                     </div>
                   </div>
@@ -556,30 +558,15 @@ export default function LocationsScreen() {
                   </div>
                 </div>
 
-                <div
-                  className="absolute group -translate-x-1/2 -translate-y-1/2"
-                  style={{ left: `${getMarkerPos('us').x}%`, top: `${getMarkerPos('us').y}%` }}
-                >
-                  <div className="w-[48px] h-[48px] border border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110">
-                    <div className="w-[32px] h-[32px] border border-[#C10016] rounded-full flex items-center justify-center">
-                      <div className="w-[16px] h-[16px] bg-[#C10016] rounded-full"></div>
-                    </div>
-                  </div>
-                  <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                    <div className="bg-white px-6 py-2 rounded-lg shadow-lg border border-gray-200 whitespace-nowrap flex items-center gap-2">
-                      <img src="/US.webp" alt="US Flag" className="w-[16px] h-[12px]" />
-                      <p className="text-sm font-medium text-gray-800">United States</p>
-                    </div>
-                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-white"></div>
-                  </div>
-                </div>
+                
 
                 <div
                   className="absolute group -translate-x-1/2 -translate-y-1/2"
                   style={{ left: `${getMarkerPos('atl').x}%`, top: `${getMarkerPos('atl').y}%` }}
                 >
-                  <div className="w-[48px] h-[48px] border border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110">
-                    <div className="w-[32px] h-[32px] border border-[#C10016] rounded-full flex items-center justify-center">
+                  <div className="w-[24px] h-[24px] sm:w-[48px] sm:h-[48px] sm:border sm:border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 sm:hover:scale-110">
+                    <img src="/location.png" alt="Location marker" className="w-[18px] h-[18px] object-contain sm:hidden" />
+                    <div className="hidden sm:flex w-[32px] h-[32px] border border-[#C10016] rounded-full items-center justify-center">
                       <div className="w-[16px] h-[16px] bg-[#C10016] rounded-full"></div>
                     </div>
                   </div>
@@ -596,8 +583,9 @@ export default function LocationsScreen() {
                   className="absolute group -translate-x-1/2 -translate-y-1/2"
                   style={{ left: `${getMarkerPos('nl').x}%`, top: `${getMarkerPos('nl').y}%` }}
                 >
-                  <div className="w-[48px] h-[48px] border border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110">
-                    <div className="w-[32px] h-[32px] border border-[#C10016] rounded-full flex items-center justify-center">
+                  <div className="w-[24px] h-[24px] sm:w-[48px] sm:h-[48px] sm:border sm:border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 sm:hover:scale-110">
+                    <img src="/location.png" alt="Location marker" className="w-[18px] h-[18px] object-contain sm:hidden" />
+                    <div className="hidden sm:flex w-[32px] h-[32px] border border-[#C10016] rounded-full items-center justify-center">
                       <div className="w-[16px] h-[16px] bg-[#C10016] rounded-full"></div>
                     </div>
                   </div>
@@ -614,8 +602,9 @@ export default function LocationsScreen() {
                   className="absolute group -translate-x-1/2 -translate-y-1/2"
                   style={{ left: `${getMarkerPos('uae').x}%`, top: `${getMarkerPos('uae').y}%` }}
                 >
-                  <div className="w-[48px] h-[48px] border border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110">
-                    <div className="w-[32px] h-[32px] border border-[#C10016] rounded-full flex items-center justify-center">
+                  <div className="w-[24px] h-[24px] sm:w-[48px] sm:h-[48px] sm:border sm:border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 sm:hover:scale-110">
+                    <img src="/location.png" alt="Location marker" className="w-[18px] h-[18px] object-contain sm:hidden" />
+                    <div className="hidden sm:flex w-[32px] h-[32px] border border-[#C10016] rounded-full items-center justify-center">
                       <div className="w-[16px] h-[16px] bg-[#C10016] rounded-full"></div>
                     </div>
                   </div>
@@ -632,8 +621,9 @@ export default function LocationsScreen() {
                   className="absolute group -translate-x-1/2 -translate-y-1/2"
                   style={{ left: `${getMarkerPos('bh').x}%`, top: `${getMarkerPos('bh').y}%` }}
                 >
-                  <div className="w-[40px] h-[40px] border border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110">
-                    <div className="w-[26.67px] h-[26.67px] border border-[#C10016] rounded-full flex items-center justify-center">
+                  <div className="w-[24px] h-[24px] sm:w-[40px] sm:h-[40px] sm:border sm:border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 sm:hover:scale-110">
+                    <img src="/location.png" alt="Location marker" className="w-[18px] h-[18px] object-contain sm:hidden" />
+                    <div className="hidden sm:flex w-[26.67px] h-[26.67px] border border-[#C10016] rounded-full items-center justify-center">
                       <div className="w-[13.33px] h-[13.33px] bg-[#C10016] rounded-full"></div>
                     </div>
                   </div>
@@ -650,8 +640,9 @@ export default function LocationsScreen() {
                   className="absolute group -translate-x-1/2 -translate-y-1/2"
                   style={{ left: `${getMarkerPos('au').x}%`, top: `${getMarkerPos('au').y}%` }}
                 >
-                  <div className="w-[48px] h-[48px] border border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110">
-                    <div className="w-[32px] h-[32px] border border-[#C10016] rounded-full flex items-center justify-center">
+                  <div className="w-[24px] h-[24px] sm:w-[48px] sm:h-[48px] sm:border sm:border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 sm:hover:scale-110">
+                    <img src="/location.png" alt="Location marker" className="w-[18px] h-[18px] object-contain sm:hidden" />
+                    <div className="hidden sm:flex w-[32px] h-[32px] border border-[#C10016] rounded-full items-center justify-center">
                       <div className="w-[16px] h-[16px] bg-[#C10016] rounded-full"></div>
                     </div>
                   </div>
@@ -668,8 +659,9 @@ export default function LocationsScreen() {
                   className="absolute group -translate-x-1/2 -translate-y-1/2"
                   style={{ left: `${getMarkerPos('sa').x}%`, top: `${getMarkerPos('sa').y}%` }}
                 >
-                  <div className="w-[40px] h-[40px] border border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110">
-                    <div className="w-[26.67px] h-[26.67px] border border-[#C10016] rounded-full flex items-center justify-center">
+                  <div className="w-[24px] h-[24px] sm:w-[40px] sm:h-[40px] sm:border sm:border-[#C10016] rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 sm:hover:scale-110">
+                    <img src="/location.png" alt="Location marker" className="w-[18px] h-[18px] object-contain sm:hidden" />
+                    <div className="hidden sm:flex w-[26.67px] h-[26.67px] border border-[#C10016] rounded-full items-center justify-center">
                       <div className="w-[13.33px] h-[13.33px] bg-[#C10016] rounded-full"></div>
                     </div>
                   </div>

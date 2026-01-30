@@ -70,23 +70,29 @@ const Footer = () => {
 
   return (
 <footer className="w-full relative min-h-[400px]" style={{ backgroundImage: "url(/footerbg.webp)", backgroundSize: "cover", backgroundRepeat: "no-repeat" }}>
-  <div className="w-full px-4 md:px-6 lg:px-8 2xl:px-16 py-16 lg:py-6">
+  <div className="w-full px-4 md:px-6 lg:px-8 2xl:px-16 py-12 lg:py-12">
   <div className="mx-auto w-full max-w-[1490px]">
-    <div className="flex flex-col lg:flex-row justify-between gap-12 lg:gap-16">
+    <div className="flex flex-col lg:flex-row justify-between gap-10 lg:gap-16">
 
       {/* Left Column (Logo + Subscribe) */}
       <div className="flex flex-col gap-6 w-full lg:w-2/5">
         <div className="h-16 w-full max-w-[320px]">
-          <img src="/wlogo.webp" alt="logo" />
+          <img
+            src="/wlogo.webp"
+            alt="FULFIL.X"
+            width={318}
+            height={61}
+            className="h-[44px] sm:h-[52px] lg:h-[56px] w-auto object-contain"
+          />
         </div>
 
-        <p className="text-[18px] font-normal text-white">
+        <p className="text-base sm:text-[18px] font-normal text-white/90">
           Subscribe to receive FULFIL.X updates
         </p>
 
-        <div className="w-full border border-white/20 rounded-lg flex items-center px-4 h-14">
+        <div className="w-full border border-white/20 rounded-lg flex items-center px-4 h-12 sm:h-14">
           <input
-            className="bg-transparent text-white font-normal placeholder-white/40 outline-none flex-1"
+            className="bg-transparent text-white text-base font-normal placeholder-white/40 outline-none flex-1"
             type="email"
             placeholder="Enter your email"
             value={newsletterEmail}
@@ -122,24 +128,24 @@ const Footer = () => {
               </svg>
             )}
           </div>
-          <span className="text-white/90 font-normal text-base">
+          <span className="text-white/90 font-normal text-sm sm:text-base">
             I agree to the privacy policy
           </span>
         </label>
 
         <div className="mt-4">
-          <p className="text-3xl font-normal text-white mb-4">
+          <p className="text-xl sm:text-2xl lg:text-3xl font-normal text-white mb-4">
             Find us on the socials
           </p>
           <div className="flex gap-4">
             <button 
-              className="h-14 w-14 bg-[#C10016] rounded-full flex items-center justify-center hover:bg-[#a00012] transition-colors"
+              className="h-12 w-12 sm:h-14 sm:w-14 bg-[#C10016] rounded-full flex items-center justify-center hover:bg-[#a00012] transition-colors"
               aria-label="Facebook"
             >
               <img src="/fb.svg" alt="facebook" className='w-6 h-6 object-contain' />
             </button>
             <button 
-              className="h-14 w-14 bg-[#C10016] rounded-full flex items-center justify-center hover:bg-[#a00012] transition-colors"
+              className="h-12 w-12 sm:h-14 sm:w-14 bg-[#C10016] rounded-full flex items-center justify-center hover:bg-[#a00012] transition-colors"
               aria-label="Instagram"
             >
               <img src="/ig.svg" alt="instagram" className='w-6 h-6 object-contain' />
@@ -152,7 +158,7 @@ const Footer = () => {
       <div className="w-full lg:w-3/5">
         {/* Contact Container */}
         <div 
-          className="w-full min-w-0 pt-4 px-6 pb-7 rounded-[20px] bg-white/10 border border-white/20"
+          className="w-full min-w-0 pt-4 px-4 sm:px-6 pb-7 rounded-[20px] bg-white/10 border border-white/20"
         >
           {/* Warehouse Buttons Row */}
           <button className="flex flex-col sm:flex-row gap-4 mb-3">
@@ -164,7 +170,7 @@ const Footer = () => {
                 minWidth: '200px',
               }}
             >
-              <span className="text-white font-bold text-xl">
+              <span className="text-white font-bold text-lg sm:text-xl">
                 UK Warehouse
               </span>
             </div>
@@ -180,7 +186,7 @@ const Footer = () => {
     >
       <img src="/phone.svg" alt="phone" className="w-5 h-5" />
     </div>
-    <span className="text-white text-lg font-normal">
+    <span className="text-white text-base sm:text-lg font-normal">
       +44 161 399 2348
     </span>
   </div>
@@ -193,7 +199,7 @@ const Footer = () => {
     >
       <img src="/mail.svg" alt="email" className="w-5 h-5" />
     </div>
-    <span className="text-white text-lg font-normal">
+    <span className="text-white text-base sm:text-lg font-normal">
       info@fulfilx.co.uk
     </span>
   </div>
@@ -207,8 +213,8 @@ const Footer = () => {
       <img src="/map.svg" alt="location" className="w-5 h-5" />
     </div>
     <div className="text-white text-left">
-      <div className="font-bold text-lg">FulfilX HQ</div>
-      <div className="text-base font-normal">
+      <div className="font-bold text-base sm:text-lg">FulfilX HQ</div>
+      <div className="text-sm sm:text-base font-normal">
         Nile Mill, Oldham,
         Greater Manchester,
         OL9 8NT
@@ -233,7 +239,7 @@ const Footer = () => {
     
     {/* Column 1 */}
 <div 
-  className="text-white font-normal text-left text-base sm:text-[18px] leading-10 sm:leading-[60px]"
+  className="text-white font-normal text-left text-base sm:text-[18px] leading-9 sm:leading-[52px]"
 >
   <Link href="/" asChild>
     <a className="block hover:text-[#C10016] transition-colors cursor-pointer">Home</a>
@@ -254,7 +260,7 @@ const Footer = () => {
 
 {/* Column 2 */}
 <div 
-  className="text-white font-normal text-left text-base sm:text-[18px] leading-10 sm:leading-[60px]"
+  className="text-white font-normal text-left text-base sm:text-[18px] leading-9 sm:leading-[52px]"
 >
   <Link href="/team" asChild>
     <a className="block hover:text-[#C10016] transition-colors cursor-pointer">Team</a>
@@ -276,7 +282,7 @@ const Footer = () => {
 
 {/* Column 3 */}
 <div 
-  className="text-white font-normal text-left text-base sm:text-[18px] leading-10 sm:leading-[60px]"
+  className="text-white font-normal text-left text-base sm:text-[18px] leading-9 sm:leading-[52px]"
 >
 
   <Link href="/" asChild>

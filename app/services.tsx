@@ -570,21 +570,21 @@ export default function ServicesScreen(){
     const [isPaused, setIsPaused] = useState(false);
     const carouselRef = useRef<HTMLDivElement>(null);
     const testimonials = [
-     { image: '/Amazon.png', alt: 'Testimonial 1' },
-  { image: '/Argos-Logo.png', alt: 'Testimonial 2' },
-  { image: '/bloomingdales-logo.png', alt: 'Testimonial 3' },
-  { image: '/Boots.png', alt: 'Testimonial 4' },
-  { image: '/Costco_Wholesale.png', alt: 'Testimonial 5' }, 
-  { image: '/Currys.png', alt: 'Testimonial 5' },
-  { image: '/Fenwick.png', alt: 'Testimonial 5' },
-  { image: '/Harrods.png', alt: 'Testimonial 5' },
-  { image: '/Nordstrom.png', alt: 'Testimonial 5' },
-  { image: '/PetsAtHome.png', alt: 'Testimonial 5' },
-  { image: '/QVC.png', alt: 'Testimonial 5' },
-  { image: '/Saks_Fifth_Avenue.png', alt: 'Testimonial 5' },
-  { image: '/Selfridges.png', alt: 'Testimonial 5' },
-  { image: '/Sephora.png', alt: 'Testimonial 5' },
-  { image: '/Superdrug.png', alt: 'Testimonial 5' }
+      { image: '/services/amazon.png', alt: 'Amazon' },
+      { image: '/services/Argos.png', alt: 'Argos' },
+      { image: '/services/bloomingdales.png', alt: 'Bloomingdales' },
+      { image: '/services/Boots.png', alt: 'Boots' },
+      { image: '/services/costco.png', alt: 'Costco' },
+      { image: '/services/curry.png', alt: 'Currys' },
+      { image: '/services/fenwick.png', alt: 'Fenwick' },
+      { image: '/services/Harrods.png', alt: 'Harrods' },
+      { image: '/services/nordstorm.png', alt: 'Nordstrom' },
+      { image: '/services/pets at home.png', alt: 'Pets at Home' },
+      { image: '/services/qvc.png', alt: 'QVC' },
+      { image: '/services/sAKS.png', alt: 'Saks Fifth Avenue' },
+      { image: '/services/selfridges.png', alt: 'Selfridges' },
+      { image: '/services/sephora.png', alt: 'Sephora' },
+      { image: '/services/superdrug.png', alt: 'Superdrug' }
     ];
     const row1Logos = [
     { src: "/amazon.webp", alt: "" },

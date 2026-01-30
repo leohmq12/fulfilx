@@ -67,7 +67,7 @@ export default function ReturnPolicyScreen() {
                             1. GENERAL TERMS
                         </Text>
                         <Text className="font-helvetica font-normal text-base lg:text-[22px] lg:leading-[44px] text-black text-left mb-6">
-                            This Return Policy applies exclusively to the sale of packaging supplies (e.g., cardboard boxes, tape, void fill, mailers) sold by FULFIL.X ("we," "us," or "our") to the purchaser ("you" or "customer"). This policy does not apply to fulfilment services, storage fees, or shipping services, which are governed by the Master Services Agreement (MSA) between FULFIL.X and the purchaser. By purchasing packaging supplies from FULFIL.X, you acknowledge that you have read, understood, and agree to be bound by the terms of this Return Policy.
+                            This Return Policy applies exclusively to the sale of packaging supplies (e.g., cardboard boxes, tape, void fill, mailers) sold by FULFIL.X (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) to the purchaser (&quot;you&quot; or &quot;customer&quot;). This policy does not apply to fulfilment services, storage fees, or shipping services, which are governed by the Master Services Agreement (MSA) between FULFIL.X and the purchaser. By purchasing packaging supplies from FULFIL.X, you acknowledge that you have read, understood, and agree to be bound by the terms of this Return Policy.
                         </Text>
 
                         {/* 2. RETURN ELIGIBILITY & TIME FRAME */}

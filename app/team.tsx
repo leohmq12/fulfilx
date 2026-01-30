@@ -18,6 +18,7 @@ export default function TeamScreen() {
   const scrollViewRef = useRef<ScrollView>(null);
   const [jobsOffset, setJobsOffset] = useState(0);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isGalleryTransitionEnabled, setIsGalleryTransitionEnabled] = useState(true);
   const [selectedJob, setSelectedJob] = useState<Job | null>(null);
   const fadeAnim = useRef(new Animated.Value(0)).current;
 
@@ -72,24 +73,38 @@ export default function TeamScreen() {
   
   
   const images = [
-    { id: 1, src: '/9E2A9925.webp' },
-    { id: 2, src: '/9E2A0335.webp' },
-    { id: 3, src: '/9E2A0071-2.webp' },
-    { id: 4, src: '/9E2A0077.webp' },
-    { id: 5, src: '/9E2A0284.webp' },
-    { id: 6, src: '/9E2A9818.webp' }
+    { id: 1, src: '/instagram/frame_4_00-04.png' },
+    { id: 2, src: '/instagram/frame_5_00-27.png' },
+    { id: 3, src: '/instagram/frame_12_01-54.png' },
+    { id: 4, src: '/instagram/frame_15_00-17.png' },
+    { id: 5, src: '/instagram/fulflix%20image.png' }
   ];
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => {
-        const nextSlide = prev + 1;
-        // Reset to 0 when we reach the end of original images for seamless loop
-        return nextSlide >= images.length ? 0 : nextSlide;
+        if (prev >= images.length) return prev;
+        return prev + 1;
       });
     }, 3000);
 
     return () => clearInterval(interval);
   }, [images.length]);
+  useEffect(() => {
+    if (currentSlide !== images.length) return;
+
+    const raf =
+      typeof requestAnimationFrame === 'function'
+        ? requestAnimationFrame
+        : (cb: FrameRequestCallback) => setTimeout(cb, 0) as unknown as number;
+
+    const timer = setTimeout(() => {
+      setIsGalleryTransitionEnabled(false);
+      setCurrentSlide(0);
+      raf(() => setIsGalleryTransitionEnabled(true));
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [currentSlide, images.length]);
 
   useEffect(() => {
     if (Platform.OS === 'web') {
@@ -542,7 +557,7 @@ export default function TeamScreen() {
         <View className="relative w-full h-[380px] mt-20 mb-20 overflow-hidden">
           <View className="relative w-full h-full">
             <View 
-              className="flex flex-row absolute top-0 left-6 transition-transform duration-500 ease-in-out"
+              className={`flex flex-row absolute top-0 left-6 ${isGalleryTransitionEnabled ? 'transition-transform duration-500 ease-in-out' : ''}`}
               style={{ 
                 transform: [{ translateX: -currentSlide * 404 }]
               }}

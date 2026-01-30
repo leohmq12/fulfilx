@@ -4,7 +4,8 @@
 @tailwind components;
 @tailwind utilities;
 .slider-container:hover .animate-infinite-scroll,
-.slider-container:hover .animate-infinite-scroll-reverse {
+.slider-container:hover .animate-infinite-scroll-reverse,
+.slider-container:hover .animate-infinite-scroll-slow {
   animation-play-state: paused;
 }
 
