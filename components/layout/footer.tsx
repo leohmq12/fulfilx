@@ -253,7 +253,7 @@ const Footer = () => {
   <Link href="/sectors" asChild>
     <a className="block hover:text-[#C10016] transition-colors cursor-pointer">Sectors</a>
   </Link>
-  <Link href="/blogs" asChild>
+  <Link href="/#" asChild>
     <a className="block hover:text-[#C10016] transition-colors cursor-pointer">Blogs</a>
   </Link>
 </div>

@@ -68,8 +68,6 @@ useEffect(() => {
   return () => observer.disconnect();
 }, []);
 
-const [currentSlide, setCurrentSlide] = useState(0);
-const carouselRef = useRef<HTMLDivElement>(null);
 const mapOverlayRef = useRef<HTMLDivElement>(null);
 
 const getMarkerPos = (id: string) => defaultMarkerPositions[id] ?? { x: 0, y: 0 };
@@ -109,34 +107,6 @@ const row1Logos = [
   ];
 
 
-  const nextSlide = () => {
-    const nextIndex = (currentSlide + 1) % testimonials.length;
-    setCurrentSlide(nextIndex);
-    scrollToSlide(nextIndex);
-  };
-
-  const prevSlide = () => {
-    const prevIndex = (currentSlide - 1 + testimonials.length) % testimonials.length;
-    setCurrentSlide(prevIndex);
-    scrollToSlide(prevIndex);
-  };
-
-  const scrollToSlide = (index: number) => {
-    if (carouselRef.current) {
-      const slideWidth = 300 + 32; // 300px width + 32px gap (gap-8)
-      carouselRef.current.scrollTo({
-        left: index * slideWidth,
-        behavior: 'smooth'
-      });
-    }
-  };
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      nextSlide();
-    }, 3000);
-    return () => clearInterval(timer);
-  }, [currentSlide]);
     const primaryRed = 'bg-[#C10016]';
     const [activeDot, setActiveDot] = useState(1); // Start with middle dot active
 
@@ -221,7 +191,8 @@ const row1Logos = [
 
                                 <div className="w-full max-w-[759px] mb-12 lg:mb-16">
                                     <p className="text-lg lg:text-[18px] font-helvetica font-thin leading-[2] text-black text-center lg:text-left">
-                                        At FulfilX, we are more than just a 3PL. We are your partner in fulfilment. &quot;Your success is Our Success.&quot;
+                                        At FULFIL.X, we are more than just a 3PL. We are your partner in fulfilment. <br />
+                                        &quot;Your success is Our Success.&quot;
                                     </p>
                                 </div>
 
@@ -274,7 +245,7 @@ const row1Logos = [
                                         src="/google_rev.webp" 
                                         onClick=  { () => window.open("https://www.google.com/search?sca_esv=20541e4f21a9d7f7&sxsrf=ANbL-n6la1mt9rMC2V7vLj6jDkpCGr-jEQ:1769008694039&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOXwAv3YEXZKPsl-nUlT6wYhGXlXqsFVh-oyC0tyABjEyjZCBk0CoEdNhj27Sl2hsvpDFgHFs0bQGfY1mnSWew6jYRo_p8GX0AXTemkh_XqBhnnH1O0hKt0daRKCE0qah_J7B7GeROHFzzyEWMS5BWx0syl6v&q=FULFIL.X+-+Storage+and+3pl+For+E-commerce+Brands+Reviews&sa=X&ved=2ahUKEwilh8D29pySAxUXQ0EAHVezKAcQ0bkNegQIKBAH&biw=1536&bih=730&dpr=1.25&aic=0","_blank") }
                                         alt="Google reviews" 
-                                        className="w-full max-w-[220px] sm:max-w-[260px] lg:max-w-[80px] h-auto object-contain mx-auto cursor-pointer transition-transform duration-300 hover:scale-105"
+                                        className="w-full max-w-[120px] sm:max-w-[140px] md:max-w-[160px] lg:max-w-[200px] xl:max-w-[200px] h-auto object-contain mx-auto cursor-pointer transition-transform duration-300 hover:scale-105"
                                     />
                                 </div>
                 </div>
@@ -1246,11 +1217,11 @@ focus on growing.    </p>
 </div>
 
   </div>
-  <div className="relative w-full px-4 md:px-6 lg:px-8 2xl:px-16 pt-16 lg:pt-24 z-10">
+  <div className="relative w-full px-4 md:px-6 lg:px-8 2xl:px-16 pt-10 sm:pt-12 lg:pt-24 z-10">
     
     {/* "our partners" Badge */}
     <div className="flex justify-start">
-      <div className="w-[220px] h-[48px] bg-[rgba(193,0,22,0.1)] rounded-[120px] flex items-center justify-center">
+      <div className="w-[180px] h-[40px] sm:w-[220px] sm:h-[48px] bg-[rgba(193,0,22,0.1)] rounded-[120px] flex items-center justify-center">
         <span className="font-medium text-[16px] leading-[40px] tracking-[0.2em] uppercase text-[#C10016]">
           our partners
         </span>
@@ -1258,47 +1229,25 @@ focus on growing.    </p>
     </div>
 
     {/* Main Heading */}
-    <h2 className="text-left font-bold text-3xl sm:text-4xl lg:text-[64px] leading-tight lg:leading-[80px] tracking-tight text-white mt-10 lg:mt-16 max-w-[960px]">
+    <h2 className="text-left font-bold text-3xl sm:text-4xl lg:text-[64px] leading-tight lg:leading-[80px] tracking-tight text-white mt-6 sm:mt-8 lg:mt-16 max-w-[960px]">
      Meet the people we make happy
     </h2>
 
-    {/* Navigation Arrows - Aligned with badge and heading */}
-    <div className="flex gap-4 mt-8 lg:mt-0 lg:absolute lg:right-4 lg:top-24">
-      {/* Left Arrow */}
-      <button 
-        onClick={prevSlide}
-        className="w-[56px] h-[56px] bg-[rgba(193,0,22,0.1)] rounded-full flex items-center justify-center hover:bg-[#C10016] transition-colors duration-300 group"
-      >
-        <img src="/next.svg" alt="Previous" className="w-4 h-4 transform rotate-180" />
-      </button>
-
-      {/* Right Arrow */}
-      <button 
-        onClick={nextSlide}
-        className="w-[56px] h-[56px] bg-[rgba(193,0,22,0.1)] rounded-full flex items-center justify-center hover:bg-[rgba(193,0,22,0.8)] transition-colors duration-300"
-      >
-        <img src="/next.svg" alt="Next" className="w-4 h-4" />
-      </button>
-    </div>
-
-    {/* Working Testimonial Cards Carousel */}
-    <div className="relative mt-8">
-      <div 
-        ref={carouselRef}
-        className="flex gap-8 overflow-x-auto pb-8 scrollbar-hide"
-        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-      >
-        {testimonials.map((testimonial, index) => (
-          <div 
-            key={index}
-            className={`min-w-[300px] h-[220px] bg-cover bg-center rounded-[24px] flex-shrink-0 transition-all duration-500 ${
-              index === currentSlide ? 'scale-105 opacity-100 shadow-2xl' : 'scale-95 opacity-70'
-            }`}
-            style={{backgroundImage: `url(${testimonial.image})`}}
-          >
-            {/* You can add overlay content here */}
-          </div>
-        ))}
+    <div className="w-full overflow-hidden py-6 sm:py-10">
+      <div className="mt-6 sm:mt-8 slider-container overflow-hidden">
+        <div className="flex animate-infinite-scroll">
+          {[...testimonials, ...testimonials].map((testimonial, index) => (
+            <div key={index} className="group relative flex-shrink-0 mx-3 sm:mx-6 lg:mx-8">
+              <div className="rounded-[24px] overflow-hidden">
+                <img
+                  src={testimonial.image}
+                  alt={testimonial.alt}
+                  className="w-[180px] h-[130px] sm:w-[260px] sm:h-[190px] lg:w-[340px] lg:h-[240px] object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
 

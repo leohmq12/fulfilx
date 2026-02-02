@@ -142,18 +142,18 @@ export default function TeamScreen() {
         className="flex-1 bg-white"
       >
         {/* Hero Section */}
-        <View className="relative min-h-screen">
+        <View className="relative min-h-[50vh] lg:min-h-[85vh]">
           {/* PNG Background */}
           <View className="absolute inset-0 z-0">
             <Image 
               source={{ uri: "/bg.webp" }}
-              className="w-full h-full"
+              className="w-full h-full object-cover"
               resizeMode="cover"
             />
           </View>
 
           {/* Hero Content */}
-          <View className="relative z-10 min-h-screen flex items-center justify-center pb-20">
+          <View className="relative z-10 min-h-[50vh] lg:min-h-[85vh] flex items-center justify-center pb-16">
             {/* Main Title */}
             <Text className="font-helvetica font-bold text-6xl lg:text-[84px] leading-tight lg:leading-[84px] text-black text-center mb-8">
               Meet Our Team

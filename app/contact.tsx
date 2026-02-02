@@ -136,18 +136,18 @@ export default function ContactScreen() {
         className="flex-1 bg-white"
       >
         {/* Hero Section */}
-        <View className="relative min-h-[60vh] lg:min-h-screen">
+        <View className="relative min-h-[50vh] lg:min-h-[85vh]">
           {/* PNG Background */}
           <View className="absolute inset-0 z-0">
             <img 
               src="/bg.webp"
               alt="Background pattern"
-              className="w-full h-full lg:h-[600px] object-cover"
+              className="w-full h-full object-cover"
             />
           </View>
 
           {/* Hero Content */}
-          <View className="relative z-10 min-h-[60vh] lg:min-h-screen flex items-center justify-center pb-20">
+          <View className="relative z-10 min-h-[50vh] lg:min-h-[85vh] flex items-center justify-center pb-16">
             {/* Main Title */}
             <Text className="font-helvetica font-bold text-4xl lg:text-[84px] leading-tight lg:leading-[84px] text-black text-center mb-8">
               Contact Us
@@ -308,7 +308,7 @@ export default function ContactScreen() {
                 style={{ border: 0 }}
                 loading="lazy"
                 allowFullScreen
-                src="https://maps.google.com/maps?q=Nile+Mill%2C+Oldham%2C+Greater+Manchester%2C+OL9+8NT&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                src="https://maps.google.com/maps?q=FULFIL.X+-+Storage+and+3pl+For+E-commerce+Brands&t=&z=13&ie=UTF8&iwloc=&output=embed"
                 className="absolute inset-0 w-full h-full"
               ></iframe>
             </div>

@@ -127,18 +127,18 @@ export default function AboutUsScreen(){
         className="flex-1 bg-white"
       >
         {/* Hero Section */}
-        <View className="relative min-h-[45vh] lg:min-h-screen">
+        <View className="relative min-h-[50vh] lg:min-h-[85vh]">
           {/* PNG Background */}
           <View className="absolute inset-0 z-0">
             <img 
               src="/bg.webp"
               alt="Background pattern"
-              className="w-full h-full lg:h-[600px] object-cover"
+              className="w-full h-full object-cover"
             />
           </View>
 
           {/* Hero Content */}
-          <View className="relative z-10 min-h-[55vh] lg:min-h-screen flex items-center justify-center pb-6 lg:pb-20">
+          <View className="relative z-10 min-h-[50vh] lg:min-h-[85vh] flex items-center justify-center pb-16">
             {/* Main Title */}
             <Text className="font-helvetica font-bold text-4xl lg:text-[84px] leading-tight lg:leading-[84px] text-black text-center mb-4 lg:mb-8">
               About Us
@@ -180,7 +180,7 @@ export default function AboutUsScreen(){
     <div className="space-y-4">
       {/* Content */}
       <p className="font-normal text-base sm:text-lg lg:text-[20px] leading-relaxed lg:leading-[48px] text-black">
-        FULFILX.X was born from a vision for something better. Our founders, veterans of the international brand world, grew frustrated with the status quo in fulfilment —the impersonal partnerships, the one-size-fits-all limitations. They knew brands deserved more.
+        FULFIL.X was born from a vision for something better. Our founders, veterans of the international brand world, grew frustrated with the status quo in fulfilment —the impersonal partnerships, the one-size-fits-all limitations. They knew brands deserved more.
 That’s why we exist: to disrupt the 3PL market by putting brands at the center
 of everything we do. We operate on a powerful belief, &quot;Your Success is our
 Success&quot;. You are not just a client; you are a partner in growth.
@@ -312,7 +312,8 @@ thrive.
       Expa<Text className="text-[#C10016]">nsion</Text>
     </Text>
     <Text className="font-helvetica font-normal text-lg lg:text-[22px] leading-relaxed lg:leading-[42px] text-white text-left lg:text-right">
-      Phase 1 of global expansion FULFIL.X UAE, Australia and USA is open, handling IOR and Fulfilment services.
+      Phase 1 of global expansion FULFIL.X Expanding our global fulfilment network to the UAE, USA,
+Australia and the EU.
     </Text>
   </View>
 </View>
@@ -907,7 +908,7 @@ can build a greener future while achieving your logistics goals.
                   <div className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award4.webp)'}}></div>
                   <div className="w-[60px] h-[60px] lg:w-[84px] lg:h-[84px] bg-cover bg-center" style={{backgroundImage: 'url(/award5.webp)'}}></div>
                   */}
-                </div>
+clear                </div>
               </div>
             </div>
 

@@ -155,18 +155,18 @@ export default function SectorsScreen() {
         className="flex-1 bg-white"
       >
         {/* Hero Section */}
-        <View className="relative min-h-[60vh] lg:min-h-screen">
+        <View className="relative min-h-[50vh] lg:min-h-[85vh]">
           {/* PNG Background */}
           <View className="absolute inset-0 z-0">
             <img 
               src="/bg.webp"
               alt="Background pattern"
-              className="w-full h-full lg:h-[600px] object-cover"
+              className="w-full h-full object-cover"
             />
           </View>
 
           {/* Hero Content */}
-          <View className="relative z-10 min-h-[60vh] lg:min-h-screen flex items-center justify-center pb-20">
+          <View className="relative z-10 min-h-[50vh] lg:min-h-[85vh] flex items-center justify-center pb-16">
             {/* Main Title */}
             <Text className="font-helvetica font-bold text-4xl lg:text-[84px] lg:leading-[84px] text-black text-center mb-8">
               Sectors
@@ -188,9 +188,7 @@ export default function SectorsScreen() {
         {isMobile ? (
           // Mobile View - Vertical Stack
           <View className="relative w-full px-4 -mt-20 pb-20">
-            <Text className="font-helvetica font-bold text-4xl text-black text-center mb-12">
-              Sectors
-            </Text>
+            
             <View className="flex flex-col gap-12">
               {sectors.map((sector) => (
                 <View key={sector.id} className="w-full">
@@ -225,9 +223,7 @@ export default function SectorsScreen() {
           // Desktop/Tablet View - Responsive Grid
           <View className="relative w-full px-4 md:px-6 lg:px-10 2xl:px-16 -mt-20 lg:-mt-48 pb-24">
             <View className="w-full max-w-[1500px] mx-auto">
-              <Text className="font-helvetica font-bold text-[44px] lg:text-[64px] leading-tight lg:leading-[84px] text-black text-center mb-12 lg:mb-16">
-                Sectors
-              </Text>
+              
               <View
                 className="flex flex-row flex-wrap justify-center lg:justify-between"
                 style={{ rowGap: 48, columnGap: 32 } as any}

@@ -85,7 +85,7 @@ const FulfillmentServicesSection = () => {
   };
 
   return (
-    <section className="relative w-full h-auto pt-4 pb-14 lg:pt-8 lg:pb-16 overflow-hidden">
+    <section className="relative w-full h-auto pt-2 pb-10 lg:pt-4 lg:pb-12 overflow-hidden">
       <div
         className="absolute inset-0 bg-black/65"
         style={{
@@ -96,7 +96,7 @@ const FulfillmentServicesSection = () => {
         }}
       />
 
-      <div className="relative z-10 w-full px-4 md:px-6 lg:px-8 2xl:px-12 pt-2 pb-10 lg:pt-4 lg:pb-12">
+      <div className="relative z-10 w-full px-4 md:px-6 lg:px-8 2xl:px-12 pt-1 pb-8 lg:pt-2 lg:pb-8">
         <div className="mx-auto w-full max-w-[1490px]">
           <style>{`
             @keyframes servicesSlideIn {
@@ -1207,7 +1207,7 @@ export default function ServicesScreen(){
 
     {/* Main Heading */}
     <h2 className="text-left font-bold text-3xl lg:text-[64px] leading-tight lg:leading-[80px] tracking-tight text-white mt-8 lg:mt-16 max-w-[960px]">
-      Meet the People we make happy
+      We ship to
     </h2>
 
     {/* Navigation Arrows - Aligned with badge and heading */}
