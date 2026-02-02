@@ -240,12 +240,12 @@ export default function LuxuryScreen() {
       ]
     },
     {
-      title: ['Next Day', 'Shipping'],
+      title: ['Shipping'],
       img: '/shiphappens3.webp',
       logo: '/amf.svg',
       badge: 'Most Popular',
       description: 'We offer next day shipping for all orders placed before 3pm.',
-      price: '£3.00',
+      price: '£2.35',
       priceUnit: '/shipment',
       pricePrefix: '*from',
       features: [
@@ -292,7 +292,7 @@ export default function LuxuryScreen() {
         onScrollBeginDrag={() => setIsDropdownOpen(false)}
       >
         {/* Hero Section */}
-        <View className="relative min-h-[60vh] lg:min-h-screen">
+        <View className="relative min-h-[50vh] lg:min-h-[85vh]">
           {/* PNG Background */}
           <View className="absolute inset-0 z-0">
             <Image 
@@ -303,7 +303,7 @@ export default function LuxuryScreen() {
           </View>
 
           {/* Hero Content */}
-          <View className="relative z-10 min-h-[60vh] lg:min-h-screen flex items-center justify-center py-20 px-4">
+          <View className="relative z-10 min-h-[50vh] lg:min-h-[85vh] flex items-center justify-center py-16 px-4">
             {/* Main Title */}
             <Text className="font-helvetica font-bold text-4xl lg:text-[84px] leading-tight lg:leading-[84px] text-black text-center mb-8">
               Pricing Plans
@@ -647,7 +647,7 @@ export default function LuxuryScreen() {
                   </Text>
                   
                   <Text className="font-helvetica font-bold text-[20px] lg:text-[24px] leading-[32px] lg:leading-[44px] text-black justify-start mb-2">
-                    Get your Package on its Way!
+                    Get your package on its way!
                   </Text>
                   
                   <Text className="font-helvetica font-normal text-[16px] lg:text-[18px] leading-[28px] lg:leading-[44px] text-black opacity-50 justify-start mb-8 lg:mb-10">

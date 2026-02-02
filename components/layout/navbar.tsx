@@ -104,13 +104,20 @@ const Navbar: React.FC = () => {
                 <div className="relative flex items-center justify-between">
                 
                 {/* Logo */}
-                <div className="flex-shrink-0 flex items-center">
-                    <img 
+                <TouchableOpacity
+                    onPress={() => {
+                        setIsMenuOpen(false);
+                        router.push('/');
+                    }}
+                    className="flex-shrink-0 flex items-center cursor-pointer"
+                    accessibilityRole="link"
+                >
+                    <img
                         src="/logo.webp"
                         alt="FULFILX Logo"
                         className="w-32 h-8 md:w-40 md:h-10 lg:w-48 lg:h-12 object-contain"
                     />
-                </div>
+                </TouchableOpacity>
 
                 {/* Centered Navigation */}
                 <div className="flex-1 flex justify-center">
