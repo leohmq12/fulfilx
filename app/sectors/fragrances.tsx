@@ -48,32 +48,20 @@ export default function FragrancesScreen() {
         </View>
 
         {/* Content Section */}
-        <View className="bg-white py-12 lg:py-24">
+        <View className="bg-white py-8 lg:py-16">
           <View className="max-w-[1393px] mx-auto px-4">
-            <View className="flex flex-col lg:flex-row gap-12 lg:gap-24">
-              {/* Left Column - Main Text */}
-              <View className="flex-1">
-                <Text className="font-helvetica font-bold text-3xl lg:text-[54px] lg:leading-[68px] tracking-tight text-black mb-8">
-                  Mastering Fragrances with FULFILX. <Text className="text-[#C10016]">Elegance, Efficiency, Exclusivity.</Text>
-                </Text>
-                
-                <Text className="font-helvetica font-normal text-lg lg:text-[22px] lg:leading-[44px] text-black mb-8">
-                  In fragrance, every detail matters—from formulation to presentation to final delivery. FULFIL.X specializes in fragrance fulfillment for brands that value precision, protection, and premium customer experience. We understand the challenges of storing and shipping delicate, alcohol-based products and provide compliant, secure solutions that protect both product and brand.
-                </Text>
+            <View className="w-full">
+              <Text className="font-helvetica font-bold text-3xl lg:text-[54px] lg:leading-[68px] tracking-tight text-black mb-8">
+                Mastering Fragrances with FULFILX. <Text className="text-[#C10016]">Elegance, Efficiency, Exclusivity.</Text>
+              </Text>
+              
+              <Text className="font-helvetica font-normal text-lg lg:text-[22px] lg:leading-[44px] text-black mb-8">
+                In fragrance, every detail matters—from formulation to presentation to final delivery. FULFIL.X specializes in fragrance fulfillment for brands that value precision, protection, and premium customer experience. We understand the challenges of storing and shipping delicate, alcohol-based products and provide compliant, secure solutions that protect both product and brand.
+              </Text>
 
-                <Text className="font-helvetica font-normal text-lg lg:text-[22px] lg:leading-[44px] text-black mb-8">
-                  With advanced fulfillment infrastructure and streamlined UK-to-EU shipping capabilities, FULFIL.X enables fragrance brands to deliver with confidence across borders.
-                </Text>
-              </View>
-
-              {/* Right Column - Image */}
-              <View className="w-full lg:w-[500px] flex-shrink-0">
-                <Image 
-                  source={{ uri: "/product-1.webp" }}
-                  className="w-full h-[400px] lg:h-[600px] rounded-[30px]"
-                  resizeMode="cover"
-                />
-              </View>
+              <Text className="font-helvetica font-normal text-lg lg:text-[22px] lg:leading-[44px] text-black mb-8">
+                With advanced fulfillment infrastructure and streamlined UK-to-EU shipping capabilities, FULFIL.X enables fragrance brands to deliver with confidence across borders.
+              </Text>
             </View>
           </View>
         </View>

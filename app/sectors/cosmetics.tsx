@@ -17,7 +17,7 @@ export default function CosmeticsScreen() {
       
       <ScrollView showsVerticalScrollIndicator={false}>
         {/* Hero Section */}
-        <View className="relative min-h-[50vh] lg:min-h-[85vh]">
+        <View className="relative w-full pb-12">
           {/* PNG Background */}
           <View className="absolute inset-0 z-0">
             <Image 
@@ -28,14 +28,14 @@ export default function CosmeticsScreen() {
           </View>
 
           {/* Hero Content */}
-          <View className="relative z-10 min-h-[50vh] lg:min-h-[85vh] flex items-center justify-center pb-16">
+          <View className="relative z-10 w-full flex flex-col items-center pt-32 lg:pt-48 px-4">
             {/* Main Title */}
             <Text className="font-helvetica font-bold text-4xl lg:text-[84px] leading-tight lg:leading-[84px] text-black text-center mb-8">
               Cosmetics
             </Text>
             
             {/* Breadcrumb Navigation */}
-            <View className="flex flex-row items-center justify-center">
+            <View className="flex flex-row items-center justify-center mb-12">
               <Text className="font-helvetica font-normal text-base lg:text-[20px] leading-[40px] text-black">
                 Home
               </Text>
@@ -44,36 +44,31 @@ export default function CosmeticsScreen() {
                 Cosmetics
               </Text>
             </View>
+
+            {/* Hero Image */}
+            <Image 
+              source={{ uri: "/cos.webp" }}
+              className="w-full max-w-[1200px] h-[300px] sm:h-[400px] lg:h-[600px] rounded-[30px] object-cover shadow-lg"
+              resizeMode="cover"
+            />
           </View>
         </View>
 
         {/* Content Section */}
-        <View className="bg-white py-12 lg:py-24">
+        <View className="bg-white py-8 lg:py-16">
           <View className="max-w-[1393px] mx-auto px-4">
-            <View className="flex flex-col lg:flex-row gap-12 lg:gap-24">
-              {/* Left Column - Main Text */}
-              <View className="flex-1">
-                <Text className="font-helvetica font-bold text-3xl lg:text-[54px] lg:leading-[68px] tracking-tight text-black mb-8">
-                  Mastering Cosmetics Fulfillment with FULFILX. <Text className="text-[#C10016]">Precision, Presentation, Purity.</Text>
-                </Text>
-                
-                <Text className="font-helvetica font-normal text-lg lg:text-[22px] lg:leading-[44px] text-black mb-8">
-                  In the dynamic world of cosmetics, where product integrity, brand perception, and regulatory compliance are just as important as speed and accuracy, specialized fulfillment is essential. FULFIL.X is a trusted fulfillment partner for cosmetic and beauty brands, offering purpose-built solutions that protect product quality while enhancing the end-customer experience.
-                </Text>
+            <View className="w-full">
+              <Text className="font-helvetica font-bold text-3xl lg:text-[54px] lg:leading-[68px] tracking-tight text-black mb-8">
+                Mastering Cosmetics Fulfillment with FULFILX. <Text className="text-[#C10016]">Precision, Presentation, Purity.</Text>
+              </Text>
+              
+              <Text className="font-helvetica font-normal text-lg lg:text-[22px] lg:leading-[44px] text-black mb-8">
+                In the dynamic world of cosmetics, where product integrity, brand perception, and regulatory compliance are just as important as speed and accuracy, specialized fulfillment is essential. FULFIL.X is a trusted fulfillment partner for cosmetic and beauty brands, offering purpose-built solutions that protect product quality while enhancing the end-customer experience.
+              </Text>
 
-                <Text className="font-helvetica font-normal text-lg lg:text-[22px] lg:leading-[44px] text-black mb-8">
-                  From serums and creams to makeup and personal care products, we understand that cosmetics require precise handling, controlled environments, and flawless presentation. With advanced technology, seamless e-commerce integrations, and a global courier network, FULFIL.X ensures your cosmetic fulfillment operation is a natural extension of your brand—reliable, scalable, and impeccably executed.
-                </Text>
-              </View>
-
-              {/* Right Column - Image */}
-              <View className="w-full lg:w-[500px] flex-shrink-0">
-                <Image 
-                  source={{ uri: "/cos.webp" }}
-                  className="w-full h-[400px] lg:h-[600px] rounded-[30px]"
-                  resizeMode="cover"
-                />
-              </View>
+              <Text className="font-helvetica font-normal text-lg lg:text-[22px] lg:leading-[44px] text-black mb-8">
+                From serums and creams to makeup and personal care products, we understand that cosmetics require precise handling, controlled environments, and flawless presentation. With advanced technology, seamless e-commerce integrations, and a global courier network, FULFIL.X ensures your cosmetic fulfillment operation is a natural extension of your brand—reliable, scalable, and impeccably executed.
+              </Text>
             </View>
           </View>
         </View>

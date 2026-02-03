@@ -17,7 +17,7 @@ export default function FashionScreen() {
       
       <ScrollView showsVerticalScrollIndicator={false}>
         {/* Hero Section */}
-        <View className="relative min-h-[50vh] lg:min-h-[85vh]">
+        <View className="relative w-full pb-12">
           {/* PNG Background */}
           <View className="absolute inset-0 z-0">
             <Image 
@@ -28,14 +28,14 @@ export default function FashionScreen() {
           </View>
 
           {/* Hero Content */}
-          <View className="relative z-10 min-h-[50vh] lg:min-h-[85vh] flex items-center justify-center pb-16">
+          <View className="relative z-10 w-full flex flex-col items-center pt-32 lg:pt-48 px-4">
             {/* Main Title */}
             <Text className="font-helvetica font-bold text-4xl lg:text-[84px] leading-tight lg:leading-[84px] text-black text-center mb-8">
               Fashion & Apparel
             </Text>
             
             {/* Breadcrumb Navigation */}
-            <View className="flex flex-row items-center justify-center">
+            <View className="flex flex-row items-center justify-center mb-12">
               <Text className="font-helvetica font-normal text-base lg:text-[20px] leading-[40px] text-black">
                 Home
               </Text>
@@ -44,36 +44,31 @@ export default function FashionScreen() {
                 Fashion & Apparel
               </Text>
             </View>
+
+            {/* Hero Image */}
+            <Image 
+              source={{ uri: "/fas.webp" }}
+              className="w-full max-w-[1200px] h-[300px] sm:h-[400px] lg:h-[600px] rounded-[30px] object-cover shadow-lg"
+              resizeMode="cover"
+            />
           </View>
         </View>
 
         {/* Content Section */}
-        <View className="bg-white py-12 lg:py-24">
+        <View className="bg-white py-8 lg:py-16">
           <View className="max-w-[1393px] mx-auto px-4">
-            <View className="flex flex-col lg:flex-row gap-12 lg:gap-24">
-              {/* Left Column - Main Text */}
-              <View className="flex-1">
-                <Text className="font-helvetica font-bold text-3xl lg:text-[54px] lg:leading-[68px] tracking-tight text-black mb-8">
-                  Mastering Fashion & Apparel with FULFILX. <Text className="text-[#C10016]">Elegance, Efficiency, Exclusivity.</Text>
-                </Text>
-                
-                <Text className="font-helvetica font-normal text-lg lg:text-[22px] lg:leading-[44px] text-black mb-8">
-                  Where brand image meets impeccable execution. FULFIL.X is the strategic fulfilment partner for fashion and apparel brands that value presentation as much as performance. From luxury garments and seasonal collections to high-volume activewear and accessories, we understand that the unboxing experience is a direct reflection of your label.
-                </Text>
+            <View className="w-full">
+              <Text className="font-helvetica font-bold text-3xl lg:text-[54px] lg:leading-[68px] tracking-tight text-black mb-8">
+                Mastering Fashion & Apparel with FULFILX. <Text className="text-[#C10016]">Elegance, Efficiency, Exclusivity.</Text>
+              </Text>
+              
+              <Text className="font-helvetica font-normal text-lg lg:text-[22px] lg:leading-[44px] text-black mb-8">
+                Where brand image meets impeccable execution. FULFIL.X is the strategic fulfilment partner for fashion and apparel brands that value presentation as much as performance. From luxury garments and seasonal collections to high-volume activewear and accessories, we understand that the unboxing experience is a direct reflection of your label.
+              </Text>
 
-                <Text className="font-helvetica font-normal text-lg lg:text-[22px] lg:leading-[44px] text-black mb-8">
-                  We combine garment-care expertise with agile logistics, ensuring every item is handled with precision, packed with care, and delivered with speed to meet the fast-paced demands of the industry.
-                </Text>
-              </View>
-
-              {/* Right Column - Image */}
-              <View className="w-full lg:w-[500px] flex-shrink-0">
-                <Image 
-                  source={{ uri: "/fas.webp" }}
-                  className="w-full h-[400px] lg:h-[600px] rounded-[30px]"
-                  resizeMode="cover"
-                />
-              </View>
+              <Text className="font-helvetica font-normal text-lg lg:text-[22px] lg:leading-[44px] text-black mb-8">
+                We combine garment-care expertise with agile logistics, ensuring every item is handled with precision, packed with care, and delivered with speed to meet the fast-paced demands of the industry.
+              </Text>
             </View>
           </View>
         </View>

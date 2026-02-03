@@ -17,7 +17,7 @@ export default function PetSuppliesScreen() {
       
       <ScrollView showsVerticalScrollIndicator={false}>
         {/* Hero Section */}
-        <View className="relative min-h-[50vh] lg:min-h-[85vh]">
+        <View className="relative w-full pb-12">
           {/* PNG Background */}
           <View className="absolute inset-0 z-0">
             <Image 
@@ -28,14 +28,14 @@ export default function PetSuppliesScreen() {
           </View>
 
           {/* Hero Content */}
-          <View className="relative z-10 min-h-[50vh] lg:min-h-[85vh] flex items-center justify-center pb-16">
+          <View className="relative z-10 w-full flex flex-col items-center pt-32 lg:pt-48 px-4">
             {/* Main Title */}
             <Text className="font-helvetica font-bold text-4xl lg:text-[84px] leading-tight lg:leading-[84px] text-black text-center mb-8">
               Pet Supplies
             </Text>
             
             {/* Breadcrumb Navigation */}
-            <View className="flex flex-row items-center justify-center">
+            <View className="flex flex-row items-center justify-center mb-12">
               <Text className="font-helvetica font-normal text-base lg:text-[20px] leading-[40px] text-black">
                 Home
               </Text>
@@ -44,36 +44,31 @@ export default function PetSuppliesScreen() {
                 Pet Supplies
               </Text>
             </View>
+
+            {/* Hero Image */}
+            <Image 
+              source={{ uri: "/peep.webp" }}
+              className="w-full max-w-[1200px] h-[300px] sm:h-[400px] lg:h-[600px] rounded-[30px] object-cover shadow-lg"
+              resizeMode="cover"
+            />
           </View>
         </View>
 
         {/* Content Section */}
-        <View className="bg-white py-12 lg:py-24">
+        <View className="bg-white py-8 lg:py-16">
           <View className="max-w-[1393px] mx-auto px-4">
-            <View className="flex flex-col lg:flex-row gap-12 lg:gap-24">
-              {/* Left Column - Main Text */}
-              <View className="flex-1">
-                <Text className="font-helvetica font-bold text-3xl lg:text-[54px] lg:leading-[68px] tracking-tight text-black mb-8">
-                  Mastering Pet Supply Fulfilment with FULFILX. <Text className="text-[#C10016]">Care, Consistency, Confidence.</Text>
-                </Text>
-                
-                <Text className="font-helvetica font-normal text-lg lg:text-[22px] lg:leading-[44px] text-black mb-8">
-                  FULFIL.X specializes in pet supply fulfillment, supporting brands that provide everything from premium pet food and treats to toys, accessories, and wellness products. We understand that pet owners expect consistency, safety, and speed—and that pet brands must uphold these expectations with every order.
-                </Text>
+            <View className="w-full">
+              <Text className="font-helvetica font-bold text-3xl lg:text-[54px] lg:leading-[68px] tracking-tight text-black mb-8">
+                Mastering Pet Supply Fulfilment with FULFILX. <Text className="text-[#C10016]">Care, Consistency, Confidence.</Text>
+              </Text>
+              
+              <Text className="font-helvetica font-normal text-lg lg:text-[22px] lg:leading-[44px] text-black mb-8">
+                FULFIL.X specializes in pet supply fulfillment, supporting brands that provide everything from premium pet food and treats to toys, accessories, and wellness products. We understand that pet owners expect consistency, safety, and speed—and that pet brands must uphold these expectations with every order.
+              </Text>
 
-                <Text className="font-helvetica font-normal text-lg lg:text-[22px] lg:leading-[44px] text-black mb-8">
-                  With advanced fulfillment technology, seamless e-commerce integrations, and a reliable courier network, FULFIL.X ensures your pet products are stored, packed, and delivered with the same care your customers give their pets.
-                </Text>
-              </View>
-
-              {/* Right Column - Image */}
-              <View className="w-full lg:w-[500px] flex-shrink-0">
-                <Image 
-                  source={{ uri: "/peep.webp" }}
-                  className="w-full h-[400px] lg:h-[600px] rounded-[30px]"
-                  resizeMode="cover"
-                />
-              </View>
+              <Text className="font-helvetica font-normal text-lg lg:text-[22px] lg:leading-[44px] text-black mb-8">
+                With advanced fulfillment technology, seamless e-commerce integrations, and a reliable courier network, FULFIL.X ensures your pet products are stored, packed, and delivered with the same care your customers give their pets.
+              </Text>
             </View>
           </View>
         </View>
