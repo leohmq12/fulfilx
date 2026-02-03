@@ -138,18 +138,24 @@ const Footer = () => {
             Find us on the socials
           </p>
           <div className="flex gap-4">
-            <button 
+            <a 
+              href="https://www.tiktok.com/@fulfil.x?_t=8hNsKJafJ9E&_r=1"
+              target="_blank"
+              rel="noopener noreferrer"
               className="h-12 w-12 sm:h-14 sm:w-14 bg-[#C10016] rounded-full flex items-center justify-center hover:bg-[#a00012] transition-colors"
-              aria-label="Facebook"
+              aria-label="Tiktok"
             >
-              <img src="/fb.svg" alt="facebook" className='w-6 h-6 object-contain' />
-            </button>
-            <button 
+              <img src="/ttlw.png" alt="tiktok" className='w-8 h-8 object-contain' />
+            </a>
+            <a 
+              href="https://www.instagram.com/fulfil.x/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="h-12 w-12 sm:h-14 sm:w-14 bg-[#C10016] rounded-full flex items-center justify-center hover:bg-[#a00012] transition-colors"
               aria-label="Instagram"
             >
               <img src="/ig.svg" alt="instagram" className='w-6 h-6 object-contain' />
-            </button>
+            </a>
           </div>
         </div>
       </div>
