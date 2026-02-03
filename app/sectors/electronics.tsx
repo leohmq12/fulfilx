@@ -17,7 +17,7 @@ export default function ElectronicsScreen() {
       
       <ScrollView showsVerticalScrollIndicator={false}>
         {/* Hero Section */}
-        <View className="relative min-h-[50vh] lg:min-h-[85vh]">
+        <View className="relative w-full pb-12">
           {/* PNG Background */}
           <View className="absolute inset-0 z-0">
             <Image 
@@ -28,14 +28,14 @@ export default function ElectronicsScreen() {
           </View>
 
           {/* Hero Content */}
-          <View className="relative z-10 min-h-[50vh] lg:min-h-[85vh] flex items-center justify-center pb-16">
+          <View className="relative z-10 w-full flex flex-col items-center pt-32 lg:pt-48 px-4">
             {/* Main Title */}
             <Text className="font-helvetica font-bold text-4xl lg:text-[84px] leading-tight lg:leading-[84px] text-black text-center mb-8">
               Electronics
             </Text>
             
             {/* Breadcrumb Navigation */}
-            <View className="flex flex-row items-center justify-center">
+            <View className="flex flex-row items-center justify-center mb-12">
               <Text className="font-helvetica font-normal text-base lg:text-[20px] leading-[40px] text-black">
                 Home
               </Text>
@@ -44,36 +44,31 @@ export default function ElectronicsScreen() {
                 Electronics
               </Text>
             </View>
+
+            {/* Hero Image */}
+            <Image 
+              source={{ uri: "/laptop.webp" }}
+              className="w-full max-w-[1200px] h-[300px] sm:h-[400px] lg:h-[600px] rounded-[30px] object-cover shadow-lg"
+              resizeMode="cover"
+            />
           </View>
         </View>
 
         {/* Content Section */}
-        <View className="bg-white py-12 lg:py-24">
+        <View className="bg-white py-8 lg:py-16">
           <View className="max-w-[1393px] mx-auto px-4">
-            <View className="flex flex-col lg:flex-row gap-12 lg:gap-24">
-              {/* Left Column - Main Text */}
-              <View className="flex-1">
-                <Text className="font-helvetica font-bold text-3xl lg:text-[54px] lg:leading-[68px] tracking-tight text-black mb-8">
-                  Mastering Electronics Fulfilment with FULFILX. <Text className="text-[#C10016]">Precision, Protection, Performance.</Text>
-                </Text>
-                
-                <Text className="font-helvetica font-normal text-lg lg:text-[22px] lg:leading-[44px] text-black mb-8">
-                  FULFIL.X provides the essential fulfilment partnership for electronics brands, where product integrity, customer trust, and flawless delivery are fundamental to commercial success. We deliver precision-engineered logistics solutions designed to secure sensitive inventory and uphold brand reputation.
-                </Text>
+            <View className="w-full">
+              <Text className="font-helvetica font-bold text-3xl lg:text-[54px] lg:leading-[68px] tracking-tight text-black mb-8">
+                Mastering Electronics Fulfilment with FULFILX. <Text className="text-[#C10016]">Precision, Protection, Performance.</Text>
+              </Text>
+              
+              <Text className="font-helvetica font-normal text-lg lg:text-[22px] lg:leading-[44px] text-black mb-8">
+                FULFIL.X provides the essential fulfilment partnership for electronics brands, where product integrity, customer trust, and flawless delivery are fundamental to commercial success. We deliver precision-engineered logistics solutions designed to secure sensitive inventory and uphold brand reputation.
+              </Text>
 
-                <Text className="font-helvetica font-normal text-lg lg:text-[22px] lg:leading-[44px] text-black mb-8">
-                  From consumer electronics and smart devices to high-value components and audio equipment, our operation is built to meet the exacting standards of the sector—including comprehensive anti-static protocols, meticulous protective packaging, and complete serialised traceability. Leveraging advanced warehouse systems, rigorous security, and seamless platform integrations, FULFIL.X ensures your electronics fulfilment is a reliable, scalable, and brand-enhancing component of your operation.
-                </Text>
-              </View>
-
-              {/* Right Column - Image */}
-              <View className="w-full lg:w-[500px] flex-shrink-0">
-                <Image 
-                  source={{ uri: "/laptop.webp" }}
-                  className="w-full h-[400px] lg:h-[600px] rounded-[30px]"
-                  resizeMode="cover"
-                />
-              </View>
+              <Text className="font-helvetica font-normal text-lg lg:text-[22px] lg:leading-[44px] text-black mb-8">
+                From consumer electronics and smart devices to high-value components and audio equipment, our operation is built to meet the exacting standards of the sector—including comprehensive anti-static protocols, meticulous protective packaging, and complete serialised traceability. Leveraging advanced warehouse systems, rigorous security, and seamless platform integrations, FULFIL.X ensures your electronics fulfilment is a reliable, scalable, and brand-enhancing component of your operation.
+              </Text>
             </View>
           </View>
         </View>

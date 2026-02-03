@@ -579,7 +579,6 @@ export default function ServicesScreen(){
       { image: '/services/fenwick.webp', alt: 'Fenwick' },
       { image: '/services/Harrods.webp', alt: 'Harrods' },
       { image: '/services/nordstorm.webp', alt: 'Nordstrom' },
-      { image: '/services/pets at home.webp', alt: 'Pets at Home' },
       { image: '/services/qvc.webp', alt: 'QVC' },
       { image: '/services/sAKS.webp', alt: 'Saks Fifth Avenue' },
       { image: '/services/selfridges.webp', alt: 'Selfridges' },
