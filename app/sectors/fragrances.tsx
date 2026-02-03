@@ -27,15 +27,15 @@ export default function FragrancesScreen() {
             />
           </View>
 
-          {/* Hero Content */}
-          <View className="relative z-10 min-h-[50vh] lg:min-h-[85vh] flex items-center justify-center pb-16">
+{/* Hero Content */}
+          <View className="relative z-10 w-full flex flex-col items-center pt-32 lg:pt-48 px-4">
             {/* Main Title */}
             <Text className="font-helvetica font-bold text-4xl lg:text-[84px] leading-tight lg:leading-[84px] text-black text-center mb-8">
               Fragrances
             </Text>
             
             {/* Breadcrumb Navigation */}
-            <View className="flex flex-row items-center justify-center">
+            <View className="flex flex-row items-center justify-center mb-12">
               <Text className="font-helvetica font-normal text-base lg:text-[20px] leading-[40px] text-black">
                 Home
               </Text>
@@ -44,6 +44,13 @@ export default function FragrancesScreen() {
                 Fragrances
               </Text>
             </View>
+
+            {/* Hero Image */}
+            <Image 
+              source={{ uri: "/still-life-cosmetic-products.webp" }}
+              className="w-full max-w-[1200px] h-[300px] sm:h-[400px] lg:h-[600px] rounded-[30px] object-cover shadow-lg"
+              resizeMode="cover"
+            />
           </View>
         </View>
 

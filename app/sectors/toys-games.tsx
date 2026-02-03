@@ -55,7 +55,7 @@ export default function ToysScreen() {
 
             {/* Hero Image */}
             <Image 
-              source={{ uri: "/toy.webp" }}
+              source={{ uri: "/kids-playing-dirty-house.webp" }}
               className="w-full max-w-[1200px] h-[300px] sm:h-[400px] lg:h-[600px] rounded-[30px] object-cover shadow-lg"
               resizeMode="cover"
             />

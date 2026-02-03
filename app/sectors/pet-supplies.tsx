@@ -47,7 +47,7 @@ export default function PetSuppliesScreen() {
 
             {/* Hero Image */}
             <Image 
-              source={{ uri: "/peep.webp" }}
+              source={{ uri: "/vecteezy_charming-pampered-pets-play-side-by-side-looking-alert_24653630.webp" }}
               className="w-full max-w-[1200px] h-[300px] sm:h-[400px] lg:h-[600px] rounded-[30px] object-cover shadow-lg"
               resizeMode="cover"
             />

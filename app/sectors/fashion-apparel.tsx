@@ -47,7 +47,7 @@ export default function FashionScreen() {
 
             {/* Hero Image */}
             <Image 
-              source={{ uri: "/fas.webp" }}
+              source={{ uri: "/row-fashionable-clothing-hangers.webp" }}
               className="w-full max-w-[1200px] h-[300px] sm:h-[400px] lg:h-[600px] rounded-[30px] object-cover shadow-lg"
               resizeMode="cover"
             />

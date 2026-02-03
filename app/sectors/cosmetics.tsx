@@ -47,7 +47,7 @@ export default function CosmeticsScreen() {
 
             {/* Hero Image */}
             <Image 
-              source={{ uri: "/cos.webp" }}
+              source={{ uri: "/foundation-containers-advertising-assortment.webp" }}
               className="w-full max-w-[1200px] h-[300px] sm:h-[400px] lg:h-[600px] rounded-[30px] object-cover shadow-lg"
               resizeMode="cover"
             />

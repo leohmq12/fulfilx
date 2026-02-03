@@ -47,7 +47,7 @@ export default function ChilledScreen() {
 
             {/* Hero Image */}
             <Image 
-              source={{ uri: "/1_con.webp" }}
+              source={{ uri: "/15985a04-f9ed-40d4-8710-158299688474.webp" }}
               className="w-full max-w-[1200px] h-[300px] sm:h-[400px] lg:h-[600px] rounded-[30px] object-cover shadow-lg"
               resizeMode="cover"
             />

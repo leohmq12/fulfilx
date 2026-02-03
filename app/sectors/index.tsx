@@ -92,8 +92,8 @@ export default function SectorsScreen() {
     },
     {
       id: 7,
-      title: "Stationary & Gifts",
-      description: "Ensure your stationary and gift products are handled with care and delivered on time. FulFilx offers precise picking and packing for delicate and seasonal items.",
+      title: "Stationery & Gifts",
+      description: "Ensure your stationery and gift products are handled with care and delivered on time. FulFilx offers precise picking and packing for delicate and seasonal items.",
       image: "/school-supplies-drawing-instruments-composition.webp",
       link: "/sectors/stationary-gifts",
       position: { left: 735, top: 1704 }

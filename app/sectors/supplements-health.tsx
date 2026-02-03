@@ -55,7 +55,7 @@ export default function SupplementsScreen() {
 
             {/* Hero Image */}
             <Image 
-              source={{ uri: "/sup.webp" }}
+              source={{ uri: "/closeup-athletic-woman-adding-strawberries-while-making-fruit-salad-kitchen.webp" }}
               className="w-full max-w-[1200px] h-[300px] sm:h-[400px] lg:h-[600px] rounded-[30px] object-cover shadow-lg"
               resizeMode="cover"
             />

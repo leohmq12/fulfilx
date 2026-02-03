@@ -55,7 +55,7 @@ export default function SubscriptionScreen() {
 
             {/* Hero Image */}
             <Image 
-              source={{ uri: "/box.webp" }}
+              source={{ uri: "/what-are-subscription-boxes_8b98e234-fd74-452f-83d0-e2c4c43cb5c8.webp" }}
               className="w-full max-w-[1200px] h-[300px] sm:h-[400px] lg:h-[600px] rounded-[30px] object-cover shadow-lg"
               resizeMode="cover"
             />

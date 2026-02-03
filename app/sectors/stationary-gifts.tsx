@@ -31,7 +31,7 @@ export default function StationaryGiftsScreen() {
           <View className="relative z-10 w-full flex flex-col items-center pt-32 lg:pt-48 px-4">
             {/* Main Title */}
             <Text className="font-helvetica font-bold text-4xl lg:text-[84px] leading-tight lg:leading-[84px] text-black text-center mb-8">
-              Stationary & Gifts
+              Stationery & Gifts
             </Text>
             
             {/* Breadcrumb Navigation */}
@@ -41,13 +41,13 @@ export default function StationaryGiftsScreen() {
               </Text>
               <View className="w-1 h-1 bg-[#C10016] rounded-full mx-4" />
               <Text className="font-helvetica font-medium text-base lg:text-[20px] leading-[40px] text-[#C10016]">
-                Stationary & Gifts
+                Stationery & Gifts
               </Text>
             </View>
 
             {/* Hero Image */}
             <Image 
-              source={{ uri: "/box.webp" }}
+              source={{ uri: "/school-supplies-drawing-instruments-composition.webp" }}
               className="w-full max-w-[1200px] h-[300px] sm:h-[400px] lg:h-[600px] rounded-[30px] object-cover shadow-lg"
               resizeMode="cover"
             />
