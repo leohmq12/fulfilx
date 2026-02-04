@@ -47,7 +47,7 @@ const FulfillmentServicesSection = () => {
       img: '/9E2A9850.webp', // Reusing existing VAS image
       logo: '/amf.svg',
       features: [
-        'FBA Prep: Labelling, polybagging, bundling, carton prep, pallet prep.',
+        'FBA Prep: Labelling, repackaging, bundling, carton prep, pallet prep.',
         'FBM Fulfilment: Same-day pick & pack for Amazon orders.',
         'Amazon Vendor (1P) Support: Retailer-specific prep, pallet config, paperwork.'
       ]
@@ -986,11 +986,11 @@ export default function ServicesScreen(){
               className="absolute inset-0 w-full h-full object-cover z-10"
               style={{ animation: 'servicesSlideIn 750ms cubic-bezier(0.22, 1, 0.36, 1)', willChange: 'transform' }}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/15 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/15 to-transparent z-10" />
             <div className="absolute left-6 bottom-6 right-6 z-20">
               <div
                 className="text-white font-normal text-2xl lg:text-[32px] tracking-[-0.01em]"
-                style={{ textShadow: '0 4px 16px rgba(0,0,0,0.7)' }}
+                style={{ textShadow: activeVasIndex === 1 ? '0 4px 16px rgba(0,0,0,1)' : '0 4px 16px rgba(0,0,0,0.7)' }}
               >
                 {valueAddedServicesItems[activeVasIndex]?.title[0]} {valueAddedServicesItems[activeVasIndex]?.title[1]}
               </div>
@@ -1000,7 +1000,7 @@ export default function ServicesScreen(){
                     <img src="/checkw.svg" alt="Check" className="w-4 h-4 mt-1 flex-shrink-0" />
                     <span
                       className="text-white text-[16px] leading-[22px]"
-                      style={{ textShadow: '0 3px 10px rgba(0,0,0,0.65)' }}
+                      style={{ textShadow: activeVasIndex === 1 ? '0 3px 10px rgba(0,0,0,1)' : '0 3px 10px rgba(0,0,0,0.65)' }}
                     >
                       {feature}
                     </span>
@@ -1201,12 +1201,12 @@ export default function ServicesScreen(){
 <div className="mt-20 slider-container">
   <div className="flex animate-infinite-scroll">
     {[...row1Logos, ...row1Logos].map((logo, index) => (
-      <div key={index} className="group relative flex-shrink-0 mx-8 lg:mx-16">
-        <div className="w-[240px] h-[100px] rounded-lg flex items-center justify-center transition-all duration-300 hover:bg-transparent hover:scale-105">
+      <div key={index} className="group relative flex-shrink-0 mx-8 sm:mx-12 lg:mx-16">
+        <div className="w-[160px] h-[70px] sm:w-[200px] sm:h-[85px] lg:w-[240px] lg:h-[100px] rounded-lg flex items-center justify-center transition-all duration-300 hover:bg-transparent hover:scale-105">
           <img 
             src={logo.src}
             alt={logo.alt}
-            className="h-16 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+            className="h-10 sm:h-12 lg:h-16 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
           />
         </div>
       </div>
@@ -1218,12 +1218,12 @@ export default function ServicesScreen(){
 <div className="mt-12 slider-container">
   <div className="flex animate-infinite-scroll-reverse">
     {[...row2Logos, ...row2Logos].map((logo, index) => (
-      <div key={index} className="group relative flex-shrink-0 mx-8 lg:mx-16">
-        <div className="w-[200px] h-[80px] rounded-lg flex items-center justify-center backdrop-blur-sm transition-all duration-300 hover:bg-transparent hover:scale-105">
+      <div key={index} className="group relative flex-shrink-0 mx-8 sm:mx-12 lg:mx-16">
+        <div className="w-[150px] h-[60px] sm:w-[180px] sm:h-[72px] lg:w-[200px] lg:h-[80px] rounded-lg flex items-center justify-center backdrop-blur-sm transition-all duration-300 hover:bg-transparent hover:scale-105">
           <img 
             src={logo.src}
             alt={logo.alt}
-            className="h-14 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+            className="h-9 sm:h-11 lg:h-14 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
           />
         </div>
       </div>
@@ -1235,12 +1235,12 @@ export default function ServicesScreen(){
 <div className="mt-12 slider-container">
   <div className="flex animate-infinite-scroll">
     {[...row3Logos, ...row3Logos].map((logo, index) => (
-      <div key={index} className="group relative flex-shrink-0 mx-8 lg:mx-16">
-        <div className="w-[240px] h-[100px] rounded-lg flex items-center justify-center backdrop-blur-sm transition-all duration-300 hover:bg-transparent hover:scale-105">
+      <div key={index} className="group relative flex-shrink-0 mx-8 sm:mx-12 lg:mx-16">
+        <div className="w-[160px] h-[70px] sm:w-[200px] sm:h-[85px] lg:w-[240px] lg:h-[100px] rounded-lg flex items-center justify-center backdrop-blur-sm transition-all duration-300 hover:bg-transparent hover:scale-105">
           <img 
             src={logo.src}
             alt={logo.alt}
-            className="h-16 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+            className="h-10 sm:h-12 lg:h-16 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
           />
         </div>
       </div>
@@ -1286,7 +1286,7 @@ export default function ServicesScreen(){
         {testimonials.map((testimonial, index) => (
           <div 
             key={index}
-            className={`min-w-[300px] h-[220px] bg-cover bg-center rounded-[24px] flex-shrink-0 transition-all duration-500 ${
+            className={`w-[180px] h-[130px] sm:w-[260px] sm:h-[190px] lg:w-[340px] lg:h-[240px] bg-cover bg-center rounded-[24px] flex-shrink-0 transition-all duration-500 ${
               index === currentSlide ? 'scale-105 opacity-100 shadow-2xl' : 'scale-95 opacity-70'
             }`}
             style={{backgroundImage: `url(${testimonial.image})`}}
@@ -1319,8 +1319,8 @@ export default function ServicesScreen(){
 
         {/* Image Grid - Centered */}
         <div className="flex flex-row flex-wrap justify-center gap-6 lg:gap-8 mb-12">
-            <div className="w-[96px] h-[96px] lg:w-[120px] lg:h-[120px] bg-cover bg-center" style={{backgroundImage: 'url(/award1.webp)'}}></div>
-            <div className="w-[96px] h-[96px] lg:w-[120px] lg:h-[120px] bg-cover bg-center" style={{backgroundImage: 'url(/award2.webp)'}}></div>
+            <div className="w-[120px] h-[120px] lg:w-[160px] lg:h-[160px] bg-cover bg-center" style={{backgroundImage: 'url(/award2.webp)'}}></div>
+            <div className="w-[120px] h-[120px] lg:w-[160px] lg:h-[160px] bg-cover bg-center" style={{backgroundImage: 'url(/award1.webp)'}}></div>
         </div>
 
       </div>

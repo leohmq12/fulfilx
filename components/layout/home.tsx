@@ -190,8 +190,8 @@ const row1Logos = [
                                 </div>
 
                                 <div className="w-full max-w-[759px] mb-12 lg:mb-16">
-                                    <p className="text-lg lg:text-[18px] font-helvetica font-thin leading-[2] text-black text-center lg:text-left">
-                                        At FULFIL.X, we are more than just a 3PL. We are your partner in fulfilment. <br />
+                                    <p className="text-lg lg:text-[24px] font-helvetica font-thin leading-[2] text-black text-center lg:text-left">
+                                        At FULFIL.X, we are more than just a 3PL. We are your partner in fulfilment.
                                         &quot;Your success is Our Success.&quot;
                                     </p>
                                 </div>
@@ -611,7 +611,7 @@ focus on growing.    </p>
       circleBg: "bg-[#C10016]",
       titleColor: "text-[#C10016]",
       stepNumberBg: "bg-black",
-      description: "We give you real-time visibility and control, helping you reduce stockouts, minimize overstock, and streamline your supply chain.",
+      description: "We give you real-time visibility and control, helping you reduce stockouts, minimise overstock, and streamline your supply chain.",
     },
     { 
       step: 3, 
@@ -1318,8 +1318,8 @@ focus on growing.    </p>
 
         {/* Image Grid - Centered */}
         <div className="flex flex-row flex-wrap justify-center gap-6 lg:gap-8 mb-8">
-            <div className="w-[96px] h-[96px] lg:w-[120px] lg:h-[120px] bg-cover bg-center" style={{backgroundImage: 'url(/award1.webp)'}}></div>
-            <div className="w-[96px] h-[96px] lg:w-[120px] lg:h-[120px] bg-cover bg-center" style={{backgroundImage: 'url(/award2.webp)'}}></div>
+            <div className="w-[120px] h-[120px] lg:w-[160px] lg:h-[160px] bg-cover bg-center" style={{backgroundImage: 'url(/award2.webp)'}}></div>
+            <div className="w-[120px] h-[120px] lg:w-[160px] lg:h-[160px] bg-cover bg-center" style={{backgroundImage: 'url(/award1.webp)'}}></div>
         </div>
       </div>
     </div>

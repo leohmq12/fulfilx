@@ -156,6 +156,24 @@ const Footer = () => {
             >
               <img src="/ig.svg" alt="instagram" className='w-6 h-6 object-contain' />
             </a>
+            <a 
+              href="https://uk.linkedin.com/company/fulfilx"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="h-12 w-12 sm:h-14 sm:w-14 bg-[#C10016] rounded-full flex items-center justify-center hover:bg-[#a00012] transition-colors"
+              aria-label="LinkedIn"
+            >
+              <img src="/linkedin.png" alt="linkedin" className='w-10 h-10 object-contain' />
+            </a>
+            <a 
+              href="https://www.facebook.com/share/18TJXr21mq/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="h-12 w-12 sm:h-14 sm:w-14 bg-[#C10016] rounded-full flex items-center justify-center hover:bg-[#a00012] transition-colors"
+              aria-label="Facebook"
+            >
+              <img src="/fb.svg" alt="facebook" className='w-6 h-6 object-contain' />
+            </a>
           </div>
         </div>
       </div>
@@ -219,7 +237,7 @@ const Footer = () => {
       <img src="/map.svg" alt="location" className="w-5 h-5" />
     </div>
     <div className="text-white text-left">
-      <div className="font-bold text-base sm:text-lg">FulfilX HQ</div>
+      <div className="font-bold text-base sm:text-lg">FULFIL.X HQ</div>
       <div className="text-sm sm:text-base font-normal">
         Nile Mill, Oldham,
         Greater Manchester,
@@ -315,7 +333,7 @@ const Footer = () => {
      {/* Bottom Copyright - Positioned at bottom */}
   <div className="relative border-t border-white/10 pt-4 text-center">
     <p className="text-white text-[16px] opacity-90">
-      Copyright © 2025. <span className='text-[#C10016]'>Fulfil X</span>. All rights reserved.
+      Copyright © 2025. <span className='text-[#C10016]'>FULFIL.X</span>. All rights reserved.
     </p>
   </div>
   </div>

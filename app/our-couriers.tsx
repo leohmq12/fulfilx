@@ -9,7 +9,7 @@ export default function OurCouriersScreen() {
     const router = useRouter();
 
     const row1Logos = [
-        { src: "/couires/logo%20amazon.webp", alt: "Amazon" },
+        { src: "/couires/amazon.webp", alt: "Amazon" },
         { src: "/couires/logosDHL.webp", alt: "DHL" },
         { src: "/couires/logos%20%20dpd%20%282%29.webp", alt: "DPD" },
         { src: "/couires/logos%20%20evri%20%281%29.webp", alt: "Evri" },
