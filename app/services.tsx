@@ -1,3 +1,4 @@
+import AwardsAccreditations from '@/components/layout/awards-accreditations';
 import Footer from '@/components/layout/footer';
 import Navbar from '@/components/layout/navbar';
 import { Stack, useRouter } from 'expo-router';
@@ -1277,60 +1278,7 @@ export default function ServicesScreen(){
 
   </div>
 </section>
-<section className="relative w-full">
-  {/* Two Column Layout */}
-  <div className="flex flex-col lg:flex-row">
-    
-    {/* Left Section - White Background */}
-    <div className="w-full lg:w-1/2 bg-white relative min-h-[400px] lg:min-h-[520px] flex items-center justify-center py-12 lg:py-0">
-      <img src="/bg.webp" alt="" className="absolute inset-0 w-full h-full object-cover" />
-      {/* Left Section Content - Centered */}
-      <div className="max-w-[740px] w-full text-center px-8">
-        
-        {/* Heading */}
-        <h2 className="font-bold text-3xl lg:text-[42px] leading-tight lg:leading-[54px] tracking-tight text-black mb-8">
-          Our Awards
-        </h2>
-
-        {/* Red Line - Centered */}
-        <div className="w-[100px] h-[1px] bg-[#C10016] mx-auto mb-12"></div>
-
-        {/* Image Grid - Centered */}
-        <div className="flex flex-row flex-wrap justify-center gap-6 lg:gap-8 mb-12">
-            <div className="w-[160px] h-[160px] lg:w-[240px] lg:h-[240px] bg-cover bg-center" style={{backgroundImage: 'url(/award2.webp)'}}></div>
-            <div className="w-[160px] h-[160px] lg:w-[240px] lg:h-[240px] bg-cover bg-center" style={{backgroundImage: 'url(/award1.webp)'}}></div>
-        </div>
-
-      </div>
-    </div>
-
-    {/* Right Section - Red Background */}
-    <div className="w-full lg:w-1/2 bg-[#DA192F] relative min-h-[400px] lg:min-h-[520px] flex items-center justify-center py-12 lg:py-0">
-      {/* Right Section Content - Centered */}
-      <div className="max-w-[650px] w-full text-center px-8">
-        
-        {/* Heading */}
-        <h2 className="font-bold text-3xl lg:text-[42px] leading-tight lg:leading-[54px] tracking-tight text-white mb-8">
-          Accreditations
-        </h2>
-
-        {/* White Line - Centered */}
-        <div className="w-[100px] h-[1px] bg-white mx-auto mb-12"></div>
-
-        {/* CTA Button - Centered */}
-        <button 
-          onClick={() => router.push('/contact')}
-          className="border border-white rounded-[6px] flex items-center justify-center gap-[10px] px-8 py-4 transition-colors duration-300 mx-auto cursor-pointer hover:bg-white/10"
-        >
-          <span className="text-white font-bold text-[18px] leading-[36px]">Let&apos;s Talk</span>
-          <img src="/arrow.svg" alt="arrow" className="w-4 h-4 object-contain" />
-        </button>
-
-      </div>
-    </div>
-
-  </div>
-</section>
+<AwardsAccreditations/>
         <Footer/>
       </ScrollView>
     </>
