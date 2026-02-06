@@ -759,8 +759,8 @@ export default function ServicesScreen(){
       <ScrollView 
         className="flex-1 bg-white"
       >
-        {/* Hero Section */}
-        <View className="relative min-h-screen">
+        {/* Hero Section - at least half screen on mobile, full on desktop */}
+        <View className="relative min-h-[50vh] lg:min-h-screen">
           {/* PNG Background */}
           <View className="absolute inset-0 z-0">
             <img 
@@ -770,20 +770,20 @@ export default function ServicesScreen(){
             />
           </View>
 
-          {/* Hero Content */}
-          <View className="relative z-10 min-h-screen flex items-center justify-center pb-20">
+          {/* Hero Content - min half screen on mobile, full on desktop */}
+          <View className="relative z-10 min-h-[50vh] lg:min-h-screen py-12 lg:py-0 lg:pb-20 flex items-center justify-center">
             {/* Main Title */}
-            <Text className="font-helvetica font-bold text-6xl lg:text-[84px] leading-[84px] text-black text-center mb-8">
+            <Text className="font-helvetica font-bold text-4xl lg:text-[84px] lg:leading-[84px] leading-tight text-black text-center mb-4 lg:mb-8">
               Services
             </Text>
             
             {/* Breadcrumb Navigation */}
-            <View className="flex flex-row items-center justify-center">
-              <Text className="font-helvetica font-normal text-base lg:text-[20px] leading-[40px] text-black">
+            <View className="flex flex-row items-center justify-center flex-wrap">
+              <Text className="font-helvetica font-normal text-sm lg:text-[20px] lg:leading-[40px] text-black">
                 Home
               </Text>
-              <View className="w-1 h-1 bg-[#C10016] rounded-full mx-4" />
-              <Text className="font-helvetica font-medium text-base lg:text-[20px] leading-[40px] text-[#C10016]">
+              <View className="w-1 h-1 bg-[#C10016] rounded-full mx-2 lg:mx-4" />
+              <Text className="font-helvetica font-medium text-sm lg:text-[20px] lg:leading-[40px] text-[#C10016]">
                 Services
               </Text>
             </View>

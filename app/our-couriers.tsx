@@ -97,7 +97,7 @@ export default function OurCouriersScreen() {
                 </View>
 
                 {/* Carousel Section */}
-                <View className="relative z-20 py-20">
+                <View className="relative z-20 py-10 sm:py-14 lg:py-20">
                       <div 
                         className="absolute inset-0 w-full h-full"
                         style={{
@@ -113,22 +113,22 @@ export default function OurCouriersScreen() {
                       >
                       </div>
                     <div className="relative max-w-[1300px] mx-auto px-4 z-10">
-                        {/* Main Heading */}
-                        <h2 className="text-center font-bold text-[74px] leading-[80px] tracking-tight text-white mt-16">
+                        {/* Main Heading - less top margin on mobile */}
+                        <h2 className="text-center font-bold text-3xl sm:text-5xl lg:text-[74px] lg:leading-[80px] tracking-tight text-white mt-4 sm:mt-8 lg:mt-16">
                             Our Couriers
                         </h2>
 
-                        <div className="w-full overflow-hidden py-10">
-                            {/* First Row - Scroll Left */}
-                            <div className="mt-20 slider-container overflow-hidden">
+                        <div className="w-full overflow-hidden py-3 sm:py-6 lg:py-10">
+                            {/* First Row - Scroll Left - reduced gap above */}
+                            <div className="mt-4 sm:mt-8 lg:mt-16 slider-container overflow-hidden">
                                 <div className="flex animate-infinite-scroll">
                                     {[...row1Logos, ...row1Logos].map((logo, index) => (
-                                        <div key={index} className="group relative flex-shrink-0 mx-12">
-                                            <div className="w-[240px] h-[100px] rounded-lg flex items-center justify-center transition-all duration-300 hover:bg-transparent hover:scale-105">
+                                        <div key={index} className="group relative flex-shrink-0 mx-2.5 sm:mx-8 lg:mx-12">
+                                            <div className="w-[88px] h-[40px] sm:w-[180px] sm:h-[75px] lg:w-[240px] lg:h-[100px] rounded-lg flex items-center justify-center transition-all duration-300 hover:bg-transparent hover:scale-105">
                                                 <img 
                                                     src={logo.src}
                                                     alt={logo.alt}
-                                                    className="w-full h-[80px] object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                                                    className="w-full h-[32px] sm:h-[60px] lg:h-[80px] object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
                                                 />
                                             </div>
                                         </div>
@@ -137,15 +137,15 @@ export default function OurCouriersScreen() {
                             </div>
 
                             {/* Second Row - Scroll Right */}
-                            <div className="mt-12 slider-container overflow-hidden">
+                            <div className="mt-4 sm:mt-8 lg:mt-12 slider-container overflow-hidden">
                                 <div className="flex animate-infinite-scroll-reverse">
                                     {[...row2Logos, ...row2Logos].map((logo, index) => (
-                                        <div key={index} className="group relative flex-shrink-0 mx-12">
-                                            <div className="w-[300px] h-[130px] rounded-lg flex items-center justify-center backdrop-blur-sm transition-all duration-300 hover:bg-transparent hover:scale-105">
+                                        <div key={index} className="group relative flex-shrink-0 mx-2.5 sm:mx-8 lg:mx-12">
+                                            <div className="w-[88px] h-[40px] sm:w-[200px] sm:h-[85px] lg:w-[300px] lg:h-[130px] rounded-lg flex items-center justify-center backdrop-blur-sm transition-all duration-300 hover:bg-transparent hover:scale-105">
                                                 <img 
                                                     src={logo.src}
                                                     alt={logo.alt}
-                                                    className="w-full h-[80px] object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                                                    className="w-full h-[32px] sm:h-[60px] lg:h-[80px] object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
                                                 />
                                             </div>
                                         </div>
@@ -154,15 +154,15 @@ export default function OurCouriersScreen() {
                             </div>
 
                             {/* Third Row - Scroll Left */}
-                            <div className="mt-12 slider-container overflow-hidden">
+                            <div className="mt-4 sm:mt-8 lg:mt-12 slider-container overflow-hidden">
                                 <div className="flex animate-infinite-scroll">
                                     {[...row3Logos, ...row3Logos].map((logo, index) => (
-                                        <div key={index} className="group relative flex-shrink-0 mx-12">
-                                            <div className="w-[340px] h-[150px] rounded-lg flex items-center justify-center backdrop-blur-sm transition-all duration-300 hover:bg-transparent hover:scale-105">
+                                        <div key={index} className="group relative flex-shrink-0 mx-2.5 sm:mx-8 lg:mx-12">
+                                            <div className="w-[88px] h-[40px] sm:w-[220px] sm:h-[95px] lg:w-[340px] lg:h-[150px] rounded-lg flex items-center justify-center backdrop-blur-sm transition-all duration-300 hover:bg-transparent hover:scale-105">
                                                 <img 
                                                     src={logo.src}
                                                     alt={logo.alt}
-                                                    className="w-full h-[80px] object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                                                    className="w-full h-[32px] sm:h-[60px] lg:h-[80px] object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
                                                 />
                                             </div>
                                         </div>

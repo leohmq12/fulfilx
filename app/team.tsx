@@ -392,7 +392,7 @@ export default function TeamScreen() {
             const layout = event.nativeEvent.layout;
             setJobsOffset(layout.y);
           }}
-          className="relative w-full min-h-[600px] lg:min-h-[900px] py-12 lg:py-20 overflow-hidden"
+          className="relative w-full min-h-0 lg:min-h-[900px] py-5 lg:py-20 overflow-hidden"
         >
           {/* Background Gradient Fix */}
           <View className="absolute inset-0">
@@ -403,24 +403,24 @@ export default function TeamScreen() {
             />
           </View>
 
-          {/* Content Container - Centered */}
-          <View className="relative z-10 max-w-[1500px] mx-auto px-4 lg:px-8 h-full flex items-center">
-            {/* 2 Column Layout - Centered vertically */}
-            <View className="flex flex-col lg:flex-row gap-10 lg:gap-20 w-full items-center">
-              {/* LEFT COLUMN - Centered horizontally */}
-              <View className="flex-1 flex flex-col justify-center w-full">
+          {/* Content Container - on mobile no vertical centering to avoid huge gaps */}
+          <View className="relative z-10 max-w-[1500px] mx-auto px-4 lg:px-8 h-full flex items-start lg:items-center">
+            {/* 2 Column Layout */}
+            <View className="flex flex-col lg:flex-row gap-6 lg:gap-20 w-full items-stretch lg:items-center">
+              {/* LEFT COLUMN - shrink to content on mobile so no extra gap above/below text */}
+              <View className="flex-none lg:flex-1 flex flex-col justify-center w-full">
                 {/* Badge */}
-                <View className="w-[280px] lg:w-[320px] h-[48px] bg-[rgba(193,0,22,0.1)] rounded-[120px] mb-10 flex items-center justify-center mx-auto lg:mx-0">
+                <View className="w-[280px] lg:w-[320px] h-[48px] bg-[rgba(193,0,22,0.1)] rounded-[120px] mb-5 lg:mb-10 flex items-center justify-center mx-auto lg:mx-0">
                   <Text className="font-helvetica font-medium text-sm lg:text-[16px] tracking-[0.2em] text-[#C10016] uppercase">
                     Career Opportunities
                   </Text>
                 </View>
 
-                <Text className="font-helvetica font-bold text-4xl lg:text-[60px] leading-tight lg:leading-[74px] text-white mb-8 text-center lg:text-left">
+                <Text className="font-helvetica font-bold text-4xl lg:text-[60px] leading-tight lg:leading-[74px] text-white mb-5 lg:mb-8 text-center lg:text-left">
                   Join The <Text className="text-[#C10016]">Dream Team</Text>
                 </Text>
 
-                <Text className="font-helvetica text-lg lg:text-[20px] leading-relaxed lg:leading-[38px] text-white/90 mb-12 max-w-full lg:max-w-[670px] text-center lg:text-left">
+                <Text className="font-helvetica text-lg lg:text-[20px] leading-relaxed lg:leading-[38px] text-white/90 mb-8 lg:mb-12 max-w-full lg:max-w-[670px] text-center lg:text-left">
                   Join us as more than an employee. Become a builder, a problem-solver, and a brand
                   advocate. Together, we’ll redefine an industry where exceptional teamwork drives
                   exceptional outcomes.
@@ -433,7 +433,7 @@ export default function TeamScreen() {
               </View>
 
               {/* RIGHT COLUMN - Dynamic with Overlay */}
-              <View className="flex-1 flex flex-col justify-center w-full relative h-[500px] lg:h-[700px]">
+              <View className="flex-1 flex flex-col justify-center w-full relative h-[360px] lg:h-[700px] min-h-0">
                 
                 {/* Job Detail Overlay */}
                 {selectedJob && (

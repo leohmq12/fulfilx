@@ -672,13 +672,14 @@ focus on growing.    </p>
   </div>
 </div>
 </section>
-<section className="relative w-full h-auto py-20 lg:min-h-[512px]">
+<section className="relative w-full h-auto py-20 lg:min-h-[512px] overflow-hidden">
   <div 
     className="absolute inset-0 w-full h-full"
     style={{
-      background: 'url(/9E2A9909.webp)',
-      backgroundSize: '100%',
-      backgroundPosition: 'right'
+      backgroundImage: 'url(/9E2A9909.webp)',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat'
     }}
   />
   <div className="absolute inset-0 bg-black/45" />
@@ -841,26 +842,24 @@ focus on growing.    </p>
         <div className="grid grid-cols-2 md:grid-cols-2 gap-4 md:gap-6 pt-10 lg:pt-16">
           {/* Orders Shipped */}
           <div className="flex flex-col items-center text-center gap-2 sm:flex-row sm:items-center sm:text-left sm:gap-4">
-            <div className="w-[120px] h-[70px] sm:w-[150px] sm:h-[80px] bg-black/10 rounded-[10px] flex items-center justify-center">
-              <span className="font-bold text-3xl lg:text-[40px] leading-[80px] tracking-tight text-black">
-                <button
-                  type="button"
-                  aria-label="Open Google reviews"
-                  onClick={() =>
-                    window.open(
-                      "https://www.google.com/search?sca_esv=20541e4f21a9d7f7&sxsrf=ANbL-n6la1mt9rMC2V7vLj6jDkpCGr-jEQ:1769008694039&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOXwAv3YEXZKPsl-nUlT6wYhGXlXqsFVh-oyC0tyABjEyjZCBk0CoEdNhj27Sl2hsvpDFgHFs0bQGfY1mnSWew6jYRo_p8GX0AXTemkh_XqBhnnH1O0hKt0daRKCE0qah_J7B7GeROHFzzyEWMS5BWx0syl6v&q=FULFIL.X+-+Storage+and+3pl+For+E-commerce+Brands+Reviews&sa=X&ved=2ahUKEwilh8D29pySAxUXQ0EAHVezKAcQ0bkNegQIKBAH&biw=1536&bih=730&dpr=1.25&aic=0",
-                      "_blank"
-                    )
-                  }
-                  className="w-full max-w-[90px] sm:max-w-[120px] lg:max-w-[80px] h-auto mx-auto cursor-pointer transition-transform duration-300 hover:scale-105"
-                >
-                  <img
-                    src="/google_rev.webp"
-                    alt="Google reviews"
-                    className="w-full h-auto object-contain"
-                  />
-                </button>
-              </span>
+            <div className="w-[120px] h-[70px] sm:w-[150px] sm:h-[80px] bg-black/10 rounded-[10px] flex items-center justify-center p-2">
+              <button
+                type="button"
+                aria-label="Open Google reviews"
+                onClick={() =>
+                  window.open(
+                    "https://www.google.com/search?sca_esv=20541e4f21a9d7f7&sxsrf=ANbL-n6la1mt9rMC2V7vLj6jDkpCGr-jEQ:1769008694039&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOXwAv3YEXZKPsl-nUlT6wYhGXlXqsFVh-oyC0tyABjEyjZCBk0CoEdNhj27Sl2hsvpDFgHFs0bQGfY1mnSWew6jYRo_p8GX0AXTemkh_XqBhnnH1O0hKt0daRKCE0qah_J7B7GeROHFzzyEWMS5BWx0syl6v&q=FULFIL.X+-+Storage+and+3pl+For+E-commerce+Brands+Reviews&sa=X&ved=2ahUKEwilh8D29pySAxUXQ0EAHVezKAcQ0bkNegQIKBAH&biw=1536&bih=730&dpr=1.25&aic=0",
+                    "_blank"
+                  )
+                }
+                className="flex items-center justify-center w-full h-full max-w-[90px] sm:max-w-[120px] lg:max-w-[80px] cursor-pointer transition-transform duration-300 hover:scale-105"
+              >
+                <img
+                  src="/google_rev.webp"
+                  alt="Google reviews"
+                  className="w-full h-auto object-contain max-w-[90px] sm:max-w-[120px] lg:max-w-[80px] mx-auto"
+                />
+              </button>
             </div>
             <p className="font-normal text-sm sm:text-lg lg:text-[20px] leading-[20px] sm:leading-[30px] lg:leading-[40px] text-[#C10016]">
               On <br /> Google
@@ -929,7 +928,7 @@ focus on growing.    </p>
   Our <span className="text-[#C10016]">Worldwide Network</span>
 </h2>
 
-    {/* First Row of Countries */}
+    {/* Countries - single flex so UAE and Saudi wrap together on mobile */}
     <div className="flex flex-wrap justify-center items-center gap-6 md:gap-10 lg:gap-16 mt-10 lg:mt-20">
       {/* United Kingdom */}
       <div className="flex items-center gap-3">
@@ -937,19 +936,19 @@ focus on growing.    </p>
         <span className="font-normal text-[18px] leading-[30px] text-black">United Kingdom</span>
       </div>
 
-      {/* United States */}
+      {/* California */}
       <div className="flex items-center gap-3">
         <div className="w-[30px] h-[20px] bg-cover bg-center rounded-[2px]" style={{backgroundImage: 'url(/US.webp)'}}></div>
         <span className="font-normal text-[18px] leading-[30px] text-black">California</span>
       </div>
 
-      {/* San Francisco */}
+      {/* Atlanta */}
       <div className="flex items-center gap-3">
         <div className="w-[30px] h-[20px] bg-cover bg-center rounded-[2px]" style={{backgroundImage: 'url(/US.webp)'}}></div>
         <span className="font-normal text-[18px] leading-[30px] text-black">Atlanta</span>
       </div>
 
-      {/* Georgia */}
+      {/* Netherlands */}
       <div className="flex items-center gap-3">
         <div className="w-[30px] h-[20px] border border-black/10 bg-cover bg-center rounded-[2px]" style={{backgroundImage: 'url(/NET.webp)'}}></div>
         <span className="font-normal text-[18px] leading-[30px] text-black">Netherlands</span>
@@ -960,11 +959,8 @@ focus on growing.    </p>
         <div className="w-[30px] h-[20px] bg-cover bg-center rounded-[2px]" style={{backgroundImage: 'url(/UAE.webp)'}}></div>
         <span className="font-normal text-[18px] leading-[30px] text-black">UAE</span>
       </div>
-    </div>
 
-    {/* Second Row of Countries */}
-    <div className="flex flex-wrap justify-center items-center gap-6 md:gap-10 lg:gap-12 mt-6 lg:mt-8">
-      {/* Saudi */}
+      {/* Saudi - next to UAE so they share a row on mobile */}
       <div className="flex items-center gap-3">
         <div className="w-[30px] h-[20px] bg-cover bg-center rounded-[2px]" style={{backgroundImage: 'url(/Saudi.webp)'}}></div>
         <span className="font-normal text-[18px] leading-[30px] text-black">Saudi</span>
