@@ -1257,43 +1257,21 @@ export default function ServicesScreen(){
       We ship to
     </h2>
 
-    {/* Navigation Arrows - Aligned with badge and heading */}
-    <div className="relative mt-4 lg:absolute lg:right-4 lg:top-24 flex gap-4 justify-end lg:justify-start">
-      {/* Left Arrow */}
-      <button 
-        onClick={prevSlide}
-        className="w-[56px] h-[56px] bg-[rgba(193,0,22,0.1)] rounded-full flex items-center justify-center hover:bg-[#C10016] transition-colors duration-300 group"
-      >
-        <img src="/next.svg" alt="Previous" className="w-4 h-4 transform rotate-180" />
-      </button>
-
-      {/* Right Arrow */}
-      <button 
-        onClick={nextSlide}
-        className="w-[56px] h-[56px] bg-[rgba(193,0,22,0.1)] rounded-full flex items-center justify-center hover:bg-[rgba(193,0,22,0.8)] transition-colors duration-300"
-      >
-        <img src="/next.svg" alt="Next" className="w-4 h-4" />
-      </button>
-    </div>
-
-    {/* Working Testimonial Cards Carousel */}
-    <div className="relative mt-8">
-      <div 
-        ref={carouselRef}
-        className="flex gap-8 overflow-x-auto pb-8 scrollbar-hide"
-        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-      >
-        {testimonials.map((testimonial, index) => (
-          <div 
-            key={index}
-            className={`w-[180px] h-[130px] sm:w-[260px] sm:h-[190px] lg:w-[340px] lg:h-[240px] bg-cover bg-center rounded-[24px] flex-shrink-0 transition-all duration-500 ${
-              index === currentSlide ? 'scale-105 opacity-100 shadow-2xl' : 'scale-95 opacity-70'
-            }`}
-            style={{backgroundImage: `url(${testimonial.image})`}}
-          >
-            {/* You can add overlay content here */}
-          </div>
-        ))}
+    <div className="w-full overflow-hidden py-6 sm:py-10">
+      <div className="mt-6 sm:mt-8 slider-container overflow-hidden">
+        <div className="flex animate-infinite-scroll">
+          {[...testimonials, ...testimonials].map((testimonial, index) => (
+            <div key={index} className="group relative flex-shrink-0 mx-3 sm:mx-6 lg:mx-8">
+              <div className="rounded-[24px] overflow-hidden">
+                <img
+                  src={testimonial.image}
+                  alt={testimonial.alt}
+                  className="w-[180px] h-[130px] sm:w-[260px] sm:h-[190px] lg:w-[340px] lg:h-[240px] object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
 
@@ -1319,8 +1297,8 @@ export default function ServicesScreen(){
 
         {/* Image Grid - Centered */}
         <div className="flex flex-row flex-wrap justify-center gap-6 lg:gap-8 mb-12">
-            <div className="w-[120px] h-[120px] lg:w-[160px] lg:h-[160px] bg-cover bg-center" style={{backgroundImage: 'url(/award2.webp)'}}></div>
-            <div className="w-[120px] h-[120px] lg:w-[160px] lg:h-[160px] bg-cover bg-center" style={{backgroundImage: 'url(/award1.webp)'}}></div>
+            <div className="w-[160px] h-[160px] lg:w-[240px] lg:h-[240px] bg-cover bg-center" style={{backgroundImage: 'url(/award2.webp)'}}></div>
+            <div className="w-[160px] h-[160px] lg:w-[240px] lg:h-[240px] bg-cover bg-center" style={{backgroundImage: 'url(/award1.webp)'}}></div>
         </div>
 
       </div>

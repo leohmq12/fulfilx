@@ -204,7 +204,7 @@ thrive.
   {/* Images with cross-fade animation */}
   {[
     '/9E2A9900.webp',
-    '/9E2A9900.webp',
+    '/9E2A0285.webp',
     '/9E2A9845.webp'
   ].map((img, index) => (
     <div 
@@ -901,8 +901,8 @@ can build a greener future while achieving your logistics goals.
 
                 {/* Image Grid - Centered */}
                 <div className="flex flex-row flex-wrap justify-center gap-6 lg:gap-8 mb-12">
-            <div className="w-[96px] h-[96px] lg:w-[120px] lg:h-[120px] bg-cover bg-center" style={{backgroundImage: 'url(/award1.webp)'}}></div>
-            <div className="w-[96px] h-[96px] lg:w-[120px] lg:h-[120px] bg-cover bg-center" style={{backgroundImage: 'url(/award2.webp)'}}></div>
+            <div className="w-[160px] h-[160px] lg:w-[240px] lg:h-[240px] bg-cover bg-center" style={{backgroundImage: 'url(/award1.webp)'}}></div>
+            <div className="w-[160px] h-[160px] lg:w-[240px] lg:h-[240px] bg-cover bg-center" style={{backgroundImage: 'url(/award2.webp)'}}></div>
                </div>
               </div>
             </div>

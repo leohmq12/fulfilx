@@ -30,8 +30,8 @@ export default function AwardsAccreditations() {
 
             {/* Image Grid - Centered */}
         <View className="flex flex-row flex-wrap justify-center gap-6 lg:gap-8 mb-12">
-          <Image source={{ uri: '/award2.webp' }} className="w-[120px] h-[120px] lg:w-[160px] lg:h-[160px]" resizeMode="contain" />
-          <Image source={{ uri: '/award1.webp' }} className="w-[120px] h-[120px] lg:w-[160px] lg:h-[160px]" resizeMode="contain" />
+          <Image source={{ uri: '/award2.webp' }} className="w-[160px] h-[160px] lg:w-[240px] lg:h-[240px]" resizeMode="contain" />
+          <Image source={{ uri: '/award1.webp' }} className="w-[160px] h-[160px] lg:w-[240px] lg:h-[240px]" resizeMode="contain" />
         </View>
 
           </View>
