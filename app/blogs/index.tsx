@@ -1,17 +1,25 @@
 import AwardsAccreditations from '@/components/layout/awards-accreditations';
 import Footer from '@/components/layout/footer';
 import Navbar from '@/components/layout/navbar';
+import { useContentList } from '@/hooks/useContent';
 import { Link, Stack, useRouter } from 'expo-router';
 import { ScrollView, Text, TouchableOpacity, View, useWindowDimensions } from 'react-native';
 
-export default function BlogsScreen() {
-    const { width } = useWindowDimensions();
-    const isMobile = width < 768;
-    const isTablet = width >= 768 && width < 1280;
-    const gridItemBasis = isTablet ? '48%' : '31%';
-    const router = useRouter();
+interface BlogPost {
+    _id?: number;
+    _slug?: string;
+    _sort_order?: number;
+    id?: number;
+    title: string;
+    description: string;
+    image: string;
+    content?: string;
+    author?: string;
+    publish_date?: string;
+    position?: { left: number; top: number };
+}
 
-    const blogs = [
+const FALLBACK_BLOGS: BlogPost[] = [
     // Column 1 - Left
     {
       id: 1,
@@ -79,6 +87,23 @@ export default function BlogsScreen() {
       position: { left: 1255, top: 1644 }
     }
   ];
+
+export default function BlogsScreen() {
+    const { width } = useWindowDimensions();
+    const isMobile = width < 768;
+    const isTablet = width >= 768 && width < 1280;
+    const gridItemBasis = isTablet ? '48%' : '31%';
+    const router = useRouter();
+
+    // ─── Fetch from CMS with fallback ──────────────────────────────────────
+    const { data: cmsBlogs } = useContentList<BlogPost[]>('blog_post', FALLBACK_BLOGS);
+    
+    // Normalize: add id field if missing and keep same shape
+    const blogs = cmsBlogs.map((blog, i) => ({
+      ...blog,
+      id: blog._id ?? blog.id ?? i + 1,
+    }));
+
     return (
     <>
       <Stack.Screen 

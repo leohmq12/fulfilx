@@ -1,6 +1,7 @@
 import AwardsAccreditations from '@/components/layout/awards-accreditations';
 import Footer from '@/components/layout/footer';
 import Navbar from '@/components/layout/navbar';
+import { useContentList } from '@/hooks/useContent';
 import { Link, Stack, useRouter } from 'expo-router';
 import { useState } from 'react';
 import { ScrollView, Text, TouchableOpacity, View, useWindowDimensions } from 'react-native';
@@ -32,14 +33,19 @@ function ExpandableDescription({ text, textClassName, toggleClassName, container
     );
 }
 
-export default function SectorsScreen() {
-    const { width } = useWindowDimensions();
-    const isMobile = width < 768;
-    const isTablet = width >= 768 && width < 1280;
-    const gridItemBasis = isTablet ? '48%' : '31%';
-    const router = useRouter();
+interface Sector {
+    _id?: number;
+    _slug?: string;
+    _sort_order?: number;
+    id?: number;
+    title: string;
+    description: string;
+    image: string;
+    link?: string;
+    position?: { left: number; top: number };
+}
 
-    const sectors = [
+const FALLBACK_SECTORS: Sector[] = [
     // Column 1 - Left
     {
       id: 1,
@@ -140,6 +146,24 @@ export default function SectorsScreen() {
       position: { left: 1255, top: 2426 }
     }
   ];
+
+export default function SectorsScreen() {
+    const { width } = useWindowDimensions();
+    const isMobile = width < 768;
+    const isTablet = width >= 768 && width < 1280;
+    const gridItemBasis = isTablet ? '48%' : '31%';
+    const router = useRouter();
+
+    // ─── Fetch from CMS with fallback ──────────────────────────────────────
+    const { data: cmsSectors } = useContentList<Sector[]>('sector', FALLBACK_SECTORS);
+    
+    // Normalize: generate link from slug if available
+    const sectors = cmsSectors.map((sector, i) => ({
+      ...sector,
+      id: sector._id ?? sector.id ?? i + 1,
+      link: sector.link || (sector._slug ? `/sectors/${sector._slug}` : '#'),
+    }));
+
     return (
     <>
       <Stack.Screen 

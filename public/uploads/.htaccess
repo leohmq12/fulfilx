@@ -1,0 +1,15 @@
+# Only allow serving of image/media files
+<FilesMatch "\.(jpg|jpeg|png|gif|webp|svg|avif|bmp|tiff|pdf|mp4|webm)$">
+    Allow from all
+</FilesMatch>
+
+# Deny everything else
+<FilesMatch "\.php$">
+    Deny from all
+</FilesMatch>
+
+# Disable directory listing
+Options -Indexes
+
+# Disable script execution
+php_flag engine off

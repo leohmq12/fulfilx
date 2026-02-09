@@ -1,10 +1,29 @@
 // app/contact.tsx
 import Footer from '@/components/layout/footer';
 import Navbar from '@/components/layout/navbar';
+import { useSingleContent } from '@/hooks/useContent';
 import { Stack, useRouter } from 'expo-router';
 import { useState } from 'react';
 import { ScrollView, Text, useWindowDimensions, View } from 'react-native';
-  
+
+type ContactInfoData = {
+  phone?: string;
+  whatsapp?: string;
+  email?: string;
+  address?: string;
+  social_tiktok?: string;
+  social_instagram?: string;
+  social_linkedin?: string;
+  social_facebook?: string;
+};
+
+const FALLBACK_CONTACT: ContactInfoData = {
+  phone: '+44 161 399 2348',
+  whatsapp: '+44 745 742 8760',
+  email: 'info@fulfilx.co.uk',
+  address: 'FULFIL.X HQ, Nile Mill, Oldham, Greater Manchester, OL9 8NT',
+};
+
 const CONTACT_ENDPOINT =
   process.env.NODE_ENV === 'development' ? '/api/contact' : '/api/contact.php';
 
@@ -17,6 +36,7 @@ export default function ContactScreen() {
   const router = useRouter();
   const { width } = useWindowDimensions();
   const isMobile = width < 1024;
+  const { data: contactInfo } = useSingleContent<ContactInfoData>('contact_info', FALLBACK_CONTACT);
   const [agreedToPolicy, setAgreedToPolicy] = useState(false);
   const primaryRed = 'bg-[#C10016]';
   const [firstName, setFirstName] = useState('');
@@ -206,7 +226,7 @@ export default function ContactScreen() {
 
               {/* Phone Number */}
               <Text className="absolute left-6 top-[160px] font-helvetica font-bold text-[18px] leading-[74px] tracking-[-0.01em] text-black">
-                +44 161 399 2348
+                {contactInfo?.phone ?? '+44 161 399 2348'}
               </Text>
             </View>
 
@@ -234,7 +254,7 @@ export default function ContactScreen() {
 
               {/* Email Address */}
               <Text className="absolute left-6 top-[160px] font-helvetica font-bold text-[18px] leading-[74px] tracking-[-0.01em] text-black">
-                info@fulfilx.co.uk
+                {contactInfo?.email ?? 'info@fulfilx.co.uk'}
               </Text>
             </View>
             {/* WhatsApp Card */}
@@ -259,12 +279,12 @@ export default function ContactScreen() {
                 WhatsApp Us
               </Text>
 
-              {/* Email Address */}
+              {/* WhatsApp Number */}
               <Text className="absolute left-6 top-[160px] font-helvetica font-bold text-[18px] leading-[74px] tracking-[-0.01em] text-black">
-                +44 745 742 8760
+                {contactInfo?.whatsapp ?? '+44 745 742 8760'}
               </Text>
             </View>
-            
+
             {/* Visit Card */}
             <View className="relative w-full max-w-[350px] h-[227px]">
               {/* Background Card */}
@@ -289,7 +309,7 @@ export default function ContactScreen() {
 
               {/* Email Address */}
               <Text className="absolute left-6 top-[165px] font-helvetica font-bold text-[16px] leading-tight tracking-[-0.01em] text-black pr-2">
-                Nile Mill, Oldham, Greater Manchester, OL9 8NT
+                {contactInfo?.address ?? 'FULFIL.X HQ, Nile Mill, Oldham, Greater Manchester, OL9 8NT'}
               </Text>
             </View>
           </View>

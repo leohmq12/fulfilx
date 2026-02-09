@@ -38,6 +38,11 @@ yarn-error.*
 
 app-example
 
+# CMS local data
+public/cms_data/
+public/uploads/*
+!public/uploads/.htaccess
+
 # generated native folders
 /ios
 /android

@@ -2,17 +2,53 @@
 import AwardsAccreditations from '@/components/layout/awards-accreditations';
 import Footer from '@/components/layout/footer';
 import Navbar from '@/components/layout/navbar';
+import { useContentList } from '@/hooks/useContent';
 import { Stack, useRouter } from 'expo-router';
 import React, { useEffect, useRef, useState } from 'react';
 import { Animated, Image, Linking, Platform, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 
+interface TeamMember {
+  _id?: number;
+  _slug?: string;
+  _sort_order?: number;
+  name: string;
+  role: string;
+  image: string;
+  bio?: string;
+}
+
 interface Job {
-  id: number;
+  _id?: number;
+  _slug?: string;
+  _sort_order?: number;
+  id?: number;
   title: string;
   description: string;
   tags: string[];
   theme: string;
+  employment_type?: string;
+  location?: string;
 }
+
+// ─── Fallback data (used when CMS is unreachable) ────────────────────────────
+const FALLBACK_TEAM: TeamMember[] = [
+  { name: "Nas", role: "CEO & CO-Founder", image: "/nas.webp" },
+  { name: "Anson", role: "Operations Manager", image: "/Anson.webp" },
+  { name: "Jordray", role: "Warehouse Manager", image: "/Jordray.webp" },
+  { name: "Natalie", role: "Marketing Lead", image: "/Natalie.webp" },
+  { name: "Stephen", role: "Supervisor", image: "/Stephen.webp" },
+  { name: "Paulina", role: "Team Lead", image: "/Paulina.webp" },
+  { name: "Ralph J", role: "Warehouse Team", image: "/Ralph Smith.webp" },
+  { name: "Ralph A", role: "Warehouse Team", image: "/Ralph Aquino.webp" },
+];
+
+const FALLBACK_JOBS: Job[] = [
+  { id: 1, title: "Fulfilment Associates (Pickers, Packers, Shippers)", description: "Are you someone who takes pride in a job well done? Do you believe that careful, accurate work matters? At Fulfil.X, our warehouse team is the essential final step for our brand partners.", tags: ["Part Time", "UK"], theme: "dark" },
+  { id: 2, title: "Fulfilment Associates (Pickers, Packers, Shippers)", description: "Are you someone who takes pride in a job well done? Do you believe that careful, accurate work matters? At Fulfil.X, our warehouse team is the essential final step for our brand partners.", tags: ["Full Time", "UK"], theme: "light" },
+  { id: 3, title: "Client Onboarding Specialist", description: "We are looking for a meticulous and client-focused Client Onboarding Specialist to be the guiding force for our new brand partners.", tags: ["Full Time", "UK"], theme: "dark" },
+  { id: 4, title: "Quality & Value-Added Services Specialist", description: "At Fulfil.X, we are our brand partners' most trusted extension. We're looking for a meticulous, hands-on problem-solver.", tags: ["Full Time", "UK"], theme: "light" },
+  { id: 5, title: "Marketing Assistant", description: "At Fulfil.X, we're telling a new story in the logistics industry. We're looking for a dynamic, creative, and organised Marketing Assistant.", tags: ["Full Time", "UK"], theme: "dark" },
+];
 
 export default function TeamScreen() {
   const router = useRouter();
@@ -22,6 +58,41 @@ export default function TeamScreen() {
   const [isGalleryTransitionEnabled, setIsGalleryTransitionEnabled] = useState(true);
   const [selectedJob, setSelectedJob] = useState<Job | null>(null);
   const fadeAnim = useRef(new Animated.Value(0)).current;
+
+  // ─── Fetch from CMS with fallback ──────────────────────────────────────────
+  const { data: rawTeam } = useContentList<any[]>('team_member', FALLBACK_TEAM);
+  const { data: cmsJobs } = useContentList<Job[]>('job_listing', FALLBACK_JOBS);
+
+  // Normalize: CMS stores 'photo' field, UI expects 'image'
+  const teamMembers: TeamMember[] = rawTeam.map((m) => ({
+    ...m,
+    image: m.image || m.photo || '/nas.webp',
+  }));
+
+  // Normalize CMS job data to match existing UI expectations
+  const JOBS = cmsJobs.map((job, i) => {
+    // Tags may come as array or space-separated string from CMS
+    let tags = job.tags;
+    if (typeof tags === 'string') {
+      tags = (tags as string).split(/\s{2,}|\t|,/).map((t: string) => t.trim()).filter(Boolean);
+      if (tags.length <= 1 && typeof job.tags === 'string') {
+        // Fallback: split "Part Time UK" -> ["Part Time", "UK"]
+        const raw = job.tags as string;
+        const ukIdx = raw.lastIndexOf(' UK');
+        if (ukIdx > 0) tags = [raw.substring(0, ukIdx).trim(), 'UK'];
+        else tags = [raw];
+      }
+    }
+    if (!tags || !Array.isArray(tags) || tags.length === 0) {
+      tags = [job.employment_type || 'Full Time', job.location || 'UK'];
+    }
+    return {
+      ...job,
+      id: job._id ?? job.id ?? i + 1,
+      tags,
+      theme: job.theme || (i % 2 === 0 ? 'dark' : 'light'),
+    };
+  });
 
   useEffect(() => {
     if (selectedJob) {
@@ -34,43 +105,7 @@ export default function TeamScreen() {
     }
   }, [selectedJob, fadeAnim]);
 
-  const JOBS = [
-    {
-      id: 1,
-      title: "Fulfilment Associates (Pickers, Packers, Shippers)",
-      description: "Are you someone who takes pride in a job well done? Do you believe that careful, accurate work matters? At Fulfil.X, our warehouse team is the essential final step for our brand partners. We’re looking for reliable, detail-oriented individuals to join us as Fulfillment Associates. You’ll be the hands that directly deliver a brand’s promise to their customers.\n\nThis is a hands-on role where your focus and consistency directly impact customer satisfaction and brand loyalty.",
-      tags: ["Part Time", "UK"],
-      theme: "dark"
-    },
-    {
-      id: 2,
-      title: "Fulfilment Associates (Pickers, Packers, Shippers)",
-      description: "Are you someone who takes pride in a job well done? Do you believe that careful, accurate work matters? At Fulfil.X, our warehouse team is the essential final step for our brand partners. We’re looking for reliable, detail-oriented individuals to join us as Fulfillment Associates. You’ll be the hands that directly deliver a brand’s promise to their customers.\n\nThis is a hands-on role where your focus and consistency directly impact customer satisfaction and brand loyalty.",
-      tags: ["Full Time", "UK"],
-      theme: "light"
-    },
-    {
-      id: 3,
-      title: "Client Onboarding Specialist",
-      description: "We are looking for a meticulous and client-focused Client Onboarding Specialist to be the guiding force for our new brand partners. You will be the architect of their first impression and the project manager of their transition, ensuring their move to Fulfil.X is seamless, efficient, and sets the stage for a long-term, successful partnership.\n\nThis is a critical role where your organization and communication skills directly impact client retention, satisfaction, and our reputation for excellence.",
-      tags: ["Full Time", "UK"],
-      theme: "dark"
-    },
-    {
-      id: 4,
-      title: "Quality & Value-Added Services Specialist",
-      description: "At Fulfil.X, we are our brand partners' most trusted extension. We're looking for a meticulous, hands-on problem-solver to fill a vital hybrid role: the Quality & Value-Added Services Specialist. You will be the central hub of excellence on our fulfilment floor—serving as the final checkpoint for quality, the assembler of custom experiences, and the expert who recovers value. Your work directly protects our partners' reputation and elevates their customers' unboxing moments.\n\nThis role is perfect for someone who takes immense pride in precision, thrives on varied tasks, and understands that it’s the details that truly define a brand.",
-      tags: ["Full Time", "UK"],
-      theme: "light"
-    },
-    {
-      id: 5,
-      title: "Marketing Assistant",
-      description: "At Fulfil.X, we’re telling a new story in the logistics industry. We’re looking for a dynamic, creative, and organised Marketing Assistant to help us share it. This is a foundational role for someone eager to roll up their sleeves, learn the ins and outs of growth marketing, and play a key part in building awareness for a brand that’s changing the game.\n\nYou’ll support our marketing team across channels, turning strategy into action and helping us connect with the ambitious brands we serve. If you love variety, thrive on detail, and want to see your work have a direct impact, this is your opportunity.",
-      tags: ["Full Time", "UK"],
-      theme: "dark"
-    }
-  ];
+  
   
   
   const images = [
@@ -181,207 +216,63 @@ export default function TeamScreen() {
             The <Text className='text-[#C10016]'>Team</Text>
           </Text>
 
-          {/* Team Members Grid */}
+          {/* Team Members Grid - Dynamic from CMS */}
           <View className="flex flex-col gap-8 px-4 lg:px-8">
-            
-            {/* First Row - Nas (Centered & Standing Out) */}
-            <View className="flex flex-row justify-center">
-              {/* Team Member 1 - Nas */}
-              <View className="relative w-full lg:max-w-[900px] h-auto min-h-[380px] bg-white border border-black/10 backdrop-blur-[12.5px] rounded-[20px] overflow-hidden group hover:bg-[#C10016] transition-colors duration-300 flex flex-col lg:flex-row items-center p-4 lg:p-8 gap-8 shadow-xl z-10 scale-105">
-                {/* Member Image with Social Icons Popup */}
-                <View className="relative w-full lg:w-[300px] h-[300px] lg:h-[340px] rounded-[12px] overflow-hidden shrink-0 mb-6 lg:mb-0">
-                  <Image
-                    source={{ uri: "/nas.webp" }}
-                    className="w-full h-full"
-                    resizeMode="cover"
-                  />
-                </View>
-                
-                {/* Member Info */}
-                <View className="relative w-full lg:flex-1">
-                  <Text className="font-helvetica font-bold text-2xl lg:text-[32px] leading-tight text-black group-hover:text-white transition-colors duration-300 mt-2 lg:mt-0 mb-2">
-                    Nas
-                  </Text>
-                  <Text className="font-helvetica font-normal text-lg lg:text-[20px] leading-snug text-black group-hover:text-white transition-colors duration-300 mb-4 font-medium">
-                    CEO & CO-Founder
-                  </Text>
-
-                </View>
-              </View>
-            </View>
-
-            {/* Second Row - Anson & Jordray */}
-            <View className="flex flex-col lg:flex-row justify-center gap-8">
-              {/* Team Member 2 - Anson */}
-              <View className="relative w-full lg:flex-1 h-auto min-h-[380px] bg-white border border-black/10 backdrop-blur-[12.5px] rounded-[20px] overflow-hidden group hover:bg-[#C10016] transition-colors duration-300 flex flex-col lg:flex-row items-center p-4 lg:p-8 gap-8 shadow-xl">
-                {/* Member Image with Social Icons Popup */}
-                <View className="relative w-full lg:w-[300px] h-[300px] lg:h-[340px] rounded-[12px] overflow-hidden shrink-0 mb-6 lg:mb-0">
-                  <Image 
-                    source={{ uri: "/Anson.webp" }}
-                    className="w-full h-full"
-                    resizeMode="cover"
-                  />
-                </View>
-                
-                {/* Member Info */}
-                <View className="relative w-full lg:flex-1">
-                  <Text className="font-helvetica font-bold text-2xl lg:text-[26px] leading-tight text-black group-hover:text-white transition-colors duration-300 mt-2 lg:mt-0 mb-2">
-                    Anson
-                  </Text>
-                  <Text className="font-helvetica font-normal text-lg lg:text-[18px] leading-snug text-black group-hover:text-white transition-colors duration-300 mb-4">
-                    Operations Manager
-                  </Text>
-
-                </View>
-              </View>
-
-              {/* Team Member 3 - Jordray */}
-              <View className="relative w-full lg:flex-1 h-auto min-h-[380px] bg-white border border-black/10 backdrop-blur-[12.5px] rounded-[20px] overflow-hidden group hover:bg-[#C10016] transition-colors duration-300 flex flex-col lg:flex-row items-center p-4 lg:p-8 gap-8 shadow-xl">
-                {/* Member Image with Social Icons Popup */}
-                <View className="relative w-full lg:w-[300px] h-[300px] lg:h-[340px] rounded-[12px] overflow-hidden shrink-0 mb-6 lg:mb-0">
-                  <Image 
-                    source={{ uri: "/Jordray.webp" }}
-                    className="w-full h-full"
-                    resizeMode="cover"
-                  />
-                </View>
-                
-                {/* Member Info */}
-                <View className="relative w-full lg:flex-1">
-                  <Text className="font-helvetica font-bold text-2xl lg:text-[26px] leading-tight text-black group-hover:text-white transition-colors duration-300 mt-2 lg:mt-0 mb-2">
-                    Jordray
-                  </Text>
-                  <Text className="font-helvetica font-normal text-lg lg:text-[18px] leading-snug text-black group-hover:text-white transition-colors duration-300 mb-4">
-                    Warehouse Manager
-                  </Text>
-
-                </View>
-              </View>
-            </View>
-
-            {/* Third Row - Natalie & Stephen */}
-            <View className="flex flex-col lg:flex-row justify-center gap-8">
-              {/* Team Member 4 - Natalie */}
-              <View className="relative w-full lg:flex-1 h-auto min-h-[380px] bg-white border border-black/10 backdrop-blur-[12.5px] rounded-[20px] overflow-hidden group hover:bg-[#C10016] transition-colors duration-300 flex flex-col lg:flex-row items-center p-4 lg:p-8 gap-8 shadow-xl">
-                {/* Member Image with Social Icons Popup */}
-                <View className="relative w-full lg:w-[300px] h-[300px] lg:h-[340px] rounded-[12px] overflow-hidden shrink-0 mb-6 lg:mb-0">
-                  <Image 
-                    source={{ uri: "/Natalie.webp" }}
-                    className="w-full h-full"
-                    resizeMode="cover"
-                  />
-                </View>
-                
-                {/* Member Info */}
-                <View className="relative w-full lg:flex-1">
-                  <Text className="font-helvetica font-bold text-2xl lg:text-[26px] leading-tight text-black group-hover:text-white transition-colors duration-300 mt-2 lg:mt-0 mb-2">
-                    Natalie
-                  </Text>
-                  <Text className="font-helvetica font-normal text-lg lg:text-[18px] leading-snug text-black group-hover:text-white transition-colors duration-300 mb-4">
-                    Marketing Lead
-                  </Text>
-
-                </View>
-              </View>
-
-              {/* Team Member 5 - Stephen */}
-              <View className="relative w-full lg:flex-1 h-auto min-h-[380px] bg-white border border-black/10 backdrop-blur-[12.5px] rounded-[20px] overflow-hidden group hover:bg-[#C10016] transition-colors duration-300 flex flex-col lg:flex-row items-center p-4 lg:p-8 gap-8 shadow-xl">
-                {/* Member Image with Social Icons Popup */}
-                <View className="relative w-full lg:w-[300px] h-[300px] lg:h-[340px] rounded-[12px] overflow-hidden shrink-0 mb-6 lg:mb-0">
-                  <Image 
-                    source={{ uri: "/Stephen.webp" }}
-                    className="w-full h-full"
-                    resizeMode="cover"
-                  />
-                </View>
-                
-                {/* Member Info */}
-                <View className="relative w-full lg:flex-1">
-                  <Text className="font-helvetica font-bold text-2xl lg:text-[26px] leading-tight text-black group-hover:text-white transition-colors duration-300 mt-2 lg:mt-0 mb-2">
-                    Stephen
-                  </Text>
-                  <Text className="font-helvetica font-normal text-lg lg:text-[18px] leading-snug text-black group-hover:text-white transition-colors duration-300 mb-4">
-                    Supervisor
-                  </Text>
-
-                </View>
-              </View>
-            </View>
-
-            {/* Fourth Row - Paulina & Ralph J */}
-            <View className="flex flex-col lg:flex-row justify-center gap-8">
-              {/* Team Member 6 - Paulina */}
-              <View className="relative w-full lg:flex-1 h-auto min-h-[380px] bg-white border border-black/10 backdrop-blur-[12.5px] rounded-[20px] overflow-hidden group hover:bg-[#C10016] transition-colors duration-300 flex flex-col lg:flex-row items-center p-4 lg:p-8 gap-8 shadow-xl">
-                {/* Member Image with Social Icons Popup */}
-                <View className="relative w-full lg:w-[300px] h-[300px] lg:h-[340px] rounded-[12px] overflow-hidden shrink-0 mb-6 lg:mb-0">
-                  <Image 
-                    source={{ uri: "/Paulina.webp" }}
-                    className="w-full h-full"
-                    resizeMode="cover"
-                  />
-                </View>
-                
-                {/* Member Info */}
-                <View className="relative w-full lg:flex-1">
-                  <Text className="font-helvetica font-bold text-2xl lg:text-[26px] leading-tight text-black group-hover:text-white transition-colors duration-300 mt-2 lg:mt-0 mb-2">
-                    Paulina
-                  </Text>
-                  <Text className="font-helvetica font-normal text-lg lg:text-[18px] leading-snug text-black group-hover:text-white transition-colors duration-300 mb-4">
-                    Team Lead
-                  </Text>
-
-                </View>
-              </View>
-
-              {/* Team Member 7 - Ralph J */}
-              <View className="relative w-full lg:flex-1 h-auto min-h-[380px] bg-white border border-black/10 backdrop-blur-[12.5px] rounded-[20px] overflow-hidden group hover:bg-[#C10016] transition-colors duration-300 flex flex-col lg:flex-row items-center p-4 lg:p-8 gap-8 shadow-xl">
-                {/* Member Image with Social Icons Popup */}
-                <View className="relative w-full lg:w-[300px] h-[300px] lg:h-[340px] rounded-[12px] overflow-hidden shrink-0 mb-6 lg:mb-0">
-                  <Image 
-                    source={{ uri: "/Ralph Smith.webp" }}
-                    className="w-full h-full"
-                    resizeMode="cover"
-                  />
-                </View>
-                
-                {/* Member Info */}
-                <View className="relative w-full lg:flex-1">
-                  <Text className="font-helvetica font-bold text-2xl lg:text-[26px] leading-tight text-black group-hover:text-white transition-colors duration-300 mt-2 lg:mt-0 mb-2">
-                    Ralph J
-                  </Text>
-                  <Text className="font-helvetica font-normal text-lg lg:text-[18px] leading-snug text-black group-hover:text-white transition-colors duration-300 mb-4">
-                    Warehouse Team
-                  </Text>
-
-                </View>
-              </View>
-            </View>
-
-            {/* Fifth Row - Ralph A (Centered) */}
-            <View className="flex flex-row justify-center">
-              {/* Team Member 8 - Ralph A */}
-              <View className="relative w-full lg:max-w-[900px] h-auto min-h-[380px] bg-white border border-black/10 backdrop-blur-[12.5px] rounded-[20px] overflow-hidden group hover:bg-[#C10016] transition-colors duration-300 flex flex-col lg:flex-row items-center p-4 lg:p-8 gap-8 shadow-xl">
-                {/* Member Image with Social Icons Popup */}
-                <View className="relative w-full lg:w-[300px] h-[300px] lg:h-[340px] rounded-[12px] overflow-hidden shrink-0 mb-6 lg:mb-0">
-                  <Image 
-                    source={{ uri: "/Ralph Aquino.webp" }}
-                    className="w-full h-full"
-                    resizeMode="cover"
-                  />
-                </View>
-                
-                {/* Member Info */}
-                <View className="relative w-full lg:flex-1">
-                  <Text className="font-helvetica font-bold text-2xl lg:text-[26px] leading-tight text-black group-hover:text-white transition-colors duration-300 mt-2 lg:mt-0 mb-2">
-                    Ralph A
-                  </Text>
-                  <Text className="font-helvetica font-normal text-lg lg:text-[18px] leading-snug text-black group-hover:text-white transition-colors duration-300 mb-4">
-                    Warehouse Team
-                  </Text>
-
-                </View>
-              </View>
-            </View>
+            {(() => {
+              const rows: React.ReactNode[] = [];
+              const members = [...teamMembers];
+              let i = 0;
+              
+              // First member: centered, larger (lead)
+              if (members[0]) {
+                rows.push(
+                  <View key="row-lead" className="flex flex-row justify-center">
+                    <View className="relative w-full lg:max-w-[900px] h-auto min-h-[380px] bg-white border border-black/10 backdrop-blur-[12.5px] rounded-[20px] overflow-hidden group hover:bg-[#C10016] transition-colors duration-300 flex flex-col lg:flex-row items-center p-4 lg:p-8 gap-8 shadow-xl z-10 scale-105">
+                      <View className="relative w-full lg:w-[300px] h-[300px] lg:h-[340px] rounded-[12px] overflow-hidden shrink-0 mb-6 lg:mb-0">
+                        <Image source={{ uri: members[0].image }} className="w-full h-full" resizeMode="cover" />
+                      </View>
+                      <View className="relative w-full lg:flex-1">
+                        <Text className="font-helvetica font-bold text-2xl lg:text-[32px] leading-tight text-black group-hover:text-white transition-colors duration-300 mt-2 lg:mt-0 mb-2">
+                          {members[0].name}
+                        </Text>
+                        <Text className="font-helvetica font-normal text-lg lg:text-[20px] leading-snug text-black group-hover:text-white transition-colors duration-300 mb-4 font-medium">
+                          {members[0].role}
+                        </Text>
+                      </View>
+                    </View>
+                  </View>
+                );
+                i = 1;
+              }
+              
+              // Remaining members: pairs of 2
+              while (i < members.length) {
+                const pair = members.slice(i, i + 2);
+                const isLastSingle = pair.length === 1;
+                rows.push(
+                  <View key={`row-${i}`} className={isLastSingle ? "flex flex-row justify-center" : "flex flex-col lg:flex-row justify-center gap-8"}>
+                    {pair.map((member) => (
+                      <View key={member._slug || member.name} className={`relative w-full ${isLastSingle ? 'lg:max-w-[900px]' : 'lg:flex-1'} h-auto min-h-[380px] bg-white border border-black/10 backdrop-blur-[12.5px] rounded-[20px] overflow-hidden group hover:bg-[#C10016] transition-colors duration-300 flex flex-col lg:flex-row items-center p-4 lg:p-8 gap-8 shadow-xl`}>
+                        <View className="relative w-full lg:w-[300px] h-[300px] lg:h-[340px] rounded-[12px] overflow-hidden shrink-0 mb-6 lg:mb-0">
+                          <Image source={{ uri: member.image }} className="w-full h-full" resizeMode="cover" />
+                        </View>
+                        <View className="relative w-full lg:flex-1">
+                          <Text className="font-helvetica font-bold text-2xl lg:text-[26px] leading-tight text-black group-hover:text-white transition-colors duration-300 mt-2 lg:mt-0 mb-2">
+                            {member.name}
+                          </Text>
+                          <Text className="font-helvetica font-normal text-lg lg:text-[18px] leading-snug text-black group-hover:text-white transition-colors duration-300 mb-4">
+                            {member.role}
+                          </Text>
+                        </View>
+                      </View>
+                    ))}
+                  </View>
+                );
+                i += 2;
+              }
+              
+              return rows;
+            })()}
           </View>
         </View>
 

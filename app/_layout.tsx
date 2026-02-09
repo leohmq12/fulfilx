@@ -31,6 +31,8 @@ export default function RootLayout() {
           <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
           {/* Add your team screen if it's not in tabs */}
           <Stack.Screen name="team" options={{ headerShown: false }} />
+          {/* CMS Admin */}
+          <Stack.Screen name="admin" options={{ headerShown: false }} />
         </Stack>
         <StatusBar style="auto" />
       </ThemeProvider>
