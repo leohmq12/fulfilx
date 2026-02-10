@@ -1,8 +1,18 @@
+import AwardsAccreditations from '@/components/layout/awards-accreditations';
 import Footer from '@/components/layout/footer';
 import Navbar from '@/components/layout/navbar';
+import { useContentList } from '@/hooks/useContent';
 import { Stack, useRouter } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
 import { ScrollView, Text, View, useWindowDimensions } from 'react-native';
+
+type ServiceRecord = {
+  category?: string;
+  title?: Array<{ line?: string }>;
+  image?: string;
+  logo?: string;
+  features?: Array<{ feature?: string }>;
+};
 
 // Import SVG icons (make sure these files exist in your assets folder)
 // If using Expo web, you can use regular img tags for SVG files
@@ -13,55 +23,31 @@ const MarketplaceIcon = () => <img src="/fms.svg" alt="Marketplace Icon" width={
 const ArrowIcon = () => <img src="/arrow-dark.svg" alt="Arrow" width={10} height={10} />;
 const CheckIcon = () => <img src="/check.svg" alt="Check" width={14} height={14} />;
 
+const FALLBACK_FULFILLMENT_SERVICES = [
+  { title: [{ line: 'D2C' }, { line: 'Fulfilment' }], image: '/9E2A9873.webp', logo: '/d2c.svg', features: [{ feature: 'Direct-to-consumer pick, pack & dispatch.' }, { feature: 'Same-day dispatch cut-off options.' }, { feature: 'Branded packaging, inserts, gift notes.' }, { feature: 'Order tracking and customer notifications.' }] },
+  { title: [{ line: 'B2B' }, { line: 'Fulfilment' }], image: '/9E2A9996.webp', logo: '/b2b.svg', features: [{ feature: 'Bulk & palletised shipments.' }, { feature: 'Retail-compliant carton & pallet prep.' }, { feature: 'ASN / EDI support.' }, { feature: 'Wholesale distribution fulfilment - Argos, Currys, Harrods, Selfridges, QVC, Macy\'s, Bloomingdale\'s, Nordstrom, Costco, Saks Fifth Avenue, Fenwick, Pets at Home, Sephora.' }] },
+  { title: [{ line: 'Amazon' }, { line: 'Fulfilment' }], image: '/9E2A9850.webp', logo: '/amf.svg', features: [{ feature: 'FBA Prep: Labelling, repackaging, bundling, carton prep, pallet prep.' }, { feature: 'FBM Fulfilment: Same-day pick & pack for Amazon orders.' }, { feature: 'Amazon Vendor (1P) Support: Retailer-specific prep, pallet config, paperwork.' }] },
+  { title: [{ line: 'Marketplace' }, { line: 'Fulfilment' }], image: '/9E2A0285.webp', logo: '/fms.svg', features: [{ feature: 'Fulfilled-by-Merchant support for TikTok Shop, Etsy, Instagram, etc.' }, { feature: 'Compliance packaging if required.' }] },
+];
+
 const FulfillmentServicesSection = () => {
   const router = useRouter();
   const { width } = useWindowDimensions();
   const isMobile = width < 1024;
-  
-  // Transform the services data to match VAS structure
-  const fulfillmentServicesItems = [
-    {
-      title: ['D2C', 'Fulfilment'],
-      img: '/9E2A9873.webp', // Reusing existing VAS image
-      logo: '/d2c.svg',
-      features: [
-        'Direct-to-consumer pick, pack & dispatch.',
-        'Same-day dispatch cut-off options.',
-        'Branded packaging, inserts, gift notes.',
-        'Order tracking and customer notifications.'
-      ]
-    },
-    {
-      title: ['B2B', 'Fulfilment'],
-      img: '/9E2A9996.webp', // Reusing existing VAS image
-      logo: '/b2b.svg',
-      features: [
-        'Bulk & palletised shipments.',
-        'Retail-compliant carton & pallet prep.',
-        'ASN / EDI support.',
-        'Wholesale distribution fulfilment - Argos, Currys, Harrods, Selfridges, QVC, Macy\'s, Bloomingdale\'s, Nordstrom, Costco, Saks Fifth Avenue, Fenwick, Pets at Home, Sephora.'
-      ]
-    },
-    {
-      title: ['Amazon', 'Fulfilment'],
-      img: '/9E2A9850.webp', // Reusing existing VAS image
-      logo: '/amf.svg',
-      features: [
-        'FBA Prep: Labelling, repackaging, bundling, carton prep, pallet prep.',
-        'FBM Fulfilment: Same-day pick & pack for Amazon orders.',
-        'Amazon Vendor (1P) Support: Retailer-specific prep, pallet config, paperwork.'
-      ]
-    },
-    {
-      title: ['Marketplace', 'Fulfilment'],
-      img: '/9E2A0285.webp', // Reusing existing VAS image
-      logo: '/fms.svg',
-      features: [
-        'Fulfilled-by-Merchant support for TikTok Shop, Etsy, Instagram, etc.',
-        'Compliance packaging if required.'
-      ]
-    }
-  ];
+  const { data: servicesData } = useContentList<ServiceRecord[]>('service', []);
+  const servicesArray = Array.isArray(servicesData) ? servicesData : [];
+  const coreFulfilment = servicesArray.filter((s) => (s.category ?? '') === 'Core Fulfilment');
+  const fulfillmentServicesItems = (coreFulfilment.length > 0 ? coreFulfilment : FALLBACK_FULFILLMENT_SERVICES).map((s) => ({
+    title: (s.title ?? []).map((t) => t.line ?? '').filter(Boolean).length ? (s.title ?? []).map((t) => t.line ?? '') as [string, string] : ['Service', ''],
+    img: s.image ?? '/9E2A9873.webp',
+    logo: s.logo ?? '/d2c.svg',
+    features: (s.features ?? []).map((f) => f.feature ?? '').filter(Boolean),
+  }));
+  // Ensure title has at least 2 elements for layout
+  const fulfillmentServicesItemsNormalized = fulfillmentServicesItems.map((it) => ({
+    ...it,
+    title: it.title.length >= 2 ? it.title : [it.title[0] ?? 'Service', it.title[1] ?? ''],
+  }));
 
   // Add state management for active service
   const [activeFulfillmentIndex, setActiveFulfillmentIndex] = useState(0);
@@ -117,7 +103,7 @@ const FulfillmentServicesSection = () => {
           <div className="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10 items-stretch">
             <div className="lg:col-span-1">
               <div className="flex flex-col gap-3">
-                {fulfillmentServicesItems.map((item, i) => {
+                {fulfillmentServicesItemsNormalized.map((item, i) => {
                   const isActive = i === activeFulfillmentIndex;
                   return (
                     <button
@@ -158,15 +144,15 @@ const FulfillmentServicesSection = () => {
               <div className="relative w-full h-[320px] sm:h-[420px] lg:h-full rounded-2xl overflow-hidden border border-white/15 bg-black/20">
                 {fulfillmentPrevIndex !== null && (
                   <img
-                    src={fulfillmentServicesItems[fulfillmentPrevIndex]?.img}
-                    alt={fulfillmentServicesItems[fulfillmentPrevIndex]?.title.join(' ')}
+                    src={fulfillmentServicesItemsNormalized[fulfillmentPrevIndex]?.img}
+                    alt={fulfillmentServicesItemsNormalized[fulfillmentPrevIndex]?.title.join(' ')}
                     className="absolute inset-0 w-full h-full object-cover"
                   />
                 )}
                 <img
-                  key={`${activeFulfillmentIndex}-${fulfillmentServicesItems[activeFulfillmentIndex]?.img}`}
-                  src={fulfillmentServicesItems[activeFulfillmentIndex]?.img}
-                  alt={fulfillmentServicesItems[activeFulfillmentIndex]?.title.join(' ')}
+                  key={`${activeFulfillmentIndex}-${fulfillmentServicesItemsNormalized[activeFulfillmentIndex]?.img}`}
+                  src={fulfillmentServicesItemsNormalized[activeFulfillmentIndex]?.img}
+                  alt={fulfillmentServicesItemsNormalized[activeFulfillmentIndex]?.title.join(' ')}
                   className="absolute inset-0 w-full h-full object-cover z-10"
                   style={{ animation: 'servicesSlideIn 750ms cubic-bezier(0.22, 1, 0.36, 1)', willChange: 'transform' }}
                 />
@@ -176,10 +162,10 @@ const FulfillmentServicesSection = () => {
                     className="text-white font-normal text-2xl lg:text-[32px] tracking-[-0.01em]"
                     style={{ textShadow: '0 4px 16px rgba(0,0,0,0.7)' }}
                   >
-                    {fulfillmentServicesItems[activeFulfillmentIndex]?.title[0]} {fulfillmentServicesItems[activeFulfillmentIndex]?.title[1]}
+                    {fulfillmentServicesItemsNormalized[activeFulfillmentIndex]?.title[0]} {fulfillmentServicesItemsNormalized[activeFulfillmentIndex]?.title[1]}
                   </div>
                   <div className="mt-6 space-y-3 max-w-[560px]">
-                    {(fulfillmentServicesItems[activeFulfillmentIndex]?.features ?? []).map((feature, index) => (
+                    {(fulfillmentServicesItemsNormalized[activeFulfillmentIndex]?.features ?? []).map((feature, index) => (
                       <div key={index} className="flex items-start gap-3">
                         <img src="/checkw.svg" alt="Check" className="w-4 h-4 mt-1 flex-shrink-0" />
                         <span
@@ -1277,60 +1263,7 @@ export default function ServicesScreen(){
 
   </div>
 </section>
-<section className="relative w-full">
-  {/* Two Column Layout */}
-  <div className="flex flex-col lg:flex-row">
-    
-    {/* Left Section - White Background */}
-    <div className="w-full lg:w-1/2 bg-white relative min-h-[400px] lg:min-h-[520px] flex items-center justify-center py-12 lg:py-0">
-      <img src="/bg.webp" alt="" className="absolute inset-0 w-full h-full object-cover" />
-      {/* Left Section Content - Centered */}
-      <div className="max-w-[740px] w-full text-center px-8">
-        
-        {/* Heading */}
-        <h2 className="font-bold text-3xl lg:text-[42px] leading-tight lg:leading-[54px] tracking-tight text-black mb-8">
-          Our Awards
-        </h2>
-
-        {/* Red Line - Centered */}
-        <div className="w-[100px] h-[1px] bg-[#C10016] mx-auto mb-12"></div>
-
-        {/* Image Grid - Centered */}
-        <div className="flex flex-row flex-wrap justify-center gap-6 lg:gap-8 mb-12">
-            <div className="w-[160px] h-[160px] lg:w-[240px] lg:h-[240px] bg-cover bg-center" style={{backgroundImage: 'url(/award2.webp)'}}></div>
-            <div className="w-[160px] h-[160px] lg:w-[240px] lg:h-[240px] bg-cover bg-center" style={{backgroundImage: 'url(/award1.webp)'}}></div>
-        </div>
-
-      </div>
-    </div>
-
-    {/* Right Section - Red Background */}
-    <div className="w-full lg:w-1/2 bg-[#DA192F] relative min-h-[400px] lg:min-h-[520px] flex items-center justify-center py-12 lg:py-0">
-      {/* Right Section Content - Centered */}
-      <div className="max-w-[650px] w-full text-center px-8">
-        
-        {/* Heading */}
-        <h2 className="font-bold text-3xl lg:text-[42px] leading-tight lg:leading-[54px] tracking-tight text-white mb-8">
-          Accreditations
-        </h2>
-
-        {/* White Line - Centered */}
-        <div className="w-[100px] h-[1px] bg-white mx-auto mb-12"></div>
-
-        {/* CTA Button - Centered */}
-        <button 
-          onClick={() => router.push('/contact')}
-          className="border border-white rounded-[6px] flex items-center justify-center gap-[10px] px-8 py-4 transition-colors duration-300 mx-auto cursor-pointer hover:bg-white/10"
-        >
-          <span className="text-white font-bold text-[18px] leading-[36px]">Let&apos;s Talk</span>
-          <img src="/arrow.svg" alt="arrow" className="w-4 h-4 object-contain" />
-        </button>
-
-      </div>
-    </div>
-
-  </div>
-</section>
+<AwardsAccreditations/>
         <Footer/>
       </ScrollView>
     </>

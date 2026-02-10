@@ -1,3 +1,4 @@
+import { useAdminTheme } from '@/lib/admin-theme-context';
 import { useAuth } from '@/lib/auth-context';
 import { createUser, deactivateUser, listUsers, updateUser } from '@/lib/cms-admin';
 import type { User } from '@/types/cms';
@@ -65,16 +66,21 @@ export default function UsersScreen() {
   };
 
   const isAdmin = currentUser?.role === 'admin';
+  const { isDark } = useAdminTheme();
+  const bg = isDark ? 'bg-[#111]' : 'bg-gray-50';
+  const cardBg = isDark ? 'bg-[#1a1a1a] border-gray-800' : 'bg-white border-gray-200';
+  const textMain = isDark ? 'text-white' : 'text-gray-900';
+  const textMuted = isDark ? 'text-gray-500' : 'text-gray-500';
 
   return (
     <>
       <Stack.Screen options={{ headerShown: false }} />
-      <ScrollView className="flex-1 bg-[#111]">
-        <View className="max-w-4xl w-full mx-auto px-6 py-8">
-          <View className="flex-row items-center justify-between mb-6">
+      <ScrollView className={`flex-1 ${bg}`}>
+        <View className="max-w-4xl w-full mx-auto px-4 py-6">
+          <View className="flex-row items-center justify-between mb-4">
             <View>
-              <Text className="text-white font-helvetica-bold text-2xl">Users</Text>
-              <Text className="text-gray-500 font-helvetica text-sm mt-1">Manage CMS admin users</Text>
+              <Text className={`font-helvetica-bold text-xl ${textMain}`}>Users</Text>
+              <Text className={`font-helvetica text-sm mt-0.5 ${textMuted}`}>Manage CMS admin users</Text>
             </View>
             {isAdmin && (
               <TouchableOpacity
@@ -90,14 +96,13 @@ export default function UsersScreen() {
           </View>
 
           {error ? (
-            <View className="bg-red-900/30 border border-red-800 rounded-lg p-3 mb-4">
-              <Text className="text-red-400 text-sm font-helvetica">{error}</Text>
+            <View className="bg-red-50 border border-red-200 rounded-lg p-2.5 mb-4">
+              <Text className="text-red-600 text-sm font-helvetica">{error}</Text>
             </View>
           ) : null}
 
-          {/* Create User Form */}
           {showCreate && (
-            <View className="bg-[#1a1a1a] border border-gray-800 rounded-xl p-6 mb-6">
+            <View className={`${cardBg} border rounded-lg p-5 mb-5`}>
               <Text className="text-white font-helvetica-bold text-lg mb-4">Create New User</Text>
               <View className="gap-4">
                 <View>

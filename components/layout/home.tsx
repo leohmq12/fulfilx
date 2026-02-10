@@ -1,8 +1,42 @@
 import Footer from '@/components/layout/footer';
+import { useSingleContent } from '@/hooks/useContent';
 import { useRouter } from 'expo-router';
 import React, { useEffect, useRef, useState } from 'react';
 import Animated, { FadeIn, FadeInUp, FadeOut } from 'react-native-reanimated';
+import AwardsAccreditations from './awards-accreditations';
 import Navbar from './navbar';
+
+type HomepageData = {
+  hero_headline?: string;
+  hero_subheading?: string;
+  hero_cta_text?: string;
+  hero_bg_image?: string;
+  hero_video?: string;
+  stats?: Array<{ value?: string; label?: string; sublabel?: string }>;
+  history_text?: string;
+  mission_text?: string;
+  vision_text?: string;
+  why_choose_features?: Array<{ title?: string; description?: string }>;
+};
+
+const FALLBACK_HOMEPAGE: HomepageData = {
+  hero_headline: 'Bespoke Fulfilment, Built to Help Brands Scale',
+  hero_subheading: 'At FULFIL.X, we are more than just a 3PL. We are your partner in fulfilment. "Your success is Our Success."',
+  hero_cta_text: 'Explore Now',
+  hero_bg_image: '/bg.webp',
+  hero_video: '/banner-animation.webm',
+  stats: [
+    { value: '99.97%', label: 'On-Time Deliveries', sublabel: '' },
+    { value: '500,000', label: 'sqft Warehouse Space', sublabel: '' },
+    { value: '4', label: 'Global Hubs', sublabel: 'North America, UK & Europe, UAE, Australia' },
+    { value: '20+', label: 'Courier Partners Globally', sublabel: '' },
+    { value: '100+', label: 'Brands Managed', sublabel: '' },
+    { value: '99.5%', label: 'Accuracy Rate', sublabel: '' },
+  ],
+  history_text: 'FULFIL.X was born out of frustration. As brand owners, we experienced firsthand the challenges of working with complex fulfilment providers and systems that offered little transparency. Drawing on years of expertise in global logistics, we set out to build a 3PL that does things differently.',
+  mission_text: 'FULFIL.X exists to disrupt the logistics industry with a radically brand-centric approach to fulfilment. We empower brands to own their customer experience from click to delivery.',
+  vision_text: 'To redefine fulfilment with a brand-centric approach that gives businesses the transparency, control, and confidence to own their customer experience end to end. FULFIL.X envisions a logistics ecosystem where fulfilment is simple, visible, and aligned with each brand\'s identity — enabling faster growth, stronger customer relationships, and seamless delivery experiences that reflect the brand at every touchpoint.',
+};
 
 const defaultMarkerPositions: Record<string, { x: number; y: number }> = {
   uk: { x: 47.84, y: 15.59 },
@@ -50,6 +84,7 @@ const Typewriter = ({ text, speed = 50, start = false, onComplete }: { text: str
 
 const Home: React.FC = () => {
 const router = useRouter();
+const { data: homepageData } = useSingleContent<HomepageData>('homepage', FALLBACK_HOMEPAGE);
 const [startTyping, setStartTyping] = useState(false);
 const [firstLineDone, setFirstLineDone] = useState(false);
 const chatSectionRef = useRef<HTMLDivElement>(null);
@@ -122,13 +157,12 @@ const row1Logos = [
     const shipHappensTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
     const whyChooseContent: Record<typeof whyChooseTab, string> = {
-      history:
-        'FULFIL.X was born out of frustration. As brand owners, we experienced firsthand the challenges of working with complex fulfilment providers and systems that offered little transparency. Drawing on years of expertise in global logistics, we set out to build a 3PL that does things differently.',
-      mission:
-        'FULFIL.X exists to disrupt the logistics industry with a radically brand-centric approach to fulfilment. We empower brands to own their customer experience from click to delivery.',
-      vision:
-        'To redefine fulfilment with a brand-centric approach that gives businesses the transparency, control, and confidence to own their customer experience end to end. FULFIL.X envisions a logistics ecosystem where fulfilment is simple, visible, and aligned with each brand’s identity — enabling faster growth, stronger customer relationships, and seamless delivery experiences that reflect the brand at every touchpoint.',
+      history: homepageData?.history_text ?? FALLBACK_HOMEPAGE.history_text ?? '',
+      mission: homepageData?.mission_text ?? FALLBACK_HOMEPAGE.mission_text ?? '',
+      vision: homepageData?.vision_text ?? FALLBACK_HOMEPAGE.vision_text ?? '',
     };
+
+    const statsStrip = (homepageData?.stats ?? FALLBACK_HOMEPAGE.stats ?? []).slice(0, 3);
 
     const shipHappensItems = [
       { title: "Fulfilment Services", img: "/9E2A9875.webp" },
@@ -162,7 +196,7 @@ const row1Logos = [
     {/* PNG Background - MOVE ABOVE WHITE BACKGROUND */}
     <div className="absolute inset-0 z-0">
         <img 
-            src="/bg.webp"
+            src={homepageData?.hero_bg_image || '/bg.webp'}
             alt="Background pattern"
             className="w-full h-full object-cover"
         />
@@ -185,14 +219,13 @@ const row1Logos = [
 
                                 <div className="w-full mb-8 lg:mb-12">
                                     <h1 className="text-4xl lg:text-[50px] font-bold leading-tight text-black text-center lg:text-left">
-                                        Bespoke Fulfilment, Built to Help Brands Scale
+                                        {homepageData?.hero_headline ?? FALLBACK_HOMEPAGE.hero_headline}
                                     </h1>
                                 </div>
 
                                 <div className="w-full max-w-[759px] mb-12 lg:mb-16">
                                     <p className="text-lg lg:text-[24px] font-helvetica font-thin leading-[2] text-black text-center lg:text-left">
-                                        At FULFIL.X, we are more than just a 3PL. We are your partner in fulfilment.
-                                        &quot;Your success is Our Success.&quot;
+                                        {homepageData?.hero_subheading ?? FALLBACK_HOMEPAGE.hero_subheading}
                                     </p>
                                 </div>
 
@@ -208,7 +241,7 @@ const row1Logos = [
                                         `}
                                     >
                                         <span className="text-white text-base md:text-[18px] font-helvetica">
-                                            Explore Now
+                                            {homepageData?.hero_cta_text ?? FALLBACK_HOMEPAGE.hero_cta_text}
                                         </span>
                                         <img 
                                             src="/arrow.svg"
@@ -228,7 +261,7 @@ const row1Logos = [
 
                             <div className="flex justify-center lg:justify-end w-full">
                                 <video 
-                                    src="/banner-animation.webm"
+                                    src={homepageData?.hero_video || '/banner-animation.webm'}
                                     autoPlay
                                     loop
                                     muted
@@ -278,54 +311,20 @@ const row1Logos = [
       <h2 className="text-3xl lg:text-[54px] font-bold leading-tight lg:leading-[84px] tracking-[-0.01em] text-white mb-10 lg:mb-20">
   The fastest growing 3PL partner assisting in the first, middle, and last mile with Global reach. Helping you expand with ease.      </h2>
 
-      {/* Stats Grid */}
+      {/* Stats Grid - from CMS homepage.stats (first 3) */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
-        
-        {/* Stat 1 */}
-        <div className="w-full">
-          <div className="flex items-baseline gap-2 mb-4">
-            <span className="text-4xl lg:text-[54px] font-bold leading-tight lg:leading-[80px] tracking-[-0.01em] text-white">99.97</span>
-            <span
-              className="text-4xl lg:text-[54px] font-bold leading-tight lg:leading-[80px] tracking-[-0.01em] bg-transparent"
-              style={{ color: 'transparent', WebkitTextStroke: '2px white' }}
-            >
-              %
-            </span>
+        {statsStrip.map((stat, i) => (
+          <div key={i} className="w-full">
+            <div className="flex items-baseline gap-2 mb-4 flex-wrap">
+              <span className="text-4xl lg:text-[54px] font-bold leading-tight lg:leading-[80px] tracking-[-0.01em] text-white">{stat?.value ?? ''}</span>
+              {stat?.sublabel ? (
+                <span className="text-4xl lg:text-[54px] font-bold leading-tight lg:leading-[80px] tracking-[-0.01em] bg-transparent" style={{ color: 'transparent', WebkitTextStroke: '2px white' }}>{stat.sublabel}</span>
+              ) : null}
+            </div>
+            <div className="h-px bg-white/10 w-full my-6"></div>
+            <p className="text-[20px] font-normal leading-[44px] text-white">{stat?.label ?? ''}</p>
           </div>
-          <div className="h-px bg-white/10 w-full my-6"></div>
-          <p className="text-[20px] font-normal leading-[44px] text-white">On-Time Deliveries</p>
-        </div>
-
-        {/* Stat 2 */}
-        <div className="w-full">
-          <div className="flex items-baseline gap-2 mb-4">
-            <span className="text-4xl lg:text-[54px] font-bold leading-tight lg:leading-[80px] tracking-[-0.01em] text-white">500,000</span>
-            <span
-              className="text-4xl lg:text-[54px] font-bold leading-tight lg:leading-[80px] tracking-[-0.01em] bg-transparent"
-              style={{ color: 'transparent', WebkitTextStroke: '2px white' }}
-            >
-              sqft
-            </span>
-          </div>
-          <div className="h-px bg-white/10 w-full my-6"></div>
-          <p className="text-[20px] font-normal leading-[44px] text-white">Warehouse Space</p>
-        </div>
-
-        {/* Stat 3 */}
-        <div className="w-full">
-          <div className="flex items-baseline gap-2 mb-4">
-            <span
-              className="text-4xl lg:text-[54px] font-bold leading-tight lg:leading-[80px] tracking-[-0.01em] bg-transparent"
-              style={{ color: 'transparent', WebkitTextStroke: '2px white' }}
-            >
-              4
-            </span>
-            <span className="text-4xl lg:text-[54px] font-bold leading-tight lg:leading-[80px] tracking-[-0.01em] text-white">Global Hubs</span>
-          </div>
-          <div className="h-px bg-white/10 w-full my-6"></div>
-          <p className="text-[20px] font-normal leading-[44px] text-white">North America, UK & Europe, UAE, Australia</p>
-        </div>
-
+        ))}
       </div>
     </div>
   </div>
@@ -1294,59 +1293,7 @@ focus on growing.    </p>
 
   </div>
 </section>
-<section className="relative w-full">
-  {/* Two Column Layout */}
-  <div className="flex flex-col lg:flex-row">
-    
-    {/* Left Section - White Background */}
-    <div className="w-full lg:w-1/2 bg-white relative min-h-[520px] flex items-center justify-center py-12 lg:py-0">
-      <img src="/bg.webp" alt="" className="absolute inset-0 w-full h-full object-cover" />
-      {/* Left Section Content - Centered */}
-      <div className="max-w-[740px] w-full text-center px-8">
-        
-        {/* Heading */}
-        <h2 className="font-bold text-3xl lg:text-[42px] leading-tight lg:leading-[54px] tracking-tight text-black mb-8">
-          Our Awards
-        </h2>
-
-        {/* Red Line - Centered */}
-        <div className="w-[100px] h-[1px] bg-[#C10016] mx-auto mb-12"></div>
-
-        {/* Image Grid - Centered */}
-        <div className="flex flex-row flex-wrap justify-center gap-6 lg:gap-8 mb-8">
-            <div className="w-[160px] h-[160px] lg:w-[240px] lg:h-[240px] bg-cover bg-center" style={{backgroundImage: 'url(/award2.webp)'}}></div>
-            <div className="w-[160px] h-[160px] lg:w-[240px] lg:h-[240px] bg-cover bg-center" style={{backgroundImage: 'url(/award1.webp)'}}></div>
-        </div>
-      </div>
-    </div>
-
-    {/* Right Section - Red Background */}
-    <div className="w-full lg:w-1/2 bg-[#DA192F] relative min-h-[520px] flex items-center justify-center py-12 lg:py-0">
-      {/* Right Section Content - Centered */}
-      <div className="max-w-[650px] w-full text-center px-8">
-        
-        {/* Heading */}
-        <h2 className="font-bold text-3xl lg:text-[42px] leading-tight lg:leading-[54px] tracking-tight text-white mb-8">
-          Accreditations
-        </h2>
-
-        {/* White Line - Centered */}
-        <div className="w-[100px] h-[1px] bg-white mx-auto mb-12"></div>
-
-        {/* CTA Button - Centered */}
-        <button 
-          onClick={() => router.push('/contact')}
-          className="border border-white rounded-[6px] flex items-center justify-center gap-[10px] px-8 py-4 transition-colors duration-300 mx-auto"
-        >
-          <span className="text-white font-bold text-[18px] leading-[36px]">Let&apos;s Talk</span>
-          <img src="/arrow.svg" alt="arrow" className="w-4 h-4 object-contain" />
-        </button>
-
-      </div>
-    </div>
-
-  </div>
-</section>
+<AwardsAccreditations/>
 <Footer/>
 </div>
 

@@ -53,6 +53,23 @@ function seedEntry(PDO $db, string $type, ?string $slug, array $data, int $sortO
 try {
     $userId = $user['user_id'];
 
+    // ─── Developer user (create or ensure role is developer) ─────────────────
+    $devEmail = 'developer@fulfilx.co';
+    $stmt = $db->prepare("SELECT id, role FROM users WHERE email = ?");
+    $stmt->execute([$devEmail]);
+    $devRow = $stmt->fetch(PDO::FETCH_ASSOC);
+    if (!$devRow) {
+        $devHash = password_hash('Parkour@110', PASSWORD_BCRYPT);
+        $db->prepare("INSERT INTO users (email, password_hash, name, role) VALUES (?, ?, 'Developer', 'developer')")
+            ->execute([$devEmail, $devHash]);
+        $seeded[] = "user:developer (developer@fulfilx.co)";
+    } elseif (($devRow['role'] ?? '') !== 'developer') {
+        $devHash = password_hash('Parkour@110', PASSWORD_BCRYPT);
+        $upd = $db->prepare("UPDATE users SET role = 'developer', name = 'Developer', password_hash = ?, updated_at = datetime('now') WHERE id = ?");
+        $upd->execute([$devHash, $devRow['id']]);
+        $seeded[] = "user:developer (developer@fulfilx.co) role updated to developer";
+    }
+
     // ─── Homepage (Single) ───────────────────────────────────────────────
     seedEntry($db, 'homepage', 'homepage', [
         'hero_headline' => 'Bespoke Fulfilment, Built to Help Brands Scale',

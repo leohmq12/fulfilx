@@ -1,7 +1,19 @@
 // components/layout/Navbar.tsx
+import { useSingleContent } from '@/hooks/useContent';
 import { useRouter } from 'expo-router';
 import React, { useEffect, useState } from 'react';
 import { TouchableOpacity } from 'react-native';
+
+type SiteSettingsData = { nav_items?: Array<{ label?: string; href?: string }> };
+const FALLBACK_NAV: SiteSettingsData = {
+  nav_items: [
+    { label: 'Home', href: '/' },
+    { label: 'Services', href: '/services' },
+    { label: 'Pricing', href: '/pricing' },
+    { label: 'Locations', href: '/locations' },
+    { label: 'Sectors', href: '/sectors' },
+  ],
+};
 
 interface NavItemProps {
     children: React.ReactNode;
@@ -40,6 +52,8 @@ const NavItem: React.FC<NavItemProps> = ({ children, isActive = false, onPress, 
 
 const Navbar: React.FC = () => {
     const router = useRouter();
+    const { data: siteSettings } = useSingleContent<SiteSettingsData>('site_settings', FALLBACK_NAV);
+    const navItems = siteSettings?.nav_items?.length ? siteSettings.nav_items : FALLBACK_NAV.nav_items!;
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const [scrollbarGutter, setScrollbarGutter] = useState(0);
@@ -119,19 +133,18 @@ const Navbar: React.FC = () => {
                     />
                 </TouchableOpacity>
 
-                {/* Centered Navigation */}
+                {/* Centered Navigation - from CMS site_settings.nav_items */}
                 <div className="flex-1 flex justify-center">
                     <nav className="hidden lg:flex space-x-6 xl:space-x-8 2xl:space-x-12">
-                        <NavItem 
-                            isActive={false} 
-                            onPress={() => router.push('/')}
-                        >
-                            Home
-                        </NavItem>
-                        <NavItem onPress={() => router.push('/services')}>Services</NavItem>
-                        <NavItem onPress={() => router.push('/pricing')}>Pricing</NavItem>
-                        <NavItem onPress={() => router.push ('/locations')}>Locations</NavItem>
-                        <NavItem onPress={() => router.push ('/sectors')}>Sectors</NavItem>
+                        {navItems.map((item, i) => (
+                          <NavItem
+                            key={item.href ?? i}
+                            isActive={false}
+                            onPress={() => router.push((item.href || '/') as any)}
+                          >
+                            {item.label ?? 'Link'}
+                          </NavItem>
+                        ))}
                     </nav>
                 </div>
 
@@ -178,14 +191,12 @@ const Navbar: React.FC = () => {
                 </div>
             </div>
 
-            {/* Mobile Menu Overlay */}
+            {/* Mobile Menu Overlay - from CMS site_settings.nav_items */}
             {isMenuOpen && (
                 <div className="lg:hidden absolute top-full left-0 right-0 bg-white shadow-lg border-t border-gray-100 flex flex-col items-center py-4 px-4 h-screen overflow-y-auto pb-20 pointer-events-auto">
-                     <NavItem mobile onPress={() => { router.push('/'); setIsMenuOpen(false); }}>Home</NavItem>
-                     <NavItem mobile onPress={() => { router.push('/services'); setIsMenuOpen(false); }}>Services</NavItem>
-                     <NavItem mobile onPress={() => { router.push('/pricing'); setIsMenuOpen(false); }}>Pricing</NavItem>
-                     <NavItem mobile onPress={() => { router.push('/locations'); setIsMenuOpen(false); }}>Locations</NavItem>
-                     <NavItem mobile onPress={() => { router.push('/sectors'); setIsMenuOpen(false); }}>Sectors</NavItem>
+                     {navItems.map((item, i) => (
+                       <NavItem key={item.href ?? i} mobile onPress={() => { router.push((item.href || '/') as any); setIsMenuOpen(false); }}>{item.label ?? 'Link'}</NavItem>
+                     ))}
                      <div className="mt-6 w-full flex justify-center">
                         <TouchableOpacity 
                             onPress={() => { router.push('/contact'); setIsMenuOpen(false); }}

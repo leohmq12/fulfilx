@@ -1,6 +1,7 @@
 import AwardsAccreditations from '@/components/layout/awards-accreditations';
 import Footer from '@/components/layout/footer';
 import Navbar from '@/components/layout/navbar';
+import { useContentList } from '@/hooks/useContent';
 import Slider from '@react-native-community/slider';
 import { Stack, useRouter } from 'expo-router';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
@@ -223,56 +224,36 @@ export default function LuxuryScreen() {
 
   const router = useRouter();
 
-  const pricingItems = [
-    {
-      title: ['Pick', '& Pack'],
-      img: '/shiphappens1.webp',
-      logo: '/d2c.svg',
-      description: 'Lets start with basics.',
-      price: '£1.27',
-      priceUnit: '/package',
-      pricePrefix: '*from',
-      features: [
-        'Includes Packaging',
-        'Includes Labelling',
-        'Includes Picking',
-        'Includes Packing',
-        'Shipping (additional cost)'
-      ]
-    },
-    {
-      title: ['Shipping'],
-      img: '/shiphappens3.webp',
-      logo: '/amf.svg',
-      badge: 'Most Popular',
-      description: 'We offer next day shipping for all orders placed before 3pm.',
-      price: '£2.35',
-      priceUnit: '/shipment',
-      pricePrefix: '*from',
-      features: [
-        'Fully Tracked',
-        'Next Day Delivery',
-        'Small to Large Parcels',
-        'International Shipping Available',
-        'Insured Parcels'
-      ]
-    },
-    {
-      title: ['Storage', ''],
-      img: '/qc.webp',
-      logo: '/b2b.svg',
-      description: 'Affordable storage scalable for your needs.',
-      price: '£0.28',
-      pricePrefix: '*from',
-      features: [
-        'Secure Warehousing',
-        'Flexible Storage Options',
-        'Short & Long Term Storage',
-        'Pallet Storage',
-        'Inventory Management'
-      ]
-    }
+  type PricingPlanRecord = {
+    title?: string;
+    price?: string;
+    unit?: string;
+    price_prefix?: string;
+    features?: Array<{ feature?: string }>;
+    is_featured?: boolean;
+  };
+  const FALLBACK_PLANS: PricingPlanRecord[] = [
+    { title: 'Pick & Pack', price: '£1.27', unit: '/package', price_prefix: '*from', features: [{ feature: 'Includes Packaging' }, { feature: 'Includes Labelling' }, { feature: 'Includes Picking' }, { feature: 'Includes Packing' }, { feature: 'Shipping (additional cost)' }] },
+    { title: 'Shipping', price: '£2.35', unit: '/shipment', price_prefix: '*from', is_featured: true, features: [{ feature: 'Fully Tracked' }, { feature: 'Next Day Delivery' }, { feature: 'Small to Large Parcels' }, { feature: 'International Shipping Available' }, { feature: 'Insured Parcels' }] },
+    { title: 'Storage', price: '£0.28', price_prefix: '*from', features: [{ feature: 'Secure Warehousing' }, { feature: 'Flexible Storage Options' }, { feature: 'Short & Long Term Storage' }, { feature: 'Pallet Storage' }, { feature: 'Inventory Management' }] },
   ];
+  const { data: plansData } = useContentList<PricingPlanRecord[]>('pricing_plan', FALLBACK_PLANS);
+  const plansArray = Array.isArray(plansData) ? plansData : FALLBACK_PLANS;
+  const defaultLogos = ['/d2c.svg', '/amf.svg', '/b2b.svg'];
+  const pricingItems = plansArray.map((p, i) => {
+    const t = p.title ?? 'Plan';
+    const spaceIdx = t.indexOf(' ');
+    const titleLines: [string, string] = spaceIdx > 0 ? [t.slice(0, spaceIdx), t.slice(spaceIdx + 1).trim()] : [t, ''];
+    return {
+      title: titleLines,
+      logo: defaultLogos[i % defaultLogos.length],
+      description: '',
+      price: p.price ?? '—',
+      priceUnit: p.unit ?? '',
+      pricePrefix: p.price_prefix ?? '',
+      features: (p.features ?? []).map(f => f.feature ?? '').filter(Boolean),
+    };
+  });
 
 
 
@@ -351,7 +332,7 @@ export default function LuxuryScreen() {
       <View className="max-w-[1400px] mx-auto px-4">
       {/* Card Stack Container */}
       <View className="flex flex-col lg:flex-row gap-4 sm:gap-6 lg:gap-0 justify-center items-stretch lg:items-end">
-        {pricingItems.map((item, i) => {
+        {pricingItems.length ? pricingItems.map((item, i) => {
           const isMiddle = i === 1;
           const isFirst = i === 0;
           const isLast = i === pricingItems.length - 1;
@@ -413,7 +394,7 @@ export default function LuxuryScreen() {
               </View>
             </View>
           );
-        })}
+        }) : null}
       </View>
 
       {/* Contact Sales Button */}

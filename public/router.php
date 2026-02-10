@@ -49,6 +49,8 @@ $apiRoutes = [
     '/api/cms/versions'     => '/api/cms/versions.php',
     '/api/cms/activity.php' => '/api/cms/activity.php',
     '/api/cms/activity'     => '/api/cms/activity.php',
+    '/api/cms/developer.php' => '/api/cms/developer.php',
+    '/api/cms/developer'    => '/api/cms/developer.php',
 ];
 
 foreach ($apiRoutes as $route => $handler) {

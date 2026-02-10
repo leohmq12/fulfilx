@@ -1,5 +1,50 @@
+import { useSingleContent } from '@/hooks/useContent';
 import { Link } from 'expo-router';
 import React, { useState } from 'react';
+
+type ContactInfoData = {
+  phone?: string;
+  email?: string;
+  address?: string;
+  social_tiktok?: string;
+  social_instagram?: string;
+  social_linkedin?: string;
+  social_facebook?: string;
+};
+type SiteSettingsData = {
+  footer_quick_links?: Array<{ label?: string; href?: string }>;
+  copyright_text?: string;
+  newsletter_heading?: string;
+  newsletter_subtext?: string;
+};
+const FALLBACK_CONTACT: ContactInfoData = {
+  phone: '+44 161 399 2348',
+  email: 'info@fulfilx.co.uk',
+  address: 'Nile Mill, Oldham,\nGreater Manchester,\nOL9 8NT',
+  social_tiktok: 'https://www.tiktok.com/@fulfil.x',
+  social_instagram: 'https://www.instagram.com/fulfil.x/',
+  social_linkedin: 'https://uk.linkedin.com/company/fulfilx',
+  social_facebook: 'https://www.facebook.com/share/18TJXr21mq/',
+};
+const FALLBACK_SITE: SiteSettingsData = {
+  footer_quick_links: [
+    { label: 'Home', href: '/' },
+    { label: 'About Us', href: '/about-us' },
+    { label: 'Services', href: '/services' },
+    { label: 'Sectors', href: '/sectors' },
+    { label: 'Blogs', href: '/blogs' },
+    { label: 'Team', href: '/team' },
+    { label: 'Pricing', href: '/pricing' },
+    { label: 'Locations', href: '/locations' },
+    { label: 'Sustainability', href: '/sustainability' },
+    { label: 'Contact Us', href: '/contact' },
+    { label: 'Returns Policy', href: '/return-policy' },
+    { label: 'Careers', href: '/team#jobs' },
+    { label: 'Our Couriers', href: '/our-couriers' },
+  ],
+  copyright_text: 'Copyright © 2025. FULFIL.X. All rights reserved.',
+  newsletter_heading: 'Subscribe to receive FULFIL.X updates',
+};
 
 const NEWSLETTER_ENDPOINT =
   process.env.NODE_ENV === 'development' ? '/api/newsletter' : '/api/newsletter.php';
@@ -9,6 +54,9 @@ function isValidEmail(email: string) {
 }
 
 const Footer = () => {
+  const { data: contactInfo } = useSingleContent<ContactInfoData>('contact_info', FALLBACK_CONTACT);
+  const { data: siteSettings } = useSingleContent<SiteSettingsData>('site_settings', FALLBACK_SITE);
+  const quickLinks = siteSettings?.footer_quick_links?.length ? siteSettings.footer_quick_links : FALLBACK_SITE.footer_quick_links!;
   const [agreedToPolicy, setAgreedToPolicy] = useState(false);
   const [newsletterEmail, setNewsletterEmail] = useState('');
   const [newsletterStatus, setNewsletterStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -87,7 +135,7 @@ const Footer = () => {
         </div>
 
         <p className="text-base sm:text-[18px] font-normal text-white/90">
-          Subscribe to receive FULFIL.X updates
+          {siteSettings?.newsletter_heading ?? FALLBACK_SITE.newsletter_heading}
         </p>
 
         <div className="w-full border border-white/20 rounded-lg flex items-center px-4 h-12 sm:h-14">
@@ -138,42 +186,26 @@ const Footer = () => {
             Find us on the socials
           </p>
           <div className="flex gap-4">
-            <a 
-              href="https://www.tiktok.com/@fulfil.x?_t=8hNsKJafJ9E&_r=1"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="h-12 w-12 sm:h-14 sm:w-14 bg-[#C10016] rounded-full flex items-center justify-center hover:bg-[#a00012] transition-colors"
-              aria-label="Tiktok"
-            >
+            {(contactInfo?.social_tiktok ?? FALLBACK_CONTACT.social_tiktok) && (
+            <a href={contactInfo?.social_tiktok ?? FALLBACK_CONTACT.social_tiktok} target="_blank" rel="noopener noreferrer" className="h-12 w-12 sm:h-14 sm:w-14 bg-[#C10016] rounded-full flex items-center justify-center hover:bg-[#a00012] transition-colors" aria-label="Tiktok">
               <img src="/ttlw.png" alt="tiktok" className='w-8 h-8 object-contain' />
             </a>
-            <a 
-              href="https://www.instagram.com/fulfil.x/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="h-12 w-12 sm:h-14 sm:w-14 bg-[#C10016] rounded-full flex items-center justify-center hover:bg-[#a00012] transition-colors"
-              aria-label="Instagram"
-            >
+            )}
+            {(contactInfo?.social_instagram ?? FALLBACK_CONTACT.social_instagram) && (
+            <a href={contactInfo?.social_instagram ?? FALLBACK_CONTACT.social_instagram} target="_blank" rel="noopener noreferrer" className="h-12 w-12 sm:h-14 sm:w-14 bg-[#C10016] rounded-full flex items-center justify-center hover:bg-[#a00012] transition-colors" aria-label="Instagram">
               <img src="/ig.svg" alt="instagram" className='w-6 h-6 object-contain' />
             </a>
-            <a 
-              href="https://uk.linkedin.com/company/fulfilx"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="h-12 w-12 sm:h-14 sm:w-14 bg-[#C10016] rounded-full flex items-center justify-center hover:bg-[#a00012] transition-colors"
-              aria-label="LinkedIn"
-            >
+            )}
+            {(contactInfo?.social_linkedin ?? FALLBACK_CONTACT.social_linkedin) && (
+            <a href={contactInfo?.social_linkedin ?? FALLBACK_CONTACT.social_linkedin} target="_blank" rel="noopener noreferrer" className="h-12 w-12 sm:h-14 sm:w-14 bg-[#C10016] rounded-full flex items-center justify-center hover:bg-[#a00012] transition-colors" aria-label="LinkedIn">
               <img src="/linkedin.png" alt="linkedin" className='w-10 h-10 object-contain' />
             </a>
-            <a 
-              href="https://www.facebook.com/share/18TJXr21mq/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="h-12 w-12 sm:h-14 sm:w-14 bg-[#C10016] rounded-full flex items-center justify-center hover:bg-[#a00012] transition-colors"
-              aria-label="Facebook"
-            >
+            )}
+            {(contactInfo?.social_facebook ?? FALLBACK_CONTACT.social_facebook) && (
+            <a href={contactInfo?.social_facebook ?? FALLBACK_CONTACT.social_facebook} target="_blank" rel="noopener noreferrer" className="h-12 w-12 sm:h-14 sm:w-14 bg-[#C10016] rounded-full flex items-center justify-center hover:bg-[#a00012] transition-colors" aria-label="Facebook">
               <img src="/fb.svg" alt="facebook" className='w-6 h-6 object-contain' />
             </a>
+            )}
           </div>
         </div>
       </div>
@@ -211,7 +243,7 @@ const Footer = () => {
       <img src="/phone.svg" alt="phone" className="w-5 h-5" />
     </div>
     <span className="text-white text-base sm:text-lg font-normal">
-      +44 161 399 2348
+      {contactInfo?.phone ?? FALLBACK_CONTACT.phone}
     </span>
   </div>
 
@@ -224,7 +256,7 @@ const Footer = () => {
       <img src="/mail.svg" alt="email" className="w-5 h-5" />
     </div>
     <span className="text-white text-base sm:text-lg font-normal">
-      info@fulfilx.co.uk
+      {contactInfo?.email ?? FALLBACK_CONTACT.email}
     </span>
   </div>
 
@@ -238,10 +270,8 @@ const Footer = () => {
     </div>
     <div className="text-white text-left">
       <div className="font-bold text-base sm:text-lg">FULFIL.X HQ</div>
-      <div className="text-sm sm:text-base font-normal">
-        Nile Mill, Oldham,
-        Greater Manchester,
-        OL9 8NT
+      <div className="text-sm sm:text-base font-normal whitespace-pre-line">
+        {contactInfo?.address ?? FALLBACK_CONTACT.address}
       </div>
     </div>
   </div>
@@ -258,76 +288,33 @@ const Footer = () => {
     </h3>
   </div>
 
-  {/* Links Grid - Left Aligned */}
+  {/* Links Grid - from CMS footer_quick_links */}
   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-16 w-full">
-    
-    {/* Column 1 */}
-<div 
-  className="text-white font-normal text-left text-base sm:text-[18px] leading-9 sm:leading-[52px]"
->
-  <Link href="/" asChild>
-    <a className="block hover:text-[#C10016] transition-colors cursor-pointer">Home</a>
-  </Link>
-  <Link href="/about-us" asChild>
-    <a className="block hover:text-[#C10016] transition-colors cursor-pointer">About Us</a>
-  </Link>
-  <Link href="/services" asChild>
-    <a className="block hover:text-[#C10016] transition-colors cursor-pointer">Services</a>
-  </Link>
-  <Link href="/sectors" asChild>
-    <a className="block hover:text-[#C10016] transition-colors cursor-pointer">Sectors</a>
-  </Link>
-  <Link href="/#" asChild>
-    <a className="block hover:text-[#C10016] transition-colors cursor-pointer">Blogs</a>
-  </Link>
-</div>
-
-{/* Column 2 */}
-<div 
-  className="text-white font-normal text-left text-base sm:text-[18px] leading-9 sm:leading-[52px]"
->
-  <Link href="/team" asChild>
-    <a className="block hover:text-[#C10016] transition-colors cursor-pointer">Team</a>
-  </Link>
-  <Link href="/pricing" asChild>
-    <a className="block hover:text-[#C10016] transition-colors cursor-pointer">Pricing</a>
-  </Link>
-  
-  <Link href="/locations" asChild>
-    <a className="block hover:text-[#C10016] transition-colors cursor-pointer">Locations</a>
-  </Link>
-    <Link href="/sustainability" asChild>
-    <a className="block hover:text-[#C10016] transition-colors cursor-pointer">Sustainability</a>
-  </Link>
-    <Link href="/contact" asChild>
-    <a className="block hover:text-[#C10016] transition-colors cursor-pointer">Contact Us</a>
-  </Link>
-</div>
-
-{/* Column 3 */}
-<div 
-  className="text-white font-normal text-left text-base sm:text-[18px] leading-9 sm:leading-[52px]"
->
-
-  <a 
-    href="https://fulfilx-access-control.replit.app/" 
-    target="_blank" 
-    rel="noopener noreferrer"
-    className="block hover:text-[#C10016] transition-colors cursor-pointer"
-  >
-    Shipping
-  </a>
-  <Link href="/return-policy" asChild>
-    <a className="block hover:text-[#C10016] transition-colors cursor-pointer">Returns Policy</a>
-  </Link>
-  <Link href="/team#jobs" asChild>
-    <a className="block hover:text-[#C10016] transition-colors cursor-pointer">Careers</a>
-  </Link>
-    <Link href="/our-couriers" asChild>
-    <a className="block hover:text-[#C10016] transition-colors cursor-pointer">Our Couriers</a>
-  </Link>
-</div>
-
+    {[0, 1, 2].map((colIndex) => {
+      const perCol = Math.ceil(quickLinks.length / 3);
+      const start = colIndex * perCol;
+      const colLinks = quickLinks.slice(start, start + perCol);
+      return (
+        <div key={colIndex} className="text-white font-normal text-left text-base sm:text-[18px] leading-9 sm:leading-[52px]">
+          {colLinks.map((item, i) => {
+            const href = item.href ?? '#';
+            const isExternal = href.startsWith('http');
+            if (isExternal) {
+              return (
+                <a key={i} href={href} target="_blank" rel="noopener noreferrer" className="block hover:text-[#C10016] transition-colors cursor-pointer">
+                  {item.label ?? 'Link'}
+                </a>
+              );
+            }
+            return (
+              <Link key={i} href={href as any} asChild>
+                <a className="block hover:text-[#C10016] transition-colors cursor-pointer">{item.label ?? 'Link'}</a>
+              </Link>
+            );
+          })}
+        </div>
+      );
+    })}
   </div>
 </div>
       </div>
@@ -338,7 +325,12 @@ const Footer = () => {
      {/* Bottom Copyright - Positioned at bottom */}
   <div className="relative border-t border-white/10 pt-4 text-center">
     <p className="text-white text-[16px] opacity-90">
-      Copyright © 2025. <span className='text-[#C10016]'>FULFIL.X</span>. All rights reserved.
+      {(() => {
+        const text = siteSettings?.copyright_text ?? FALLBACK_SITE.copyright_text ?? '';
+        const parts = text.split('FULFIL.X');
+        if (parts.length < 2) return text;
+        return <>{parts[0]}<span className="text-[#C10016]">FULFIL.X</span>{parts.slice(1).join('FULFIL.X')}</>;
+      })()}
     </p>
   </div>
   </div>

@@ -11,7 +11,7 @@ export default function AwardsAccreditations() {
       <View className="flex flex-col lg:flex-row">
         
         {/* Left Section - White Background */}
-        <View className="w-full lg:w-1/2 bg-white relative min-h-[520px] flex items-center justify-center py-12 lg:py-0">
+        <View className="w-full lg:w-1/2 bg-white relative flex items-center pt-16 lg:pt-32 pb-12">
           <Image 
             source={{ uri: "/bg.webp" }} 
             className="absolute inset-0 w-full h-full"
@@ -29,7 +29,7 @@ export default function AwardsAccreditations() {
             <View className="w-[100px] h-[1px] bg-[#C10016] mx-auto mb-12" />
 
             {/* Image Grid - Centered */}
-        <View className="flex flex-row flex-wrap justify-center gap-6 lg:gap-8 mb-12">
+        <View className="flex flex-row flex-wrap justify-center gap-6 lg:gap-8">
           <Image source={{ uri: '/award2.webp' }} className="w-[160px] h-[160px] lg:w-[240px] lg:h-[240px]" resizeMode="contain" />
           <Image source={{ uri: '/award1.webp' }} className="w-[160px] h-[160px] lg:w-[240px] lg:h-[240px]" resizeMode="contain" />
         </View>
@@ -38,7 +38,7 @@ export default function AwardsAccreditations() {
         </View>
 
         {/* Right Section - Red Background */}
-        <View className="w-full lg:w-1/2 bg-[#DA192F] relative min-h-[520px] flex items-center justify-center py-12 lg:py-0">
+        <View className="w-full lg:w-1/2 bg-[#DA192F] relative flex items-center pt-16 lg:pt-32 pb-12">
           {/* Right Section Content - Centered */}
           <View className="max-w-[650px] w-full items-center px-8">
             

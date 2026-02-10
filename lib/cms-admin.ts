@@ -244,3 +244,51 @@ export async function changePassword(
     body: JSON.stringify({ current_password: currentPassword, new_password: newPassword }),
   });
 }
+
+// ─── Developer API (developer role only) ─────────────────────────────────────
+
+export async function developerListTables(): Promise<{
+  ok: boolean;
+  tables: Array<{ name: string; type: string }>;
+}> {
+  return apiRequest(`${CMS_API_URL}/developer.php`);
+}
+
+export async function developerGetTable(
+  table: string,
+  limit?: number
+): Promise<{
+  ok: boolean;
+  table: string;
+  columns: Array<{ cid: number; name: string; type: string; notnull: number; dflt_value: unknown; pk: number }>;
+  rows: Record<string, unknown>[];
+  count: number;
+}> {
+  const params = new URLSearchParams({ table });
+  if (limit != null) params.set('limit', String(limit));
+  return apiRequest(`${CMS_API_URL}/developer.php?${params}`);
+}
+
+export async function developerRunQuery(query: string): Promise<{
+  ok: boolean;
+  rows: Record<string, unknown>[];
+  count: number;
+  affectedRows?: number;
+  lastInsertId?: number | null;
+}> {
+  return apiRequest(`${CMS_API_URL}/developer.php`, {
+    method: 'POST',
+    body: JSON.stringify({ query }),
+  });
+}
+
+// ─── Seed API (creates default content + developer user if missing) ─────────
+
+export async function runSeed(): Promise<{
+  ok: boolean;
+  seeded?: string[];
+  skipped?: string[];
+  error?: string;
+}> {
+  return apiRequest(`${CMS_API_URL}/seed.php`, { method: 'POST' });
+}

@@ -101,6 +101,16 @@ function requireAdmin(): array {
     return $user;
 }
 
+function requireDeveloper(): array {
+    $user = requireAuth();
+    if (($user['role'] ?? '') !== 'developer') {
+        http_response_code(403);
+        echo json_encode(['ok' => false, 'error' => 'Developer access required']);
+        exit();
+    }
+    return $user;
+}
+
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 function getRequestBody(): array {
     $raw = file_get_contents("php://input");

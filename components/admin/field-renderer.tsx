@@ -1,4 +1,5 @@
 import RichTextEditor from '@/components/admin/rich-text-editor';
+import { useAdminTheme } from '@/lib/admin-theme-context';
 import type { FieldDefinition } from '@/types/cms';
 import React from 'react';
 import { Switch, Text, TextInput, TouchableOpacity, View } from 'react-native';
@@ -9,20 +10,26 @@ interface FieldRendererProps {
   onChange: (value: any) => void;
 }
 
-const inputClass = "bg-[#111] border border-gray-700 rounded-lg px-4 py-3 text-white font-helvetica text-sm";
-
 export default function FieldRenderer({ field, value, onChange }: FieldRendererProps) {
+  const { isDark } = useAdminTheme();
+  const inputClass = isDark
+    ? 'bg-[#111] border border-gray-700 rounded-lg px-3 py-2.5 text-white font-helvetica text-sm'
+    : 'bg-gray-50 border border-gray-300 rounded-lg px-3 py-2.5 text-gray-900 font-helvetica text-sm';
+  const arrayInputClass = isDark
+    ? 'bg-[#1a1a1a] border border-gray-700 rounded px-3 py-2 text-white font-helvetica text-sm'
+    : 'bg-white border border-gray-300 rounded px-3 py-2 text-gray-900 font-helvetica text-sm';
+
   switch (field.type) {
     case 'text':
     case 'url':
     case 'email':
       return (
-        <FieldWrapper field={field}>
+        <FieldWrapper field={field} isDark={isDark}>
           <TextInput
             value={value ?? ''}
             onChangeText={onChange}
             placeholder={field.placeholder || ''}
-            placeholderTextColor="#555"
+            placeholderTextColor={isDark ? '#555' : '#888'}
             keyboardType={field.type === 'email' ? 'email-address' : field.type === 'url' ? 'url' : 'default'}
             className={inputClass}
             style={{ outlineStyle: 'none' } as any}
@@ -32,12 +39,12 @@ export default function FieldRenderer({ field, value, onChange }: FieldRendererP
 
     case 'textarea':
       return (
-        <FieldWrapper field={field}>
+        <FieldWrapper field={field} isDark={isDark}>
           <TextInput
             value={value ?? ''}
             onChangeText={onChange}
             placeholder={field.placeholder || ''}
-            placeholderTextColor="#555"
+            placeholderTextColor={isDark ? '#555' : '#888'}
             multiline
             numberOfLines={4}
             className={`${inputClass} min-h-[100px]`}
@@ -48,7 +55,7 @@ export default function FieldRenderer({ field, value, onChange }: FieldRendererP
 
     case 'richtext':
       return (
-        <FieldWrapper field={field}>
+        <FieldWrapper field={field} isDark={isDark}>
           <RichTextEditor
             value={value ?? ''}
             onChange={onChange}
@@ -59,7 +66,7 @@ export default function FieldRenderer({ field, value, onChange }: FieldRendererP
 
     case 'number':
       return (
-        <FieldWrapper field={field}>
+        <FieldWrapper field={field} isDark={isDark}>
           <TextInput
             value={value !== undefined && value !== null ? String(value) : ''}
             onChangeText={(text) => {
@@ -67,7 +74,7 @@ export default function FieldRenderer({ field, value, onChange }: FieldRendererP
               onChange(isNaN(num) ? text : num);
             }}
             placeholder={field.placeholder || '0'}
-            placeholderTextColor="#555"
+            placeholderTextColor={isDark ? '#555' : '#888'}
             keyboardType="numeric"
             className={inputClass}
             style={{ outlineStyle: 'none' } as any}
@@ -77,15 +84,15 @@ export default function FieldRenderer({ field, value, onChange }: FieldRendererP
 
     case 'boolean':
       return (
-        <FieldWrapper field={field}>
+        <FieldWrapper field={field} isDark={isDark}>
           <View className="flex-row items-center">
             <Switch
               value={!!value}
               onValueChange={onChange}
-              trackColor={{ false: '#333', true: '#C10016' }}
-              thumbColor={value ? '#fff' : '#888'}
+              trackColor={{ false: isDark ? '#333' : '#d1d5db', true: '#C10016' }}
+              thumbColor={value ? '#fff' : isDark ? '#888' : '#9ca3af'}
             />
-            <Text className="text-gray-400 text-sm font-helvetica ml-3">
+            <Text className={`text-sm font-helvetica ml-3 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
               {value ? 'Yes' : 'No'}
             </Text>
           </View>
@@ -94,21 +101,21 @@ export default function FieldRenderer({ field, value, onChange }: FieldRendererP
 
     case 'select':
       return (
-        <FieldWrapper field={field}>
+        <FieldWrapper field={field} isDark={isDark}>
           <View className="flex-row flex-wrap gap-2">
             {(field.options || []).map((option) => (
               <TouchableOpacity
                 key={option}
                 onPress={() => onChange(option)}
-                className={`px-4 py-2 rounded-lg border ${
+                className={`px-3 py-2 rounded-lg border ${
                   value === option
                     ? 'bg-[#C10016] border-[#C10016]'
-                    : 'bg-[#111] border-gray-700'
+                    : isDark ? 'bg-[#111] border-gray-700' : 'bg-white border-gray-300'
                 }`}
                 activeOpacity={0.7}
               >
                 <Text className={`text-sm font-helvetica ${
-                  value === option ? 'text-white font-bold' : 'text-gray-400'
+                  value === option ? 'text-white font-bold' : isDark ? 'text-gray-400' : 'text-gray-600'
                 }`}>
                   {option}
                 </Text>
@@ -120,12 +127,12 @@ export default function FieldRenderer({ field, value, onChange }: FieldRendererP
 
     case 'date':
       return (
-        <FieldWrapper field={field}>
+        <FieldWrapper field={field} isDark={isDark}>
           <TextInput
             value={value ?? ''}
             onChangeText={onChange}
             placeholder={field.placeholder || 'YYYY-MM-DD'}
-            placeholderTextColor="#555"
+            placeholderTextColor={isDark ? '#555' : '#888'}
             className={inputClass}
             style={{ outlineStyle: 'none' } as any}
           />
@@ -134,17 +141,17 @@ export default function FieldRenderer({ field, value, onChange }: FieldRendererP
 
     case 'image':
       return (
-        <FieldWrapper field={field}>
+        <FieldWrapper field={field} isDark={isDark}>
           <TextInput
             value={value ?? ''}
             onChangeText={onChange}
             placeholder={field.placeholder || '/path/to/image.webp'}
-            placeholderTextColor="#555"
+            placeholderTextColor={isDark ? '#555' : '#888'}
             className={inputClass}
             style={{ outlineStyle: 'none' } as any}
           />
           {value ? (
-            <View className="mt-2 bg-[#111] rounded-lg p-2 border border-gray-800">
+            <View className={`mt-2 rounded-lg p-2 border ${isDark ? 'bg-[#111] border-gray-800' : 'bg-gray-100 border-gray-200'}`}>
               <img
                 src={value}
                 alt="Preview"
@@ -152,26 +159,26 @@ export default function FieldRenderer({ field, value, onChange }: FieldRendererP
               />
             </View>
           ) : null}
-          <Text className="text-gray-600 text-xs mt-1 font-helvetica">
+          <Text className={`text-xs mt-1 font-helvetica ${isDark ? 'text-gray-500' : 'text-gray-500'}`}>
             Enter image path (e.g., /image.webp) or upload via Media Library.
           </Text>
         </FieldWrapper>
       );
 
     case 'array':
-      return <ArrayFieldRenderer field={field} value={value} onChange={onChange} />;
+      return <ArrayFieldRenderer field={field} value={value} onChange={onChange} isDark={isDark} arrayInputClass={arrayInputClass} />;
 
     case 'group':
-      return <GroupFieldRenderer field={field} value={value} onChange={onChange} />;
+      return <GroupFieldRenderer field={field} value={value} onChange={onChange} isDark={isDark} />;
 
     default:
       return (
-        <FieldWrapper field={field}>
+        <FieldWrapper field={field} isDark={isDark}>
           <TextInput
             value={typeof value === 'string' ? value : JSON.stringify(value ?? '')}
             onChangeText={onChange}
             placeholder={field.placeholder || ''}
-            placeholderTextColor="#555"
+            placeholderTextColor={isDark ? '#555' : '#888'}
             className={inputClass}
             style={{ outlineStyle: 'none' } as any}
           />
@@ -182,11 +189,11 @@ export default function FieldRenderer({ field, value, onChange }: FieldRendererP
 
 // ─── Field Wrapper ───────────────────────────────────────────────────────────
 
-function FieldWrapper({ field, children }: { field: FieldDefinition; children: React.ReactNode }) {
+function FieldWrapper({ field, children, isDark }: { field: FieldDefinition; children: React.ReactNode; isDark: boolean }) {
   return (
-    <View className="mb-5">
-      <View className="flex-row items-center mb-2">
-        <Text className="text-gray-300 text-sm font-helvetica-medium">
+    <View className="mb-4">
+      <View className="flex-row items-center mb-1.5">
+        <Text className={`text-sm font-helvetica-medium ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
           {field.label}
         </Text>
         {field.required && (
@@ -194,7 +201,7 @@ function FieldWrapper({ field, children }: { field: FieldDefinition; children: R
         )}
       </View>
       {field.helpText && (
-        <Text className="text-gray-600 text-xs font-helvetica mb-2">{field.helpText}</Text>
+        <Text className={`text-xs font-helvetica mb-1.5 ${isDark ? 'text-gray-500' : 'text-gray-500'}`}>{field.helpText}</Text>
       )}
       {children}
     </View>
@@ -203,7 +210,13 @@ function FieldWrapper({ field, children }: { field: FieldDefinition; children: R
 
 // ─── Array Field ─────────────────────────────────────────────────────────────
 
-function ArrayFieldRenderer({ field, value, onChange }: FieldRendererProps) {
+function ArrayFieldRenderer({
+  field,
+  value,
+  onChange,
+  isDark,
+  arrayInputClass,
+}: FieldRendererProps & { isDark: boolean; arrayInputClass: string }) {
   const items = Array.isArray(value) ? value : [];
   const subFields = field.arrayFields || [];
 
@@ -228,7 +241,7 @@ function ArrayFieldRenderer({ field, value, onChange }: FieldRendererProps) {
   const isSingleField = subFields.length === 1;
 
   return (
-    <FieldWrapper field={field}>
+    <FieldWrapper field={field} isDark={isDark}>
       {items.map((item: any, index: number) => (
         <View key={index} className="flex-row items-start mb-2 gap-2">
           <View className="flex-1">
@@ -239,7 +252,7 @@ function ArrayFieldRenderer({ field, value, onChange }: FieldRendererProps) {
                 onChange={(val) => updateItem(index, isSingleField ? val : { [subFields[0].name]: val })}
               />
             ) : (
-              <View className="bg-[#111] border border-gray-700 rounded-lg p-3">
+              <View className={`border rounded-lg p-3 ${isDark ? 'bg-[#111] border-gray-700' : 'bg-gray-50 border-gray-300'}`}>
                 {subFields.map((sf) => (
                   <View key={sf.name} className="mb-2 last:mb-0">
                     <FieldRenderer
@@ -264,10 +277,10 @@ function ArrayFieldRenderer({ field, value, onChange }: FieldRendererProps) {
 
       <TouchableOpacity
         onPress={addItem}
-        className="border border-dashed border-gray-600 rounded-lg py-2.5 items-center mt-1"
+        className={`border border-dashed rounded-lg py-2 items-center mt-1 ${isDark ? 'border-gray-600' : 'border-gray-400'}`}
         activeOpacity={0.7}
       >
-        <Text className="text-gray-400 text-sm font-helvetica">+ Add {field.label.replace(/s$/, '')}</Text>
+        <Text className={`text-sm font-helvetica ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>+ Add {field.label.replace(/s$/, '')}</Text>
       </TouchableOpacity>
     </FieldWrapper>
   );
@@ -275,17 +288,18 @@ function ArrayFieldRenderer({ field, value, onChange }: FieldRendererProps) {
 
 // ─── Group Field ─────────────────────────────────────────────────────────────
 
-function GroupFieldRenderer({ field, value, onChange }: FieldRendererProps) {
+function GroupFieldRenderer({ field, value, onChange, isDark }: FieldRendererProps & { isDark?: boolean }) {
   const groupValue = value && typeof value === 'object' ? value : {};
   const subFields = field.groupFields || [];
+  const dark = isDark ?? true;
 
   const updateField = (name: string, val: any) => {
     onChange({ ...groupValue, [name]: val });
   };
 
   return (
-    <FieldWrapper field={field}>
-      <View className="bg-[#111] border border-gray-700 rounded-lg p-4">
+    <FieldWrapper field={field} isDark={dark}>
+      <View className={`border rounded-lg p-4 ${dark ? 'bg-[#111] border-gray-700' : 'bg-gray-50 border-gray-300'}`}>
         {subFields.map((sf) => (
           <FieldRenderer
             key={sf.name}

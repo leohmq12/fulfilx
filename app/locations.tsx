@@ -2,9 +2,32 @@
 import AwardsAccreditations from '@/components/layout/awards-accreditations';
 import Footer from '@/components/layout/footer';
 import Navbar from '@/components/layout/navbar';
+import { useContentList } from '@/hooks/useContent';
 import { Stack, useRouter } from 'expo-router';
 import { useRef, useState } from 'react';
 import { Image, ScrollView, Text, View } from 'react-native';
+
+type LocationRecord = {
+  country?: string;
+  city?: string;
+  address?: string;
+  email?: string;
+  phone?: string;
+  flag_image?: string;
+  round_flag_image?: string;
+  description?: string;
+  marker_x?: number;
+  marker_y?: number;
+};
+
+const defaultLocations: LocationRecord[] = [
+  { country: 'United Kingdom', city: 'Manchester', email: 'Info@fulfilx.co.uk', address: 'Nile Mill, Oldham' },
+  { country: 'United States of America', city: 'California/Georgia', email: 'USA@fulfilx.co.uk' },
+  { country: 'United Arab Emirates', city: 'Dubai', email: 'UAE@fulfilx.co.uk' },
+  { country: 'Saudi Arabia', city: 'Riyadh', email: 'Saudi@fulfilx.co.uk' },
+  { country: 'Bahrain', city: 'Manama', email: 'Bahrain@fulfilx.co.uk' },
+  { country: 'Australia', city: 'Melbourne', email: 'Australia@fulfilx.co.uk' },
+];
 
 const defaultMarkerPositions: Record<string, { x: number; y: number }> = {
  uk: { x: 47.84, y: 15.59 },
@@ -34,13 +57,47 @@ const LocationMarker = ({ left, top, children }: { left: any, top: any, children
   );
 };
 
+function LocationCard({ loc, flagUri }: { loc: LocationRecord; flagUri: string }) {
+  return (
+    <View className="relative w-full lg:w-[350px] h-[381px]">
+      <View className="absolute w-full lg:w-[350px] h-[334px] top-[47px] bg-white border border-[rgba(0,0,0,0.1)] backdrop-blur-[12.5px] rounded-[20px]" />
+      <View className="absolute w-[124px] h-[124px] left-1/2 transform -translate-x-1/2 top-0 bg-white border border-[rgba(0,0,0,0.1)] rounded-full" />
+      <View className="absolute w-[94px] h-[94px] left-1/2 transform -translate-x-1/2 top-[15px] rounded-full overflow-hidden">
+        <Image source={{ uri: flagUri }} alt="" className="w-full h-full" resizeMode="cover" />
+      </View>
+      <Text className="text-center top-[110px] font-helvetica font-bold text-[24px] leading-[74px] tracking-[-0.01em] text-black">
+        {loc.country ?? ''}
+      </Text>
+      {loc.email ? (
+        <View className="absolute left-6 top-[225px] flex flex-row items-center gap-3 space-y-6">
+          <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-6">
+            <Image source={{ uri: "/mail.svg" }} alt="Email" className="w-4 h-4" resizeMode="contain" />
+          </View>
+          <Text className="font-helvetica font-normal text-[16px] leading-[44px] text-black">{loc.email}</Text>
+        </View>
+      ) : null}
+      <View className="absolute left-6 top-[270px] flex flex-row items-center gap-3 space-y-10">
+        <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-10">
+          <Image source={{ uri: "/map.svg" }} alt="Location" className="w-4 h-4" resizeMode="contain" />
+        </View>
+        <Text className="font-helvetica font-normal text-[16px] leading-[22px] text-black">{loc.city ?? loc.address ?? ''}</Text>
+      </View>
+    </View>
+  );
+}
+
+const defaultFlagUris: string[] = ['/rounduk.webp', '/roundus.webp', '/rounduae.webp', '/roundsaudi.webp', '/roundb.webp', '/roundaus.webp'];
+
 export default function LocationsScreen() {
   const router = useRouter();
   const [agreedToPolicy, setAgreedToPolicy] = useState(false);
   const primaryRed = 'bg-[#C10016]';
   const mapOverlayRef = useRef<HTMLDivElement>(null);
+  const { data: locationsData } = useContentList<LocationRecord[]>('location', defaultLocations);
+  const locations = Array.isArray(locationsData) && locationsData.length > 0 ? locationsData : defaultLocations;
 
   const getMarkerPos = (id: string) => defaultMarkerPositions[id] ?? { x: 0, y: 0 };
+  const getFlagUri = (loc: LocationRecord, index: number) => loc.round_flag_image ?? loc.flag_image ?? defaultFlagUris[index % defaultFlagUris.length];
   
   return (
     <>
@@ -101,338 +158,11 @@ export default function LocationsScreen() {
           <Text className="text-center font-helvetica font-bold text-4xl lg:text-[64px] leading-tight lg:leading-[74px] tracking-[-0.01em] text-black mb-16 px-4">
             Our Worldwide <Text className='text-[#C10016]'>Branches</Text>
           </Text>
-{/* Cards Container */}
+{/* Cards Container - from CMS Locations */}
 <View className="flex flex-row flex-wrap justify-center items-start gap-8 px-4 lg:px-8">
-                      {/* UK Office Card */}
-<View className="relative w-full lg:w-[350px] h-[381px]">
-  {/* Background Card */}
-  <View className="absolute w-full lg:w-[350px] h-[334px] top-[47px] bg-white border border-[rgba(0,0,0,0.1)] backdrop-blur-[12.5px] rounded-[20px]" />
-  
-  {/* Outer Circle */}
-  <View className="absolute w-[124px] h-[124px] left-1/2 transform -translate-x-1/2 top-0 bg-white border border-[rgba(0,0,0,0.1)] rounded-full" />
-  
-  {/* Flag Circle - Full flag in circle, no red background */}
-  <View className="absolute w-[94px] h-[94px] left-1/2 transform -translate-x-1/2 top-[15px] rounded-full overflow-hidden">
-    <Image 
-      source={{ uri: "/rounduk.webp" }}
-      alt="UK Flag" 
-      className="w-full h-full"
-      resizeMode="cover"
-    />
-  </View>
-
-  {/* Country Name */}
-  <Text className="text-center top-[110px] font-helvetica font-bold text-[24px] leading-[74px] tracking-[-0.01em] text-black">
-    United Kingdom
-  </Text>
-
-  {/* Contact Info */}
-  {/* Phone */}
-  <View className="absolute left-6 top-[180px] flex flex-row items-center gap-3 space-y-2">
-    {/* <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-2">
-      <Image source={{ uri: "/phone.svg" }} alt="Phone" className="w-4 h-4" resizeMode="contain" />
-    </View>
-    <Text className="font-helvetica font-normal text-[16px] leading-[44px] text-black">
-      +1 234 567 8900
-    </Text> */}
-  </View>
-
-  {/* Email */}
-  <View className="absolute left-6 top-[225px] flex flex-row items-center gap-3 space-y-6">
-    <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-6">
-      <Image source={{ uri: "/mail.svg" }} alt="Email" className="w-4 h-4" resizeMode="contain" />
-    </View>
-    <Text className="font-helvetica font-normal text-[16px] leading-[44px] text-black">
-      Info@fulfilx.co.uk
-    </Text>
-  </View>
-
-  {/* Address */}
-  <View className="absolute left-6 top-[270px] flex flex-row items-center gap-3 space-y-10">
-    <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-10">
-      <Image source={{ uri: "/map.svg" }} alt="Location" className="w-4 h-4" resizeMode="contain" />
-    </View>
-    <Text className="font-helvetica font-normal text-[16px] leading-[22px] text-black">
-      Manchester
-    </Text>
-  </View>
-</View>
-{/* US Office Card */}
-<View className="relative w-full lg:w-[350px] h-[381px]">
-  {/* Background Card */}
-  <View className="absolute w-full lg:w-[350px] h-[334px] top-[47px] bg-white border border-[rgba(0,0,0,0.1)] backdrop-blur-[12.5px] rounded-[20px]" />
-  
-  {/* Outer Circle */}
-  <View className="absolute w-[124px] h-[124px] left-1/2 transform -translate-x-1/2 top-0 bg-white border border-[rgba(0,0,0,0.1)] rounded-full" />
-  
-  {/* Flag Circle - Full flag in circle, no red background */}
-  <View className="absolute w-[94px] h-[94px] left-1/2 transform -translate-x-1/2 top-[15px] rounded-full overflow-hidden">
-    <Image 
-      source={{ uri: "/roundus.webp" }}
-      alt="US Flag" 
-      className="w-full h-full"
-      resizeMode="cover"
-    />
-  </View>
-
-  {/* Country Name */}
-  <Text className="text-center top-[110px] font-helvetica font-bold text-[24px] leading-[74px] tracking-[-0.01em] text-black">
-    United States of America
-  </Text>
-
-  {/* Contact Info */}
-  {/* Phone */}
-  <View className="absolute left-6 top-[180px] flex flex-row items-center gap-3 space-y-2">
-    {/* <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-2">
-      <Image source={{ uri: "/phone.svg" }} alt="Phone" className="w-4 h-4" resizeMode="contain" />
-    </View>
-    <Text className="font-helvetica font-normal text-[16px] leading-[44px] text-black">
-      +1 234 567 8900
-    </Text> */}
-  </View>
-
-  {/* Email */}
-  <View className="absolute left-6 top-[225px] flex flex-row items-center gap-3 space-y-6">
-    <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-6">
-      <Image source={{ uri: "/mail.svg" }} alt="Email" className="w-4 h-4" resizeMode="contain" />
-    </View>
-    <Text className="font-helvetica font-normal text-[16px] leading-[44px] text-black">
-      USA@fulfilx.co.uk
-    </Text>
-  </View>
-
-  {/* Address */}
-  <View className="absolute left-6 top-[270px] flex flex-row items-center gap-3 space-y-10">
-    <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-10">
-      <Image source={{ uri: "/map.svg" }} alt="Location" className="w-4 h-4" resizeMode="contain" />
-    </View>
-    <Text className="font-helvetica font-normal text-[16px] leading-[22px] text-black">
-      California/Georgia
-    </Text>
-  </View>
-</View>
-                    {/* UAE Office Card */}
-<View className="relative w-full lg:w-[350px] h-[381px]">
-  {/* Background Card */}
-  <View className="absolute w-full lg:w-[350px] h-[334px] top-[47px] bg-white border border-[rgba(0,0,0,0.1)] backdrop-blur-[12.5px] rounded-[20px]" />
-  
-  {/* Outer Circle */}
-  <View className="absolute w-[124px] h-[124px] left-1/2 transform -translate-x-1/2 top-0 bg-white border border-[rgba(0,0,0,0.1)] rounded-full" />
-  
-  {/* Flag Circle - Full flag in circle, no red background */}
-  <View className="absolute w-[94px] h-[94px] left-1/2 transform -translate-x-1/2 top-[15px] rounded-full overflow-hidden">
-    <Image 
-      source={{ uri: "/rounduae.webp" }}
-      alt="UAE Flag" 
-      className="w-full h-full"
-      resizeMode="cover"
-    />
-  </View>
-
-  {/* Country Name */}
-  <Text className="text-center top-[110px] font-helvetica font-bold text-[24px] leading-[74px] tracking-[-0.01em] text-black">
-    United Arab Emirates
-  </Text>
-
-  {/* Contact Info */}
-  {/* Phone */}
-  <View className="absolute left-6 top-[180px] flex flex-row items-center gap-3 space-y-2">
-    {/* <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-2">
-      <Image source={{ uri: "/phone.svg" }} alt="Phone" className="w-4 h-4" resizeMode="contain" />
-    </View>
-    <Text className="font-helvetica font-normal text-[16px] leading-[44px] text-black">
-      +1 234 567 8900
-    </Text> */}
-  </View>
-
-  {/* Email */}
-  <View className="absolute left-6 top-[225px] flex flex-row items-center gap-3 space-y-6">
-    <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-6">
-      <Image source={{ uri: "/mail.svg" }} alt="Email" className="w-4 h-4" resizeMode="contain" />
-    </View>
-    <Text className="font-helvetica font-normal text-[16px] leading-[44px] text-black">
-      UAE@fulfilx.co.uk
-    </Text>
-  </View>
-
-  {/* Address */}
-  <View className="absolute left-6 top-[270px] flex flex-row items-center gap-3 space-y-10">
-    <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-10">
-      <Image source={{ uri: "/map.svg" }} alt="Location" className="w-4 h-4" resizeMode="contain" />
-    </View>
-    <Text className="font-helvetica font-normal text-[16px] leading-[22px] text-black">
-      Dubai
-    </Text>
-  </View>
-</View>
-
-</View>
-{/* Cards Container */}
-<View className="flex flex-row flex-wrap justify-center items-start gap-8 px-4 lg:px-8 mt-5">
-                      {/* Saudi Office Card */}
-<View className="relative w-full lg:w-[350px] h-[381px]">
-  {/* Background Card */}
-  <View className="absolute w-full lg:w-[350px] h-[334px] top-[47px] bg-white border border-[rgba(0,0,0,0.1)] backdrop-blur-[12.5px] rounded-[20px]" />
-  
-  {/* Outer Circle */}
-  <View className="absolute w-[124px] h-[124px] left-1/2 transform -translate-x-1/2 top-0 bg-white border border-[rgba(0,0,0,0.1)] rounded-full" />
-  
-  {/* Flag Circle - Full flag in circle, no red background */}
-  <View className="absolute w-[94px] h-[94px] left-1/2 transform -translate-x-1/2 top-[15px] rounded-full overflow-hidden">
-    <Image 
-      source={{ uri: "/roundsaudi.webp" }}
-      alt="Saudi Flag" 
-      className="w-full h-full"
-      resizeMode="cover"
-    />
-  </View>
-
-  {/* Country Name */}
-  <Text className=" text-center top-[110px] font-helvetica font-bold text-[24px] leading-[74px] tracking-[-0.01em] text-black">
-    Saudi Arabia 
-  </Text>
-
-  {/* Contact Info */}
-  {/* Phone */}
-  <View className="absolute left-6 top-[180px] flex flex-row items-center gap-3 space-y-2">
-    {/* <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-2">
-      <Image source={{ uri: "/phone.svg" }} alt="Phone" className="w-4 h-4" resizeMode="contain" />
-    </View>
-    <Text className="font-helvetica font-normal text-[16px] leading-[44px] text-black">
-      +1 234 567 8900
-    </Text> */}
-  </View>
-
-  {/* Email */}
-  <View className="absolute left-6 top-[225px] flex flex-row items-center gap-3 space-y-6">
-    <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-6">
-      <Image source={{ uri: "/mail.svg" }} alt="Email" className="w-4 h-4" resizeMode="contain" />
-    </View>
-    <Text className="font-helvetica font-normal text-[16px] leading-[44px] text-black">
-      Saudi@fulfilx.co.uk
-    </Text>
-  </View>
-
-  {/* Address */}
-  <View className="absolute left-6 top-[270px] flex flex-row items-center gap-3 space-y-10">
-    <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-10">
-      <Image source={{ uri: "/map.svg" }} alt="Location" className="w-4 h-4" resizeMode="contain" />
-    </View>
-    <Text className="font-helvetica font-normal text-[16px] leading-[22px] text-black">
-      Riyadh
-    </Text>
-  </View>
-</View>
-                    {/* Bahrain Office Card */}
-<View className="relative w-full lg:w-[350px] h-[381px]">
-  {/* Background Card */}
-  <View className="absolute w-full lg:w-[350px] h-[334px] top-[47px] bg-white border border-[rgba(0,0,0,0.1)] backdrop-blur-[12.5px] rounded-[20px]" />
-  
-  {/* Outer Circle */}
-  <View className="absolute w-[124px] h-[124px] left-1/2 transform -translate-x-1/2 top-0 bg-white border border-[rgba(0,0,0,0.1)] rounded-full" />
-  
-  {/* Flag Circle - Full flag in circle, no red background */}
-  <View className="absolute w-[94px] h-[94px] left-1/2 transform -translate-x-1/2 top-[15px] rounded-full overflow-hidden">
-    <Image 
-      source={{ uri: "/roundb.webp" }}
-      alt="Bahrain Flag" 
-      className="w-full h-full"
-      resizeMode="cover"
-    />
-  </View>
-
-  {/* Country Name */}
-  <Text className="text-center top-[110px] font-helvetica font-bold text-[24px] leading-[74px] tracking-[-0.01em] text-black">
-    Bahrain
-  </Text>
-
-  {/* Contact Info */}
-  {/* Phone */}
-  <View className="absolute left-6 top-[180px] flex flex-row items-center gap-3 space-y-2">
-    {/* <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-2">
-      <Image source={{ uri: "/phone.svg" }} alt="Phone" className="w-4 h-4" resizeMode="contain" />
-    </View>
-    <Text className="font-helvetica font-normal text-[16px] leading-[44px] text-black">
-      +1 234 567 8900
-    </Text> */}
-  </View>
-
-  {/* Email */}
-  <View className="absolute left-6 top-[225px] flex flex-row items-center gap-3 space-y-6">
-    <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-6">
-      <Image source={{ uri: "/mail.svg" }} alt="Email" className="w-4 h-4" resizeMode="contain" />
-    </View>
-    <Text className="font-helvetica font-normal text-[16px] leading-[44px] text-black">
-      Bahrain@fulfilx.co.uk
-    </Text>
-  </View>
-
-  {/* Address */}
-  <View className="absolute left-6 top-[270px] flex flex-row items-center gap-3 space-y-10">
-    <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-10">
-      <Image source={{ uri: "/map.svg" }} alt="Location" className="w-4 h-4" resizeMode="contain" />
-    </View>
-    <Text className="font-helvetica font-normal text-[16px] leading-[22px] text-black">
-      Manama
-    </Text>
-  </View>
-</View>
-                    {/* Australia Office Card */}
-<View className="relative w-full lg:w-[350px] h-[381px]">
-  {/* Background Card */}
-  <View className="absolute w-full lg:w-[350px] h-[334px] top-[47px] bg-white border border-[rgba(0,0,0,0.1)] backdrop-blur-[12.5px] rounded-[20px]" />
-  
-  {/* Outer Circle */}
-  <View className="absolute w-[124px] h-[124px] left-1/2 transform -translate-x-1/2 top-0 bg-white border border-[rgba(0,0,0,0.1)] rounded-full" />
-  
-  {/* Flag Circle - Full flag in circle, no red background */}
-  <View className="absolute w-[94px] h-[94px] left-1/2 transform -translate-x-1/2 top-[15px] rounded-full overflow-hidden">
-    <Image 
-      source={{ uri: "/roundaus.webp" }}
-      alt="Australia Flag" 
-      className="w-full h-full"
-      resizeMode="cover"
-    />
-  </View>
-
-  {/* Country Name */}
-  <Text className="text-center top-[110px] font-helvetica font-bold text-[24px] leading-[74px] tracking-[-0.01em] text-black">
-    Australia
-  </Text>
-
-  {/* Contact Info */}
-  {/* Phone */}
-  <View className="absolute left-6 top-[180px] flex flex-row items-center gap-3 space-y-2">
-    {/* <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-2">
-      <Image source={{ uri: "/phone.svg" }} alt="Phone" className="w-4 h-4" resizeMode="contain" />
-    </View>
-    <Text className="font-helvetica font-normal text-[16px] leading-[44px] text-black">
-      +1 234 567 8900
-    </Text> */}
-  </View>
-
-  {/* Email */}
-  <View className="absolute left-6 top-[225px] flex flex-row items-center gap-3 space-y-6">
-    <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-6">
-      <Image source={{ uri: "/mail.svg" }} alt="Email" className="w-4 h-4" resizeMode="contain" />
-    </View>
-    <Text className="font-helvetica font-normal text-[16px] leading-[44px] text-black">
-      Australia@fulfilx.co.uk
-    </Text>
-  </View>
-
-  {/* Address */}
-  <View className="absolute left-6 top-[270px] flex flex-row items-center gap-3 space-y-10">
-    <View className="w-[42px] h-[42px] bg-[#C10016] rounded-full flex items-center justify-center mt-10">
-      <Image source={{ uri: "/map.svg" }} alt="Location" className="w-4 h-4" resizeMode="contain" />
-    </View>
-    <Text className="font-helvetica font-normal text-[16px]  leading-[22px] text-black flex-1 justify-center items-center text-center">
-      Melbourne
-    </Text>
-  </View>
-</View>
-
-</View>
+          {locations.map((loc, index) => (
+            <LocationCard key={index} loc={loc} flagUri={getFlagUri(loc, index)} />
+          ))}
         </View>
 
         <section className="relative w-full bg-white overflow-hidden mt-20">

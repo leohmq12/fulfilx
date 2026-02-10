@@ -1,14 +1,33 @@
+import AwardsAccreditations from '@/components/layout/awards-accreditations';
 import Footer from '@/components/layout/footer';
 import Navbar from '@/components/layout/navbar';
+import { useContentList } from '@/hooks/useContent';
 import { Stack } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
 import { ScrollView, Text, useWindowDimensions, View } from 'react-native';
+
+type PartnerRecord = { name?: string; logo?: string; category?: string; url?: string };
+
+const FALLBACK_ABOUT_LOGOS_ROW1 = [{ src: '/couires/amazon.webp', alt: 'Amazon' }, { src: '/shopify.webp', alt: 'Shopify' }, { src: '/tiktok.webp', alt: 'TikTok' }];
+const FALLBACK_ABOUT_LOGOS_ROW2 = [{ src: '/ebay.webp', alt: 'eBay' }, { src: '/magento.webp', alt: 'Magento' }, { src: '/etsy.webp', alt: 'Etsy' }, { src: '/woo.webp', alt: 'WooCommerce' }];
+const FALLBACK_ABOUT_LOGOS_ROW3 = [{ src: '/onbuy.webp', alt: 'OnBuy' }, { src: '/dpd.webp', alt: 'DPD' }, { src: '/shipstation.webp', alt: 'ShipStation' }];
 
 export default function AboutUsScreen(){
     const [currentSlide, setCurrentSlide] = useState(0);
     const [isPaused, setIsPaused] = useState(false);
     const carouselRef = useRef<HTMLDivElement>(null);
     const { width } = useWindowDimensions();
+    const { data: partnersData } = useContentList<PartnerRecord[]>('partner', []);
+    const partnersArray = Array.isArray(partnersData) ? partnersData : [];
+    const integrationRetail = partnersArray.filter((p) => (p.category ?? '') === 'Integration' || (p.category ?? '') === 'Retail');
+    const allLogos = integrationRetail.length > 0
+      ? integrationRetail.map((p) => ({ src: p.logo ?? '', alt: p.name ?? 'Partner' }))
+      : [...FALLBACK_ABOUT_LOGOS_ROW1, ...FALLBACK_ABOUT_LOGOS_ROW2, ...FALLBACK_ABOUT_LOGOS_ROW3];
+    const perRow = Math.max(1, Math.ceil(allLogos.length / 3));
+    const row1Logos = allLogos.slice(0, perRow);
+    const row2Logos = allLogos.slice(perRow, perRow * 2);
+    const row3Logos = allLogos.slice(perRow * 2, perRow * 3);
+
     const testimonials = [
       { image: '/partners/5.webp', alt: 'Partner 5' },
       { image: '/partners/6.webp', alt: 'Partner 6' },
@@ -22,24 +41,6 @@ export default function AboutUsScreen(){
       { image: '/partners/15.webp', alt: 'Partner 15' },
       { image: '/partners/16.webp', alt: 'Partner 16' }
     ];
-    const row1Logos = [
-        { src: "/couires/amazon.webp", alt: "Amazon" },
-        { src: "/shopify.webp", alt: "Shopify" },
-        { src: "/tiktok.webp", alt: "TikTok" }
-      ];
-    
-      const row2Logos = [
-        { src: "/ebay.webp", alt: "eBay" },
-        { src: "/magento.webp", alt: "Magento" },
-        { src: "/etsy.webp", alt: "Etsy" },
-        { src: "/woo.webp", alt: "WooCommerce" }
-      ];
-    
-      const row3Logos = [
-        { src: "/onbuy.webp", alt: "OnBuy" },
-        { src: "/dpd.webp", alt: "DPD" },
-        { src: "/shipstation.webp", alt: "ShipStation" }
-      ];
     
     
       const nextSlide = () => {
@@ -880,55 +881,7 @@ can build a greener future while achieving your logistics goals.
 </View>
   );
 })()}
-{/* Accomplishments Section */}
-        <section className="relative w-full">
-          {/* Two Column Layout */}
-          <div className="flex flex-col lg:flex-row">
-            
-            {/* Left Section - White Background */}
-            <div className="w-full lg:w-1/2 bg-white relative min-h-[400px] lg:min-h-[520px] flex items-center justify-center py-12 lg:py-0">
-              <img src="/bg.webp" alt="" className="absolute inset-0 w-full h-full object-cover" />
-              {/* Left Section Content - Centered */}
-              <div className="max-w-[740px] w-full text-center px-8">
-                
-                {/* Heading */}
-                <h2 className="font-bold text-3xl lg:text-[42px] leading-tight lg:leading-[54px] tracking-tight text-black mb-8">
-                  Our Awards
-                </h2>
-
-                {/* Red Line - Centered */}
-                <div className="w-[100px] h-[1px] bg-[#C10016] mx-auto mb-12"></div>
-
-                {/* Image Grid - Centered */}
-                <div className="flex flex-row flex-wrap justify-center gap-6 lg:gap-8 mb-12">
-            <div className="w-[160px] h-[160px] lg:w-[240px] lg:h-[240px] bg-cover bg-center" style={{backgroundImage: 'url(/award1.webp)'}}></div>
-            <div className="w-[160px] h-[160px] lg:w-[240px] lg:h-[240px] bg-cover bg-center" style={{backgroundImage: 'url(/award2.webp)'}}></div>
-               </div>
-              </div>
-            </div>
-
-            {/* Right Section - Red Background */}
-            <div className="w-full lg:w-1/2 bg-[#DA192F] relative min-h-[400px] lg:min-h-[520px] flex items-center justify-center py-12 lg:py-0">
-              {/* Right Section Content - Centered */}
-              <div className="max-w-[650px] w-full text-center px-8">
-                
-                {/* Heading */}
-                <h2 className="font-bold text-3xl lg:text-[42px] leading-tight lg:leading-[54px] tracking-tight text-white mb-8">
-                  Accreditations
-                </h2>
-
-                {/* White Line - Centered */}
-                <div className="w-[100px] h-[1px] bg-white mx-auto mb-12"></div>
-
-                {/* CTA Button - Centered */}
-                <button className="border border-white rounded-[6px] flex items-center justify-center gap-[10px] px-8 py-4 transition-colors duration-300 mx-auto">
-                  <span className="text-white font-bold text-[18px] leading-[36px]">Let&apos;s Talk</span>
-                  <img src="/arrow.svg" alt="arrow" className="w-4 h-4 object-contain" />
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
+<AwardsAccreditations/>
         <Footer/>
       </ScrollView>
     </>

@@ -64,3 +64,8 @@ Expo exports the site to a static folder (typically `dist/`). Deploy that folder
 
 - This project is configured for web output (`app.json` sets platforms to `web`).
 - Routes are file-based; add or edit pages inside `app/`.
+
+
+php -S localhost:8000 -t public public/router.php
+
+npx expo start --web

@@ -1,37 +1,43 @@
 import Footer from '@/components/layout/footer';
 import Navbar from '@/components/layout/navbar';
+import { useContentList } from '@/hooks/useContent';
 import { Stack, useRouter } from 'expo-router';
 import { Image, ScrollView, Text, useWindowDimensions, View } from 'react-native';
+
+type PartnerRecord = { name?: string; logo?: string; category?: string; url?: string };
+
+const FALLBACK_COURIER_LOGOS = [
+  { src: "/couires/amazon.webp", alt: "Amazon" },
+  { src: "/couires/logosDHL.webp", alt: "DHL" },
+  { src: "/couires/logos%20%20dpd%20%282%29.webp", alt: "DPD" },
+  { src: "/couires/logos%20%20evri%20%281%29.webp", alt: "Evri" },
+  { src: "/couires/logos%20ROYAL%20mail.webp", alt: "Royal Mail" },
+  { src: "/couires/logo%20anpost.webp", alt: "An Post" },
+  { src: "/couires/logo%20%20emx.webp", alt: "EMX" },
+  { src: "/couires/logo%20fedx.webp", alt: "FedEx" },
+  { src: "/couires/logo%20inpost.webp", alt: "InPost" },
+  { src: "/couires/logo%20postnl.webp", alt: "PostNL" },
+  { src: "/couires/logos%20%20pro%20carrier%20%281%29.webp", alt: "Pro Carrier" },
+  { src: "/couires/logo%20samos.webp", alt: "Samos" },
+  { src: "/couires/logo%20ups.webp", alt: "UPS" },
+  { src: "/couires/logo%20xpres.webp", alt: "Xpress" },
+  { src: "/couires/logos%20yodel.webp", alt: "Yodel" },
+];
 
 export default function OurCouriersScreen() {
     const { width } = useWindowDimensions();
     const isMobile = width < 1024;
     const router = useRouter();
-
-    const row1Logos = [
-        { src: "/couires/amazon.webp", alt: "Amazon" },
-        { src: "/couires/logosDHL.webp", alt: "DHL" },
-        { src: "/couires/logos%20%20dpd%20%282%29.webp", alt: "DPD" },
-        { src: "/couires/logos%20%20evri%20%281%29.webp", alt: "Evri" },
-        { src: "/couires/logos%20ROYAL%20mail.webp", alt: "Royal Mail" },
-        
-    ];
-
-    const row2Logos = [
-        { src: "/couires/logo%20anpost.webp", alt: "An Post" },
-        { src: "/couires/logo%20%20emx.webp", alt: "EMX" },
-        { src: "/couires/logo%20fedx.webp", alt: "FedEx" },
-        { src: "/couires/logo%20inpost.webp", alt: "InPost" },
-        { src: "/couires/logo%20postnl.webp", alt: "PostNL" },
-    ];
-
-    const row3Logos = [
-        { src: "/couires/logos%20%20pro%20carrier%20%281%29.webp", alt: "Pro Carrier" },
-        { src: "/couires/logo%20samos.webp", alt: "Samos" },
-        { src: "/couires/logo%20ups.webp", alt: "UPS" },
-        { src: "/couires/logo%20xpres.webp", alt: "Xpress" },
-        { src: "/couires/logos%20yodel.webp", alt: "Yodel" },
-    ];
+    const { data: partnersData } = useContentList<PartnerRecord[]>('partner', []);
+    const partnersArray = Array.isArray(partnersData) ? partnersData : [];
+    const courierPartners = partnersArray.filter((p) => (p.category ?? '') === 'Courier');
+    const logoItems = courierPartners.length > 0
+      ? courierPartners.map((p) => ({ src: p.logo ?? '', alt: p.name ?? 'Partner' }))
+      : FALLBACK_COURIER_LOGOS;
+    const perRow = Math.ceil(logoItems.length / 3) || 1;
+    const row1Logos = logoItems.slice(0, perRow);
+    const row2Logos = logoItems.slice(perRow, perRow * 2);
+    const row3Logos = logoItems.slice(perRow * 2, perRow * 3);
 
     return (
         <>

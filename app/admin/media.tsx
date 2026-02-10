@@ -1,3 +1,4 @@
+import { useAdminTheme } from '@/lib/admin-theme-context';
 import { deleteMedia, getMediaFullUrl, listMedia, uploadMedia, updateMedia } from '@/lib/cms-admin';
 import type { MediaItem } from '@/types/cms';
 import { Stack } from 'expo-router';
@@ -5,6 +6,11 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 export default function MediaLibraryScreen() {
+  const { isDark } = useAdminTheme();
+  const bg = isDark ? 'bg-[#111]' : 'bg-gray-50';
+  const cardBg = isDark ? 'bg-[#1a1a1a] border-gray-800' : 'bg-white border-gray-200';
+  const textMain = isDark ? 'text-white' : 'text-gray-900';
+  const textMuted = isDark ? 'text-gray-500' : 'text-gray-500';
   const [media, setMedia] = useState<MediaItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [uploading, setUploading] = useState(false);
@@ -71,15 +77,13 @@ export default function MediaLibraryScreen() {
   return (
     <>
       <Stack.Screen options={{ headerShown: false }} />
-      <View className="flex-1 flex-row bg-[#111]">
-        {/* Main Content */}
+      <View className={`flex-1 flex-row ${bg}`}>
         <ScrollView className="flex-1">
-          <View className="px-6 py-8">
-            {/* Header */}
-            <View className="flex-row items-center justify-between mb-6">
+          <View className="px-4 py-6">
+            <View className="flex-row items-center justify-between mb-4">
               <View>
-                <Text className="text-white font-helvetica-bold text-2xl">Media Library</Text>
-                <Text className="text-gray-500 font-helvetica text-sm mt-1">{media.length} files</Text>
+                <Text className={`font-helvetica-bold text-xl ${textMain}`}>Media Library</Text>
+                <Text className={`font-helvetica text-sm mt-0.5 ${textMuted}`}>{media.length} files</Text>
               </View>
               <TouchableOpacity
                 onPress={() => fileInputRef.current?.click()}
@@ -104,32 +108,27 @@ export default function MediaLibraryScreen() {
               />
             </View>
 
-            {/* Search */}
-            <View className="mb-6">
+            <View className="mb-4">
               <TextInput
                 value={search}
                 onChangeText={setSearch}
                 placeholder="Search files..."
-                placeholderTextColor="#555"
-                className="bg-[#1a1a1a] border border-gray-700 rounded-lg px-4 py-3 text-white font-helvetica text-sm"
+                placeholderTextColor="#888"
+                className={`border rounded-lg px-3 py-2.5 font-helvetica text-sm ${isDark ? 'bg-[#1a1a1a] border-gray-700 text-white' : 'bg-white border-gray-300 text-gray-900'}`}
                 style={{ outlineStyle: 'none' } as any}
               />
             </View>
 
-            {/* Grid */}
             {loading ? (
-              <View className="py-20 items-center">
+              <View className="py-16 items-center">
                 <ActivityIndicator size="large" color="#C10016" />
               </View>
             ) : media.length === 0 ? (
-              <View className="bg-[#1a1a1a] border border-gray-800 rounded-xl p-12 items-center">
-                <Text className="text-gray-500 text-5xl mb-4">🖼️</Text>
-                <Text className="text-gray-400 font-helvetica-bold text-lg mb-2">No media files yet</Text>
-                <Text className="text-gray-600 font-helvetica text-sm text-center mb-2">
-                  This is normal when you haven’t uploaded anything yet. Click “Upload Files” to add images, videos, or PDFs.
-                </Text>
-                <Text className="text-gray-700 font-helvetica text-xs text-center">
-                  Files you upload here can be used in content (e.g. blog images, team photos).
+              <View className={`${cardBg} border rounded-lg p-10 items-center`}>
+                <Text className={`text-4xl mb-3 ${textMuted}`}>🖼️</Text>
+                <Text className={`font-helvetica-bold text-base mb-1 ${textMain}`}>No media files yet</Text>
+                <Text className={`font-helvetica text-sm text-center ${textMuted}`}>
+                  Upload files to add images, videos, or PDFs for use in content.
                 </Text>
               </View>
             ) : (
@@ -141,8 +140,8 @@ export default function MediaLibraryScreen() {
                       setSelectedItem(item);
                       setEditAlt(item.alt_text);
                     }}
-                    className={`bg-[#1a1a1a] border rounded-lg overflow-hidden ${
-                      selectedItem?.id === item.id ? 'border-[#C10016]' : 'border-gray-800'
+                    className={`${cardBg} border rounded-lg overflow-hidden ${
+                      selectedItem?.id === item.id ? 'border-[#C10016]' : isDark ? 'border-gray-800' : 'border-gray-200'
                     }`}
                     style={{ width: 160, height: 160 }}
                     activeOpacity={0.7}
@@ -154,12 +153,12 @@ export default function MediaLibraryScreen() {
                         style={{ width: '100%', height: 120, objectFit: 'cover' }}
                       />
                     ) : (
-                      <View style={{ height: 120 }} className="items-center justify-center bg-gray-800">
+                      <View style={{ height: 120 }} className={`items-center justify-center ${isDark ? 'bg-gray-800' : 'bg-gray-100'}`}>
                         <Text className="text-3xl">📄</Text>
                       </View>
                     )}
                     <View className="p-2">
-                      <Text className="text-gray-400 text-xs font-helvetica" numberOfLines={1}>
+                      <Text className={`text-xs font-helvetica ${textMuted}`} numberOfLines={1}>
                         {item.original_name}
                       </Text>
                     </View>
@@ -170,19 +169,17 @@ export default function MediaLibraryScreen() {
           </View>
         </ScrollView>
 
-        {/* Detail Panel */}
         {selectedItem && (
-          <View className="w-80 bg-[#1a1a1a] border-l border-gray-800 p-5">
-            <View className="flex-row items-center justify-between mb-4">
-              <Text className="text-white font-helvetica-bold text-sm">File Details</Text>
+          <View className={`w-80 p-4 border-l ${isDark ? 'bg-[#1a1a1a] border-gray-800' : 'bg-white border-gray-200'}`}>
+            <View className="flex-row items-center justify-between mb-3">
+              <Text className={`font-helvetica-bold text-sm ${textMain}`}>File Details</Text>
               <TouchableOpacity onPress={() => setSelectedItem(null)}>
-                <Text className="text-gray-500 text-lg">✕</Text>
+                <Text className={`text-lg ${textMuted}`}>✕</Text>
               </TouchableOpacity>
             </View>
 
-            {/* Preview */}
             {selectedItem.mime_type.startsWith('image/') && (
-              <View className="bg-[#111] rounded-lg p-2 mb-4">
+              <View className={`rounded-lg p-2 mb-3 ${isDark ? 'bg-[#111]' : 'bg-gray-100'}`}>
                 <img
                   src={getMediaFullUrl(selectedItem.url)}
                   alt={selectedItem.alt_text || selectedItem.original_name}
@@ -191,74 +188,69 @@ export default function MediaLibraryScreen() {
               </View>
             )}
 
-            {/* Info */}
-            <View className="gap-3 mb-4">
+            <View className="gap-2 mb-3">
               <View>
-                <Text className="text-gray-500 text-xs font-helvetica mb-0.5">Filename</Text>
-                <Text className="text-white text-sm font-helvetica" selectable>{selectedItem.original_name}</Text>
+                <Text className={`text-xs font-helvetica mb-0.5 ${textMuted}`}>Filename</Text>
+                <Text className={`text-sm font-helvetica selectable ${textMain}`}>{selectedItem.original_name}</Text>
               </View>
               <View>
-                <Text className="text-gray-500 text-xs font-helvetica mb-0.5">URL</Text>
-                <Text className="text-blue-400 text-xs font-helvetica" selectable>{getMediaFullUrl(selectedItem.url)}</Text>
+                <Text className={`text-xs font-helvetica mb-0.5 ${textMuted}`}>URL</Text>
+                <Text className="text-blue-600 text-xs font-helvetica selectable">{getMediaFullUrl(selectedItem.url)}</Text>
               </View>
               <View className="flex-row gap-4">
                 <View>
-                  <Text className="text-gray-500 text-xs font-helvetica mb-0.5">Size</Text>
-                  <Text className="text-gray-300 text-sm font-helvetica">{formatSize(selectedItem.size)}</Text>
+                  <Text className={`text-xs font-helvetica mb-0.5 ${textMuted}`}>Size</Text>
+                  <Text className={`text-sm font-helvetica ${textMain}`}>{formatSize(selectedItem.size)}</Text>
                 </View>
                 {selectedItem.width && selectedItem.height && (
                   <View>
-                    <Text className="text-gray-500 text-xs font-helvetica mb-0.5">Dimensions</Text>
-                    <Text className="text-gray-300 text-sm font-helvetica">
-                      {selectedItem.width} × {selectedItem.height}
-                    </Text>
+                    <Text className={`text-xs font-helvetica mb-0.5 ${textMuted}`}>Dimensions</Text>
+                    <Text className={`text-sm font-helvetica ${textMain}`}>{selectedItem.width} × {selectedItem.height}</Text>
                   </View>
                 )}
               </View>
               <View>
-                <Text className="text-gray-500 text-xs font-helvetica mb-0.5">Type</Text>
-                <Text className="text-gray-300 text-sm font-helvetica">{selectedItem.mime_type}</Text>
+                <Text className={`text-xs font-helvetica mb-0.5 ${textMuted}`}>Type</Text>
+                <Text className={`text-sm font-helvetica ${textMain}`}>{selectedItem.mime_type}</Text>
               </View>
             </View>
 
-            {/* Alt Text */}
-            <View className="mb-4">
-              <Text className="text-gray-400 text-xs font-helvetica mb-1">Alt Text</Text>
+            <View className="mb-3">
+              <Text className={`text-xs font-helvetica mb-1 ${textMuted}`}>Alt Text</Text>
               <TextInput
                 value={editAlt}
                 onChangeText={setEditAlt}
                 placeholder="Describe this image..."
-                placeholderTextColor="#555"
-                className="bg-[#111] border border-gray-700 rounded-lg px-3 py-2 text-white font-helvetica text-sm mb-2"
+                placeholderTextColor="#888"
+                className={`rounded-lg px-3 py-2 font-helvetica text-sm mb-2 ${isDark ? 'bg-[#111] border border-gray-700 text-white' : 'bg-gray-50 border border-gray-300 text-gray-900'}`}
                 style={{ outlineStyle: 'none' } as any}
               />
               <TouchableOpacity
                 onPress={handleUpdateAlt}
-                className="bg-gray-700 rounded-lg py-2 items-center"
+                className={`rounded-lg py-2 items-center ${isDark ? 'bg-gray-700' : 'bg-gray-200'}`}
                 activeOpacity={0.7}
               >
-                <Text className="text-white text-xs font-helvetica">Save Alt Text</Text>
+                <Text className={`text-xs font-helvetica ${isDark ? 'text-white' : 'text-gray-800'}`}>Save Alt Text</Text>
               </TouchableOpacity>
             </View>
 
-            {/* Actions */}
             <View className="gap-2">
               <TouchableOpacity
                 onPress={() => {
                   navigator.clipboard.writeText(getMediaFullUrl(selectedItem.url));
                   alert('URL copied to clipboard!');
                 }}
-                className="bg-gray-700 rounded-lg py-2.5 items-center"
+                className={`rounded-lg py-2 items-center ${isDark ? 'bg-gray-700' : 'bg-gray-200'}`}
                 activeOpacity={0.7}
               >
-                <Text className="text-white text-sm font-helvetica">Copy URL</Text>
+                <Text className={`text-sm font-helvetica ${isDark ? 'text-white' : 'text-gray-800'}`}>Copy URL</Text>
               </TouchableOpacity>
               <TouchableOpacity
                 onPress={() => handleDelete(selectedItem)}
-                className="bg-red-900/20 border border-red-900 rounded-lg py-2.5 items-center"
+                className="bg-red-50 border border-red-200 rounded-lg py-2 items-center"
                 activeOpacity={0.7}
               >
-                <Text className="text-red-400 text-sm font-helvetica">Delete</Text>
+                <Text className="text-red-600 text-sm font-helvetica">Delete</Text>
               </TouchableOpacity>
             </View>
           </View>

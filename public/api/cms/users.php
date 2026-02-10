@@ -39,8 +39,8 @@ try {
             jsonResponse(['ok' => false, 'error' => 'Password must be at least 8 characters'], 400);
         }
 
-        if (!in_array($role, ['admin', 'editor'])) {
-            jsonResponse(['ok' => false, 'error' => 'Role must be admin or editor'], 400);
+        if (!in_array($role, ['admin', 'editor', 'developer'])) {
+            jsonResponse(['ok' => false, 'error' => 'Role must be admin, editor, or developer'], 400);
         }
 
         // Check if email exists
@@ -82,8 +82,8 @@ try {
         $role = $body['role'] ?? $user['role'];
         $isActive = isset($body['is_active']) ? intval($body['is_active']) : $user['is_active'];
 
-        if (!in_array($role, ['admin', 'editor'])) {
-            jsonResponse(['ok' => false, 'error' => 'Role must be admin or editor'], 400);
+        if (!in_array($role, ['admin', 'editor', 'developer'])) {
+            jsonResponse(['ok' => false, 'error' => 'Role must be admin, editor, or developer'], 400);
         }
 
         // Check email uniqueness if changed

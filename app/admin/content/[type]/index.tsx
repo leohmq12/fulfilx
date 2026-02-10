@@ -1,4 +1,5 @@
 import ContentForm from '@/components/admin/content-form';
+import { useAdminTheme } from '@/lib/admin-theme-context';
 import { createContent, listContent, updateContent, deleteContent } from '@/lib/cms-admin';
 import { getContentType } from '@/lib/content-types';
 import type { ContentEntry } from '@/types/cms';
@@ -9,7 +10,14 @@ import { ActivityIndicator, ScrollView, Text, TouchableOpacity, View } from 'rea
 export default function ContentTypeScreen() {
   const { type } = useLocalSearchParams<{ type: string }>();
   const router = useRouter();
+  const { isDark } = useAdminTheme();
   const contentType = getContentType(type || '');
+
+  const bg = isDark ? 'bg-[#111]' : 'bg-gray-50';
+  const cardBg = isDark ? 'bg-[#1a1a1a] border-gray-800' : 'bg-white border-gray-200';
+  const textMain = isDark ? 'text-white' : 'text-gray-900';
+  const textMuted = isDark ? 'text-gray-500' : 'text-gray-500';
+  const borderCard = isDark ? 'border-gray-800' : 'border-gray-200';
 
   const [entries, setEntries] = useState<ContentEntry[]>([]);
   const [loading, setLoading] = useState(true);
@@ -35,8 +43,8 @@ export default function ContentTypeScreen() {
 
   if (!contentType) {
     return (
-      <View className="flex-1 bg-[#111] items-center justify-center">
-        <Text className="text-red-400 font-helvetica text-lg">Content type "{type}" not found</Text>
+      <View className={`flex-1 ${bg} items-center justify-center`}>
+        <Text className="text-red-500 font-helvetica text-lg">Content type "{type}" not found</Text>
       </View>
     );
   }
@@ -64,7 +72,7 @@ export default function ContentTypeScreen() {
 
     if (loading) {
       return (
-        <View className="flex-1 bg-[#111] items-center justify-center">
+        <View className={`flex-1 ${bg} items-center justify-center`}>
           <ActivityIndicator size="large" color="#C10016" />
         </View>
       );
@@ -88,19 +96,18 @@ export default function ContentTypeScreen() {
   return (
     <>
       <Stack.Screen options={{ headerShown: false }} />
-      <ScrollView className="flex-1 bg-[#111]">
-        <View className="max-w-5xl w-full mx-auto px-6 py-8">
-          {/* Header */}
-          <View className="flex-row items-center justify-between mb-6">
+      <ScrollView className={`flex-1 ${bg}`}>
+        <View className="max-w-5xl w-full mx-auto px-4 py-6">
+          <View className="flex-row items-center justify-between mb-4">
             <View>
-              <Text className="text-white font-helvetica-bold text-2xl">
+              <Text className={`font-helvetica-bold text-xl ${textMain}`}>
                 {contentType.icon} {contentType.namePlural}
               </Text>
-              <Text className="text-gray-500 font-helvetica text-sm mt-1">{contentType.description}</Text>
+              <Text className={`font-helvetica text-sm mt-0.5 ${textMuted}`}>{contentType.description}</Text>
             </View>
             <TouchableOpacity
               onPress={() => router.push(`/admin/content/${type}/create` as any)}
-              className="bg-[#C10016] rounded-lg px-5 py-3"
+              className="bg-[#C10016] rounded-lg px-4 py-2.5"
               activeOpacity={0.7}
             >
               <Text className="text-white font-helvetica-bold text-sm">+ New {contentType.name}</Text>
@@ -108,27 +115,27 @@ export default function ContentTypeScreen() {
           </View>
 
           {error ? (
-            <View className="bg-red-900/30 border border-red-800 rounded-lg p-3 mb-4">
-              <Text className="text-red-400 text-sm font-helvetica">{error}</Text>
+            <View className="bg-red-50 border border-red-200 rounded-lg p-3 mb-4">
+              <Text className="text-red-600 text-sm font-helvetica">{error}</Text>
             </View>
           ) : null}
 
           {loading ? (
-            <View className="py-20 items-center">
+            <View className="py-16 items-center">
               <ActivityIndicator size="large" color="#C10016" />
             </View>
           ) : entries.length === 0 ? (
-            <View className="bg-[#1a1a1a] border border-gray-800 rounded-xl p-12 items-center">
-              <Text className="text-gray-500 text-5xl mb-4">{contentType.icon}</Text>
-              <Text className="text-gray-400 font-helvetica-bold text-lg mb-2">
+            <View className={`${cardBg} border rounded-lg p-10 items-center ${borderCard}`}>
+              <Text className={`text-4xl mb-3 ${textMuted}`}>{contentType.icon}</Text>
+              <Text className={`font-helvetica-bold text-base mb-1 ${textMain}`}>
                 No {contentType.namePlural.toLowerCase()} yet
               </Text>
-              <Text className="text-gray-600 font-helvetica text-sm mb-6">
+              <Text className={`font-helvetica text-sm mb-4 ${textMuted}`}>
                 Create your first {contentType.name.toLowerCase()} to get started.
               </Text>
               <TouchableOpacity
                 onPress={() => router.push(`/admin/content/${type}/create` as any)}
-                className="bg-[#C10016] rounded-lg px-6 py-3"
+                className="bg-[#C10016] rounded-lg px-5 py-2.5"
                 activeOpacity={0.7}
               >
                 <Text className="text-white font-helvetica-bold text-sm">+ Create {contentType.name}</Text>
@@ -136,16 +143,14 @@ export default function ContentTypeScreen() {
             </View>
           ) : (
             <View className="gap-2">
-              {/* Table Header */}
-              <View className="flex-row px-4 py-2">
-                <Text className="text-gray-500 text-xs font-helvetica-bold uppercase flex-1">Title / Name</Text>
-                <Text className="text-gray-500 text-xs font-helvetica-bold uppercase w-24 text-center">Status</Text>
-                <Text className="text-gray-500 text-xs font-helvetica-bold uppercase w-32 text-center">Updated</Text>
-                <Text className="text-gray-500 text-xs font-helvetica-bold uppercase w-20 text-center">Order</Text>
+              <View className="flex-row px-3 py-2">
+                <Text className={`text-xs font-helvetica-bold uppercase flex-1 ${textMuted}`}>Title / Name</Text>
+                <Text className={`text-xs font-helvetica-bold uppercase w-24 text-center ${textMuted}`}>Status</Text>
+                <Text className={`text-xs font-helvetica-bold uppercase w-28 text-center ${textMuted}`}>Updated</Text>
+                <Text className={`text-xs font-helvetica-bold uppercase w-16 text-center ${textMuted}`}>Order</Text>
               </View>
 
               {entries.map((entry) => {
-                // Try to extract a display title from the data
                 const data = entry.data || {};
                 const displayTitle = data.title
                   ? (Array.isArray(data.title) ? data.title.map((t: any) => typeof t === 'string' ? t : t.line).join(' ') : data.title)
@@ -155,38 +160,36 @@ export default function ContentTypeScreen() {
                   <TouchableOpacity
                     key={entry.id}
                     onPress={() => router.push(`/admin/content/${type}/${entry.id}` as any)}
-                    className="bg-[#1a1a1a] border border-gray-800 rounded-lg p-4 flex-row items-center hover:border-gray-600"
+                    className={`${cardBg} border rounded-lg p-3 flex-row items-center ${borderCard}`}
                     activeOpacity={0.7}
                   >
-                    <View className="flex-1">
-                      <Text className="text-white font-helvetica-medium text-sm" numberOfLines={1}>
+                    <View className="flex-1 min-w-0">
+                      <Text className={`font-helvetica-medium text-sm ${textMain}`} numberOfLines={1}>
                         {displayTitle}
                       </Text>
                       {entry.slug && (
-                        <Text className="text-gray-600 text-xs font-helvetica mt-0.5">
-                          /{entry.slug}
-                        </Text>
+                        <Text className={`text-xs font-helvetica mt-0.5 ${textMuted}`}>/{entry.slug}</Text>
                       )}
                     </View>
                     <View className="w-24 items-center">
-                      <View className={`px-2.5 py-1 rounded-full ${
-                        entry.status === 'published' ? 'bg-green-900/30' :
-                        entry.status === 'archived' ? 'bg-gray-700/30' :
-                        'bg-yellow-900/30'
+                      <View className={`px-2 py-0.5 rounded ${
+                        entry.status === 'published' ? (isDark ? 'bg-green-900/30' : 'bg-green-100') :
+                        entry.status === 'archived' ? (isDark ? 'bg-gray-700/30' : 'bg-gray-200') :
+                        isDark ? 'bg-yellow-900/30' : 'bg-amber-100'
                       }`}>
                         <Text className={`text-xs font-helvetica capitalize ${
-                          entry.status === 'published' ? 'text-green-400' :
-                          entry.status === 'archived' ? 'text-gray-400' :
-                          'text-yellow-400'
+                          entry.status === 'published' ? (isDark ? 'text-green-400' : 'text-green-700') :
+                          entry.status === 'archived' ? (isDark ? 'text-gray-400' : 'text-gray-600') :
+                          isDark ? 'text-yellow-400' : 'text-amber-700'
                         }`}>
                           {entry.status}
                         </Text>
                       </View>
                     </View>
-                    <Text className="text-gray-500 text-xs font-helvetica w-32 text-center">
+                    <Text className={`text-xs font-helvetica w-28 text-center ${textMuted}`}>
                       {new Date(entry.updated_at).toLocaleDateString()}
                     </Text>
-                    <Text className="text-gray-600 text-xs font-helvetica w-20 text-center">
+                    <Text className={`text-xs font-helvetica w-16 text-center ${textMuted}`}>
                       {entry.sort_order}
                     </Text>
                   </TouchableOpacity>

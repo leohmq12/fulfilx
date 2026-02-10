@@ -125,7 +125,7 @@ export interface User {
   id: number;
   email: string;
   name: string;
-  role: 'admin' | 'editor';
+  role: 'admin' | 'editor' | 'developer';
   is_active?: number;
   created_at?: string;
   updated_at?: string;
