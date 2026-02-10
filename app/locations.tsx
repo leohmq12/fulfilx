@@ -158,11 +158,12 @@ export default function LocationsScreen() {
           <Text className="text-center font-helvetica font-bold text-4xl lg:text-[64px] leading-tight lg:leading-[74px] tracking-[-0.01em] text-black mb-16 px-4">
             Our Worldwide <Text className='text-[#C10016]'>Branches</Text>
           </Text>
-{/* Cards Container - from CMS Locations */}
-<View className="flex flex-row flex-wrap justify-center items-start gap-8 px-4 lg:px-8">
-          {locations.map((loc, index) => (
-            <LocationCard key={index} loc={loc} flagUri={getFlagUri(loc, index)} />
-          ))}
+          {/* Cards Container - from CMS Locations */}
+          <View className="flex flex-row flex-wrap justify-center items-start gap-8 px-4 lg:px-8">
+            {locations.map((loc, index) => (
+              <LocationCard key={index} loc={loc} flagUri={getFlagUri(loc, index)} />
+            ))}
+          </View>
         </View>
 
         <section className="relative w-full bg-white overflow-hidden mt-20">
