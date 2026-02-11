@@ -79,6 +79,11 @@ try {
         CREATE INDEX IF NOT EXISTS idx_content_type_status ON content_entries(content_type, status);
         CREATE INDEX IF NOT EXISTS idx_versions_entry ON content_versions(entry_id);
         CREATE INDEX IF NOT EXISTS idx_activity_user ON activity_log(user_id);
+
+        CREATE TABLE IF NOT EXISTS settings (
+            key TEXT PRIMARY KEY,
+            value TEXT NOT NULL DEFAULT ''
+        );
     ");
 
     // Create initial admin user if provided

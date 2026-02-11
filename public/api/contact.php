@@ -38,12 +38,17 @@ $payload = [
   "source" => isset($data["source"]) ? $data["source"] : "contact-page",
 ];
 
-$ch = curl_init("https://fulfil-crm--nazstudios.replit.app/api/webhooks/website");
+require_once __DIR__ . '/cms/integration-settings.php';
+$integration = getIntegrationSettings();
+$webhookUrl = $integration['replit_website_url'];
+$apiKey = $integration['replit_website_api_key'];
+
+$ch = curl_init($webhookUrl);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 curl_setopt($ch, CURLOPT_HTTPHEADER, [
   "Content-Type: application/json",
-  "X-API-Key: web_b4281fc9a2de0d11c024bdd243ccc8af845ba5477cc136ce",
+  "X-API-Key: " . $apiKey,
 ]);
 curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($payload));
 

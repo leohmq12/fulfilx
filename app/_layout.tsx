@@ -28,7 +28,7 @@ export default function RootLayout() {
       <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
         <Stack>
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
+          {/* Add Stack.Screen name="modal" when app/modal.tsx exists */}
           {/* Add your team screen if it's not in tabs */}
           <Stack.Screen name="team" options={{ headerShown: false }} />
           {/* CMS Admin */}

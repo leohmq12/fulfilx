@@ -32,12 +32,17 @@ $payload = [
   "source" => isset($data["source"]) ? $data["source"] : "footer",
 ];
 
-$ch = curl_init("https://fulfil-crm--nazstudios.replit.app/api/webhooks/newsletter");
+require_once __DIR__ . '/cms/integration-settings.php';
+$integration = getIntegrationSettings();
+$webhookUrl = $integration['replit_newsletter_url'];
+$apiKey = $integration['replit_newsletter_api_key'];
+
+$ch = curl_init($webhookUrl);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 curl_setopt($ch, CURLOPT_HTTPHEADER, [
   "Content-Type: application/json",
-  "X-API-Key: nws_656be6e3243a33ab05ad56f186fef924858d8798af72b8dc",
+  "X-API-Key: " . $apiKey,
 ]);
 curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($payload));
 

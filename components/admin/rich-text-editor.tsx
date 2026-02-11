@@ -1,8 +1,10 @@
+import MediaPickerModal from '@/components/admin/media-picker-modal';
+import { getMediaFullUrl } from '@/lib/cms-admin';
 import Image from '@tiptap/extension-image';
 import Link from '@tiptap/extension-link';
 import { EditorContent, useEditor } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 interface RichTextEditorProps {
   value: string;
@@ -41,6 +43,8 @@ export default function RichTextEditor({ value, onChange, placeholder }: RichTex
       editor.commands.setContent(value || '');
     }
   }, [value]);
+
+  const [imagePickerOpen, setImagePickerOpen] = useState(false);
 
   if (!editor) return null;
 
@@ -128,7 +132,22 @@ export default function RichTextEditor({ value, onChange, placeholder }: RichTex
               editor.chain().focus().setImage({ src: url }).run();
             }
           }}
-          label="🖼"
+          label="🖼 URL"
+        />
+        <ToolbarButton
+          active={false}
+          onClick={() => setImagePickerOpen(true)}
+          label="🖼 Lib"
+        />
+        <MediaPickerModal
+          visible={imagePickerOpen}
+          onClose={() => setImagePickerOpen(false)}
+          onSelect={(path) => {
+            const src = getMediaFullUrl(path);
+            editor.chain().focus().setImage({ src }).run();
+            setImagePickerOpen(false);
+          }}
+          imagesOnly
         />
         <ToolbarDivider />
         <ToolbarButton

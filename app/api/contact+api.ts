@@ -1,7 +1,7 @@
 const WEBSITE_WEBHOOK_URL =
-  process.env.REPLIT_WEBSITE_URL ?? 'https://fulfil-crm--nazstudios.replit.app/api/webhooks/website';
+  process.env.EXPO_PUBLIC_REPLIT_WEBSITE_URL ?? 'https://ordrcrm.com/api/webhooks/website';
 const WEBSITE_API_KEY =
-  process.env.REPLIT_WEBSITE_API_KEY ?? 'web_b4281fc9a2de0d11c024bdd243ccc8af845ba5477cc136ce';
+  process.env.EXPO_PUBLIC_REPLIT_WEBSITE_API_KEY ?? 'web_b4281fc9a2de0d11c024bdd243ccc8af845ba5477cc136ce';
 
 export async function OPTIONS() {
   return new Response(null, {

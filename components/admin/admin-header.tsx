@@ -6,7 +6,7 @@ import { useAdminTheme } from '@/lib/admin-theme-context';
 import { useAuth } from '@/lib/auth-context';
 import { useRouter, useSegments } from 'expo-router';
 import React, { useState } from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import { Linking, Platform, Text, TouchableOpacity, View } from 'react-native';
 
 interface AdminHeaderProps {
   title?: string;
@@ -60,8 +60,21 @@ export default function AdminHeader({ title, subtitle, onMenuPress }: AdminHeade
         </View>
       </View>
 
-      {/* Right: theme toggle + user */}
+      {/* Right: preview + theme toggle + user */}
       <View className="flex-row items-center gap-1">
+        <TouchableOpacity
+          onPress={() => {
+            const siteUrl = typeof window !== 'undefined' ? `${window.location.origin}/` : '/';
+            if (Platform.OS === 'web' && typeof window !== 'undefined') window.open(siteUrl, '_blank');
+            else Linking.openURL(siteUrl);
+          }}
+          className={`flex-row items-center gap-1.5 p-2 rounded-lg ${hover}`}
+          activeOpacity={0.7}
+          accessibilityLabel="Preview site in new tab"
+        >
+          <Text className="text-lg" aria-hidden>↗</Text>
+          <Text className={`font-helvetica text-sm hidden md:inline ${textMuted}`}>Preview site</Text>
+        </TouchableOpacity>
         <TouchableOpacity
           onPress={toggleTheme}
           className={`p-2 rounded-lg ${hover}`}

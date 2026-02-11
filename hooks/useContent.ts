@@ -64,3 +64,6 @@ export function useContentBySlug<T>(type: string, slug: string, fallback: T): { 
 
   return { data, loading };
 }
+
+// Alias for convenience
+export const useContent = useContentList;

@@ -5,7 +5,12 @@
  */
 import type { ContentEntry } from '@/types/cms';
 
-const CMS_API_URL = process.env.EXPO_PUBLIC_CMS_API_URL || '/api/cms';
+function getCmsApiUrl(): string {
+  if (typeof window === 'undefined' || !window.location?.origin) return process.env.EXPO_PUBLIC_CMS_API_URL || '/api/cms';
+  if (/^https?:\/\/localhost(\d*)(?:\.|$)/i.test(window.location.origin)) return process.env.EXPO_PUBLIC_CMS_API_URL || 'http://localhost:8000/api/cms';
+  return window.location.origin + '/api/cms';
+}
+const CMS_API_URL = getCmsApiUrl();
 const CACHE_TTL = 5 * 60 * 1000; // 5 minutes
 
 interface CacheEntry<T> {

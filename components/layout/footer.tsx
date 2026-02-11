@@ -41,6 +41,7 @@ const FALLBACK_SITE: SiteSettingsData = {
     { label: 'Returns Policy', href: '/return-policy' },
     { label: 'Careers', href: '/team#jobs' },
     { label: 'Our Couriers', href: '/our-couriers' },
+    { label: 'Our Products', href: '/products' },
   ],
   copyright_text: 'Copyright © 2025. FULFIL.X. All rights reserved.',
   newsletter_heading: 'Subscribe to receive FULFIL.X updates',

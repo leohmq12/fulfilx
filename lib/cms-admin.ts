@@ -14,7 +14,12 @@ import type {
   UsersListResponse,
 } from '@/types/cms';
 
-const CMS_API_URL = process.env.EXPO_PUBLIC_CMS_API_URL || '/api/cms';
+function getCmsApiUrl(): string {
+  if (typeof window === 'undefined' || !window.location?.origin) return process.env.EXPO_PUBLIC_CMS_API_URL || '/api/cms';
+  if (/^https?:\/\/localhost(\d*)(?:\.|$)/i.test(window.location.origin)) return process.env.EXPO_PUBLIC_CMS_API_URL || 'http://localhost:8000/api/cms';
+  return window.location.origin + '/api/cms';
+}
+const CMS_API_URL = getCmsApiUrl();
 
 /**
  * Resolve full URL for media files (images, etc.).
@@ -291,4 +296,31 @@ export async function runSeed(): Promise<{
   error?: string;
 }> {
   return apiRequest(`${CMS_API_URL}/seed.php`, { method: 'POST' });
+}
+
+// ─── Integration settings (Replit URL & API keys, admin only) ───────────────
+
+export type IntegrationSettings = {
+  replit_website_url: string;
+  replit_website_api_key: string;
+  replit_newsletter_url: string;
+  replit_newsletter_api_key: string;
+};
+
+export async function getIntegrationSettings(): Promise<{
+  ok: boolean;
+  settings: IntegrationSettings;
+}> {
+  return apiRequest(`${CMS_API_URL}/settings.php`);
+}
+
+export async function updateIntegrationSettings(settings: Partial<IntegrationSettings>): Promise<{
+  ok: boolean;
+  message?: string;
+  error?: string;
+}> {
+  return apiRequest(`${CMS_API_URL}/settings.php`, {
+    method: 'PUT',
+    body: JSON.stringify({ settings }),
+  });
 }

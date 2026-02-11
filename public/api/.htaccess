@@ -1,0 +1,9 @@
+# Force PHP execution for all .php files in /api/ and subdirectories.
+# Without this, some hosts serve .php as plain text and the app gets "<?php ... is not valid JSON".
+<FilesMatch "\.php$">
+  SetHandler application/x-httpd-php
+</FilesMatch>
+# If the above doesn't work, the host may use a different handler; try uncommenting one:
+# SetHandler application/x-httpd-php74
+# SetHandler application/x-httpd-php80
+# AddType application/x-httpd-php .php

@@ -1,8 +1,14 @@
 import { useAdminTheme } from '@/lib/admin-theme-context';
 import { useAuth } from '@/lib/auth-context';
-import { changePassword, runSeed } from '@/lib/cms-admin';
+import {
+  changePassword,
+  getIntegrationSettings,
+  runSeed,
+  updateIntegrationSettings,
+  type IntegrationSettings,
+} from '@/lib/cms-admin';
 import { Stack } from 'expo-router';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ActivityIndicator, ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 export default function SettingsScreen() {
@@ -20,8 +26,23 @@ export default function SettingsScreen() {
   const [success, setSuccess] = useState('');
   const [seeding, setSeeding] = useState(false);
   const [seedMessage, setSeedMessage] = useState('');
+  const [integration, setIntegration] = useState<IntegrationSettings>({
+    replit_website_url: '',
+    replit_website_api_key: '',
+    replit_newsletter_url: '',
+    replit_newsletter_api_key: '',
+  });
+  const [integrationLoading, setIntegrationLoading] = useState(true);
+  const [integrationSaving, setIntegrationSaving] = useState(false);
+  const [integrationError, setIntegrationError] = useState('');
+  const [integrationSuccess, setIntegrationSuccess] = useState('');
 
-  const CMS_API_URL = process.env.EXPO_PUBLIC_CMS_API_URL || '/api/cms';
+  function getCmsApiUrl(): string {
+  if (typeof window === 'undefined' || !window.location?.origin) return process.env.EXPO_PUBLIC_CMS_API_URL || '/api/cms';
+  if (/^https?:\/\/localhost(\d*)(?:\.|$)/i.test(window.location?.origin ?? '')) return process.env.EXPO_PUBLIC_CMS_API_URL || 'http://localhost:8000/api/cms';
+  return (window.location?.origin ?? '') + '/api/cms';
+}
+const CMS_API_URL = getCmsApiUrl();
 
   const handleChangePassword = async () => {
     setError('');
@@ -75,6 +96,40 @@ export default function SettingsScreen() {
     } catch (err: any) {
       alert('Setup failed: ' + err.message);
     }
+  };
+
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      if (user?.role !== 'admin') return;
+      setIntegrationLoading(true);
+      try {
+        const res = await getIntegrationSettings();
+        if (!cancelled && res.ok && res.settings) setIntegration(res.settings);
+      } catch {
+        if (!cancelled) setIntegration({ replit_website_url: '', replit_website_api_key: '', replit_newsletter_url: '', replit_newsletter_api_key: '' });
+      } finally {
+        if (!cancelled) setIntegrationLoading(false);
+      }
+    })();
+    return () => { cancelled = true; };
+  }, [user?.role]);
+
+  const handleSaveIntegration = async () => {
+    setIntegrationError('');
+    setIntegrationSuccess('');
+    setIntegrationSaving(true);
+    try {
+      const res = await updateIntegrationSettings(integration);
+      if (res.ok) {
+        setIntegrationSuccess('Integration settings saved. Contact and newsletter forms will use these URLs and keys.');
+      } else {
+        setIntegrationError(res.error || 'Failed to save');
+      }
+    } catch (err: any) {
+      setIntegrationError(err.message || 'Request failed');
+    }
+    setIntegrationSaving(false);
   };
 
   const handleSeed = async () => {
@@ -222,6 +277,97 @@ export default function SettingsScreen() {
               )}
             </TouchableOpacity>
           </View>
+
+          {user?.role === 'admin' && (
+            <View className={`${cardBg} border rounded-lg p-5 mb-5`}>
+              <Text className={`font-helvetica-bold text-base mb-2 ${textMain}`}>Integrations (Replit / API - Only For Experts)</Text>
+              <Text className={`font-helvetica text-sm mb-3 ${textMuted}`}>
+                Configure the Replit webhook URL and API keys used by the contact form and newsletter. Leave blank to keep existing values. Saved values are used by the server when forwarding submissions.
+              </Text>
+              {integrationError ? (
+                <View className="bg-red-50 border border-red-200 rounded-lg p-2.5 mb-3">
+                  <Text className="text-red-600 text-sm font-helvetica">{integrationError}</Text>
+                </View>
+              ) : null}
+              {integrationSuccess ? (
+                <View className="bg-green-50 border border-green-200 rounded-lg p-2.5 mb-3">
+                  <Text className="text-green-700 text-sm font-helvetica">{integrationSuccess}</Text>
+                </View>
+              ) : null}
+              {integrationLoading ? (
+                <View className="py-4 items-center">
+                  <ActivityIndicator size="small" color={isDark ? '#fff' : '#333'} />
+                </View>
+              ) : (
+                <View className="gap-3">
+                  <View>
+                    <Text className={`text-sm font-helvetica mb-1 ${textMuted}`}>Contact webhook URL (Replit)</Text>
+                    <TextInput
+                      value={integration.replit_website_url}
+                      onChangeText={(v) => setIntegration((s) => ({ ...s, replit_website_url: v }))}
+                      placeholder="https://ordrcrm.com/api/webhooks/website"
+                      placeholderTextColor="#888"
+                      autoCapitalize="none"
+                      autoCorrect={false}
+                      className={`rounded-lg px-3 py-2.5 font-helvetica text-sm ${isDark ? 'bg-[#111] border border-gray-700 text-white' : 'bg-gray-50 border border-gray-300 text-gray-900'}`}
+                      style={{ outlineStyle: 'none' } as any}
+                    />
+                  </View>
+                  <View>
+                    <Text className={`text-sm font-helvetica mb-1 ${textMuted}`}>Contact API key</Text>
+                    <TextInput
+                      value={integration.replit_website_api_key}
+                      onChangeText={(v) => setIntegration((s) => ({ ...s, replit_website_api_key: v }))}
+                      placeholder="web_..."
+                      placeholderTextColor="#888"
+                      secureTextEntry
+                      autoCapitalize="none"
+                      className={`rounded-lg px-3 py-2.5 font-helvetica text-sm ${isDark ? 'bg-[#111] border border-gray-700 text-white' : 'bg-gray-50 border border-gray-300 text-gray-900'}`}
+                      style={{ outlineStyle: 'none' } as any}
+                    />
+                  </View>
+                  <View>
+                    <Text className={`text-sm font-helvetica mb-1 ${textMuted}`}>Newsletter webhook URL (Replit)</Text>
+                    <TextInput
+                      value={integration.replit_newsletter_url}
+                      onChangeText={(v) => setIntegration((s) => ({ ...s, replit_newsletter_url: v }))}
+                      placeholder="https://.../api/webhooks/newsletter"
+                      placeholderTextColor="#888"
+                      autoCapitalize="none"
+                      autoCorrect={false}
+                      className={`rounded-lg px-3 py-2.5 font-helvetica text-sm ${isDark ? 'bg-[#111] border border-gray-700 text-white' : 'bg-gray-50 border border-gray-300 text-gray-900'}`}
+                      style={{ outlineStyle: 'none' } as any}
+                    />
+                  </View>
+                  <View>
+                    <Text className={`text-sm font-helvetica mb-1 ${textMuted}`}>Newsletter API key</Text>
+                    <TextInput
+                      value={integration.replit_newsletter_api_key}
+                      onChangeText={(v) => setIntegration((s) => ({ ...s, replit_newsletter_api_key: v }))}
+                      placeholder="nws_..."
+                      placeholderTextColor="#888"
+                      secureTextEntry
+                      autoCapitalize="none"
+                      className={`rounded-lg px-3 py-2.5 font-helvetica text-sm ${isDark ? 'bg-[#111] border border-gray-700 text-white' : 'bg-gray-50 border border-gray-300 text-gray-900'}`}
+                      style={{ outlineStyle: 'none' } as any}
+                    />
+                  </View>
+                  <TouchableOpacity
+                    onPress={handleSaveIntegration}
+                    disabled={integrationSaving}
+                    className="bg-[#C10016] rounded-lg py-3 items-center"
+                    activeOpacity={0.7}
+                  >
+                    {integrationSaving ? (
+                      <ActivityIndicator color="white" size="small" />
+                    ) : (
+                      <Text className="text-white font-helvetica-bold text-sm">Save integration settings</Text>
+                    )}
+                  </TouchableOpacity>
+                </View>
+              )}
+            </View>
+          )}
 
           <View className={`${cardBg} border rounded-lg p-5`}>
             <Text className={`font-helvetica-bold text-base mb-2 ${textMain}`}>API Info</Text>

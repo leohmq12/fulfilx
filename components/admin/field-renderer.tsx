@@ -1,7 +1,9 @@
+import MediaPickerModal from '@/components/admin/media-picker-modal';
 import RichTextEditor from '@/components/admin/rich-text-editor';
 import { useAdminTheme } from '@/lib/admin-theme-context';
+import { getMediaFullUrl } from '@/lib/cms-admin';
 import type { FieldDefinition } from '@/types/cms';
-import React from 'react';
+import React, { useState } from 'react';
 import { Switch, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 interface FieldRendererProps {
@@ -141,28 +143,13 @@ export default function FieldRenderer({ field, value, onChange }: FieldRendererP
 
     case 'image':
       return (
-        <FieldWrapper field={field} isDark={isDark}>
-          <TextInput
-            value={value ?? ''}
-            onChangeText={onChange}
-            placeholder={field.placeholder || '/path/to/image.webp'}
-            placeholderTextColor={isDark ? '#555' : '#888'}
-            className={inputClass}
-            style={{ outlineStyle: 'none' } as any}
-          />
-          {value ? (
-            <View className={`mt-2 rounded-lg p-2 border ${isDark ? 'bg-[#111] border-gray-800' : 'bg-gray-100 border-gray-200'}`}>
-              <img
-                src={value}
-                alt="Preview"
-                style={{ maxWidth: 200, maxHeight: 120, objectFit: 'contain', borderRadius: 4 }}
-              />
-            </View>
-          ) : null}
-          <Text className={`text-xs mt-1 font-helvetica ${isDark ? 'text-gray-500' : 'text-gray-500'}`}>
-            Enter image path (e.g., /image.webp) or upload via Media Library.
-          </Text>
-        </FieldWrapper>
+        <ImageFieldRenderer
+          field={field}
+          value={value}
+          onChange={onChange}
+          isDark={isDark}
+          inputClass={inputClass}
+        />
       );
 
     case 'array':
@@ -185,6 +172,59 @@ export default function FieldRenderer({ field, value, onChange }: FieldRendererP
         </FieldWrapper>
       );
   }
+}
+
+// ─── Image Field (with media library picker) ──────────────────────────────────
+
+function ImageFieldRenderer({
+  field,
+  value,
+  onChange,
+  isDark,
+  inputClass,
+}: FieldRendererProps & { isDark: boolean; inputClass: string }) {
+  const [pickerOpen, setPickerOpen] = useState(false);
+  const displayUrl = value && (value.startsWith('http') || value.startsWith('//')) ? value : (value ? getMediaFullUrl(value) : '');
+
+  return (
+    <FieldWrapper field={field} isDark={isDark}>
+      <View className="flex-row gap-2">
+        <TextInput
+          value={value ?? ''}
+          onChangeText={onChange}
+          placeholder={field.placeholder || '/uploads/...'}
+          placeholderTextColor={isDark ? '#555' : '#888'}
+          className={`flex-1 ${inputClass}`}
+          style={{ outlineStyle: 'none' } as any}
+        />
+        <TouchableOpacity
+          onPress={() => setPickerOpen(true)}
+          className={`rounded-lg px-4 py-2.5 justify-center ${isDark ? 'bg-gray-700' : 'bg-gray-200'}`}
+          activeOpacity={0.7}
+        >
+          <Text className={`text-sm font-helvetica font-medium ${isDark ? 'text-white' : 'text-gray-800'}`}>
+            Pick from library
+          </Text>
+        </TouchableOpacity>
+      </View>
+      {value ? (
+        <View className={`mt-2 rounded-lg p-2 border ${isDark ? 'bg-[#111] border-gray-800' : 'bg-gray-100 border-gray-200'}`}>
+          <img
+            src={displayUrl}
+            alt="Preview"
+            style={{ maxWidth: 200, maxHeight: 120, objectFit: 'contain', borderRadius: 4 }}
+            onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+          />
+        </View>
+      ) : null}
+      <MediaPickerModal
+        visible={pickerOpen}
+        onClose={() => setPickerOpen(false)}
+        onSelect={(url) => { onChange(url); setPickerOpen(false); }}
+        imagesOnly
+      />
+    </FieldWrapper>
+  );
 }
 
 // ─── Field Wrapper ───────────────────────────────────────────────────────────

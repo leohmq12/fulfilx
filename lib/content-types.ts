@@ -314,6 +314,40 @@ export const contentTypes: ContentTypeDefinition[] = [
       { name: 'url', label: 'Website URL', type: 'url' },
     ],
   },
+  {
+    slug: 'product',
+    name: 'Product',
+    namePlural: 'Products',
+    icon: '📦',
+    description: 'Product catalog for display (not for e-commerce sales)',
+    isSingle: false,
+    fields: [
+      { name: 'name', label: 'Product Name', type: 'text', required: true, placeholder: 'e.g. Premium Storage Box' },
+      { name: 'description', label: 'Short Description', type: 'textarea', placeholder: 'Brief description of the product' },
+      { name: 'image', label: 'Product Image', type: 'image', required: true },
+      {
+        name: 'category', label: 'Category', type: 'select', required: true,
+        options: ['Packaging', 'Storage', 'Equipment', 'Supplies', 'Custom Solutions', 'Other'],
+      },
+      { name: 'brand', label: 'Brand', type: 'text', placeholder: 'Product brand name' },
+      {
+        name: 'tags', label: 'Tags', type: 'array',
+        helpText: 'Add tags for filtering (e.g., "eco-friendly", "bestseller")',
+        arrayFields: [
+          { name: 'tag', label: 'Tag', type: 'text', required: true },
+        ],
+      },
+      {
+        name: 'features', label: 'Key Features', type: 'array',
+        helpText: 'List key features or specifications',
+        arrayFields: [
+          { name: 'feature', label: 'Feature', type: 'text', required: true },
+        ],
+      },
+      { name: 'detailed_description', label: 'Detailed Description', type: 'richtext', helpText: 'Full product details for quote requests' },
+      { name: 'is_featured', label: 'Featured Product', type: 'boolean', defaultValue: false, helpText: 'Show on homepage or featured sections' },
+    ],
+  },
 ];
 
 /**
